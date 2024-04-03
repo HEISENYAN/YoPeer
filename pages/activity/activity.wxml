@@ -1,0 +1,17 @@
+<!--pages/activity/activity.wxml-->
+<image style="width: 750rpx; height: 300rpx; background-color: #eeeeee;" src="../../images/navigationbar.png"></image>
+<navigator url="../shop/shop" >
+<swiper autoplay="true" interval="5000" indicator-dots="true">
+<swiper-item>
+item 1
+</swiper-item>
+<swiper-item>
+<text>item2</text>
+</swiper-item>
+<swiper-item>
+item 3
+</swiper-item>
+</swiper>
+</navigator>
+
+<sky-tabbar title="凹陷滚动" canvas-id="tab3" shadow="true" type="concave" selected="2" tabbar-list="[object Object],[object Object],[object Object]" safe-bottom="false" animation="true" vibration="true" border-radius="true" color="var(--text-l2)" selected-color="var(--text-l0)" background-color="var(--suc-l2)"  ></sky-tabbar>

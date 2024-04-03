@@ -1,0 +1,7 @@
+<button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+  <image class="avatar" src="{{avatarUrl}}"></image>
+</button> 
+<form bindsubmit = "formSubmit">
+<input type="nickname" name="nickname" class="weui-input" placeholder="请输入昵称"/>
+<button form-type="submit" style="color:green;">提交</button>
+</form>

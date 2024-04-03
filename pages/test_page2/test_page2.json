@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "sky-routerPageAdvance":"/miniprogram_npm/jieyue-ui-com/sky-routeAdvancedPage/sky-routeAdvancedPage",
+    "sky-routerPage":"/miniprogram_npm/jieyue-ui-com/sky-routePage/sky-routePage"
+  }
+}

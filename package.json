@@ -1,0 +1,15 @@
+{
+  "name": "yopeer",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jieyue-ui-com": "^1.1.7",
+    "weui-miniprogram": "^1.3.1"
+  }
+}

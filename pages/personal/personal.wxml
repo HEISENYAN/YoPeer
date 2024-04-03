@@ -1,0 +1,7 @@
+<view class = "personal">
+  <view class = "loginBar" open-type = "getUserInfo" bindtap = "getUserProfile" >
+    <image class = "loginImg" src ="{{avatarUrl}}"></image>
+    <text style ="width:200rpx;height:200rpx;display:inline-block;font-size:40rpx;">{{nickname}}</text> 
+  </view>
+ 
+</view>

@@ -1,0 +1,16 @@
+.loginBar {
+  padding:100rpx 0 0 0;
+  height: 300rpx;
+  background-color: rgb(163, 141, 214);
+  display:flex;
+  line-height:200rpx;
+  flex-direction: row;
+}
+.loginImg {
+  height:100rpx;
+  width:100rpx;
+  vertical-align: middle;
+  margin:50rpx;
+  display:inline-block;
+
+}

@@ -1,0 +1,51 @@
+
+<!--pages/shop/shop.wxml-->
+<page-meta> 
+
+  <view class = "menu-page">
+    <image style="width: 750rpx; height: 300rpx; background-color: #eeeeee;" src="../../images/navigationbar.png"></image>
+    <!--左侧一级菜单-->
+    <view class = "menu-content">   
+      <view class = "menu-container">
+        <scroll-view class = "scroll-view" type = "list" > 
+          <view class = "scorll-view-list">
+            <block wx:for ="{{detail}}" wx:for-item = "item" wx:key = "index">
+              <view class="scroll-view-item {{indexSize === item.id?'active':''}}" bindtap="chooseTypes" data-index="{{item.id}}">{{item.name}}</view>
+            </block>
+          </view>
+        </scroll-view>
+      </view>
+    
+      <!--右侧二级菜单-->
+        <scroll-view scroll-y style="width: 100%; height: 100%;" type="custom" scroll-into-view="{{scrollIntoView}}"  bindscroll ="scrollDetection">
+          <sticky-section wx:for="{{detail}}" wx:key = "index" wx:for-item = "item" >
+            <sticky-header>
+              <view class="header" id = "menuIndex{{item.id}}">{{item.name}}</view>
+            </sticky-header>
+            <list-view>
+              <view class="swiper-view-item" wx:for="{{item.children}}" bindtap="chooseSecondMenu" wx:key="prodInex" wx:for-item="prodItem"> 
+                <view class="view-item-photo" >
+                  <image src = "../../images/navigationbar.png" style ="height:90%;width:90%;" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}"  hover-class="this-check"></image></view>
+                <view class="view-item-text overflow" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}"  hover-class="this-check">
+                  <text class="product-title" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}" >{{prodItem.name}}</text>
+                  <text style="font-size:23rpx;;color:gray;display:block;text-overflow:ellipsis;white-space:pre-line;line-height:40rpx" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}">这是一个介绍</text>
+                  <text style="font-size:30rpx;color:gray;display:block;white-space:pre-line;text-overflow:ellipsis;white-space:pre-line;line-height:30rpx" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}">已售：</text>
+                  <view style="font-size:34rpx;color:red;padding:30rpx 0 0 0;display:inline-block" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}">￥999</view>
+                  <view style="font-size:30rpx;color:black;padding:30rpx 0 0 100rpx;;display:inline-block" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}">选规格</view>
+                </view>
+              </view>
+            </list-view>
+          </sticky-section>
+        </scroll-view>
+      </view>
+
+      <!--底部购物车-->
+      <view class="cart" bind:tap="onTapOpenCart">
+        <view >购物车</view>
+      </view>
+      
+
+  </view>
+
+
+</page-meta>
