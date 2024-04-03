@@ -6,8 +6,6 @@
         show="{{show}}"
         title="切换角色"
         maskClosable="{{true}}">
-        <scroll-view slot = desc; scroll-y="{{true}}" styel ="height:500rpx" type = "custom">
-</scroll-view>
 
     
 </mp-half-screen-dialog>
