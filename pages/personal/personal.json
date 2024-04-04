@@ -1,6 +1,7 @@
 {
-  "usingComponents": {
-    "sky-routerPageAdvance":"/miniprogram_npm/jieyue-ui-com/sky-routeAdvancedPage/sky-routeAdvancedPage"
-  }
+  "usingComponents": {},
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTitleText": "个人中心",
+  "navigationBarTextStyle":"black"
   
 }
