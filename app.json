@@ -1,9 +1,11 @@
 {
   "pages": [
-
-    "pages/shop/shop",
-    "pages/test_page/test_page",
     "pages/activity/activity",
+    "pages/test_page/test_page",
+    
+    "pages/shop/shop",
+    
+    
     
     "pages/community/community",
     "pages/personal/personal",
@@ -52,6 +54,9 @@
   },
   "usingComponents": {
     "sky-tabbar": "/miniprogram_npm/jieyue-ui-com/sky-tabbar/sky-tabbar",
-    "mp-half-screen" :"/components/half-screen/half-screen"
+    "mp-half-screen" :"/components/half-screen/half-screen",
+    "sky-icon":"/miniprogram_npm/jieyue-ui-com/sky-icon/sky-icon",
+    "sky-text":"/miniprogram_npm/jieyue-ui-com/sky-text/sky-text",
+    "mp-slide-screen": "/components/slide-screen/slide-screen"
   }
 }

@@ -29,6 +29,12 @@ Component({
       {"children":[{"id":"24","name":"吹风机",},{"id":"24","name":"手机支架",},{"id":"24","name":"收纳盒",},{"id":"24","name":"显示器",},{"id":"24","name":"转换插头",},{"id":"24","name":"挂钩",},{"id":"24","name":"插板",}],"id":"4","name":"其它",}] // 分类集合
   },
   methods:{
+    returnPage: function(){
+      wx.navigateBack({
+        url:"/pages/activity/activity"
+      })
+      console.log("clicked")
+    },
     chooseTypes: function(e) {
       this.setData({
         scrollIntoView:"#menuIndex" + e.target.dataset.index,

@@ -13,3 +13,10 @@ asdlkjfa
     
 
 <button class="weui-btn" type="primary" bindtap="open">Open</button>
+
+
+<mp-slide-screen>
+<view slot = "tab">
+活动
+</view>
+</mp-slide-screen>

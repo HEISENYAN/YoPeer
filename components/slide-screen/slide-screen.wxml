@@ -1,0 +1,18 @@
+
+<view class="item-container" style="height: {{height}}px;">
+  <!-- 顶部不参与手势协商，单独控制 -->
+  <pan-gesture-handler worklet:ongesture="handlePan" style="flex-shrink: 0;">
+    <view class="item-header" bind:touchend="handleTouchEnd">
+      <view class="item-handler" wx:if = "{{ifHandler}}"></view>
+      <slot name = "tab"></slot>
+    </view>
+  </pan-gesture-handler>
+  <!-- 滚动区要与 pan 手势协商 -->
+  <pan-gesture-handler id="pan" worklet:should-response-on-move="shouldPanResponse" simultaneousHandlers="{{['scroll']}}" worklet:ongesture="handlePan">
+    <vertical-drag-gesture-handler id="scroll" native-view="scroll-view" worklet:should-response-on-move="shouldScrollViewResponse" simultaneousHandlers="{{['pan']}}">
+      <scroll-view class="item-list" scroll-y worklet:adjust-deceleration-velocity="adjustDecelerationVelocity" worklet:onscrollupdate="handleScroll" type="list" show-scrollbar="{{false}}">
+        <slot name = "content"></slot>
+      </scroll-view>
+    </vertical-drag-gesture-handler>
+  </pan-gesture-handler>
+</view>

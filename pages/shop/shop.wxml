@@ -3,7 +3,7 @@
 <page-meta> 
 
   <view class = "menu-page">
-    <image style="width: 750rpx; height: 300rpx; background-color: #eeeeee;" src="../../images/navigationbar.png"></image>
+    <image style="width: 750rpx; height: 300rpx; background-color: #eeeeee;" src="../../images/navigationbar.png" bindtap = "returnPage"></image>
     <!--左侧一级菜单-->
     <view class = "menu-content">   
       <view class = "menu-container">
@@ -57,6 +57,5 @@
       
 
   </view>
-
 
 </page-meta>
