@@ -1,5 +1,8 @@
 // pages/login/login.js
-const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+// const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+const defaultAvatarUrl = "../../icons/portrait.png"
+const defaultNickname = "昵称"
+const defaultPhoneNum = "电话"
 var app = getApp()
 Page({
 
@@ -7,28 +10,53 @@ Page({
    * 页面的初始数据
    */
   data: {
-    avatarUrl: defaultAvatarUrl
+    avatarUrl: app.globalData.avatarUrl ? app.globalData.avatarUrl : defaultAvatarUrl,
+    nickname: (app.globalData.nickname!="游客") ? app.globalData.nickname : defaultNickname,
+    // nickname: defaultNickname,
+    phoneNum: (app.globalData.phoneNum!="12345678") ? app.globalData.phoneNum : defaultPhoneNum,
   },
-  onChooseAvatar(e) {
+  
+  onChooseAvatar(e) {//修改头像
     console.log(e);
     this.setData({
       avatarUrl:e.detail.avatarUrl
     })
     app.globalData.avatarUrl=e.detail.avatarUrl;
   },
+  handleButtonClick() {//返回
+    // wx.switchTab({
+    //   url: '../personal/personal'
+    //   // delta: 1
+    // });
+    wx.reLaunch({
+      url: '../personal/personal'
+      // delta: 1
+    });
+  },
   formSubmit(e){
-    console.log(e);
+    console.log("Submitted nickname: " + e.detail.value.nickname);
+    console.log("Submitted phoneNum: " + e.detail.value.phoneNum);
+    // console.log("avatarUrl: " + avatarUrl);
+    this.setData({
+      nickname: e.detail.value.nickname,
+      phoneNum: e.detail.value.phoneNum,
+      
+      // avatarUrl = e.detail.value.avatarUrl;
+    })
     app.globalData.nickname = e.detail.value.nickname;
+    app.globalData.phoneNum = e.detail.value.phoneNum;
+    // app.globalData.avatarUrl = e.detail.value.avatarUrl;
     app.globalData.isLogin = 1;
     wx.setStorage({
-      key:"userApperance",
+      key: "userApperance",
       data: JSON.stringify({
         isLogin:app.globalData.isLogin,
         nickname:app.globalData.nickname,
-        avatarUrl:app.globalData.avatarUrl
+        phoneNum:app.globalData.phoneNum,
+        avatarUrl:app.globalData.avatarUrl,
       })
     })
-    wx.reLaunch({
+    wx.reLaunch({  //提交按钮，返回个人中心
       url: '../personal/personal',
     })
   },
@@ -36,7 +64,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
   },
 
   /**
@@ -50,6 +77,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
+    this.setData({
+      avatarUrl: app.globalData.avatarUrl ? app.globalData.avatarUrl : defaultAvatarUrl,
+      nickname: (app.globalData.nickname!="游客") ? app.globalData.nickname : defaultNickname,
+      phoneNum: (app.globalData.phoneNum!="12345678") ? app.globalData.phoneNum : defaultPhoneNum,
+      });
 
   },
 
@@ -88,3 +120,4 @@ Page({
 
   }
 })
+console.log("app.globalData.phoneNum!=" + app.globalData.phoneNum!="123456")
