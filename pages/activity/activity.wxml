@@ -13,5 +13,3 @@ item 3
 </swiper-item>
 </swiper>
 </navigator>
-
-<sky-tabbar title="凹陷滚动" canvas-id="tab3" shadow="true" type="concave" selected="2" tabbar-list="[object Object],[object Object],[object Object]" safe-bottom="false" animation="true" vibration="true" border-radius="true" color="var(--text-l2)" selected-color="var(--text-l0)" background-color="var(--suc-l2)"  ></sky-tabbar>

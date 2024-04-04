@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "mp-half-screen-dialog": "/miniprogram_npm/weui-miniprogram/half-screen-dialog/half-screen-dialog",
-    "sky-routerPage": "/miniprogram_npm/jieyue-ui-com/sky-routePage/sky-routePage"
+    "sky-routerPage": "/miniprogram_npm/jieyue-ui-com/sky-routePage/sky-routePage",
+    "mp-half-screen": "/components/half-screen/half-screen"
   }
 }

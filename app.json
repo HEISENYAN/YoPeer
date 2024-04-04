@@ -1,12 +1,12 @@
 {
   "pages": [
+
+    "pages/shop/shop",
     "pages/test_page/test_page",
     "pages/activity/activity",
     
-    "pages/shop/shop",
     "pages/community/community",
     "pages/personal/personal",
-    
     "pages/productDetail/productDetail",
     "pages/login/login",
     "pages/test_page2/test_page2"
@@ -51,6 +51,7 @@
     ]
   },
   "usingComponents": {
-    "sky-tabbar":"/miniprogram_npm/jieyue-ui-com/sky-tabbar/sky-tabbar"
+    "sky-tabbar": "/miniprogram_npm/jieyue-ui-com/sky-tabbar/sky-tabbar",
+    "mp-half-screen" :"/components/half-screen/half-screen"
   }
 }

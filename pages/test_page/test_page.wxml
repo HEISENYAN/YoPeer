@@ -1,13 +1,15 @@
 <!--WXML示例代码-->
 <image style="width: 750rpx; height: 300rpx; background-color: #eeeeee;" src="../../images/navigationbar.png"></image>
-<mp-half-screen-dialog
-        extClass="mp-half-screen-dialog"
-        bindbuttontap="handleToLogin"
-        show="{{show}}"
-        title="切换角色"
-        maskClosable="{{true}}">
+<mp-half-screen screenHeight = "40">
+<view slot = "tab">购物车</view>
+<view slot = "item">
+asldijfa
+asdlkjfa
+
+</view>
+
+</mp-half-screen>
 
     
-</mp-half-screen-dialog>
 
 <button class="weui-btn" type="primary" bindtap="open">Open</button>
