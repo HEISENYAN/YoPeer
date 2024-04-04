@@ -1,5 +1,4 @@
 // app.js
-//111111111111111111111111111111
 App({
   globalData:{
     openid: null,
