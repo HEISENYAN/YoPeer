@@ -1,22 +1,10 @@
-<!--WXML示例代码-->
-<image style="width: 750rpx; height: 300rpx; background-color: #eeeeee;" src="../../images/navigationbar.png"></image>
-<mp-half-screen screenHeight = "40">
-<view slot = "tab">购物车</view>
-<view slot = "item">
-asldijfa
-asdlkjfa
-
-</view>
-
-</mp-half-screen>
-
-    
-
-<button class="weui-btn" type="primary" bindtap="open">Open</button>
-
-
-<mp-slide-screen>
-<view slot = "tab">
-活动
-</view>
-</mp-slide-screen>
+<scroll-view type = "custom" style="width: 100%; height: 100%;"  scroll-y >
+    <sticky-section>
+      <sticky-header>
+       <image style="width: 750rpx; height: 375rpx; background-color: #eeeeee;" src="/images/Post_head.jpg"></image>
+      </sticky-header>
+      <list-view>
+        <image style="width: 750rpx; height: 3769rpx;" src="/images/Post_body.jpg"></image>
+      </list-view>
+    </sticky-section>
+  </scroll-view>

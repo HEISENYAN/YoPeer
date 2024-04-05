@@ -2,7 +2,7 @@
 <view class="item-container" style="height: {{height}}px;">
   <!-- 顶部不参与手势协商，单独控制 -->
   <pan-gesture-handler worklet:ongesture="handlePan" style="flex-shrink: 0;">
-    <view class="item-header" bind:touchend="handleTouchEnd">
+    <view class="item-header" bind:touchend="handleTouchEnd" bindtap = "returnToTop">
       <view class="item-handler" wx:if = "{{ifHandler}}"></view>
       <slot name = "tab"></slot>
     </view>

@@ -28,6 +28,14 @@ Component({
     topHeight:{
       type: Number,
       value: statusBarHeight
+    },
+    headerHeight:{
+      type: Number,
+      value: 0
+    },
+    topHeight:{
+      type: Number,
+      value: statusBarHeight
     }
   },
   data: {
@@ -53,8 +61,8 @@ Component({
       query.select('.item-header').boundingClientRect()
       query.exec((res) => {
         this.initTransY.value = screenHeight - res[0].height - (screenHeight - safeArea.bottom )- tabbarHeight
-        this.transY.value = statusBarHeight
-        scrollTo(statusBarHeight)
+        this.transY.value = this.data.topHeight
+        scrollTo(this.data.topHeight)
       })
       // 通过 transY 一个 SharedValue 控制半屏的位置
       this.applyAnimatedStyle('.item-container', () => {
@@ -117,17 +125,17 @@ Component({
           if (gestureEvent.velocityY > 800 && !this.upward.value){
             this.scrollTo(this.initTransY.value) 
           } else{
-            this.scrollTo(statusBarHeight) 
+            this.scrollTo(this.data.topHeight) 
           }
         } else if (this.transY.value > screenHeight / 3 && this.transY.value <= this.initTransY.value) {
           if(!this.upward.value){
             this.scrollTo(this.initTransY.value) // 滑倒底
           } else{
-          this.scrollTo(statusBarHeight) //滑到最上边
+          this.scrollTo(this.data.topHeight) //滑到最上边
           }
         } else {
           if (gestureEvent.velocityY > 800 && this.upward.value){
-            this.scrollTo(statusBarHeight) 
+            this.scrollTo(this.data.topHeight) 
           } else{
             this.scrollTo(this.initTransY.value) 
           }
@@ -144,6 +152,9 @@ Component({
       'worklet'
       this.scrollTop.value = evt.detail.scrollTop
     },
+    returnToTop(){
+      this.scrollTo(this.data.topHeight)
+    }
     // 简单兼容 WebView
     /*
     handleTouchEnd() {
