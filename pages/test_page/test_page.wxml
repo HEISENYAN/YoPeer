@@ -1,7 +1,6 @@
-<view slot = "tab" class = "cart-bar">
-          <view class = "cart-icon box"><sky-icon icon-name = "shopping-cart" icon-size = "50" ></sky-icon> </view>
-          <view style = "width:200rpx; height:150rpx; display:inline-block;font-size:35rpx; padding:17rpx">￥99999 </view>
-          <view style = "display: inline-block; border-right:200rpx; padding:10rpx 130rpx"> <view class = "check-out-button box">去结算</view> </view>
-               
-        </view>
-      
+<div style= "overflow: hidden;">
+<div class = "box">box1</div>
+          <div class = "box">box2</div>
+          <div class = "box">box3</div>    
+
+</div>

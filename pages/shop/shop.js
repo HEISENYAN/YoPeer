@@ -20,6 +20,7 @@ Component({
     duration: 0,  // 滑动动画时长
     scrollIntoView: "",
     headerTop:0,
+    selectedTotalPrice:0, // 已经选择物品的总价
     detail:[
       {"children":[{"id":"14","name":"套餐A",},{"id":"13","name":"套餐B",},{"id":"13","name":"套餐C",},{"id":"13","name":"套餐D",},{"id":"13","name":"套餐E",},{"id":"13","name":"套餐F",}
       ,{"id":"13","name":"套餐G",}

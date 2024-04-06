@@ -1,36 +1,5 @@
-
-.cart-bar{
-
-  width:100%;
-  height: 100rpx;
-  display:-webkit-inline-box;
-  
-  background-color: red;
-  border-radius: 20rpx;
-  
-}
-.cart-icon{
-  width: 100rpx;
-  height: 100rpx;
-  padding: 5rpx 40rpx;
-  display: inline-block;
-}
-.check-out-button{
-  width: 100rpx;
-  height: 100rpx;
-  border-radius: 10rpx;
-  background-color: #fff;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  display: inline-block;
-}
-.cart{
-  height : 10%;
-  width: 100%;
-  display: flex;
-  flex-shrink: 0;
-  justify-content: center;
-
-  display: inline-block;
+.box{
+  display:inline-block;
+  margin-right: 50rpx;
+  margin-left: 50rpx;
 }
