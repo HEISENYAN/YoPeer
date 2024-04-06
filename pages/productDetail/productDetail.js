@@ -10,7 +10,8 @@ Page({
     topHeight:statusBarHeight,
     capTop: capsule.top,
     capWidth: capsule.width,
-    capHeight: capsule.height
+    capHeight: capsule.height,
+    screenHeight:screenHeight
   },
   /**
    * 生命周期函数--监听页面加载

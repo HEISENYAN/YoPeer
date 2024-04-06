@@ -4,4 +4,5 @@
   background-color: rgba(0,0,0,0.3);
   display:block;
   padding: -2px 4px;
+  z-index: 99999;
 }

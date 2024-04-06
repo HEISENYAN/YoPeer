@@ -4,3 +4,9 @@
   position: fixed;
   width: 100%;
 }
+.detail-container{
+  background-color: #F4F4F4;
+  position: absolute;
+  width:100%;
+  display:block;
+}
