@@ -1,0 +1,6 @@
+在页面wxml里直接加 <return-button></return-button>
+在页面json里加 
+"usingComponents": {
+    "return-button": "/components/return-button/return-button"
+  }
+自动与右侧胶囊高度对齐

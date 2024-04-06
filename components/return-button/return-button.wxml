@@ -1,0 +1,4 @@
+<!--components/return-button/return-button.wxml-->
+<view class = "returnButton" style = "top:{{capTop}}px; left: 20rpx; height : {{capHeight}}px ; width: {{capHeight}}px; border-radius:{{capHeight/2}}px" bindtap = "onPressed"> 
+  <sky-icon icon-name = "chevron-left" iconSize = "43" > </sky-icon>
+</view>
