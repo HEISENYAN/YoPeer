@@ -1,2 +1,34 @@
-<!--pages/activity/activity.wxml-->
-<text>pages/activity/activity.wxml</text>
+<!--pages/activity/activity.wxml>-->
+<scroll-view type = "custom" style="width: 100%; height: 100%; z-index:0"  scroll-y >
+      <list-view>
+        <image style="width: 750rpx; height: 4144rpx;" src="/images/Post_body.jpg"></image>
+      </list-view>
+</scroll-view>
+
+<cover-view class = "circle-button" bindtap = "returnToTop">
+  <text style = "line-height: 20rpx; color:rgba(0,0,0,0);" decode = "{{true}}" >n</text>
+  <sky-icon icon-name = "chevron-up" iconSize = "42" ></sky-icon>
+</cover-view>
+
+<mp-slide-screen topHeight = "0" id = "mainPage">
+  <view slot = "tab">
+  </view>
+  <view slot = "content">
+    <image style="width: 750rpx; height: 375rpx; background-color: #eeeeee;" src="/images/Post_head.jpg" bindtap = "toBottom"></image>
+    <navigator url="../shop/shop" wx:for = "{{[1,2,3,4,5,6,7,8,9,10]}}">
+      <swiper autoplay="true" interval="5000" indicator-dots="true">
+      <swiper-item>
+      item 1
+      </swiper-item>
+      <swiper-item>
+        <text>item2</text>
+      </swiper-item>
+      <swiper-item>
+      item 3
+      </swiper-item>
+      </swiper>
+    </navigator>
+  </view>
+</mp-slide-screen>
+ 
+

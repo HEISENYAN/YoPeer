@@ -1,0 +1,18 @@
+/* pages/activity/activity.wxss */
+.activityBackground{
+  top:0;
+
+}
+.circle-button{ 
+  width:  100rpx; 
+  height: 100rpx; 
+  border-radius: 50rpx; 
+  background-color:rgb(255, 255, 255,0.5); 
+  color: #fff; 
+  text-align: center; 
+  line-height: 60rpx; 
+  position: fiexd;
+  z-index: 0;
+  bottom : 350rpx;
+  left: 650rpx;
+}

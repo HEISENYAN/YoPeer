@@ -7,7 +7,15 @@ Page({
   data: {
 
   },
-
+  returnToTop: function(){
+    const mainPage = this.selectComponent("#mainPage");
+    mainPage.returnToTop();
+    console.log("clicked");
+  },
+  toBottom: function(){
+    const mainPage = this.selectComponent("#mainPage");
+    mainPage.scrollTo(mainPage.initTransY.value);
+  },
   /**
    * 生命周期函数--监听页面加载
    */

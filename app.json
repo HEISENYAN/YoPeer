@@ -1,13 +1,10 @@
 {
   "pages": [
+
+
+    "pages/activity/activity",
     "pages/shop/shop",
     "pages/test_page/test_page",
-    
-    
-    
-    
-    
-    "pages/activity/activity",
     "pages/community/community",
     "pages/personal/personal",
     "pages/productDetail/productDetail",
