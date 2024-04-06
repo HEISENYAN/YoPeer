@@ -118,10 +118,8 @@ Component({
             this.scrollTo(statusBarHeight)
           }
         }
-
-
         
-        if (this.transY.value <= screenHeight / 3) {
+        if (this.transY.value <= screenHeight / 4) {
           if (gestureEvent.velocityY > 800 && !this.upward.value){
             this.scrollTo(this.initTransY.value) 
           } else{

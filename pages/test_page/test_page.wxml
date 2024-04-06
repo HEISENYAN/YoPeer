@@ -1,10 +1,7 @@
-<scroll-view type = "custom" style="width: 100%; height: 100%;"  scroll-y >
-    <sticky-section>
-      <sticky-header>
-       <image style="width: 750rpx; height: 375rpx; background-color: #eeeeee;" src="/images/Post_head.jpg"></image>
-      </sticky-header>
-      <list-view>
-        <image style="width: 750rpx; height: 3769rpx;" src="/images/Post_body.jpg"></image>
-      </list-view>
-    </sticky-section>
-  </scroll-view>
+<view slot = "tab" class = "cart-bar">
+          <view class = "cart-icon box"><sky-icon icon-name = "shopping-cart" icon-size = "50" ></sky-icon> </view>
+          <view style = "width:200rpx; height:150rpx; display:inline-block;font-size:35rpx; padding:17rpx">￥99999 </view>
+          <view style = "display: inline-block; border-right:200rpx; padding:10rpx 130rpx"> <view class = "check-out-button box">去结算</view> </view>
+               
+        </view>
+      

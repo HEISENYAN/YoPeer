@@ -15,15 +15,12 @@ pan-gesture-handler, vertical-drag-gesture-handler {
 }
 
 .open-item {
-  display: flex;
-  flex-direction: column;
   flex-shrink: 0;
   width: 100%;
   background-color: white;
 }
 .open-item-wording {
-  height: 66px;
-  display: flex;
+
   justify-content: center;
   align-items: center;
 }

@@ -17,15 +17,14 @@
       </view>
     
       <!--右侧二级菜单-->
-        <scroll-view scroll-y style="width: 100%; height: 100%;" type="custom" scroll-into-view="{{scrollIntoView}}"  bindscroll ="scrollDetection">
+        <scroll-view scroll-y style="width: 100%; height: 100%; background-color:white;" type="custom" scroll-into-view="{{scrollIntoView}}"  bindscroll ="scrollDetection">
           <sticky-section wx:for="{{detail}}" wx:key = "index" wx:for-item = "item" >
             <sticky-header>
               <view class="header" id = "menuIndex{{item.id}}">{{item.name}}</view>
             </sticky-header>
-            <list-view>
+            <list-view class = "item-list">
               <view class="swiper-view-item" wx:for="{{item.children}}" bindtap="chooseSecondMenu" wx:key="prodIndex" wx:for-item="prodItem"> 
-                <view class="view-item-photo" >
-                  <image src = "../../images/navigationbar.png" style ="height:90%;width:90%;" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}"  hover-class="this-check"></image></view>
+                  <image class="view-item-photo" src = "/images/Product.png" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}"  hover-class="this-check"></image>
                 <view class="view-item-text overflow" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}"  hover-class="this-check">
                   <text class="product-title" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}" >{{prodItem.name}}</text>
                   <text style="font-size:23rpx;;color:gray;display:block;text-overflow:ellipsis;white-space:pre-line;line-height:40rpx" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}">这是一个介绍</text>
@@ -41,7 +40,10 @@
 
       <!--底部购物车-->
       <mp-half-screen screenHeight = "30">
-        <view slot = "tab">购物车</view>
+        <view slot = "tab" class = "cart-bar">
+          
+               
+        </view>
         <view slot = "tabTitle">购物车</view>
         <view slot = "item">
           <view class="swiper-view-item" wx:for="{{[1,2,3,4]}}" wx:key="prodIndex" wx:for-item="prodItem"> 
