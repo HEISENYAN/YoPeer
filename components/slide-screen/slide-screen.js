@@ -12,7 +12,7 @@ const GestureState = {
   END: 3, // 3 手势终止
   CANCELLED: 4, // 4 手势取消，
 }
-
+var vibrated = 0; //是否已经震动
 const { screenHeight, statusBarHeight, safeArea, windowHeight} = wx.getSystemInfoSync()
 const tabbarHeight = screenHeight - windowHeight - statusBarHeight
 
@@ -36,6 +36,10 @@ Component({
     topHeight:{
       type: Number,
       value: statusBarHeight
+    },
+    ifVibrate :{
+      type: Boolean,
+      vaule: false
     }
   },
   data: {
@@ -110,14 +114,6 @@ Component({
       }
 
       if (gestureEvent.state === GestureState.END || gestureEvent.state === GestureState.CANCELLED) {
-        if (gestureEvent.velocityY > 500 || this.transY.value >= screenHeight/2){
-          if(!this.upward.value){
-              this.scrollTo(this.initTransY.value)
-          }
-          else{
-            this.scrollTo(statusBarHeight)
-          }
-        }
         
         if (this.transY.value <= screenHeight / 4) {
           if (gestureEvent.velocityY > 800 && !this.upward.value){
@@ -129,7 +125,8 @@ Component({
           if(!this.upward.value){
             this.scrollTo(this.initTransY.value) // 滑倒底
           } else{
-          this.scrollTo(this.data.topHeight) //滑到最上边
+            this.scrollTo(this.data.topHeight) //滑到最上边
+            
           }
         } else {
           if (gestureEvent.velocityY > 800 && this.upward.value){

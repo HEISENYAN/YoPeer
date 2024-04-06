@@ -21,6 +21,7 @@ Component({
     scrollIntoView: "",
     headerTop:0,
     selectedTotalPrice:0, // 已经选择物品的总价
+    ifMaskOn: false,
     detail:[
       {"children":[{"id":"14","name":"套餐A",},{"id":"13","name":"套餐B",},{"id":"13","name":"套餐C",},{"id":"13","name":"套餐D",},{"id":"13","name":"套餐E",},{"id":"13","name":"套餐F",}
       ,{"id":"13","name":"套餐G",}
@@ -30,9 +31,10 @@ Component({
       {"children":[{"id":"24","name":"吹风机",},{"id":"24","name":"手机支架",},{"id":"24","name":"收纳盒",},{"id":"24","name":"显示器",},{"id":"24","name":"转换插头",},{"id":"24","name":"挂钩",},{"id":"24","name":"插板",}],"id":"4","name":"其它",}] // 分类集合
   },
   methods:{
+
     returnPage: function(){
-      wx.navigateBack({
-        url:"/pages/activity/activity"
+      wx.reLaunch({
+        url: '/pages/activity/activity'
       })
       console.log("clicked")
     },
@@ -41,6 +43,25 @@ Component({
         scrollIntoView:"#menuIndex" + e.target.dataset.index,
         indexSize:e.target.dataset.index
       })
+    },
+    closeCart: function(){
+      const cart = this.selectComponent("#shoppingCart");
+      cart.closeitem();
+      this.setData({
+        ifMaskOn: false
+      })
+    },
+    openCart: function(){
+      this.setData({
+        ifMaskOn: true
+      })
+    },
+    moveCart: function(){
+      const cart = this.selectComponent("#shoppingCart");
+      this.setData({
+        ifMaskOn: cart.ifMaskOn.value
+      })
+      console.log("moved")
     },
     scrollDetection: function(e) {
       for (let i in this.data.detail) {
@@ -64,6 +85,7 @@ Component({
       wx.navigateTo({
           url:"../productDetail/productDetail?detail=" + e.target.dataset.cname,
         })
+      this.closeCart();
     }
     
 

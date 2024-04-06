@@ -32,6 +32,7 @@ Component({
       this.scrollTop = shared(0)
       this.startPan = shared(true)
       this.itemHeight = shared(1000)
+      this.ifMaskOn = shared(false)
     },
     ready() {
       const query = this.createSelectorQuery()
@@ -48,12 +49,14 @@ Component({
     },
   },
   methods: {
+    
     onTapOpenitem() {
       this.openitem(this.properties.slideTime)
     },
     openitem(duration) {
       'worklet'
       this.transY.value = timing(0, { duration })
+      this.ifMaskOn.value = true
     },
     onTapCloseitem() {
       this.closeitem()
@@ -61,6 +64,7 @@ Component({
     closeitem() {
       'worklet'
       this.transY.value = timing(this.itemHeight.value, { duration: 200 })
+      this.ifMaskOn.value = false
     },
     // shouldPanResponse 和 shouldScrollViewResponse 用于 pan 手势和 scroll-view 滚动手势的协商
     shouldPanResponse() {
@@ -89,10 +93,13 @@ Component({
 
       if (gestureEvent.state === GestureState.END || gestureEvent.state === GestureState.CANCELLED) {
         if (gestureEvent.velocityY > 500 && this.transY.value > 50) {
+          this.ifMaskOn.value = false
           this.closeitem()
         } else if (this.transY.value > this.itemHeight.value / 2) {
+          this.ifMaskOn.value = false
           this.closeitem()
         } else {
+          this.ifMaskOn.value = true
           this.openitem(100)
         }
       }

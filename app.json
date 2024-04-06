@@ -1,9 +1,8 @@
 {
   "pages": [
 
-
-    "pages/activity/activity",
     "pages/shop/shop",
+    "pages/activity/activity",
     "pages/test_page/test_page",
     "pages/community/community",
     "pages/personal/personal",
