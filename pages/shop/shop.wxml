@@ -1,7 +1,7 @@
 
 <!--pages/shop/shop.wxml-->
 <view class = "menu-page">
-  <image style="width: 750rpx; height: 300rpx; background-color: #eeeeee;" src="" bindtap = "returnPage"></image>
+  <image style="width: 750rpx; height: 450rpx; background-color: #eeeeee;" src="https://i.postimg.cc/cHj6NRKT/shopping-head.png" bindtap = "returnPage"></image>
 
   <!--左侧一级菜单-->
   <view class = "menu-content">   
@@ -23,7 +23,7 @@
         </sticky-header>
         <list-view class = "item-list">
           <view class="swiper-view-item" wx:for="{{item.children}}" bindtap="chooseSecondMenu" wx:key="prodIndex" wx:for-item="prodItem"> 
-              <image class="view-item-photo" src = "" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}"  hover-class="this-check"></image>
+              <image class="view-item-photo" src = "https://i.postimg.cc/xj50rr78/Product.png" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}"  hover-class="this-check"></image>
             <view class="view-item-text overflow" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}"  hover-class="this-check">
               <text class="product-title" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}" >{{prodItem.name}}</text>
               <text style="font-size:23rpx;;color:gray;display:block;text-overflow:ellipsis;white-space:pre-line;line-height:40rpx" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}">这是一个介绍</text>
@@ -61,7 +61,6 @@
       </view>
     </mp-half-screen>
   </view>
-
   <!--背景半透明黑色蒙版-->
   <view class = "mask" wx:if="{{ifMaskOn}}" bindtap = "closeCart"></view>  
 </view>
