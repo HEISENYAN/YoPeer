@@ -1,14 +1,16 @@
 {
   "pages": [
-
     "pages/shop/shop",
+    "pages/productDetail/productDetail",
+    
+    
     "pages/activity/activity",
     "pages/test_page/test_page",
     "pages/community/community",
     "pages/personal/personal",
-    "pages/productDetail/productDetail",
     "pages/login/login",
-    "pages/test_page2/test_page2"
+    "pages/test_page2/test_page2",
+    "pages/check-out-page/check-out-page"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -51,9 +53,9 @@
   },
   "usingComponents": {
     "sky-tabbar": "/miniprogram_npm/jieyue-ui-com/sky-tabbar/sky-tabbar",
-    "mp-half-screen" :"/components/half-screen/half-screen",
-    "sky-icon":"/miniprogram_npm/jieyue-ui-com/sky-icon/sky-icon",
-    "sky-text":"/miniprogram_npm/jieyue-ui-com/sky-text/sky-text",
+    "mp-half-screen": "/components/half-screen/half-screen",
+    "sky-icon": "/miniprogram_npm/jieyue-ui-com/sky-icon/sky-icon",
+    "sky-text": "/miniprogram_npm/jieyue-ui-com/sky-text/sky-text",
     "mp-slide-screen": "/components/slide-screen/slide-screen"
   }
 }

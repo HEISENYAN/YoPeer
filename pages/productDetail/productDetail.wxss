@@ -1,1 +1,6 @@
 /* pages/productDetail/productDetail.wxss */
+.topBar{
+  background-color: #F4F4F4;
+  position: fixed;
+  width: 100%;
+}

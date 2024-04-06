@@ -31,7 +31,6 @@ Component({
       {"children":[{"id":"24","name":"吹风机",},{"id":"24","name":"手机支架",},{"id":"24","name":"收纳盒",},{"id":"24","name":"显示器",},{"id":"24","name":"转换插头",},{"id":"24","name":"挂钩",},{"id":"24","name":"插板",}],"id":"4","name":"其它",}] // 分类集合
   },
   methods:{
-
     returnPage: function(){
       wx.reLaunch({
         url: '/pages/activity/activity'
@@ -83,9 +82,13 @@ Component({
       let cName = e.target.dataset.cname;
       console.log(e);
       wx.navigateTo({
-          url:"../productDetail/productDetail?detail=" + e.target.dataset.cname,
-        })
-      this.closeCart();
+        url: '/pages/productDetail/productDetail',
+      })
+    },
+    checkOut: function(e){
+      wx.navigateTo({
+        url: '/pages/check-out-page/check-out-page',
+      })
     }
     
 

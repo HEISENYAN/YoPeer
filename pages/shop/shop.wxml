@@ -6,7 +6,7 @@
   <!--左侧一级菜单-->
   <view class = "menu-content">   
     <view class = "menu-container">
-      <scroll-view class = "scroll-view" type = "list" > 
+      <scroll-view class = "scroll-view" type = "list" >
         <view class = "scorll-view-list">
           <block wx:for ="{{detail}}" wx:for-item = "item" wx:key = "index">
             <view class="scroll-view-item {{indexSize === item.id?'active':''}}" bindtap="chooseTypes" data-index="{{item.id}}">{{item.name}}</view>
@@ -23,7 +23,7 @@
         </sticky-header>
         <list-view class = "item-list">
           <view class="swiper-view-item" wx:for="{{item.children}}" bindtap="chooseSecondMenu" wx:key="prodIndex" wx:for-item="prodItem"> 
-              <image class="view-item-photo" src = "https://i.postimg.cc/xj50rr78/Product.png" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}"  hover-class="this-check"></image>
+              <image class="view-item-photo" src = "" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}"  hover-class="this-check"></image>
             <view class="view-item-text overflow" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}"  hover-class="this-check">
               <text class="product-title" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}" >{{prodItem.name}}</text>
               <text style="font-size:23rpx;;color:gray;display:block;text-overflow:ellipsis;white-space:pre-line;line-height:40rpx" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}">这是一个介绍</text>
@@ -43,7 +43,7 @@
       <view slot = "tab" class = "cart-bar" bindtap = "openCart">
         <view class = "cart-icon"> <sky-icon icon-name = "shopping-cart" icon-size = "50"></sky-icon></view>
         <view class = "cart-price">￥{{selectedTotalPrice}}</view>
-        <view class = "check-out-button"><view class= "theButton">去结算</view></view>
+        <view class = "check-out-button" > <view class= "theButton" catchtap = "checkOut">去结算</view></view>
       </view>
       <view slot = "tabTitle" class = "cart-tab">
         <view class = "cross-button" catchtap = "closeCart"> <sky-icon icon-name = "x" icon-size = "45" iconColor = "var(--low-chroma-l0)" >   </sky-icon> </view>
@@ -54,13 +54,14 @@
           <view class="view-item-photo" >
             <image src = "" style ="height:90%;width:90%;" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}"  hover-class="this-check"></image></view>
             <view class="view-item-text overflow"  hover-class="this-check">
-            <text class="product-title" >物品{{prodItem}}</text>
+            <text class="product-title">物品{{prodItem}}</text>
             <view style="font-size:34rpx;color:red;padding:30rpx 0 0 0;display:inline-block" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}">￥999</view>
           </view>
         </view>
       </view>
     </mp-half-screen>
   </view>
+
   <!--背景半透明黑色蒙版-->
   <view class = "mask" wx:if="{{ifMaskOn}}" bindtap = "closeCart"></view>  
 </view>
