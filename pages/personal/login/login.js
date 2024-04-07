@@ -24,27 +24,16 @@ Page({
     app.globalData.avatarUrl=e.detail.avatarUrl;
   },
   handleButtonClick() {//返回
-    // wx.switchTab({
-    //   url: '../personal/personal'
-    //   // delta: 1
-    // });
     wx.reLaunch({
-      url: '../personal/personal'
+      url: '../personal'
       // delta: 1
     });
   },
   formSubmit(e){
-    console.log("Submitted nickname: " + e.detail.value.nickname);
-    console.log("Submitted phoneNum: " + e.detail.value.phoneNum);
-    // console.log("avatarUrl: " + avatarUrl);
-    this.setData({
-      nickname: e.detail.value.nickname,
-      phoneNum: e.detail.value.phoneNum,
-      
-      // avatarUrl = e.detail.value.avatarUrl;
-    })
-    app.globalData.nickname = e.detail.value.nickname;
-    app.globalData.phoneNum = e.detail.value.phoneNum;
+    // console.log("Submitted nickname: " + e.detail.value.nickname);
+    // console.log("Submitted phoneNum: " + e.detail.value.phoneNum);
+    if(e.detail.value.nickname)  app.globalData.nickname = e.detail.value.nickname;
+    if(e.detail.value.phoneNum)  app.globalData.phoneNum = e.detail.value.phoneNum;
     // app.globalData.avatarUrl = e.detail.value.avatarUrl;
     app.globalData.isLogin = 1;
     wx.setStorage({
@@ -57,7 +46,7 @@ Page({
       })
     })
     wx.reLaunch({  //提交按钮，返回个人中心
-      url: '../personal/personal',
+      url: '../personal',
     })
   },
   /**

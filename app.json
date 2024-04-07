@@ -12,7 +12,7 @@
     
     "pages/community/community",
     "pages/personal/personal",
-    "pages/login/login",
+    "pages/personal/login/login",
     "pages/test_page2/test_page2",
     "pages/check-out-page/check-out-page"
   ],

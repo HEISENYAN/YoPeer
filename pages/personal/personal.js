@@ -20,15 +20,9 @@ Page({
   },
   getUserProfile:function(e){  //进入登陆界面/个人信息
     wx.reLaunch({
-      url:"../login/login"
+      url:"./login/login"
     })
-    // wx.navigateTo({
-    //   url: '../login/login',
-    // })
   },
-
-
-
   /**
    * 生命周期函数--监听页面加载
    */
