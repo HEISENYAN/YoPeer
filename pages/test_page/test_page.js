@@ -1,3 +1,4 @@
+wx.cloud.init()
 Page({
   data: {
       show: false,
@@ -16,16 +17,14 @@ Page({
           }
       ]
   },
-  open: function () {
-      this.setData({
-          show: true
-      })
-      console.log("clicked")
-  },
-  buttontap(e) {
-      console.log(e.detail)
-  },
-  closePage(){
-    wx.navigateBack({})
+  testcloud:function(){
+    
+    wx.cloud.callFunction({
+      name: 'test2',
+      success:function(res){
+        console.log(res)
+      }
+      
+    })
   }
 });

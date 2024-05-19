@@ -1,20 +1,22 @@
 {
   "pages": [
-
     "pages/activity/activity",
-    "pages/productDetail/productDetail",
     "pages/test_page/test_page",
-    "pages/shop/shop",
-    
-    
-    
-    
-    
     "pages/community/community",
     "pages/personal/personal",
     "pages/personal/login/login",
-    "pages/test_page2/test_page2",
-    "pages/check-out-page/check-out-page"
+    "pages/test_page2/test_page2"
+    
+  ],
+  "subpackages": [
+    {
+      "root":"packages/shop-package",
+      "pages":[
+        "pages/check-out-page/check-out-page",
+        "pages/shop/shop",
+        "pages/product-detail/product-detail"
+      ]
+    }
   ],
   "window": {
     "navigationBarTextStyle": "black",

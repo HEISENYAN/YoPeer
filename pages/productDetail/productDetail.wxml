@@ -1,11 +1,2 @@
-<!--顶部留白-->
-<view class = "topBar" style="height: {{topHeight}}px; top:0px; left:0px"> </view>
-<!--顶部返回按钮-->
-<return-button></return-button>
-
-<scroll-view type = "custom" class = "detail-container" scroll-y style="top:{{topHeight}}px;left:0;height:{{screenHeight - topHeight}}px" >
-  <list-view wx:for = "{{[1,1,1,1,1,1,1,1]}}">
-    <view style = "background-color: red; width:100%;height: 1000rpx"> </view>
-    <view style = "background-color: green; width:100%;height: 200rpx"> </view>
-  </list-view>
-</scroll-view>
+<!--pages/productDetail/productDetail.wxml-->
+<text>pages/productDetail/productDetail.wxml</text>

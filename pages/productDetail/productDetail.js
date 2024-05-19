@@ -1,31 +1,27 @@
 // pages/productDetail/productDetail.js
-const {screenHeight, statusBarHeight, safeArea, windowHeight} = wx.getSystemInfoSync()
-const capsule = wx.getMenuButtonBoundingClientRect()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    topHeight:statusBarHeight,
-    capTop: capsule.top,
-    capWidth: capsule.width,
-    capHeight: capsule.height,
-    screenHeight:screenHeight
+
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-    console.log(capsule.top)
+
   },
-  
+
   /**
    * 生命周期函数--监听页面显示
    */

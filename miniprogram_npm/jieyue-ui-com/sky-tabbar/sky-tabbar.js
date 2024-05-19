@@ -97,7 +97,7 @@ Component({
   pageLifetimes:{
     show:function(){
       if(this.reDraw.value ){
-        if( this.data.type == 'protrude'){
+        if( type == 'protrude'){
           this.drawProtrude()
         }else{
           this.drawConcave()
@@ -316,10 +316,10 @@ Component({
       })
     },
     drawConcave(){
-      this.createSelectorQuery().in(this).select('#co'+this.data.canvasId)
+      this.createSelectorQuery().select('#co'+this.data.canvasId)
         .fields({ node: true, size: true })
         .exec((res) => {
-        console.log('#co'+this.data.canvasId)
+        
           var canvas = res[0].node
           var ctx = canvas.getContext('2d')
           canvas.width = res[0].width * dpr
