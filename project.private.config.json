@@ -3,6 +3,7 @@
   "projectname": "YoPeer",
   "setting": {
     "compileHotReLoad": true,
+    "useIsolateContext": true,
     "skylineRenderEnable": true
   },
   "condition": {

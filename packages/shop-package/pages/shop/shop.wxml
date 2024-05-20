@@ -32,10 +32,10 @@
             <view class="view-item-text overflow" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}"  hover-class="this-check">
               <text class="product-title" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}" >{{prodItem.name}}</text>
               <text style="font-size:23rpx;;color:gray;display:block;text-overflow:ellipsis;white-space:pre-line;line-height:40rpx" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}">这是一个介绍</text>
-              <text style="font-size:30rpx;color:gray;display:block;white-space:pre-line;text-overflow:ellipsis;white-space:pre-line;line-height:30rpx" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}">已售：</text>
+              <text style="font-size:23rpx;color:gray;display:block;white-space:pre-line;text-overflow:ellipsis;white-space:pre-line;line-height:30rpx" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}">已售：</text>
               <view style="font-size:34rpx;color:red;padding:30rpx 0 0 0;display:inline-block" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}">￥999</view>
               <view style="font-size:30rpx;color:black;padding:30rpx 0 0 100rpx;;display:inline-block" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}"></view>
-            </view>
+            </view>                                                                                                                                                     
           </view>
         </list-view>
       </sticky-section>
