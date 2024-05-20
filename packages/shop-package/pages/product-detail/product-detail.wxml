@@ -1,2 +1,6 @@
 <!--packages/shop-package/pages/product-detail/product-detail.wxml-->
 <text>packages/shop-package/pages/product-detail/product-detail.wxml</text>
+
+
+<text>{{pID}}</text>
+<text>{{pName}}</text>

@@ -1,18 +1,23 @@
 // packages/shop-package/pages/product-detail/product-detail.js
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    pID: '',
+    pName: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.setData({
+      pID: options.productID,
+      pName: options.productName
+    })
   },
 
   /**
@@ -39,8 +44,8 @@ Page({
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload() {
-
+  onUnload(e) {
+    
   },
 
   /**

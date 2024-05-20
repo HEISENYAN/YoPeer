@@ -81,7 +81,7 @@ Component({
       let cName = e.target.dataset.cname;
       console.log(e);
       wx.navigateTo({
-        url: '/packages/shop-package/pages/product-detail/product-detail',
+        url: '/packages/shop-package/pages/product-detail/product-detail?productID='+cId+'&productName='+cName,
       })
     },
     checkOut: function(e){
