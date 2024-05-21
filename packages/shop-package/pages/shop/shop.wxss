@@ -44,8 +44,6 @@
   border-bottom-right-radius: 20rpx;
 }
 
-
-
 .item-list{
   background-color: white;
   height:100%;

@@ -7,7 +7,24 @@ Page({
    */
   data: {
     pID: '',
-    pName: ''
+    pName: '',
+    product: {
+      images: [
+        'https://images.pexels.com/photos/4202927/pexels-photo-4202927.jpeg',
+        'https://images.pexels.com/photos/3588229/pexels-photo-3588229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+        'https://images.pexels.com/photos/4045700/pexels-photo-4045700.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+      ],
+      name: '商品名称',
+      price: '999.00',
+      description: '这是商品的简介。',
+      specs: ['规格1', '规格2', '规格3']
+    },
+  },
+  
+  onSpecChange(e) {
+    this.setData({
+      selectedSpec: e.detail.value
+    });
   },
 
   /**
@@ -69,3 +86,35 @@ Page({
 
   }
 })
+
+Page({
+  data: {
+    product: {
+      images: [
+        'https://example.com/image1.jpg',
+        'https://example.com/image2.jpg',
+        'https://example.com/image3.jpg'
+      ],
+      name: '商品名称',
+      price: '999.00',
+      description: '这是商品的简介。',
+      specs: ['规格1', '规格2', '规格3']
+    },
+    selectedSpec: '规格1'
+  },
+
+  onSpecChange(e) {
+    this.setData({
+      selectedSpec: e.detail.value
+    });
+  },
+
+  addToCart() {
+    wx.showToast({
+      title: '已添加到购物车',
+      icon: 'success',
+      duration: 2000
+    });
+    // 此处可以添加将商品添加到购物车的逻辑
+  }
+});

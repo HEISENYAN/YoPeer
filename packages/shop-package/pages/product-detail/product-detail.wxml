@@ -1,6 +1,39 @@
-<!--packages/shop-package/pages/product-detail/product-detail.wxml-->
-<text>packages/shop-package/pages/product-detail/product-detail.wxml</text>
+<view class="container">
+  <!-- 返回按钮 -->
+  <view class="back-button" bindtap="goBack">
+    <text class="icon-back">←</text>
+  </view>
+  
+  <!-- 上半部分：横向滑动图片 -->
+  <swiper class="swiper-container" autoplay="true" interval="3000" duration="500" indicator-dots="true">
+    <block wx:for="{{product.images}}" wx:key="index">
+      <swiper-item>
+        <image class="swiper-image" src="{{item}}" mode="aspectFill"></image>
+      </swiper-item>
+    </block>
+  </swiper>
 
+  <!-- 下半部分：商品信息 -->
+  <view class="product-info">
+    <view class="product-name">{{product.name}}</view>
+    <view class="product-price">￥{{product.price}}</view>
+    <view class="product-description">{{product.description}}</view>
+  </view>
 
-<text>{{pID}}</text>
-<text>{{pName}}</text>
+  <!-- 规格选择 -->
+  <view class="product-specs">
+    <view class="spec-title">选择规格</view>
+    <radio-group bindchange="onSpecChange">
+      <block wx:for="{{product.specs}}" wx:key="index">
+        <label>
+          <radio value="{{item}}" checked="{{index === 0}}">{{item}}</radio>
+        </label>
+      </block>
+    </radio-group>
+  </view>
+
+  <!-- 购买按钮 -->
+  <view class="buy-button-container">
+    <button class="buy-button" bindtap="addToCart">购买</button>
+  </view>
+</view>
