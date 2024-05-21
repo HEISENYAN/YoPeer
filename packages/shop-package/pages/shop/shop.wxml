@@ -27,10 +27,10 @@
           <view class="header" id = "menuIndex{{index}}">{{item.classification}}</view>
         </sticky-header>
         <list-view class = "item-list">
-          <view class="swiper-view-item" wx:for="{{item.items}}" bindtap="chooseSecondMenu" wx:key="prodIndex" wx:for-item="prodItem"> 
+          <view class="swiper-view-item" wx:for="{{item.items}}" bindtap="chooseSecondMenu" wx:key="prodIndex" wx:for-item="prodItem" data-selected="{{prodItem}}"> 
 
-            <view class="item-container">
-              <view class="image-container">
+            <view class="item-container" data-selected="{{prodItem}}">
+              <view class="image-container" data-selected="{{prodItem}}">
                 <image class="view-item-photo" src = "https://images.pexels.com/photos/2536965/pexels-photo-2536965.jpeg" data-selected="{{prodItem}}" hover-class="this-check"></image>
               </view>
 
