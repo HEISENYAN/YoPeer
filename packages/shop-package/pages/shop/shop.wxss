@@ -58,8 +58,8 @@
   padding:0;
 }
 .view-item-photo{
-  height: 180rpx;
-  width:  280rpx;
+  height: 150rpx;
+  width:  200rpx;
   padding:0 5%;
   border-radius: 20rpx;
 }

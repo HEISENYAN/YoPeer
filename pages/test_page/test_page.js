@@ -1,30 +1,22 @@
 wx.cloud.init()
 Page({
   data: {
-      show: false,
-      buttons: [
-          {
-              type: 'default',
-              className: '',
-              text: '辅助操作',
-              value: 0
-          },
-          {
-              type: 'primary',
-              className: '',
-              text: '主操作',
-              value: 1
-          }
-      ]
   },
   testcloud:function(){
-    
+    console.log("clicked")
     wx.cloud.callFunction({
-      name: 'test2',
+      name: 'getProduct',
       success:function(res){
+        console.log(res.result.data)
+      },
+      fail:function(res){
         console.log(res)
+        wx.showModal({
+        title:"错误",
+        content:"" + res
+        })
       }
-      
     })
+    
   }
 });
