@@ -20,7 +20,7 @@
 .scroll-view-item{
   height:100rpx;width:100%;
   font-size:30rpx;
-  color:rgb(170, 170, 170);
+  color: rgb(221, 202, 240);
   display:flex;
   align-items:center;
   justify-content:center;
@@ -37,8 +37,9 @@
   position:absolute
 }
 .scroll-view-item.active{
-  background:rgb(245, 243, 243);
-  color:#000;
+  /* background:#665b99; */
+  background-color: rgb(193, 153, 226);
+  color:rgb(255, 255, 255);
   border-top-right-radius: 20rpx;
   border-bottom-right-radius: 20rpx;
 }
@@ -160,4 +161,54 @@
   height: 100%;
   z-index: 1;
   background-color: rgba(0,0,0,0.7);
+}
+
+.item-container {
+  display: flex;
+  flex-direction: row;
+  padding: 10rpx;
+  border-bottom: 1px solid #eee;
+}
+
+.image-container {
+  flex: 1;
+  padding: 10rpx;
+}
+
+.text-container {
+  flex: 2;
+  padding-top: 20rpx;
+  padding-left: 70rpx;
+}
+
+.number-container {
+  flex: 1;
+  padding-top: 70rpx;
+}
+
+.view-item-photo {
+  width: 150rpx; /* 设置宽度 */
+  height: 150rpx; /* 设置高度 */
+  border-radius: 15%; /* 设置圆角 */
+  object-fit: cover; /* 确保图片覆盖整个容器 */
+}
+
+.sticky-header {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  background-color: #ffffff; /* 白色背景 */
+  z-index: 10; /* 确保在其他内容之上 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+  border-bottom: 1px solid #eee; /* 底部边框 */
+}
+
+.header {
+  padding: 5rpx; /* 内边距 */
+  font-size: 30rpx; /* 字体大小 */
+  color: #333; /* 字体颜色 */
+  text-align: center; /* 居中对齐 */
+  margin: 5rpx 0; /* 外边距 */
+  background: linear-gradient(45deg, rgb(228, 215, 240), rgb(187, 197, 232)); /* 渐变背景颜色 */
+  border-radius: 100rpx; /* 圆角 */
 }
