@@ -19,6 +19,12 @@ Page({
       description: '这是商品的简介。',
       specs: ['规格1', '规格2', '规格3']
     },
+    multiArray: [
+      ['规格1', '规格2', '规格3'], 
+      ['子规格1', '子规格2', '子规格3'], 
+      ['子子规格1', '子子规格2', '子子规格3']
+    ],
+    multiIndex: [0, 0, 0],
   },
   
   onSpecChange(e) {
@@ -84,37 +90,31 @@ Page({
    */
   onShareAppMessage() {
 
-  }
+  },
+
+  generateMultiArray() {
+    // 这里应该生成适合你的规格数组
+    return [
+      ['规格1', '规格2', '规格3'],
+      ['子规格1', '子规格2', '子规格3'],
+      ['子子规格1', '子子规格2', '子子规格3']
+    ];
+  },
+
+  bindMultiPickerChange(e) {
+    this.setData({
+      multiIndex: e.detail.value
+    });
+  },
+
+  bindMultiPickerColumnChange(e) {
+    const data = {
+      multiArray: this.data.multiArray,
+      multiIndex: this.data.multiIndex
+    };
+    data.multiIndex[e.detail.column] = e.detail.value;
+    // 更新列选择的数据逻辑
+    this.setData(data);
+  },
 })
 
-Page({
-  data: {
-    product: {
-      images: [
-        'https://example.com/image1.jpg',
-        'https://example.com/image2.jpg',
-        'https://example.com/image3.jpg'
-      ],
-      name: '商品名称',
-      price: '999.00',
-      description: '这是商品的简介。',
-      specs: ['规格1', '规格2', '规格3']
-    },
-    selectedSpec: '规格1'
-  },
-
-  onSpecChange(e) {
-    this.setData({
-      selectedSpec: e.detail.value
-    });
-  },
-
-  addToCart() {
-    wx.showToast({
-      title: '已添加到购物车',
-      icon: 'success',
-      duration: 2000
-    });
-    // 此处可以添加将商品添加到购物车的逻辑
-  }
-});

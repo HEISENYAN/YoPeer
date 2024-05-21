@@ -23,13 +23,11 @@
   <!-- 规格选择 -->
   <view class="product-specs">
     <view class="spec-title">选择规格</view>
-    <radio-group bindchange="onSpecChange">
-      <block wx:for="{{product.specs}}" wx:key="index">
-        <label>
-          <radio value="{{item}}" checked="{{index === 0}}">{{item}}</radio>
-        </label>
-      </block>
-    </radio-group>
+    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+      <view class="picker">
+        当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}
+      </view>
+    </picker>
   </view>
 
   <!-- 购买按钮 -->
