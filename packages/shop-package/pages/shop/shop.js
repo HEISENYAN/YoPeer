@@ -29,7 +29,7 @@ Component({
       wx.reLaunch({
         url: '/pages/activity/activity'
       })
-      console.log("clicked")
+ 
     },
     chooseTypes: function(e) {
       this.setData({
@@ -71,11 +71,8 @@ Component({
       }
     },
     chooseSecondMenu: function(e){
-      let cId = e.target.dataset.cid;
-      let cName = e.target.dataset.cname;
-      console.log(e);
       wx.navigateTo({
-        url: '/packages/shop-package/pages/product-detail/product-detail?productID='+cId+'&productName='+cName,
+        url: '/packages/shop-package/pages/product-detail/product-detail?selected='+JSON.stringify(e.target.dataset.selected),
       })
     },
     checkOut: function(e){
@@ -103,10 +100,10 @@ Component({
           query.select("#menuIndex0").boundingClientRect();
           query.selectViewport().scrollOffset();
           query.exec(function(res){
-          console.log(res)
+ 
           that.setData({
             headerTop:parseInt(res[0].top)
-          },() => {console.log(that.data.headerTop)})
+          })
         })
       })
       },

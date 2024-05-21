@@ -31,17 +31,17 @@
 
             <view class="item-container">
               <view class="image-container">
-                <image class="view-item-photo" src = "https://images.pexels.com/photos/2536965/pexels-photo-2536965.jpeg" data-cid="{{prodItem.prodID}}" data-cname="{{prodItem.prodName}}"  hover-class="this-check"></image>
+                <image class="view-item-photo" src = "https://images.pexels.com/photos/2536965/pexels-photo-2536965.jpeg" data-selected="{{prodItem}}" hover-class="this-check"></image>
               </view>
 
-              <view class="text-container" data-cid="{{prodItem.prodID}}" data-cname="{{prodItem.prodName}}" hover-class="this-check">
+              <view class="text-container" data-selected="{{prodItem}}" hover-class="this-check">
                 <view class="view-item-text overflow"></view>
-                <text class="product-title" data-cid="{{prodItem.prodID}}" data-cname="{{prodItem.prodName}}" >{{prodItem.prodName}}</text>
+                <text class="product-title" data-selected="{{prodItem}}" >{{prodItem.prodName}}</text>
                 <!--<text style="font-size:23rpx;;color:gray;display:block;text-overflow:ellipsis;white-space:pre-line;line-height:40rpx" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}">{{prodItem.introduction}}</text> -->
-                <text style="font-size:23rpx;color:gray;display:block;white-space:pre-line;text-overflow:ellipsis;white-space:pre-line;line-height:30rpx" data-cid="{{prodItem.prodID}}" data-cname="{{prodItem.prodName}}">已售：{{prodItem.soldNum}}</text>
-                <view style="font-size:30rpx;color:black;padding:30rpx 0 0 100rpx;;display:inline-block" data-cid="{{prodItem.prodID}}" data-cname="{{prodItem.prodName}}"></view>
+                <text style="font-size:23rpx;color:gray;display:block;white-space:pre-line;text-overflow:ellipsis;white-space:pre-line;line-height:30rpx" data-selected="{{prodItem}}">已售：{{prodItem.soldNum}}</text>
+                <view style="font-size:30rpx;color:black;padding:30rpx 0 0 100rpx;;display:inline-block" data-selected="{{prodItem}}"></view>
             </view>                                                                        <view class="number-container">
-                  <view style="font-size:34rpx;color:red;padding:30rpx 0 0 0;display:inline-block" data-cid="{{prodItem.prodID}}" data-cname="{{prodItem.prodName}}">￥{{prodItem.price}}</view>
+                  <view style="font-size:34rpx;color:red;padding:30rpx 0 0 0;display:inline-block" data-selected="{{prodItem}}">￥{{prodItem.price}}</view>
                 </view>
             </view>                                                                   
           </view>

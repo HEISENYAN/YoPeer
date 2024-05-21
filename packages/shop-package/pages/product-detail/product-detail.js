@@ -25,6 +25,7 @@ Page({
       ['子子规格1', '子子规格2', '子子规格3']
     ],
     multiIndex: [0, 0, 0],
+    selectedProduct:''
   },
   
   onSpecChange(e) {
@@ -38,8 +39,7 @@ Page({
    */
   onLoad(options) {
     this.setData({
-      pID: options.productID,
-      pName: options.productName
+      selectedProduct:JSON.parse(options.selected)
     })
   },
 
