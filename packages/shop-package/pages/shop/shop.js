@@ -7,14 +7,14 @@ const GestureState = {
   CANCELLED: 4, // 4 手势取消，
 }
 const { shared, timing } = wx.worklet
-
+wx.cloud.init()
 Component({
 
   /**
    * 页面的初始数据
    */
   data: {
-    indexSize: "1", // 当前点击
+    indexSize: 0, // 当前点击
     indicatorDots: false, // 是否显示面板指示点
     autoplay: false,  // 是否自动切换
     duration: 0,  // 滑动动画时长
@@ -22,13 +22,7 @@ Component({
     headerTop:0,
     selectedTotalPrice:0, // 已经选择物品的总价
     ifMaskOn: false,
-    detail:[
-      {"children":[{"id":"14","name":"套餐A",},{"id":"13","name":"套餐B",},{"id":"13","name":"套餐C",},{"id":"13","name":"套餐D",},{"id":"13","name":"套餐E",},{"id":"13","name":"套餐F",}
-      ,{"id":"13","name":"套餐G",}
-      ,{"id":"13","name":"套餐H",},{"id":"13","name":"套餐I"},{"id":"13","name":"套餐J"},{"id":"13","name":"套餐K"}],"id":"1","name":"套餐",},
-      {"children":[{"id":"24","name":"被子",},{"id":"23","name":"床品三件套",},{"id":"22","name":"枕头",},{"id":"21","name":"床垫",}],"id":"2","name":"床品",},
-      {"children":[{"id":"24","name":"牙刷",},{"id":"24","name":"毛巾",},{"id":"24","name":"洗脸盆",},{"id":"24","name":"牙膏",},{"id":"24","name":"洗衣凝珠",},{"id":"24","name":"除湿袋",}],"id":"3","name":"生活用品",},
-      {"children":[{"id":"24","name":"吹风机",},{"id":"24","name":"手机支架",},{"id":"24","name":"收纳盒",},{"id":"24","name":"显示器",},{"id":"24","name":"转换插头",},{"id":"24","name":"挂钩",},{"id":"24","name":"插板",}],"id":"4","name":"其它",}] // 分类集合
+    YPproduct:{}
   },
   methods:{
     returnPage: function(){
@@ -39,8 +33,8 @@ Component({
     },
     chooseTypes: function(e) {
       this.setData({
-        scrollIntoView:"#menuIndex" + e.target.dataset.index,
-        indexSize:e.target.dataset.index
+        scrollIntoView:"#menuIndex" + e.target.dataset.nowindex,
+        indexSize:e.target.dataset.nowindex
       })
     },
     closeCart: function(){
@@ -62,15 +56,15 @@ Component({
       })
     },
     scrollDetection: function(e) {
-      for (let i in this.data.detail) {
+      for (var i = 0;i<this.data.YPproduct.length;i++) {
         const query = wx.createSelectorQuery();
-        query.select("#menuIndex" + this.data.detail[i].id).boundingClientRect();
+        query.select("#menuIndex" + i).boundingClientRect();
         let that = this;
         query.selectViewport().scrollOffset();
         query.exec(function(index, res) {
           if (parseInt(res[0].top) === that.data.headerTop) {
             that.setData({
-              indexSize: that.data.detail[index].id
+              indexSize: index
             });
           }
         }.bind(null, i));
@@ -94,19 +88,37 @@ Component({
   },
   lifetimes:{
     created(){
-
+      
     },
     ready(options){
-      const query = wx.createSelectorQuery();
-      query.select("#menuIndex1").boundingClientRect();
-      query.selectViewport().scrollOffset();
-      let that = this;
-      query.exec(function(res){
-      //console.log(res[0].top)
+      let that = this
+      wx.cloud.callFunction({
+        name: 'getProduct',
+        success:function(res){
+        //console.log(res.result.data.length)
         that.setData({
-          headerTop:parseInt(res[0].top)
+          YPproduct:res.result.data,
+        },function(){
+          const query = wx.createSelectorQuery();
+          query.select("#menuIndex0").boundingClientRect();
+          query.selectViewport().scrollOffset();
+          query.exec(function(res){
+          console.log(res)
+          that.setData({
+            headerTop:parseInt(res[0].top)
+          },() => {console.log(that.data.headerTop)})
         })
+      })
+      },
+        fail:function(res){
+          //console.log(res)
+          wx.showModal({
+          title:"错误",
+          content:"" + res
+          })
+        }
       });
+      
     }
   }
 })
