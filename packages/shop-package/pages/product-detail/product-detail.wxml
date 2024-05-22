@@ -15,8 +15,8 @@
   <!-- 下半部分：商品信息 -->
   <view class="product-info">
     <view class="product-name">{{selectedProduct.prodName}}</view>
-    <view class="product-price">￥{{selectedProduct.price}}</view>
     <view class="product-description">{{selectedProduct.introduction}}</view>
+    <view class="product-price">￥{{selectedProduct.price}}</view>
   </view>
 
   <!-- 规格选择模版 -->

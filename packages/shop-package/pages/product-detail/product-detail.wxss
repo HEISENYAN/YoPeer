@@ -28,8 +28,9 @@
 
 .product-info {
   padding: 30rpx;
-  width: 80%;
-  background-color: #fff;
+  width: 90%;
+  min-height: 300rpx; /* 设置最小高度 */
+  background: linear-gradient(45deg, rgb(228, 215, 240), rgb(187, 197, 232)); /* 渐变背景颜色 */
   border-top-left-radius: 20rpx;
   border-top-right-radius: 20rpx;
   margin-top: -20rpx;
@@ -56,9 +57,10 @@
 }
 
 .product-specs {
-  width: 80%;
-  padding: 20rpx;
-  background-color: #fff;
+  width: 90%;
+  padding: 70rpx;
+  /* background: linear-gradient(45deg, rgb(228, 215, 240), rgb(187, 197, 232)); 渐变背景颜色 */
+  background-color:wheat;
   margin-top: 15rpx;
   border-bottom-left-radius: 20rpx;
   border-bottom-right-radius: 20rpx;
@@ -66,7 +68,7 @@
 }
 
 .spec-title {
-  font-size: 30rpx;
+  font-size: 28rpx;
   margin-bottom: 10rpx;
 }
 
@@ -83,6 +85,7 @@
 }
 
 .buy-button {
+    margin-top: 40%;
     width: 150rpx;
     height: 80rpx;
     display:block;
