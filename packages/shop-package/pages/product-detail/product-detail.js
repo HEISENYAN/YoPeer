@@ -1,9 +1,13 @@
+// packages/shop-package/pages/product-detail/product-detail.js
+
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    YPproduct: [], // 用于存储从云函数获取的数据
-    selectedProduct: null, // 用于存储当前选中的产品
-    selectedSpec: '', // 用于存储当前选中的规格
-    cart: [], // 用于存储购物车数据
+    pID: '',
+    pName: '',
     product: {
       images: [
         'https://images.pexels.com/photos/4202927/pexels-photo-4202927.jpeg',
@@ -11,10 +15,104 @@ Page({
         'https://images.pexels.com/photos/4045700/pexels-photo-4045700.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
       ],
     },
+    multiArray: [
+      ['规格1', '规格2', '规格3'], 
+      ['子规格1', '子规格2', '子规格3'], 
+      ['子子规格1', '子子规格2', '子子规格3']
+    ],
+    multiIndex: [0, 0, 0],
+    selectedProduct:'',
+    YPproduct: []
+  },
+  
+  onSpecChange(e) {
+    this.setData({
+      selectedSpec: e.detail.value
+    });
   },
 
-  onLoad() {
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad(options) {
+    this.setData({
+      selectedProduct:JSON.parse(options.selected)
+    })
     this.getProductData();
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload(e) {
+    
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh() {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom() {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage() {
+
+  },
+
+  generateMultiArray() {
+    // 这里应该生成适合你的规格数组
+    return [
+      ['规格1', '规格2', '规格3'],
+      ['子规格1', '子规格2', '子规格3'],
+      ['子子规格1', '子子规格2', '子子规格3']
+    ];
+  },
+
+  bindMultiPickerChange(e) {
+    this.setData({
+      multiIndex: e.detail.value
+    });
+  },
+
+  bindMultiPickerColumnChange(e) {
+    const data = {
+      multiArray: this.data.multiArray,
+      multiIndex: this.data.multiIndex
+    };
+    data.multiIndex[e.detail.column] = e.detail.value;
+    // 更新列选择的数据逻辑
+    this.setData(data);
   },
 
   getProductData() {
@@ -26,13 +124,6 @@ Page({
           that.setData({
             YPproduct: res.result.data
           });
-          // 默认选中第一个产品（如果有）
-          if (res.result.data.length > 0 && res.result.data[0].items.length > 0) {
-            that.setData({
-              selectedProduct: res.result.data[0].items[0],
-              selectedSpec: res.result.data[0].items[0].options[0][0]
-            });
-          }
         } else {
           wx.showToast({
             title: '获取数据失败',
@@ -48,39 +139,6 @@ Page({
         });
       }
     });
-  },
-
-  onSpecChange(e) {
-    this.setData({
-      selectedSpec: this.data.selectedProduct.options[0][e.detail.value]
-    });
-  },
-
-  addToCart() {
-    let newCartItem = {
-      prodName: this.data.selectedProduct.prodName,
-      price: this.data.selectedProduct.price,
-      spec: this.data.selectedSpec,
-      quantity: 1 // 默认数量为1
-    };
-
-    let cart = this.data.cart;
-    cart.push(newCartItem);
-
-    this.setData({
-      cart: cart
-    });
-
-    wx.showToast({
-      title: '已添加到购物车',
-      icon: 'success',
-      duration: 2000
-    });
-  },
-
-  goBack() {
-    wx.navigateBack();
   }
-});
-
+})
 
