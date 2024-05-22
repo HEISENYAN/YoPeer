@@ -35,6 +35,7 @@
   border-top-right-radius: 20rpx;
   margin-top: -20rpx;
   box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.1); /* 添加阴影 */
+  overflow: hidden;
 }
 
 .product-name {
