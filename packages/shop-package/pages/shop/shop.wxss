@@ -180,8 +180,9 @@
 }
 
 .number-container {
-  flex: 1;
-  padding-top: 70rpx;
+  flex: block;
+  padding-top: 30rpx;
+  padding-left: 30rpx;
 }
 
 .view-item-photo {

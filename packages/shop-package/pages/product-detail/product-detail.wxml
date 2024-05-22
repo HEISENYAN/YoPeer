@@ -1,8 +1,7 @@
 <view class="container">
-  <!-- 返回按钮 -->
-  <view class="back-button" bindtap="goBack">
-    <text class="icon-back">←</text>
-  </view>
+  
+  <!--顶部返回按钮-->
+  <return-button></return-button>
   
   <!-- 上半部分：横向滑动图片 -->
   <swiper class="swiper-container" autoplay="true" interval="3000" duration="500" indicator-dots="true">
