@@ -25,7 +25,8 @@ Page({
       ['子子规格1', '子子规格2', '子子规格3']
     ],
     multiIndex: [0, 0, 0],
-    selectedProduct:''
+    selectedProduct:'',
+    YPproduct: []
   },
   
   onSpecChange(e) {
@@ -41,6 +42,7 @@ Page({
     this.setData({
       selectedProduct:JSON.parse(options.selected)
     })
+    this.getProductData();
   },
 
   /**
@@ -116,5 +118,31 @@ Page({
     // 更新列选择的数据逻辑
     this.setData(data);
   },
+
+  getProductData() {
+    let that = this;
+    wx.cloud.callFunction({
+      name: 'getProduct',
+      success: function(res) {
+        if (res.result.data) {
+          that.setData({
+            YPproduct: res.result.data
+          });
+        } else {
+          wx.showToast({
+            title: '获取数据失败',
+            icon: 'none'
+          });
+        }
+      },
+      fail: function(err) {
+        wx.showModal({
+          title: '错误',
+          content: '获取数据失败: ' + err,
+          showCancel: false
+        });
+      }
+    });
+  }
 })
 

@@ -14,17 +14,27 @@
 
   <!-- 下半部分：商品信息 -->
   <view class="product-info">
-    <view class="product-name">{{product.name}}</view>
-    <view class="product-price">￥{{product.price}}</view>
-    <view class="product-description">{{product.description}}</view>
+    <view class="product-name">{{selectedProduct.prodName}}</view>
+    <view class="product-price">￥{{selectedProduct.price}}</view>
+    <view class="product-description">{{selectedProduct.introduction}}</view>
   </view>
 
-  <!-- 规格选择 -->
-  <view class="product-specs">
+  <!-- 规格选择模版 -->
+  <!-- <view class="product-specs">
     <view class="spec-title">选择规格</view>
     <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
       <view class="picker">
         当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}
+      </view>
+    </picker>
+  </view> -->
+
+    <!-- 规格选择 -->
+    <view class="product-specs">
+    <view class="spec-title">选择规格</view>
+    <picker mode="selector" range="{{selectedProduct.options[0]}}" bindchange="onSpecChange">
+      <view class="picker">
+        当前选择：{{selectedSpec}}
       </view>
     </picker>
   </view>
