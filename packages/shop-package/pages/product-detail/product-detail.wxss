@@ -60,10 +60,10 @@
 
 .product-specs {
   width: 90%;
-  padding: 70rpx;
+  padding: 30rpx;
   /* background: linear-gradient(45deg, rgb(228, 215, 240), rgb(187, 197, 232)); 渐变背景颜色 */
   background-color:wheat;
-  margin-top: 15rpx;
+  margin-top: 20rpx;
   border-bottom-left-radius: 20rpx;
   border-bottom-right-radius: 20rpx;
   box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.1); /* 添加阴影 */
