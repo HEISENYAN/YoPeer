@@ -30,13 +30,9 @@
   </view> -->
 
     <!-- 规格选择 -->
-    <view class="product-specs">
-    <view class="spec-title">选择规格</view>
-    <picker mode="selector" range="{{selectedProduct.options[0]}}" bindchange="onSpecChange">
-      <view class="picker">
-        当前选择：{{selectedSpec}}
-      </view>
-    </picker>
+    <view class="product-specs" wx:for = "{{selectedProduct.optionName}}" wx:key = "option" wx:for-item = "optionItem">
+    <view class="spec-title">{{optionItem}}</view>
+    
   </view>
 
   <!-- 购买按钮 -->

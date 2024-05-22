@@ -1,7 +1,7 @@
 // app.js
 App({
   globalData:{
-    openid: null,
+    openID: null,
     isLogin:0,
     // avatarUrl:"./icons/portrait.png",
     avatarUrl:"https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0",
