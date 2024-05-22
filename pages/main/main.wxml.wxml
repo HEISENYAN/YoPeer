@@ -1,0 +1,67 @@
+<!--pages/main/main.wxml.wxml-->
+<view class="container">
+  <!-- 顶部导航栏 -->
+  <view class="nav-bar">
+    <text class="nav-title">外卖首页</text>
+    <view class="nav-icons">
+      <button class="nav-button">...</button>
+    </view>
+  </view>
+
+  <!-- 顶部图片 -->
+  <image class="header-image" src="https://i.postimg.cc/65dNNrRy/coffee.png"></image>
+
+  <!-- 功能按钮 -->
+  <view class="buttons-grid">
+    <view class="button-item">
+      <image class="button-icon" src="https://i.postimg.cc/q7T8KGR6/order.png"></image>
+      <text class="button-text">点单</text>
+      <text class="button-subtext">ORDER</text>
+    </view>
+    <view class="button-item">
+      <image class="button-icon" src="https://i.postimg.cc/3xYc4m5R/pickup.png"></image>
+      <text class="button-text">门店自取</text>
+      <text class="button-subtext">STORE SELF PICKUP</text>
+    </view>
+    <view class="button-item">
+      <image class="button-icon" src="https://i.postimg.cc/9XKk1zt7/delivery.png"></image>
+      <text class="button-text">外卖配送</text>
+      <text class="button-subtext">DELIVERY OF FOOD</text>
+    </view>
+    <view class="button-item">
+      <image class="button-icon" src="https://i.postimg.cc/wMV9dW9p/voucher.png"></image>
+      <text class="button-text">领券中心</text>
+      <text class="button-subtext">领取更优惠</text>
+    </view>
+    <view class="button-item">
+      <image class="button-icon" src="https://i.postimg.cc/7Lvj5MkH/voucher-center.png"></image>
+      <text class="button-text">充值中心</text>
+      <text class="button-subtext">VOUCHER CENTER</text>
+    </view>
+    <view class="button-item">
+      <image class="button-icon" src="https://i.postimg.cc/MGHjCjJ7/member-center.png"></image>
+      <text class="button-text">会员中心</text>
+      <text class="button-subtext">MEMBER CENTER</text>
+    </view>
+  </view>
+
+  <!-- 底部导航栏 -->
+  <view class="footer-bar">
+    <view class="footer-item">
+      <image class="footer-icon" src="https://i.postimg.cc/BnFXXJ8Q/home.png"></image>
+      <text class="footer-text">首页</text>
+    </view>
+    <view class="footer-item">
+      <image class="footer-icon" src="https://i.postimg.cc/zXj3NR8k/running.png"></image>
+      <text class="footer-text">跑腿</text>
+    </view>
+    <view class="footer-item">
+      <image class="footer-icon" src="https://i.postimg.cc/JzHkDfZ3/order.png"></image>
+      <text class="footer-text">订单</text>
+    </view>
+    <view class="footer-item">
+      <image class="footer-icon" src="https://i.postimg.cc/sXBJxr9T/profile.png"></image>
+      <text class="footer-text">我的</text>
+    </view>
+  </view>
+</view>
