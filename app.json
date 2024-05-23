@@ -8,6 +8,8 @@
     "pages/community/community",
     "pages/personal/personal",
     "pages/personal/login/login",
+    "pages/personal/addressEdit/addressEdit",
+    "pages/personal/addressList/addressList",
     "pages/test_page2/test_page2"
     
   ],

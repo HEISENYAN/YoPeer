@@ -23,6 +23,11 @@ Page({
       url:"./login/login"
     })
   },
+  getAddressList:function(e){
+    wx.reLaunch({
+      url:"./addressList/addressList"
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
