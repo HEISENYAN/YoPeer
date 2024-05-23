@@ -1,14 +1,15 @@
 // pages/personal/personal.js
 var app = getApp()
+wx.cloud.init()
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-   isLogin : app.globalData.isLogin,
-   nickname: app.globalData.nickname,
+   isLogin : '',
+   nickname: '',
    avatarUrl: app.globalData.avatarUrl,
-   yoPeerValue: app.globalData.yoPeerValue,
+   yoPeerValue: 300,
   //学校 下拉列表
   isPickerShown: false,
   // pickerOptions: ['PolyU', 'HKU', 'HKUST', 'CUHK', 'CITYU', 'HKBU', 'LINGU'],
@@ -32,19 +33,31 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    const that = this
+    wx.cloud.callFunction({
+      name:'getUserInfo',
+      success:function(res){
+        console.log(res)
+        that.setData({
+          //selectedIndex: Boolean(res.data.schoolIndex)?res.data.schoolIndex:0,
+          nickname: res.result.nickname,
+          avatarUrl: res.result.avatarUrl,
+          yoPeerValue:res.result.yoPeerValue
+        })
+      },
+      fail:function(res){
+        wx.showModal({
+          title:"错误",
+          content:"" + res
+          })
+      }
+    })
     if(this.data.isLogin !== app.globalData.isLogin){
       this.setData({
         isLogin : app.globalData.isLogin, 
         nickname: app.globalData.nickname,
         avatarUrl: app.globalData.avatarUrl,
       })
-      // if (app.globalData.nickname !== 'none') {
-      //   this.setData({nickname: app.globalData.nickname});
-      // }
-      // else{
-      //   // console.log('app.globalData.nickname');
-      //   this.setData({nickname: '00000'});
-      // }
     }
   },
 

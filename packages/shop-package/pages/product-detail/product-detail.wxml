@@ -31,8 +31,13 @@
 
     <!-- 规格选择 -->
     <view class="product-specs" wx:for = "{{selectedProduct.optionName}}" wx:key = "option" wx:for-item = "optionItem">
-    <view class="spec-title">{{optionItem}}</view>
-    
+      <view class="spec-title">{{optionItem}}</view>
+      <list-view type = "custom">
+        <label class = "radio">
+          <radio value = "{{option}}" wx:for = "{{selectedProduct.options[option]}}">你好</radio>
+        </label>
+      </list-view>
+
   </view>
 
   <!-- 购买按钮 -->

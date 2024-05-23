@@ -40,7 +40,8 @@
                 <!--<text style="font-size:23rpx;;color:gray;display:block;text-overflow:ellipsis;white-space:pre-line;line-height:40rpx" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}">{{prodItem.introduction}}</text> -->
                 <text style="font-size:23rpx;color:gray;display:block;white-space:pre-line;text-overflow:ellipsis;white-space:pre-line;line-height:30rpx" data-selected="{{prodItem}}">已售：{{prodItem.soldNum}}</text>
                 <view style="font-size:30rpx;color:black;padding:30rpx 0 0 100rpx;;display:inline-block" data-selected="{{prodItem}}"></view>
-            </view>                                                                        <view class="number-container">
+            </view>                                                                        
+            <view class="number-container" data-selected="{{prodItem}}">
                   <view style="font-size:34rpx;color:red;padding:30rpx 0 0 0;display:inline-block" data-selected="{{prodItem}}">￥{{prodItem.price}}</view>
                 </view>
             </view>                                                                   

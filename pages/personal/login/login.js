@@ -4,6 +4,7 @@ const defaultAvatarUrl = "../../icons/portrait.png"
 const defaultNickname = "昵称"
 const defaultPhoneNum = "电话"
 var app = getApp()
+wx.cloud.init()
 Page({
 
   /**
@@ -21,7 +22,6 @@ Page({
     this.setData({
       avatarUrl:e.detail.avatarUrl
     })
-    app.globalData.avatarUrl=e.detail.avatarUrl;
   },
   handleButtonClick() {//返回
     wx.reLaunch({
@@ -35,16 +35,31 @@ Page({
     if(e.detail.value.nickname)  app.globalData.nickname = e.detail.value.nickname;
     if(e.detail.value.phoneNum)  app.globalData.phoneNum = e.detail.value.phoneNum;
     // app.globalData.avatarUrl = e.detail.value.avatarUrl;
-    app.globalData.isLogin = 1;
-    wx.setStorage({
-      key: "userApperance",
-      data: JSON.stringify({
-        isLogin:app.globalData.isLogin,
-        nickname:app.globalData.nickname,
-        phoneNum:app.globalData.phoneNum,
-        avatarUrl:app.globalData.avatarUrl,
-      })
+    wx.cloud.callFunction({
+      name: 'userUpdate',
+      data:{
+        phoneNumber : e.detail.value.phoneNum,
+        nickName: e.detail.value.nickname,
+        avatarUrl: this.data.avatarUrl
+      },
+      success:function(res){
+        wx.showToast({
+          title:"修改成功",
+          icon:"success",
+          duration:1500
+        })
+        console.log(res)
+      },
+      fail:function(res){
+        console.log(res)
+        wx.showModal({
+        title:"错误",
+        content:"" + res
+        })
+      }
     })
+    
+
     wx.reLaunch({  //提交按钮，返回个人中心
       url: '../personal',
     })

@@ -1,4 +1,4 @@
-// pages/community/community.js
+// packages/community-package/pages/community/community.js
 Page({
 
   /**

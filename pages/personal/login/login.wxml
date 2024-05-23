@@ -13,7 +13,7 @@
   </view>
   <!-- <input type="nickname" name="nickname" class="weui-input" placeholder="请输入昵称"/>
   <input type="number" name="phoneNum" class="weui-input" placeholder="电话"/> -->
-
+  
   <!-- <button form-type="submit" style="color:green;">提交</button> -->
   <view style="display: flex; justify-content: space-between;">
   <!-- <navigator url="../personal/personal" open-type="navigateBack" style="align-self: center;"> -->

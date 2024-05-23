@@ -1,7 +1,7 @@
-<!--pages/test_page2/test_page2.wxml-->
+<view style = "height: 20vh; width: 100hv; position: fixed; top:0; background-color: red;"></view>
 
-<sky-routerPage bind:tapmask="closePage" >
-    <view style="width: 100%;height: 100%;background-color: red;"></view>
-  </sky-routerPage>
-
-  <sky-tabbar title="凹陷滚动" canvas-id="tab3" shadow="true" type="concave" selected="2" tabbar-list="[object Object],[object Object],[object Object]" safe-bottom="false" animation="true" vibration="true" border-radius="true" color="var(--text-l2)" selected-color="var(--text-l0)" background-color="var(--suc-l2)"  ></sky-tabbar>
+<radio-group class="radio-group" bindchange="radioChange">
+    <label class="radio" wx:for="{{items}}">
+        <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+    </label>
+</radio-group>

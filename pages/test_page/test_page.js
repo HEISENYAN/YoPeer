@@ -19,10 +19,11 @@ Page({
       }
     })*/
     wx.cloud.callFunction({
-      name: 'addCart',
+      name: 'userUpdate',
       data:{
-        prodNum : 10,
-        prodID: "YP1"
+        phoneNumber : '15704986695',
+        nickName: 'heisen',
+        avatarUrl:''
       },
       success:function(res){
         console.log(res)

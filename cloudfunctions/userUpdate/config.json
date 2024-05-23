@@ -2,7 +2,5 @@
   "permissions": {
     "openapi": [
     ]
-  },
-  "read":true,
-  "write":false
+  }
 }

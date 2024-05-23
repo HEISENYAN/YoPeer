@@ -5,9 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    show:false
   },
-
+  open: function () {
+    this.setData({
+        show: true
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

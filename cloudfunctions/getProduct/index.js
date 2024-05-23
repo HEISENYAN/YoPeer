@@ -8,18 +8,7 @@ var productInfo = ''
 // 云函数入口函数
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
-  console.log("run")
-  //{productID, }asdfasdf
-  
-  return db.collection('yopeerProduct').get({
-    success:function(res){
-      productInfo = res
-      console.log(res)
-    },
-    fail:function(res){
-      console.log(res)
-    }
-  })
+  return await db.collection('yopeerProduct').get({})
 
   /*
   return {

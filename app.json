@@ -1,16 +1,16 @@
 {
   "pages": [
 
-
-
-    "pages/activity/activity",
     "pages/test_page/test_page",
-    "pages/community/community",
     "pages/personal/personal",
+    
+    "pages/activity/activity",
+    "pages/test_page2/test_page2",
+    "packages/commnunity-package/pages/community/community",
     "pages/personal/login/login",
     "pages/personal/addressEdit/addressEdit",
-    "pages/personal/addressList/addressList",
-    "pages/test_page2/test_page2"
+    "pages/personal/addressList/addressList"
+    
     
   ],
   "subpackages": [
@@ -20,6 +20,12 @@
         "pages/check-out-page/check-out-page",
         "pages/shop/shop",
         "pages/product-detail/product-detail"
+      ]
+    },
+    {
+      "root":"packages/community-package",
+      "pages":[
+        "pages/community/community"
       ]
     }
   ],
@@ -49,7 +55,7 @@
         "selectedIconPath": "icons/Picture1a.png"
       },
       {
-        "pagePath": "pages/community/community",
+        "pagePath": "packages/commnunity-package/pages/community/community",
         "text": "社区",
         "iconPath": "icons/Picture4a.png",
         "selectedIconPath": "icons/Picture3a.png"
