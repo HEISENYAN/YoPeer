@@ -30,3 +30,20 @@
 .nickname-input {
   flex: 1;
 }
+
+.input-example {
+  margin: 0 32rpx;
+}
+.suffix--line {
+  width: 1px;
+  height: 24px;
+  background-color: var(--td-component-stroke, #f3f3f3);
+  margin-right: 16px;
+}
+.verify {
+  color: var(--td-brand-color, #0052D9);
+  font-size: 32rpx;
+}
+.mb-16 {
+  margin-bottom: 32rpx;
+}

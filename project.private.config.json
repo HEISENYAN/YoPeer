@@ -10,6 +10,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "login",
+          "pathName": "pages/personal/login/login",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/community/community",
           "pathName": "packages/shop-package/pages/shop/shop",
           "query": "",

@@ -16,7 +16,7 @@
     </view>
   </view>
   <view class="line"></view>
-  <view class="item" hover-class="pressStyle">
+  <view class="item" hover-class="pressStyle" bindtap = "getUserProfile">
     <view class="title">个人资料</view>
     <view class="detail2">
       <text> ></text>
@@ -33,30 +33,6 @@
     </view>
   </picker>
   </view>
-
-  <!-- <view class="line"></view>
-  <view>
-    <view bindtap="showInputModal" class='item' hover-class="pressStyle">
-      <view class="title">电话: {{phoneNum}}</view>
-      <view class="detail2">
-        <text>></text>
-      </view>
-    </view>
-    <modal
-      bindtap="toggleModal"
-      data-show="{{isModalShown}}"
-      title="请输入信息"
-      content=""
-      showCancel="false"
-      confirmText="确认"
-      cancelText="取消"
-      catchconfirm="onConfirm"
-      catchcancel="onCancel">
-      <view class="input-container">
-        <input placeholder="请输入内容" type="number" bindinput="onInputChange" value="{{inputValue}}"/>
-      </view>
-    </modal>
-  </view> -->
 
   <view class="line"></view>
   <view class='item' hover-class="pressStyle" bindtap = "getAddressList">

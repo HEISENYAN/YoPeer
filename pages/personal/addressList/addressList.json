@@ -1,4 +1,6 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "return-button": "/components/return-button/return-button"
+  }
 }

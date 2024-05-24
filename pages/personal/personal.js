@@ -7,7 +7,7 @@ Page({
    */
   data: {
    isLogin : '',
-   nickname: '',
+   nickname: app.globalData.nickname,
    avatarUrl: app.globalData.avatarUrl,
    yoPeerValue: 300,
   //学校 下拉列表
