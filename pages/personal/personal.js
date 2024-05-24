@@ -20,7 +20,7 @@ Page({
   // phoneNum: '', // 存储用户输入的值
   },
   getUserProfile:function(e){  //进入登陆界面/个人信息
-    wx.reLaunch({
+    wx.navigateTo({
       url:"./login/login"
     })
   },

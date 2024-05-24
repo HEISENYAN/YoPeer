@@ -1,7 +1,7 @@
+<!-- 导航栏 -->
+<yp-navigation title ="商品详情" returnButton = "{{true}}"></yp-navigation>
+
 <view class="container">
-  
-  <!--顶部返回按钮-->
-  <return-button></return-button>
   
   <!-- 上半部分：横向滑动图片 -->
   <swiper class="swiper-container" autoplay="true" interval="3000" duration="500" indicator-dots="true">

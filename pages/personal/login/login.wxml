@@ -1,7 +1,6 @@
 <!-- <return-button bindtap = "handleButtonClick"></return-button> -->
-<view class="block" bindtap = "handleButtonClick">
-  <t-navbar t-class-placeholder="t-navbar-placeholder" t-class-content="t-navbar-content" left-arrow title="个人信息"/>
-</view>
+
+<yp-navigation title ="个人信息" returnButton = "{{true}}"></yp-navigation>
 <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
   <image name="avatarUrl" class="avatar" src="{{avatarUrl}}"></image>
 </button> 
@@ -18,7 +17,7 @@
   <t-input style="{{style}}" label="昵称" placeholder="{{nickname}}" />
   </view> -->
   <t-input type="nickname" name="nickname" label="昵称" placeholder="{{nickname}}" tips="最大输入10个字符" maxlength="{{10}}" bind:change="onInputChange" />
-  <t-input
+  <t-input 
     label="手机号"
     name="phoneNum"
     placeholder="{{phoneNum}}"

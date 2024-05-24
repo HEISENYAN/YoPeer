@@ -6,7 +6,7 @@
     </view>
   </view>
   <view class = "titlebox" style = "padding:{{margin}}px 0 0 10vw">
-    <view class = "title" style = "height:{{size}}px;font-size: {{size}}px/2;">
+    <view class = "title" style = "height:{{size}}px;">
       {{title}}
       <slot name = "title">
       </slot>

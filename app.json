@@ -2,8 +2,12 @@
   "pages": [
 
     "pages/activity/activity",
-    "pages/test_page/test_page",
     "pages/personal/personal",
+
+    "pages/test_page/test_page",
+    
+    
+    
     
     "pages/test_page2/test_page2",
     "packages/commnunity-package/pages/community/community",
@@ -74,6 +78,7 @@
     "sky-icon": "/miniprogram_npm/jieyue-ui-com/sky-icon/sky-icon",
     "sky-text": "/miniprogram_npm/jieyue-ui-com/sky-text/sky-text",
     "mp-slide-screen": "/components/slide-screen/slide-screen",
-    "return-button": "/components/return-button/return-button"
+    "return-button": "/components/return-button/return-button",
+    "yp-navigation":"/components/yp-navigation-bar/yp-navigation-bar"
   }
 }
