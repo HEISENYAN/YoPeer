@@ -1,4 +1,5 @@
 {
   "usingComponents": {
+    "yp-navigation":"/components/yp-navigation-bar/yp-navigation-bar"
   }
 }

@@ -7,7 +7,7 @@ db = cloud.database()
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   const {phoneNumber, avatarUrl, nickName} = event
-  db.collection('yopeerUser').doc(wxContext.OPENID).update({
+  await db.collection('yopeerUser').doc(wxContext.OPENID).update({
     data:{
       phoneNumber:phoneNumber,
       avatarUrl:avatarUrl,
@@ -15,4 +15,5 @@ exports.main = async (event, context) => {
       _openid:wxContext.OPENID
     }
   })
+  return context
 }

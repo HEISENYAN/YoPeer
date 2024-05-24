@@ -1,0 +1,10 @@
+在页面wxml里加 <yp-navigation></yp-navigation>
+在页面json里加 
+"usingComponents": {
+    "yp-navigation":"/components/yp-navigation-bar/yp-navigation-bar"
+  }
+相关属性:
+修改标题
+title: 默认''
+是否添加返回按钮
+returnButton: 默认false

@@ -2,7 +2,8 @@
 const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
 // const defaultAvatarUrl = "../../icons/portrait.png"
 const defaultNickname = "昵称"
-const defaultPhoneNum = ""
+const defaultPhoneNum = "电话"
+var avatarUrl = ''
 var app = getApp()
 wx.cloud.init()
 
@@ -65,6 +66,7 @@ Page({
   },
   onChooseAvatar(e) {//修改头像
     console.log(e);
+    avatarUrl = e.detail.avatarUrl
     this.setData({
       avatarUrl:e.detail.avatarUrl
     })
@@ -87,31 +89,33 @@ Page({
     const updatedPhoneNum = (e.detail.value.phoneNum)? e.detail.value.phoneNum : this.phoneNum;
     const updatedNickname = (e.detail.value.nickname)? e.detail.value.nickname : this.nickname;
     // app.globalData.avatarUrl = e.detail.value.avatarUrl;
+    //console.log(e)
     wx.cloud.callFunction({
       name: 'userUpdate',
       data:{
-        phoneNumber : updatedPhoneNum,
-        nickName: updatedNickname,
-        avatarUrl: this.data.avatarUrl
+        phoneNumber : e.detail.value.phoneNum,
+        nickName: e.detail.value.nickname,
+        avatarUrl: avatarUrl
       },
       success:function(res){
         wx.showToast({
           title:"修改成功",
           icon:"success",
-          duration:1500
+          duration:1500,
+          mask: true/*
+          success:function(){
+            wx.reLaunch({  //提交按钮，返回个人中心
+            url: '../personal',
+          })
+          }*/
         })
-        console.log(res)
       },
       fail:function(res){
-        console.log(res)
         wx.showModal({
         title:"错误",
         content:"" + res
         })
       }
-    })
-    wx.reLaunch({  //提交按钮，返回个人中心
-      url: '../personal',
     })
   },
   /**

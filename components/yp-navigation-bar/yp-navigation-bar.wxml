@@ -1,0 +1,15 @@
+<!--components/yp-navigation-bar/yp-navigation-bar.wxml-->
+<view class = "navigator" style = "height:{{height}}px;">
+  <view class = "return" style = "padding:{{margin}}px 0 0 5vw">
+    <view wx:if="{{returnButton}}" class  = "returnButton" style = "height:{{size}}px;" bindtap = "returnToPage"> 
+      {{"<"}}
+    </view>
+  </view>
+  <view class = "titlebox" style = "padding:{{margin}}px 0 0 10vw">
+    <view class = "title" style = "height:{{size}}px;font-size: {{size}}px/2;">
+      {{title}}
+      <slot name = "title">
+      </slot>
+    </view>
+  </view>
+</view>

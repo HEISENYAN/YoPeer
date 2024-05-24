@@ -1,0 +1,32 @@
+/* components/yp-navigation-bar/yp-navigation-bar.wxss */
+.navigator{
+  background-color:white;
+  display: block;
+  width:100vw;
+}
+.return{
+  background-color: white;
+  display: inline-block;
+  width:20vw;
+  height: 100%;
+}
+.returnButton{
+  display: flex;
+  width:10vw;
+  font-size: 25px;
+  justify-content: center; /* 水平居中 */
+  align-items: center;     /* 垂直居中 */
+}
+.titlebox{
+  background-color: white;
+  display: inline-block;
+  width:80vw;
+  height:100%;
+}
+.title{
+  background-color: white;
+  display: flex;
+  width:40vw;
+  justify-content: center; /* 水平居中 */
+  align-items: center;     /* 垂直居中 */
+}

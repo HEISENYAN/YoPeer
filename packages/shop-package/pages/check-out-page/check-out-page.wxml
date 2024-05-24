@@ -1,6 +1,5 @@
 <!--pages/check-out-page/check-out-page.wxml-->
-
-
+<yp-navigation title = "结算" returnButton = "{{true}}"></yp-navigation>
 <scroll-view class="scroll-area" type="list" scroll-y>
   <view class="intro">欢迎来到YoPeer港校新生团购活动🐱</view>
 

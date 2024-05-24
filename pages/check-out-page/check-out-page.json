@@ -1,12 +1,12 @@
 {
   "usingComponents": {
-    "navigation-bar": "/components/navigation-bar/navigation-bar",
+
     "van-button": "/miniprogram_npm/@vant/weapp/button/index",
     "van-row": "/miniprogram_npm/@vant/weapp/row/index",
     "van-col": "/miniprogram_npm/@vant/weapp/col/index",
     "van-cell": "/miniprogram_npm/@vant/weapp/cell/index",
     "van-cell-group": "/miniprogram_npm/@vant/weapp/cell-group/index",
     "van-icon": "/miniprogram_npm/@vant/weapp/icon/index",
-    "van-submit-bar": "/miniprogram_npm/@vant/weapp/submit-bar/index"
+    "yp-navigation":"/components/yp-navigation-bar/yp-navigation-bar"
   }
 }

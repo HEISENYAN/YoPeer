@@ -37,10 +37,9 @@ Page({
     wx.cloud.callFunction({
       name:'getUserInfo',
       success:function(res){
-        console.log(res)
         that.setData({
           //selectedIndex: Boolean(res.data.schoolIndex)?res.data.schoolIndex:0,
-          nickname: res.result.nickname,
+          nickname: res.result.nickName,
           avatarUrl: res.result.avatarUrl,
           yoPeerValue:res.result.yoPeerValue
         })
