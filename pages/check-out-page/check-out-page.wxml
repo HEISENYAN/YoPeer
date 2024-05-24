@@ -1,2 +1,38 @@
 <!--pages/check-out-page/check-out-page.wxml-->
-<text>pages/check-out-page/check-out-page.wxml</text>
+
+<navigation-bar title="Weixin" back="{{false}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scroll-area" type="list" scroll-y>
+  <view class="intro">欢迎来到YoPeer港校新生团购活动🐱</view>
+
+  <van-cell-group inset class="unit-area">
+    <van-cell title="港校新生团购结算"/>
+    <van-cell title="被子" value="¥20" label="件数：1" />
+    <van-cell title="牙刷" value="¥40" label="件数：2" />
+    <van-cell title="床单" value="¥60" label="件数：1" />
+    <van-cell title="潘哥" value="¥0.1" label="件数：99" />
+    <van-cell title="应付款：" value="¥99" size="large" />
+    <van-cell title="配送费：" value="¥15" size="small" />
+    <van-cell title="实付款：" value="¥114" size="large" />
+  </van-cell-group>
+
+  <van-cell-group inset class="unit-area2">
+    <van-cell title="优惠券" is-link value="内容" />
+  </van-cell-group>
+
+  <van-cell-group inset class="unit-area3">
+    <van-cell title="备注" is-link value="内容" />
+  </van-cell-group>
+
+  <van-submit-bar
+    price="{{ 3050 }}"
+    button-text="提交订单"
+    bind:submit="onClickButton"
+    tip="{{ true }}"
+  >
+    <van-tag type="primary">标签</van-tag>
+    <view slot="tip">您的收货地址为：香港大学 <text>修改地址</text></view>
+  </van-submit-bar>
+
+
+</scroll-view>
+

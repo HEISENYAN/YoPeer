@@ -47,7 +47,7 @@
 
 .product-price {
   font-size: 32rpx;
-  color: #e60012;
+  color:hotpink;
   margin-bottom: 10rpx;
   margin-left: 10rpx;
 }

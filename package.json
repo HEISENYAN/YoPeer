@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@vant/weapp": "^1.11.6",
     "jieyue-ui-com": "^1.1.7",
     "tdesign-miniprogram": "^1.2.9",
     "weui-miniprogram": "^1.3.1",

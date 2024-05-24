@@ -105,7 +105,7 @@
   font-size: 35rpx;
   padding: 30rpx 0;
   display: inline-block;
-  color:rgb(233, 47, 47);
+  color:hotpink;
 }
 .check-out-button{
   height:100%;
