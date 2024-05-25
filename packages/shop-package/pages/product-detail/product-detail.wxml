@@ -1,7 +1,6 @@
-<!-- 导航栏 -->
-<yp-navigation title ="商品详情" returnButton = "{{true}}"></yp-navigation>
 
-<view class="container">
+
+
   
   <!-- 上半部分：横向滑动图片 -->
   <swiper class="swiper-container" autoplay="true" interval="3000" duration="500" indicator-dots="true">
@@ -13,11 +12,11 @@
   </swiper>
 
   <!-- 下半部分：商品信息 -->
-  <scroll-view type="list" scroll-y="true" class="product-info">
+  <view scroll-y="true" class="product-info">
     <view class="product-name">{{selectedProduct.prodName}}</view>
     <view class="product-description">{{selectedProduct.introduction}}</view>
     <view class="product-price">￥{{selectedProduct.price}}</view>
-  </scroll-view>
+  </view>
 
   <!-- 规格选择模版 -->
   <!-- <view class="product-specs">
@@ -44,4 +43,4 @@
   <view class="buy-button-container">
     <button class="buy-button" bindtap="addToCart">购买</button>
   </view>
-</view>
+

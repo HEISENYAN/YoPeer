@@ -1,3 +1,10 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    
+  },
+  "renderer":"webview",
+  "navigationBarTextStyle": "black",
+  "navigationStyle": "default",
+  "navigationBarTitleText": "商品详情",
+  "navigationBarBackgroundColor": "#ffffff"
 }

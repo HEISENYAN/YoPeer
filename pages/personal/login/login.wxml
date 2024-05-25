@@ -1,6 +1,4 @@
-<!-- <return-button bindtap = "handleButtonClick"></return-button> -->
 
-<yp-navigation title ="个人信息" returnButton = "{{true}}"></yp-navigation>
 <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
   <image name="avatarUrl" class="avatar" src="{{avatarUrl}}"></image>
 </button> 

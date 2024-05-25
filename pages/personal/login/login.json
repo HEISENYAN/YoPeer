@@ -8,5 +8,10 @@
     "t-picker": "tdesign-miniprogram/picker/picker",
     "t-picker-item": "tdesign-miniprogram/picker-item/picker-item",
     "yp-navigation":"/components/yp-navigation-bar/yp-navigation-bar"
-  }
+  },
+  "renderer": "webview",
+  "navigationBarTextStyle": "black",
+  "navigationStyle": "default",
+  "navigationBarTitleText": "个人资料",
+  "navigationBarBackgroundColor": "#ffffff"
 }

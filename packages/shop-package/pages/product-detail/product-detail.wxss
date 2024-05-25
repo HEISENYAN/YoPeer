@@ -1,21 +1,9 @@
 .container {
-  display: flex;
+  display:block;
   flex-direction: column;
   background-color: #f8f8f8;
   justify-content: flex-start;
   align-content: flex-start
-}
-
-.back-button {
-  position: absolute;
-  top: 20rpx;
-  left: 20rpx;
-  z-index: 10;
-}
-
-.icon-back {
-  font-size: 36rpx;
-  color: #333;
 }
 
 .swiper-container {
@@ -31,8 +19,8 @@
 
 .product-info {
   padding: 30rpx;
-  width: 90%;
-  min-height: 300rpx; /* 设置最小高度 */
+  width: 100%;
+   /* min-height: 300rpx;设置最小高度 */
   background: linear-gradient(45deg, rgb(228, 215, 240), rgb(187, 197, 232)); /* 渐变背景颜色 */
   border-top-left-radius: 20rpx;
   border-top-right-radius: 20rpx;
@@ -58,12 +46,10 @@
   font-size: 28rpx;
   color: #333;
   line-height: 1.5;
-  margin-bottom: 20rpx;
-  margin-left: 10rpx;
 }
 
 .product-specs {
-  width: 90%;
+  width: 100%;
   padding: 30rpx;
   /* background: linear-gradient(45deg, rgb(228, 215, 240), rgb(187, 197, 232)); 渐变背景颜色 */
   background-color:rgb(245, 229, 200);
@@ -85,7 +71,7 @@
 }
 
 .buy-button {
-    margin-top: 40%;
+    margin-top: 10%;
     width: 150rpx;
     height: 80rpx;
     display:block;
