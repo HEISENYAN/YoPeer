@@ -1,7 +1,7 @@
-<view style = "height: 20vh; width: 100hv; position: fixed; top:0; background-color: red;"></view>
+
 
 <radio-group class="radio-group" bindchange="radioChange">
     <label class="radio" wx:for="{{items}}">
-        <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+        {{item.value}}<radio value="{{item.name}}" checked="{{item.checked}}"/>
     </label>
 </radio-group>

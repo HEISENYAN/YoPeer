@@ -4,7 +4,7 @@
   "setting": {
     "compileHotReLoad": true,
     "useIsolateContext": true,
-    "skylineRenderEnable": false
+    "skylineRenderEnable": true
   },
   "condition": {
     "miniprogram": {

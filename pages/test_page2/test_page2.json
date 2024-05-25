@@ -1,5 +1,10 @@
 {
   "usingComponents": {
 
-  }
+  },
+  "renderer":"webview",
+  "navigationBarTextStyle": "black",
+  "navigationStyle": "default",
+  "navigationBarTitleText": "webview测试页面",
+  "navigationBarBackgroundColor": "#ffffff"
 }

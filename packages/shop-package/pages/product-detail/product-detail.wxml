@@ -1,46 +1,61 @@
 
 
 
-  
-  <!-- 上半部分：横向滑动图片 -->
-  <swiper class="swiper-container" autoplay="true" interval="3000" duration="500" indicator-dots="true">
-    <block wx:for="{{product.images}}" wx:key="index">
-      <swiper-item>
-        <image class="swiper-image" src="{{item}}" mode="aspectFill"></image>
-      </swiper-item>
-    </block>
-  </swiper>
 
-  <!-- 下半部分：商品信息 -->
-  <view scroll-y="true" class="product-info">
-    <view class="product-name">{{selectedProduct.prodName}}</view>
-    <view class="product-description">{{selectedProduct.introduction}}</view>
-    <view class="product-price">￥{{selectedProduct.price}}</view>
+<!-- 上半部分：横向滑动图片 -->
+<swiper class="swiper-container" autoplay="true" interval="3000" duration="500" indicator-dots="true">
+  <block wx:for="{{product.images}}" wx:key="index">
+    <swiper-item>
+      <image class="swiper-image" src="{{item}}" mode="aspectFill"></image>
+    </swiper-item>
+  </block>
+</swiper>
+
+<!-- 下半部分：商品信息 -->
+<view scroll-y="true" class="product-info">
+  <view class="product-name">{{selectedProduct.prodName}}</view>
+  <view class="product-description">{{selectedProduct.introduction}}</view>
+  <view class="product-price">￥{{selectedProduct.price}}</view>
+</view>
+
+<!-- 规格选择模版 -->
+<!-- <view class="product-specs">
+  <view class="spec-title">选择规格</view>
+  <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+    <view class="picker">
+      当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}
+    </view>
+  </picker>
+</view> -->
+
+  <!-- 规格选择 -->
+<view class="product-specs" wx:for = "{{selectedProduct.optionName}}" wx:key = "wholeOption" wx:for-index = "option" wx:for-item = "optionName">
+  <view class="spec-title">{{optionName}}</view>
+  <radio-group class="radio-group" bindchange="radioChange" data-option = "{{option}}">
+    <label class="radio" wx:for="{{selectedProduct.options[option]}}" wx:key = "specOption" wx:for-index = "optionIndex" wx:for-item = "optionItem">
+        {{optionItem}}
+        <radio value="{{optionIndex}}" checked="{{optionIndex == 0}}" color = "rgb(193, 153, 226)"/>
+    </label>
+  </radio-group>
+
+</view>
+
+<!-- 加入购物车 -->
+<view class = "order-bar">
+  <view class = "order-num-selection">
+    <view class = "operation-button" bindtap = "onSub">-</view>
+    <view class = "num-selection">{{selectedNum}}</view>
+    <view class = "operation-button" bindtap = "onAdd">+</view>
   </view>
-
-  <!-- 规格选择模版 -->
-  <!-- <view class="product-specs">
-    <view class="spec-title">选择规格</view>
-    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
-      <view class="picker">
-        当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}
-      </view>
-    </picker>
-  </view> -->
-
-    <!-- 规格选择 -->
-    <view class="product-specs" wx:for = "{{selectedProduct.optionName}}" wx:key = "option" wx:for-item = "optionItem">
-      <view class="spec-title">{{optionItem}}</view>
-      <list-view type = "custom">
-        <label class = "radio">
-          <radio value = "{{option}}" wx:for = "{{selectedProduct.options[option]}}">你好</radio>
-        </label>
-      </list-view>
-
-  </view>
-
-  <!-- 购买按钮 -->
-  <view class="buy-button-container">
+  <view class = "button-container">
+    <!-- 购买按钮 -->
     <button class="buy-button" bindtap="addToCart">购买</button>
   </view>
+</view>
+
+<!-- 底部拓展白边 -->
+<view class = "bottom-margin"> </view>
+
+<!-- 安全区 -->
+<view class = "safe-area"> </view>
 

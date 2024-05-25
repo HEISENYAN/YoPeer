@@ -1,7 +1,9 @@
 /* pages/test_page2/test_page2.wxss */
 .radio-group{
   display:inline-block;
+  
 }
 .radio{
   display:inline-block;
+  padding: 0 0 0 30rpx
 }

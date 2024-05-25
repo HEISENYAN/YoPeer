@@ -1,14 +1,7 @@
-.container {
-  display:block;
-  flex-direction: column;
-  background-color: #f8f8f8;
-  justify-content: flex-start;
-  align-content: flex-start
-}
 
 .swiper-container {
   width: 100%;
-  height: 50vh;
+  height: 40vh;
   display:block
 }
 
@@ -18,8 +11,8 @@
 }
 
 .product-info {
-  padding: 30rpx;
-  width: 100%;
+  width: 720rpx;
+  padding:30rpx 0 30rpx 30rpx;
    /* min-height: 300rpx;设置最小高度 */
   background: linear-gradient(45deg, rgb(228, 215, 240), rgb(187, 197, 232)); /* 渐变背景颜色 */
   border-top-left-radius: 20rpx;
@@ -49,8 +42,8 @@
 }
 
 .product-specs {
-  width: 100%;
-  padding: 30rpx;
+  width: 720rpx;
+  padding:30rpx 0 30rpx 30rpx;
   /* background: linear-gradient(45deg, rgb(228, 215, 240), rgb(187, 197, 232)); 渐变背景颜色 */
   background-color:rgb(245, 229, 200);
   margin-top: 20rpx;
@@ -60,24 +53,92 @@
 }
 
 .spec-title {
-  font-size: 28rpx;
+  font-size: 32rpx;
   margin-bottom: 10rpx;
+  padding: 0 0 0 10rpx
 }
-
-.radio-group {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+.order-bar{
+  display: block;
+  position: fixed;
+  bottom: 20rpx;
+  height: 10vh;
+  width: 100vw;
+  background-color: white;
+  z-index: 99;
+  padding:0
+}
+.order-num-selection{
+  display: inline-block;
+  box-sizing: border-box;
+  height: 100%;
+  width: 60%;
+  background-color: white;
+  position: relative;
+  vertical-align:top;
+  padding: 1vh 0 0 40rpx
+}
+.button-container{
+  display: inline-block;
+  box-sizing: border-box;
+  height: 100%;
+  width: 40%;
+  background-color: white;
+  vertical-align:top;
+  padding: 1vh 0 0 8vw
+}
+.operation-button{
+  display:inline-flex;
+  height:20px;
+  width:20px;
+  background-color: wheat;
+  border-radius: 5px;
+  justify-content: center; 
+  align-items: center;
+  font-size: 20px;
+  margin:10px
+}
+.num-selection{
+  display:inline-flex;
+  height:20px;
+  width:40px;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
 }
 
 .buy-button {
-    margin-top: 10%;
-    width: 150rpx;
-    height: 80rpx;
-    display:block;
-    background-color: rgb(193, 153, 226);
-    border-radius: 10rpx;
-    text-align: center;
-    font-weight: bold;
-    color:#fff;
+  
+  width: 150rpx;
+  height: 80rpx;
+  display:inline-block;
+  background-color: rgb(193, 153, 226);
+  border-radius: 10rpx;
+  text-align: center;
+  font-weight: bold;
+  color:#fff;
+  margin-left: 20rpx;
+}
+.bottom-margin{
+  height: 20vh;
+  width: 750rpx;
+  background-color: white;
+}
+.radio-group{
+  display:inline-block;
+}
+.radio{
+  display:inline-block;
+  padding: 0 0 0 10rpx
+}
+
+.safe-area{
+  display:inline-block;
+  display: block;
+  position: fixed;
+  bottom: 0;
+  height: 20rpx;
+  width: 100vw;
+  background-color: white;
+  z-index: 99;
 }

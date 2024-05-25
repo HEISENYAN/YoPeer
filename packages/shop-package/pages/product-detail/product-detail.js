@@ -6,8 +6,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    pID: '',
-    pName: '',
     product: {
       images: [
         'https://images.pexels.com/photos/4202927/pexels-photo-4202927.jpeg',
@@ -15,16 +13,32 @@ Page({
         'https://images.pexels.com/photos/4045700/pexels-photo-4045700.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
       ],
     },
-    multiArray: [
-      ['规格1', '规格2', '规格3'], 
-      ['子规格1', '子规格2', '子规格3'], 
-      ['子子规格1', '子子规格2', '子子规格3']
-    ],
-    multiIndex: [0, 0, 0],
     selectedProduct:'',
-    YPproduct: []
+    YPproduct: [],
+    selectedNum:1,
+    selectedOptions:[]
   },
-  
+  onAdd(){
+    const currentNum = this.data.selectedNum
+    this.setData({
+      selectedNum:currentNum+1
+    })
+  },
+  onSub(){
+    const currentNum = this.data.selectedNum
+    if(currentNum <= 1){
+      wx.showToast({
+        title: '商品数量不可小于一',
+        icon: 'error',
+        duration: 1000
+      })
+    }
+    else{
+      this.setData({
+      selectedNum:currentNum-1
+      })
+    }
+  },
   onSpecChange(e) {
     this.setData({
       selectedSpec: e.detail.value
@@ -36,8 +50,9 @@ Page({
    */
   onLoad(options) {
     this.setData({
-      selectedProduct:JSON.parse(options.selected)
-    })
+      selectedProduct:JSON.parse(options.selected),
+      selectedOptions:new Array(JSON.parse(options.selected).optionNum).fill(0),
+    }, ()=>{console.log(this.data.selectedOptions)})
     this.getProductData();
   },
 
@@ -89,7 +104,17 @@ Page({
   onShareAppMessage() {
 
   },
+  radioChange(e){
+    console.log(e)
+    this.setData({
+      
+    },()=>{
 
+      console.log(e.target.dataset.option)
+      console.log(parseInt(e.detail.value))
+    })
+    
+  },
   generateMultiArray() {
     // 这里应该生成适合你的规格数组
     return [
