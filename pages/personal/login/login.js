@@ -66,7 +66,7 @@ Page({
   },
   onChooseAvatar(e) {//修改头像
     console.log(e);
-    avatarUrl = e.detail.avatarUrl
+    // avatarUrl = e.detail.avatarUrl
     this.setData({
       avatarUrl:e.detail.avatarUrl
     })
@@ -93,21 +93,19 @@ Page({
     wx.cloud.callFunction({
       name: 'userUpdate',
       data:{
-        phoneNumber : e.detail.value.phoneNum,
-        nickName: e.detail.value.nickname,
-        avatarUrl: avatarUrl
+        phoneNumber : updatedPhoneNum,
+        nickName: updatedNickname,
+        avatarUrl: this.data.avatarUrl
       },
       success:function(res){
         wx.showToast({
           title:"修改成功",
           icon:"success",
           duration:1500,
-          mask: true/*
-          success:function(){
-            wx.reLaunch({  //提交按钮，返回个人中心
-            url: '../personal',
-          })
-          }*/
+          mask: true
+        })
+        wx.reLaunch({  //提交按钮，返回个人中心
+          url: '../personal',
         })
       },
       fail:function(res){
@@ -117,6 +115,9 @@ Page({
         })
       }
     })
+    // wx.reLaunch({  //提交按钮，返回个人中心
+    //   url: '../personal',
+    // })
   },
   /**
    * 生命周期函数--监听页面加载
