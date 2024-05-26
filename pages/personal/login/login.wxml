@@ -14,12 +14,11 @@
   <!-- <view class="input-example">
   <t-input style="{{style}}" label="昵称" placeholder="{{nickname}}" />
   </view> -->
-  <t-input type="nickname" name="nickname" label="昵称" placeholder="{{nickname}}" tips="最大输入10个字符" maxlength="{{10}}" bind:change="onInputChange" />
+  <t-input name="nickname" type="nickname" label="昵称" placeholder="{{nickname}}" tips="最大输入10个字符" maxlength="{{10}}" bind:change="onInputChange" />
   <t-input 
     label="手机号"
     name="phoneNum"
     placeholder="{{phoneNum}}"
-    value="{{phoneNum}}"
     type="number"
     tips="{{phoneError ? '手机号输入不正确' : ''}}"
     bindchange="onPhoneInput"

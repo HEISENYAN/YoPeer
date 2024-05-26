@@ -12,6 +12,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isLogin : '',
     style: 'border-radius: 12rpx;',
     cityText: '',
     cityValue: [],
@@ -27,9 +28,9 @@ Page({
       { label: '香港教育大学', value: '香港教育大学' },
     ],
     phoneError: false,
-    avatarUrl: app.globalData.avatarUrl ? app.globalData.avatarUrl : defaultAvatarUrl,
-    nickname: (app.globalData.nickname!="游客") ? app.globalData.nickname : defaultNickname,
-    phoneNum: (app.globalData.phoneNum!="12345678") ? app.globalData.phoneNum : defaultPhoneNum,
+    avatarUrl: '',
+    nickname: '',
+    phoneNum: '',
   },
   onColumnChange(e) {
     console.log('picker pick:', e);
@@ -70,6 +71,7 @@ Page({
     this.setData({
       avatarUrl:e.detail.avatarUrl
     })
+    app.globalData.avatarUrl = e.detail.avatarUrl;
   },
   // returnPage: function(){
   //   wx.navigateBack()({
@@ -84,12 +86,17 @@ Page({
     });
   },
   formSubmit(e){
+    if(e.detail.value.nickname){console.log("nickname valid")}
+    else{console.log("nickname invalid")}
+    // console.log("e.detail.value.phoneNum: " + e.detail.value.phoneNum)
+    // console.log("e.detail.value.nickname: " + e.detail.value.nickname)
     if(e.detail.value.nickname)  app.globalData.nickname = e.detail.value.nickname;
     if(e.detail.value.phoneNum)  app.globalData.phoneNum = e.detail.value.phoneNum;
-    const updatedPhoneNum = (e.detail.value.phoneNum)? e.detail.value.phoneNum : this.phoneNum;
-    const updatedNickname = (e.detail.value.nickname)? e.detail.value.nickname : this.nickname;
-    // app.globalData.avatarUrl = e.detail.value.avatarUrl;
-    //console.log(e)
+    // console.log("app.globalData.nickname: " + app.globalData.nickname)
+    // console.log("app.globalData.phoneNum: " + app.globalData.phoneNum)
+    const updatedPhoneNum = (e.detail.value.phoneNum)? e.detail.value.phoneNum : this.data.phoneNum;
+    const updatedNickname = (e.detail.value.nickname)? e.detail.value.nickname : this.data.nickname;
+    // console.log(e)
     wx.cloud.callFunction({
       name: 'userUpdate',
       data:{
@@ -122,61 +129,43 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-  },
-
+  onLoad(options) {},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady() {
-
-  },
-
+  onReady() {},
   /**
    * 生命周期函数--监听页面显示
    */
   onShow() {
     this.setData({
+      isLogin : app.globalData.isLogin,
       avatarUrl: app.globalData.avatarUrl ? app.globalData.avatarUrl : defaultAvatarUrl,
       nickname: (app.globalData.nickname!="游客") ? app.globalData.nickname : defaultNickname,
       phoneNum: (app.globalData.phoneNum!="12345678") ? app.globalData.phoneNum : defaultPhoneNum,
       });
-
+      // console.log("app.globalData.nickname: " + app.globalData.nickname)
+      // console.log("app.globalData.phoneNum: " + app.globalData.phoneNum)
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide() {
-
-  },
-
+  onHide() {},
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload() {
-
-  },
-
+  onUnload() {},
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh() {
-
-  },
-
+  onPullDownRefresh() {},
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom() {
-
-  },
-
+  onReachBottom() {},
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage() {
-
-  }
+  onShareAppMessage() {}
 })
-// console.log("app.globalData.phoneNum!=" + app.globalData.phoneNum!="123456")

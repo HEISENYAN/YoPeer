@@ -23,7 +23,7 @@
     </view>
   </view>
   <view class="line"></view>
-  <view>
+  <!-- <view>
     <picker mode="selector" range="{{pickerOptions}}" value="{{selectedIndex}}" bindchange="onPickerChange" hidden="{{!isPickerShown}}">
     <view class="picker-view" class='item' hover-class="pressStyle">
       <view class="title">我的学校: {{pickerOptions[selectedIndex]}}</view>
@@ -32,7 +32,7 @@
       </view>
     </view>
   </picker>
-  </view>
+  </view> -->
 
   <view class="line"></view>
   <view class='item' hover-class="pressStyle" bindtap = "getAddressList">

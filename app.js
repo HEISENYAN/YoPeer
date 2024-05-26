@@ -1,4 +1,5 @@
 // app.js
+wx.cloud.init()
 App({
   globalData:{
     openID: null,
@@ -25,11 +26,11 @@ App({
     wx.getStorage({
       key: "userApperance",
       success:res=>{
-        var result = JSON.parse(res.data);
-        this.globalData.isLogin = result.isLogin;
-        this.globalData.nickname = result.nickname;
-        this.globalData.phoneNum = result.phoneNum;
-        this.globalData.avatarUrl = result.avatarUrl;
+        // var result = JSON.parse(res.data);
+        // this.globalData.isLogin = result.isLogin;
+        // this.globalData.nickname = result.nickname;
+        // this.globalData.phoneNum = result.phoneNum;
+        // this.globalData.avatarUrl = result.avatarUrl;
         // this.globalData.yoPeerValue = result.yoPeerValue;
       }
     })
