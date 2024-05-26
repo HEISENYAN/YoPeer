@@ -71,7 +71,7 @@
   display: inline-block;
   box-sizing: border-box;
   height: 100%;
-  width: 60%;
+  width: 40%;
   background-color: white;
   position: relative;
   vertical-align:top;
@@ -81,7 +81,7 @@
   display: inline-block;
   box-sizing: border-box;
   height: 100%;
-  width: 40%;
+  width: 60%;
   background-color: white;
   vertical-align:top;
   padding: 1vh 0 0 8vw
@@ -109,7 +109,7 @@
 
 .buy-button {
   
-  width: 150rpx;
+  width: 300rpx;
   height: 80rpx;
   display:inline-block;
   background-color: rgb(193, 153, 226);

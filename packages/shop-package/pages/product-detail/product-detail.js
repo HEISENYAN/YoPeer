@@ -14,16 +14,105 @@ Page({
       ],
     },
     selectedProduct:'',
-    YPproduct: [],
     selectedNum:1,
     selectedOptions:[]
   },
+  wrapProduct:function(){
+    var ypProduct = new Object()
+    ypProduct.selectedNum = this.data.selectedNum;
+    ypProduct.selectedOptions = this.data.selectedOptions;
+    ypProduct.selectedItem = new Array(0)
+    for(let i = 0; i < this.data.selectedOptions.length;i++){
+      ypProduct.selectedItem.push(this.data.selectedProduct.options[i][this.data.selectedOptions[i]])
+    }
+    return ypProduct
+  },
+  //加入购物车
+  onAddCart(){
+    const that = this
+    wx.getStorage({
+      key:"ypCart",
+      fail: function(res){
+        console.log(res)
+        //判断是否创造过购物车
+        if(res.errMsg == "getStorage:fail data not found"){
+          const ypProduct = that.wrapProduct()
+          wx.setStorage({
+            key:"ypCart",
+            data : {[that.data.selectedProduct.prodID + ypProduct.selectedItem.toString()]:ypProduct},
+            fail:function(){
+              wx.showToast({
+                title:"加入购物车错误",
+                icon:"error"
+              })
+            },
+            success:function(){
+              wx.showToast({
+                duration:1000,
+                title:"成功加入购物车",
+                icon:"success",
+                success:wx.navigateBack()
+              })
+            }
+          })
+        }
+        //其它出错原因
+        else{
+          wx.showToast({
+            title:"加入购物车错误",
+            icon:"error"
+          })
+        }
+      },
+      //成功读取
+      success:function(res){
+        const ypProduct = that.wrapProduct();
+        //判断是否已经存在此商品
+        if(res.data.hasOwnProperty(that.data.selectedProduct.prodID + ypProduct.selectedItem.toString())){
+          res.data[that.data.selectedProduct.prodID + ypProduct.selectedItem.toString()].selectedNum += that.data.selectedNum;
+        }
+        else{
+          res.data[that.data.selectedProduct.prodID + ypProduct.selectedItem.toString()] = ypProduct;
+        }
+        //更新购物车
+        wx.setStorage({
+          key:"ypCart",
+          data:res.data,
+          fail:function(){
+            wx.showToast({
+              title:"加入购物车错误",
+              icon:"error"
+            })
+          },
+          success:function(){
+            wx.showToast({
+              duration:1000,
+              title:"成功加入购物车",
+              icon:"success",
+              success: wx.navigateBack()
+            })
+            
+          }
+        })
+      }
+    })
+  },
+  //改变选项
+  radioChange(e){
+    this.setData({
+      ["selectedOptions["+e.target.dataset.option+"]"] : parseInt(e.detail.value)
+    },()=>{
+      //console.log(this.data.selectedOptions)
+    })
+  },
+  //增加数量
   onAdd(){
     const currentNum = this.data.selectedNum
     this.setData({
       selectedNum:currentNum+1
     })
   },
+  //减少数量
   onSub(){
     const currentNum = this.data.selectedNum
     if(currentNum <= 1){
@@ -39,21 +128,16 @@ Page({
       })
     }
   },
-  onSpecChange(e) {
-    this.setData({
-      selectedSpec: e.detail.value
-    });
-  },
 
   /**
    * 生命周期函数--监听页面加载
    */
+  //初始化数据
   onLoad(options) {
     this.setData({
       selectedProduct:JSON.parse(options.selected),
       selectedOptions:new Array(JSON.parse(options.selected).optionNum).fill(0),
-    }, ()=>{console.log(this.data.selectedOptions)})
-    this.getProductData();
+    })
   },
 
   /**
@@ -103,67 +187,6 @@ Page({
    */
   onShareAppMessage() {
 
-  },
-  radioChange(e){
-    console.log(e)
-    this.setData({
-      
-    },()=>{
-
-      console.log(e.target.dataset.option)
-      console.log(parseInt(e.detail.value))
-    })
-    
-  },
-  generateMultiArray() {
-    // 这里应该生成适合你的规格数组
-    return [
-      ['规格1', '规格2', '规格3'],
-      ['子规格1', '子规格2', '子规格3'],
-      ['子子规格1', '子子规格2', '子子规格3']
-    ];
-  },
-
-  bindMultiPickerChange(e) {
-    this.setData({
-      multiIndex: e.detail.value
-    });
-  },
-
-  bindMultiPickerColumnChange(e) {
-    const data = {
-      multiArray: this.data.multiArray,
-      multiIndex: this.data.multiIndex
-    };
-    data.multiIndex[e.detail.column] = e.detail.value;
-    // 更新列选择的数据逻辑
-    this.setData(data);
-  },
-
-  getProductData() {
-    let that = this;
-    wx.cloud.callFunction({
-      name: 'getProduct',
-      success: function(res) {
-        if (res.result.data) {
-          that.setData({
-            YPproduct: res.result.data
-          });
-        } else {
-          wx.showToast({
-            title: '获取数据失败',
-            icon: 'none'
-          });
-        }
-      },
-      fail: function(err) {
-        wx.showModal({
-          title: '错误',
-          content: '获取数据失败: ' + err,
-          showCancel: false
-        });
-      }
-    });
   }
 })
 

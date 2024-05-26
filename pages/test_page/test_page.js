@@ -18,6 +18,7 @@ Page({
         })
       }
     })*/
+    /*
     wx.cloud.callFunction({
       name: 'userUpdate',
       data:{
@@ -35,7 +36,16 @@ Page({
         content:"" + res
         })
       }
+    })*/
+    const matching = /YP\d+/
+    wx.getStorage({
+      key:"ypCart",
+      success:function(res){
+        for(let i in res.data){
+          console.log(i)
+          console.log(matching.exec(i)[0])
+        }
+      }
     })
-    
   }
 });
