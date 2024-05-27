@@ -5,14 +5,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    checkOutInfo:[],
+    checkOutPrice:0,
+    offsetMargin:84
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.setData({
+      checkOutInfo:JSON.parse(options.cartinfo),
+      checkOutPrice:options.totalprice
+    },()=>console.log(this.data.checkOutInfo))
+    
   },
 
   /**

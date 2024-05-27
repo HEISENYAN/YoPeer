@@ -18,17 +18,20 @@ Page({
     selectedOptions:[]
   },
   wrapProduct:function(){
-    var ypProduct = new Object()
+    var ypProduct = new Object();
     ypProduct.selectedNum = this.data.selectedNum;
+    ypProduct.price = this.data.selectedProduct.price;
     ypProduct.selectedOptions = this.data.selectedOptions;
-    ypProduct.selectedItem = new Array(0)
+    ypProduct.prodName = this.data.selectedProduct.prodName;
+    ypProduct.selectedItem = new Array(0);
+    ypProduct.optionName = this.data.selectedProduct.optionName;
     for(let i = 0; i < this.data.selectedOptions.length;i++){
       ypProduct.selectedItem.push(this.data.selectedProduct.options[i][this.data.selectedOptions[i]])
     }
     return ypProduct
   },
   //加入购物车
-  onAddCart(){
+  onAddCart:function(){
     const that = this
     wx.getStorage({
       key:"ypCart",
@@ -98,7 +101,7 @@ Page({
     })
   },
   //改变选项
-  radioChange(e){
+  radioChange: function(e){
     this.setData({
       ["selectedOptions["+e.target.dataset.option+"]"] : parseInt(e.detail.value)
     },()=>{
@@ -106,14 +109,14 @@ Page({
     })
   },
   //增加数量
-  onAdd(){
+  onAdd: function(){
     const currentNum = this.data.selectedNum
     this.setData({
       selectedNum:currentNum+1
     })
   },
   //减少数量
-  onSub(){
+  onSub: function(){
     const currentNum = this.data.selectedNum
     if(currentNum <= 1){
       wx.showToast({

@@ -8,5 +8,10 @@
     "van-icon": "/miniprogram_npm/@vant/weapp/icon/index",
     "van-submit-bar": "/miniprogram_npm/@vant/weapp/submit-bar/index",
     "yp-navigation":"/components/yp-navigation-bar/yp-navigation-bar"
-  }
+  },
+  "renderer":"webview",
+  "navigationBarTextStyle": "black",
+  "navigationStyle": "default",
+  "navigationBarTitleText": "结算",
+  "navigationBarBackgroundColor": "#ffffff"
 }

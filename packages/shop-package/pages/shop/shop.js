@@ -22,7 +22,9 @@ Component({
     headerTop:0,
     selectedTotalPrice:0, // 已经选择物品的总价
     ifMaskOn: false,
-    YPproduct:{}
+    YPproduct:{},
+    cartPrice:0,
+    ypCart:[]
   },
   methods:{
     returnPage: function(){
@@ -76,8 +78,43 @@ Component({
       })
     },
     checkOut: function(e){
-      wx.navigateTo({
-        url: '/packages/shop-package/pages/check-out-page/check-out-page',
+      if(this.data.cartPrice == 0){
+        wx.showToast({
+          title: '请先加入物品',
+          icon:"error"
+        })
+      }
+      else{
+        wx.navigateTo({
+          url: '/packages/shop-package/pages/check-out-page/check-out-page?cartinfo='+ JSON.stringify(this.data.ypCart) + "&totalprice="+this.data.cartPrice,
+        })
+      }
+      
+    },
+    onClearCart: function(){
+      const that = this
+      wx.removeStorage({
+        key: "ypCart",
+        success:function(){
+          wx.showToast({
+            title: '已清除购物车',
+            icon: 'success',
+            duration: 1000,
+            success:function(){
+              that.setData({
+                cartPrice:0,
+                ypCart:[]
+              },()=>that.closeCart())
+            }
+          })
+        },
+        fail:function(){
+          wx.showToast({
+            title: '无法清除，请重试',
+            icon: 'error',
+            duration: 1000
+          })
+        }
       })
     }
     
@@ -115,6 +152,39 @@ Component({
           })
         }
       });
+    },
+  },
+  pageLifetimes:{
+    show:function(){
+      const that = this
+      wx.getStorage({
+        key:'ypCart',
+        success:function(res){
+          var totalPrice = 0
+          var tempCart = []
+          const matching = /YP\d+/
+          console.log(that.data.YPproduct)
+          for(let i in res.data){
+            totalPrice += res.data[i].price * res.data[i].selectedNum
+            tempCart.push({
+              selectedNum:res.data[i].selectedNum,
+              price:res.data[i].price,
+              prodName:res.data[i].prodName,
+              selectedItem:res.data[i].selectedItem,
+              optionName:res.data[i].optionName
+            })
+          }
+          that.setData({
+            cartPrice:totalPrice,
+            ypCart:tempCart
+          },()=>console.log(that.data.ypCart))
+        },
+        fail:function(){
+          that.setData({
+            cartPrice:0
+          })
+        }
+      })
     }
   }
 })

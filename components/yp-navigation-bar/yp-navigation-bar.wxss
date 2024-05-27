@@ -3,12 +3,14 @@
   background-color:white;
   display: block;
   width:100vw;
+  box-sizing: border-box;
 }
 .return{
   background-color: white;
   display: inline-block;
   width:20vw;
   height: 100%;
+  box-sizing: border-box;
 }
 .returnButton{
   display: flex;
@@ -16,12 +18,14 @@
   font-size: 25px;
   justify-content: center; /* 水平居中 */
   align-items: center;     /* 垂直居中 */
+  box-sizing: border-box;
 }
 .titlebox{
   background-color: white;
   display: inline-block;
   width:80vw;
   height:100%;
+  box-sizing: border-box;
 }
 .title{
   background-color: white;
@@ -29,4 +33,5 @@
   width:40vw;
   justify-content: center; /* 水平居中 */
   align-items: center;     /* 垂直居中 */
+  box-sizing: border-box;
 }

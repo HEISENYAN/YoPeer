@@ -100,41 +100,46 @@
   
 }
 .cart-icon{
+  box-sizing: border-box;
   height:100%;
   width:100rpx;
   padding: 20rpx 40rpx;
   display: inline-block;
 }
 .cart-price{
+  box-sizing: border-box;
   height:100%;
   width:300rpx;
   font-size: 35rpx;
   padding: 30rpx 0;
   display: inline-block;
-  color:hotpink;
+  color:red;
 }
 .check-out-button{
+  box-sizing: border-box;
   height:100%;
   width:350rpx;
   display: inline-block;
   padding: 17rpx 160rpx;
   font-size: 27rpx;
   font-weight: 400;
-  align-items: center;
 }
 .theButton{
   width: 150rpx;
+  box-sizing: border-box;
   height: 80rpx;
-  display:block;
-  background-color: rgb(193, 153, 226);
+  display:flex;
+  background-color: #B9BCDF;
   border-radius: 10rpx;
   text-align: center;
-  padding: 13rpx 0;
   font-weight: bold;
+  justify-content: center; /* 水平居中 */
+  align-items: center;     /* 垂直居中 */
   color:#fff;
 }
 .cart-tab{
   display: inline-block;
+  box-sizing: border-box;
   background-color:white;
   height:100%;
   width:100%;
@@ -144,12 +149,14 @@
   height:100%;
   width: 100rpx;
   padding: 0 50rpx;
+  box-sizing: border-box;
 }
 .clear-button{
   display: inline-block;
   height: 100%;
   width: 650rpx;
-  padding: 5rpx -500rpx 0 0;
+  box-sizing: border-box;
+  padding: 5rpx 0 0 500rpx;
   color : rgb(0, 0, 255)
 }
 .cart{
@@ -189,9 +196,10 @@
 }
 
 .number-container {
-  flex: block;
-  padding-top: 30rpx;
-  padding-left: 30rpx;
+  flex: inline-block;
+  box-sizing: border-box;
+  padding-top: 100rpx;
+  padding-left: 70rpx;
 }
 
 .view-item-photo {
@@ -235,4 +243,14 @@
   width: 100%;
   height: 100%;
   object-fit: cover; /* 确保图片按比例缩放以覆盖容器 */
+}
+.choose-button{
+  display: flex;
+  width: 100rpx;
+  height: 50rpx;
+  background-color: #B9BCDF;
+  font-size: 27rpx;
+  border-radius: 10rpx;
+  justify-content: center;
+  color: white;
 }
