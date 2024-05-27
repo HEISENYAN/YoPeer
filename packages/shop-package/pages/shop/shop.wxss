@@ -202,15 +202,18 @@
   background-color: #ffffff; /* 白色背景 */
   z-index: 10; /* 确保在其他内容之上 */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 添加阴影 */
-  border-bottom: 1px solid #eee; /* 底部边框 */
+  border-bottom: 6px solid rgb(238, 238, 238); /* 底部边框 */
 }
 
 .header {
+  height: 50rpx;
   padding: 5rpx; /* 内边距 */
   font-size: 27rpx; /* 字体大小 */
   color: #333; /* 字体颜色 */
   text-align: center; /* 居中对齐 */
-  margin: 5rpx 0; /* 外边距 */
-  border-radius: 100rpx; /* 圆角 */
+  margin: 10rpx 10rpx; /* 外边距 */
+  border-radius: 10rpx; /* 圆角 */
   backdrop-filter: blur(6px);
+  opacity: 0.5;
+  box-shadow: 0 2rpx 5rpx rgba(0, 0, 0, 0.1); /* 添加阴影 */
 }
