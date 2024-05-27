@@ -14,7 +14,12 @@
 .navigationBar{position:relative;top:0;height:300rpx;width:100%;}
 .overflow{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;width: 100%;}
 .menu-content{display:flex; width:100%;position: relative;bottom:0rpx;left:0;top:0rpx;overflow:hidden;height:100%;}
-.menu-container{width:120rpx;flex:0 0 25%;background:#fff;}
+.menu-container{
+  margin-top: 10rpx;
+  width:120rpx;
+  flex:0 0 25%;
+  background:#fff;
+}
 .scroll-view{width:100%;height:100%;overflow: hidden;}
 .scroll-view-list{width:100%;height:100%;}
 .scroll-view-item{
@@ -40,8 +45,8 @@
   /* background:#665b99; */
   background-color: rgb(193, 153, 226);
   color:rgb(255, 255, 255);
-  border-top-right-radius: 20rpx;
-  border-bottom-right-radius: 20rpx;
+  border-top-right-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
 }
 
 .item-list{
@@ -191,7 +196,7 @@
 .view-item-photo {
   width: 150rpx; /* 设置宽度 */
   height: 150rpx; /* 设置高度 */
-  border-radius: 15%; /* 设置圆角 */
+  border-radius: 10%; /* 设置圆角 */
   object-fit: cover; /* 确保图片覆盖整个容器 */
 }
 
@@ -216,4 +221,17 @@
   backdrop-filter: blur(6px);
   opacity: 0.5;
   box-shadow: 0 2rpx 5rpx rgba(0, 0, 0, 0.1); /* 添加阴影 */
+}
+
+.head-image-container {
+  width: 750rpx;
+  height: 400rpx;
+  background-color: #eeeeee;
+  overflow: hidden; /* 确保图片溢出部分被隐藏 */
+}
+
+.head-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 确保图片按比例缩放以覆盖容器 */
 }

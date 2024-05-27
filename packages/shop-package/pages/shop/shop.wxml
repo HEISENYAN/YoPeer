@@ -7,7 +7,11 @@
   <!--顶部返回按钮-->
   <return-button></return-button>
 
-  <image style="width: 750rpx; height: 300rpx; background-color: #eeeeee;" src="https://i.postimg.cc/cHj6NRKT/shopping-head.png" bindtap = "returnPage"></image>
+  <div class="head-image-container">
+    <image style="width: 750rpx; height: 400rpx; transform: scale(1.2) translateY(-70rpx);background-color: #eeeeee;" src="https://i.postimg.cc/FsdrJ76w/We-Chatc8b779984855a47c4c462c35ad4fa7f3.jpg" bindtap = "returnPage">
+    </image>
+  </div>
+
   <!--左侧一级菜单-->
   <view class = "menu-content">   
     <view class = "menu-container">
