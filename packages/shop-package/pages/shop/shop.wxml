@@ -36,9 +36,9 @@
 
               <view class="text-container" data-selected="{{prodItem}}" hover-class="this-check">
                 <view class="view-item-text overflow" data-selected="{{prodItem}}"></view>
-                <text class="product-title" data-selected="{{prodItem}}" >{{prodItem.prodName}}</text>
+                <text style="font-size: 27rpx;" class="product-title" data-selected="{{prodItem}}" >{{prodItem.prodName}}</text>
                 <!--<text style="font-size:23rpx;;color:gray;display:block;text-overflow:ellipsis;white-space:pre-line;line-height:40rpx" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}">{{prodItem.introduction}}</text> -->
-                <text style="font-size:23rpx;color:gray;display:block;white-space:pre-line;text-overflow:ellipsis;white-space:pre-line;line-height:30rpx" data-selected="{{prodItem}}">已售：{{prodItem.soldNum}}</text>
+                <text style="font-size:23rpx;font-weight: 200;color:gray;display:block;white-space:pre-line;text-overflow:ellipsis;white-space:pre-line;line-height:30rpx" data-selected="{{prodItem}}">已售：{{prodItem.soldNum}}</text>
                 <view style="font-size:30rpx;color:black;padding:30rpx 0 0 100rpx;;display:inline-block" data-selected="{{prodItem}}"></view>
             </view>                                                                        
             <view class="number-container" data-selected="{{prodItem}}">

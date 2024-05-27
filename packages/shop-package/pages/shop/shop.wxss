@@ -19,13 +19,13 @@
 .scroll-view-list{width:100%;height:100%;}
 .scroll-view-item{
   height:100rpx;width:100%;
-  font-size:30rpx;
+  font-size:27rpx;
   color: rgb(221, 202, 240);
   display:flex;
   align-items:center;
   justify-content:center;
   position:relative;
-  font-weight:700}
+  font-weight:400}
 .scroll-view-item:after{
   content:'';
   left:0;
@@ -112,6 +112,9 @@
   width:350rpx;
   display: inline-block;
   padding: 17rpx 160rpx;
+  font-size: 27rpx;
+  font-weight: 400;
+  align-items: center;
 }
 .theButton{
   width: 150rpx;
@@ -204,10 +207,10 @@
 
 .header {
   padding: 5rpx; /* 内边距 */
-  font-size: 30rpx; /* 字体大小 */
+  font-size: 27rpx; /* 字体大小 */
   color: #333; /* 字体颜色 */
   text-align: center; /* 居中对齐 */
   margin: 5rpx 0; /* 外边距 */
-  background: linear-gradient(45deg, rgb(228, 215, 240), rgb(187, 197, 232)); /* 渐变背景颜色 */
   border-radius: 100rpx; /* 圆角 */
+  backdrop-filter: blur(6px);
 }
