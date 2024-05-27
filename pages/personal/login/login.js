@@ -31,30 +31,15 @@ Page({
     avatarUrl: '',
     nickname: '',
     phoneNum: '',
+    school: '',
   },
-  onColumnChange(e) {
-    console.log('picker pick:', e);
-  },
-  onPickerChange(e) {
-    const { key } = e.currentTarget.dataset;
-    const { value } = e.detail;
-    console.log('picker change:', e.detail);
+  onChooseAvatar(e) {//修改头像
+    console.log(e);
+    // avatarUrl = e.detail.avatarUrl
     this.setData({
-      [`${key}Visible`]: false,
-      [`${key}Value`]: value,
-      [`${key}Text`]: value.join(' '),
-    });
-  },
-  onPickerCancel(e) {
-    const { key } = e.currentTarget.dataset;
-    console.log(e, '取消');
-    console.log('picker1 cancel:');
-    this.setData({
-      [`${key}Visible`]: false,
-    });
-  },
-  onCityPicker() {
-    this.setData({ cityVisible: true });
+      avatarUrl:e.detail.avatarUrl
+    })
+    app.globalData.avatarUrl = e.detail.avatarUrl;
   },
   onPhoneInput(e) {
     const { phoneError } = this.data;
@@ -65,29 +50,40 @@ Page({
       });
     }
   },
-  onChooseAvatar(e) {//修改头像
-    console.log(e);
-    // avatarUrl = e.detail.avatarUrl
-    this.setData({
-      avatarUrl:e.detail.avatarUrl
-    })
-    app.globalData.avatarUrl = e.detail.avatarUrl;
-  },
-  // returnPage: function(){
-  //   wx.navigateBack()({
-  //     // url: '../personal'
-  //     delta: 2
-  //   })
+  // onColumnChange(e) {
+  //   console.log('picker pick:', e);
   // },
-  handleButtonClick() {//返回
-    wx.reLaunch({
-      url: '../personal'
-      // delta: 1
+  onPickerChange(e) {
+    const { key } = e.currentTarget.dataset;
+    const { value } = e.detail;
+    // console.log('picker change:', e.detail);
+    console.log('select:', e.detail.value);
+    console.log("key: " + key)
+    console.log("value: " + value)
+    // if(e.detail.value=="香港理工大学")  console.log("yessssssss")
+    this.setData({
+      school: e.detail.value,
+      [`${key}Visible`]: false,
+      [`${key}Value`]: value,
+      [`${key}Text`]: value.join(' '),
+    });
+    app.globalData.school = e.detail.value;
+    // console.log("app.globalData.school: " + app.globalData.school)
+  },
+  onPickerCancel(e) {
+    const { key } = e.currentTarget.dataset;
+    // console.log(e, '取消');
+    console.log('picker cancel:');
+    this.setData({
+      [`${key}Visible`]: false,
     });
   },
+  onCityPicker() {
+    this.setData({ cityVisible: true });  //show the list of cities
+  },
   formSubmit(e){
-    if(e.detail.value.nickname){console.log("nickname valid")}
-    else{console.log("nickname invalid")}
+    // if(e.detail.value.nickname){console.log("nickname valid")}
+    // else{console.log("nickname invalid")}
     // console.log("e.detail.value.phoneNum: " + e.detail.value.phoneNum)
     // console.log("e.detail.value.nickname: " + e.detail.value.nickname)
     if(e.detail.value.nickname)  app.globalData.nickname = e.detail.value.nickname;
@@ -97,12 +93,14 @@ Page({
     const updatedPhoneNum = (e.detail.value.phoneNum)? e.detail.value.phoneNum : this.data.phoneNum;
     const updatedNickname = (e.detail.value.nickname)? e.detail.value.nickname : this.data.nickname;
     // console.log(e)
+    console.log("database: app.globalData.school: " + app.globalData.school)
     wx.cloud.callFunction({
       name: 'userUpdate',
       data:{
         phoneNumber : updatedPhoneNum,
         nickName: updatedNickname,
-        avatarUrl: this.data.avatarUrl
+        avatarUrl: this.data.avatarUrl,
+        school: app.globalData.school,
       },
       success:function(res){
         wx.showToast({
@@ -143,6 +141,7 @@ Page({
       avatarUrl: app.globalData.avatarUrl ? app.globalData.avatarUrl : defaultAvatarUrl,
       nickname: (app.globalData.nickname!="游客") ? app.globalData.nickname : defaultNickname,
       phoneNum: (app.globalData.phoneNum!="12345678") ? app.globalData.phoneNum : defaultPhoneNum,
+      cityText: app.globalData.school
       });
       // console.log("app.globalData.nickname: " + app.globalData.nickname)
       // console.log("app.globalData.phoneNum: " + app.globalData.phoneNum)

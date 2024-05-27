@@ -14,42 +14,54 @@
   <!-- <view class="input-example">
   <t-input style="{{style}}" label="昵称" placeholder="{{nickname}}" />
   </view> -->
-  <t-input name="nickname" type="nickname" label="昵称" placeholder="{{nickname}}" tips="最大输入10个字符" maxlength="{{10}}" bind:change="onInputChange" />
-  <t-input 
-    label="手机号"
-    name="phoneNum"
-    placeholder="{{phoneNum}}"
-    type="number"
-    tips="{{phoneError ? '手机号输入不正确' : ''}}"
-    bindchange="onPhoneInput"
-  >
-  <view slot="suffix" style="display: flex; align-items: center">
-    <view class="suffix--line"></view>
-    <view class="verify" aria-role="button"> 发送验证码 </view>
-  </view>
-  </t-input>
-  <t-cell class="mb-16" title="学校" arrow hover note="{{cityText}}" bind:click="onCityPicker" />
-  <t-picker
-  visible="{{cityVisible}}"
-  value="{{cityValue}}"
-  data-key="city"
-  title="选择学校"
-  cancelBtn="取消"
-  confirmBtn="确认"
-  usingCustomNavbar
-  bindchange="onPickerChange"
-  bindpick="onColumnChange"
-  bindcancel="onPickerCancel"
-  >
-  <t-picker-item options="{{citys}}" />
-</t-picker>
+  <!-- <input name="test" type="nickname"/> -->
+  <view class="input-example">
+    <!-- <van-cell-group>
+      <van-field
+        type="nickname"
+        name="nickname"
+        placeholder="{{nickname}}"
+        label="用户名"
+        placeholder="请输入用户名"
+        input-align="right"
+        size = "large"
+      />
+    </van-cell-group> -->
+    <t-input prefixIcon="user-1" label="用户名" name="nickname" placeholder="{{nickname}}" maxlength="{{10}}"></t-input>
+    <t-input 
+      prefixIcon="call" 
+      label="手机号"
+      name="phoneNum"
+      placeholder="{{phoneNum}}"
+      type="number"
+      tips="{{phoneError ? '手机号输入不正确' : ''}}"
+      bindchange="onPhoneInput">
+      <view slot="suffix" style="display: flex; align-items: center">
+        <view class="suffix--line"></view>
+        <!-- <view class="verify" aria-role="button"> 发送验证码 </view> -->
+      </view>
+    </t-input>
+    <t-cell class="mb-16" title="学校" arrow hover note="{{cityText}}" bind:click="onCityPicker" />
+    <t-picker
+      visible="{{cityVisible}}"
+      value="{{cityValue}}"
+      data-key="city"
+      title="选择学校"
+      cancelBtn="取消"
+      confirmBtn="确认"
+      usingCustomNavbar
+      bindchange="onPickerChange"
+      bindpick="onColumnChange"
+      bindcancel="onPickerCancel"
+    >
+    <t-picker-item options="{{citys}}" /></t-picker>
+</view>
   <!-- <view class="input-example">
   <t-input style="{{style}}" label="电话" placeholder="{{phoneNum}}" />
   </view> -->
 
   <view style="display: flex; justify-content: space-between;">
   <!-- <navigator url="../personal/personal" open-type="navigateBack" style="align-self: center;"> -->
-    <!-- <button type="default" style="width: 250rpx;" bindtap="handleButtonClick">取消</button> -->
   <!-- </navigator> -->
     <button form-type="submit" type="primary" style="width: 250rpx;">提交</button>
   </view>

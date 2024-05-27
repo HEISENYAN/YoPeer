@@ -7,7 +7,8 @@
     "t-cell": "tdesign-miniprogram/cell/cell",
     "t-picker": "tdesign-miniprogram/picker/picker",
     "t-picker-item": "tdesign-miniprogram/picker-item/picker-item",
-    "yp-navigation":"/components/yp-navigation-bar/yp-navigation-bar"
+    "yp-navigation":"/components/yp-navigation-bar/yp-navigation-bar",
+    "van-field": "@vant/weapp/field/index"
   },
   "renderer": "webview",
   "navigationBarTextStyle": "black",
