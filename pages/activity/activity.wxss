@@ -16,3 +16,8 @@
   bottom : 350rpx;
   left: 650rpx;
 }
+
+.img {
+  width: 100%;
+  height: 100%;
+}

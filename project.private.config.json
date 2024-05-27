@@ -10,6 +10,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "activity",
+          "pathName": "pages/activity/activity",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "login",
           "pathName": "pages/personal/login/login",
           "query": "",

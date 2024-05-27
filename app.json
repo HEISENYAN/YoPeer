@@ -6,7 +6,7 @@
     "pages/test_page2/test_page2",
     
     "pages/personal/personal",
-    
+    "pages/community/community",
     "packages/commnunity-package/pages/community/community",
     "pages/personal/login/login",
     "pages/personal/addressEdit/addressEdit",

@@ -16,7 +16,7 @@
   <view slot = "content">
     <image style="width: 750rpx; height: 375rpx; background-color: #eeeeee;" src=https://i.postimg.cc/Bbms2DDH/Post-head.jpg" bindtap = "toBottom"></image>
     <navigator url="/packages/shop-package/pages/shop/shop" wx:for = "{{[1,2,3,4,5,6,7,8,9,10]}}">
-      <swiper autoplay="true" interval="5000" indicator-dots="true">
+      <!-- <swiper autoplay="true" interval="5000" indicator-dots="true">
       <swiper-item>
       item 1
       </swiper-item>
@@ -26,7 +26,15 @@
       <swiper-item>
       item 3
       </swiper-item>
-      </swiper>
+      </swiper> -->
+      <t-swiper
+        current="{{current}}"
+        autoplay="{{autoplay}}"
+        duration="{{duration}}"
+        interval="{{interval}}"
+        list="{{swiperList}}"
+        navigation="{{ { type: 'dots-bar' } }}"
+      />
     </navigator>
   </view>
 </mp-slide-screen>
