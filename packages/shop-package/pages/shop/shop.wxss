@@ -202,6 +202,45 @@
   padding-left: 70rpx;
 }
 
+.item-container-cart {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 10rpx;
+  border-bottom: 1px solid #eee;
+  background-color: rgb(250, 250, 250);
+  margin: 5rpx 10rpx;
+}
+
+.quantity-size-container{
+  padding-top: 32rpx;
+  padding-left: 180rpx;
+}
+
+.button-area{
+  display: flex;
+  flex-direction: column;
+}
+
+.add-button-area{
+  background-color: greenyellow;
+  height: 50rpx;
+  width: 50rpx;
+  margin: 20rpx 20rpx;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-button{
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-button{
+  justify-content: center;
+  align-items: center;
+}
+
 .view-item-photo {
   width: 150rpx; /* 设置宽度 */
   height: 150rpx; /* 设置高度 */
@@ -244,13 +283,16 @@
   height: 100%;
   object-fit: cover; /* 确保图片按比例缩放以覆盖容器 */
 }
+
 .choose-button{
   display: flex;
   width: 100rpx;
   height: 50rpx;
   background-color: #B9BCDF;
-  font-size: 27rpx;
+  font-size: 24rpx;
   border-radius: 10rpx;
   justify-content: center;
+  align-items: center;
   color: white;
 }
+

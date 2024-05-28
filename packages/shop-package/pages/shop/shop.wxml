@@ -68,7 +68,7 @@
       <!--购物车内视图-->
       <view slot = "item">
         <view class="swiper-view-item" wx:for="{{ypCart}}" wx:key="ypCartIndex" wx:for-item="cartItem" > 
-          <view class="item-container">
+          <view class="item-container-cart">
             <view class="image-container">
               <image class="view-item-photo" src = "https://images.pexels.com/photos/2536965/pexels-photo-2536965.jpeg" hover-class="this-check"></image>
             </view>
@@ -77,9 +77,17 @@
               <text style="font-size: 27rpx;" class="product-title"  >{{cartItem.prodName}}</text>
               <view style="font-size:30rpx;color:red;padding: 0 0 0 0;display:inline-block" >￥{{cartItem.price}}</view>
           </view>                                                                        
-          <view>
+          <view class="quantity-size-container">
             <text wx:for = "{{cartItem.optionName}}" wx:for-index = "cartOptionIndex" wx:for-item = "cartOptionName" style="font-size:23rpx;font-weight: 200;color:gray;display:block;white-space:pre-line;text-overflow:ellipsis;white-space:pre-line;line-height:30rpx" > {{cartOptionName}}:{{cartItem.selectedItem[cartOptionIndex]}}</text>
             数量{{cartItem.selectedNum}}
+          </view>
+          <view class="button-area">
+            <view class="add-button-area">
+              <view class="add-button">+</view>
+            </view>
+            <view class="add-button-area">
+              <view class="delete-button">-</view>
+            </view>
           </view>
           </view>                                                                   
         </view>
