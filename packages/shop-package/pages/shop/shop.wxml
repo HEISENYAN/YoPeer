@@ -41,7 +41,7 @@
                 <text style="font-size: 27rpx;" class="product-title" data-selected="{{prodItem}}" >{{prodItem.prodName}}</text>
                 <!--<text style="font-size:23rpx;;color:gray;display:block;text-overflow:ellipsis;white-space:pre-line;line-height:40rpx" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}">{{prodItem.introduction}}</text> -->
                 <text style="font-size:23rpx;font-weight: 200;color:gray;display:block;white-space:pre-line;text-overflow:ellipsis;white-space:pre-line;line-height:30rpx" data-selected="{{prodItem}}">已售：{{prodItem.soldNum}}</text>
-                <view style="font-size:30rpx;color:red;padding: 0 0 0 0;display:inline-block" data-selected="{{prodItem}}">￥{{prodItem.price}}</view>
+                <view style="font-size:30rpx;color:palevioletred;padding: 0 0 0 0;display:inline-block" data-selected="{{prodItem}}">￥{{prodItem.price}}</view>
             </view>                                                                        
             <view class="number-container" data-selected="{{prodItem}}">
                   <view class = "choose-button" data-selected="{{prodItem}}">选规格</view>
@@ -75,7 +75,7 @@
             <view class="text-container" hover-class="this-check">
               <view class="view-item-text overflow"></view>
               <text style="font-size: 27rpx;" class="product-title"  >{{cartItem.prodName}}</text>
-              <view style="font-size:30rpx;color:red;padding: 0 0 0 0;display:inline-block" >￥{{cartItem.price}}</view>
+              <view style="font-size:30rpx;color:palevioletred;padding: 0 0 0 0;display:inline-block" >￥{{cartItem.price}}</view>
           </view>                                                                        
           <view class="quantity-size-container">
             <text wx:for = "{{cartItem.optionName}}" wx:for-index = "cartOptionIndex" wx:for-item = "cartOptionName" style="font-size:23rpx;font-weight: 200;color:gray;display:block;white-space:pre-line;text-overflow:ellipsis;white-space:pre-line;line-height:30rpx" > {{cartOptionName}}:{{cartItem.selectedItem[cartOptionIndex]}}</text>

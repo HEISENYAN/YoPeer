@@ -24,30 +24,41 @@
 .scroll-view-list{width:100%;height:100%;}
 .scroll-view-item{
   height:100rpx;width:100%;
+  color: grey;
   font-size:27rpx;
-  color: rgb(221, 202, 240);
   display:flex;
   align-items:center;
   justify-content:center;
   position:relative;
-  font-weight:400}
+  font-weight:300}
 .scroll-view-item:after{
   content:'';
   left:0;
   right:0;
   bottom:0;
   height:2rpx;
+  font-weight: 400;
   background-color:#fff;
   transform:scaleY(.5);
   position:absolute
 }
 .scroll-view-item.active{
   /* background:#665b99; */
-  background-color: #B9BCDF;
-  color:rgb(255, 255, 255);
+  color:black;
   border-top-right-radius: 10rpx;
   border-bottom-right-radius: 10rpx;
-  box-shadow: 0 2rpx 5rpx rgba(0, 0, 0, 0.1); /* 添加阴影 */
+}
+.scroll-view-item.active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8%; /* 左边的十分之一 */
+  height: 100%;
+  background-color: #B9BCDF;
+  border-top-right-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+  z-index: -1; /* 确保伪元素位于文字后面 */
 }
 
 .item-list{
@@ -113,7 +124,7 @@
   font-size: 35rpx;
   padding: 30rpx 0;
   display: inline-block;
-  color:red;
+  color:palevioletred;
 }
 .check-out-button{
   box-sizing: border-box;
@@ -157,7 +168,7 @@
   width: 650rpx;
   box-sizing: border-box;
   padding: 5rpx 0 0 500rpx;
-  color : rgb(0, 0, 255)
+  color:#7e86dd;
 }
 .cart{
   height : 10%;
@@ -223,7 +234,8 @@
 }
 
 .add-button-area{
-  background-color: greenyellow;
+  background-color:#B9BCDF;
+  border-radius: 10rpx;
   height: 50rpx;
   width: 50rpx;
   margin: 20rpx 20rpx;
@@ -234,11 +246,15 @@
 .add-button{
   justify-content: center;
   align-items: center;
+  font-size: 40rpx;
+  transform:translateX(13rpx) translateY(-15rpx);
 }
 
 .delete-button{
   justify-content: center;
   align-items: center;
+  font-size: 40rpx;
+  transform:translateX(16rpx) translateY(-15rpx);
 }
 
 .view-item-photo {
