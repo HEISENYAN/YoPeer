@@ -8,8 +8,12 @@
   <return-button></return-button>
 
   <div class="head-image-container">
-    <image style="width: 750rpx; height: 400rpx; transform: scale(1.2) translateY(-70rpx);background-color: #eeeeee;" src="https://i.postimg.cc/FsdrJ76w/We-Chatc8b779984855a47c4c462c35ad4fa7f3.jpg" bindtap = "returnPage">
-    </image>
+    <view class="text-heading-area1">
+      <view class="text-heading1">🍥鱼饼 YoPeer</view>
+      <view class="text-heading2">2024Fall新生团购活动</view>
+    </view>
+    <view class="text-heading3">购前须知>></view>
+    <image style="transform: scale(0.3) scaleX(0.75) translateX(900rpx) translateY(-100rpx); z-index: 10; position: absolute;" src="https://i.postimg.cc/wj0CDs1H/YOPEER-LOGO-NOLET.png" mode=""/>
   </div>
 
   <!--左侧一级菜单-->

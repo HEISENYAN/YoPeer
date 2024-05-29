@@ -288,15 +288,18 @@
 }
 
 .head-image-container {
+  display: flex;
+  justify-content: space-between;
   width: 750rpx;
   height: 400rpx;
-  background-color: #eeeeee;
+  /* background-color: #606ddd; */
+  background-color: #8a91e0;
   overflow: hidden; /* 确保图片溢出部分被隐藏 */
 }
 
 .head-image-container img {
-  width: 100%;
-  height: 100%;
+  width: 10%;
+  height: 10%;
   object-fit: cover; /* 确保图片按比例缩放以覆盖容器 */
 }
 
@@ -312,3 +315,28 @@
   color: white;
 }
 
+.text-heading-area1{
+  padding-left: 30rpx;
+  padding-top: 150rpx;
+}
+
+.text-heading1{
+  color: white;
+  font-size: 33rpx;
+  font-weight: 400;
+}
+
+.text-heading2{
+  color: white;
+  font-size: 28rpx;
+  font-weight: 300;
+}
+
+.text-heading3{
+  color: white;
+  font-size: 25rpx;
+  font-weight: 200;
+  padding-top: 210rpx;
+  padding-right: 30rpx;
+  cursor: pointer;
+}
