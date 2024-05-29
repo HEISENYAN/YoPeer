@@ -234,7 +234,7 @@
 }
 
 .add-button-area{
-  background-color:#B9BCDF;
+  background-color:#ced0e0;
   border-radius: 10rpx;
   height: 50rpx;
   width: 50rpx;
