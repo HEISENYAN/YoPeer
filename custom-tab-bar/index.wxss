@@ -1,0 +1,5 @@
+/* custom-tab-bar/index.wxss */
+.tab-bar {
+  pointer-events: auto;
+  position: absolute;
+}

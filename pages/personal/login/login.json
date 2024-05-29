@@ -8,7 +8,8 @@
     "t-picker": "tdesign-miniprogram/picker/picker",
     "t-picker-item": "tdesign-miniprogram/picker-item/picker-item",
     "yp-navigation":"/components/yp-navigation-bar/yp-navigation-bar",
-    "van-field": "@vant/weapp/field/index"
+    "van-field": "@vant/weapp/field/index",
+    "t-cascader": "tdesign-miniprogram/cascader/cascader"
   },
   "renderer": "webview",
   "navigationBarTextStyle": "black",

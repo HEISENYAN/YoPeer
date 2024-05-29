@@ -41,6 +41,7 @@
         <!-- <view class="verify" aria-role="button"> 发送验证码 </view> -->
       </view>
     </t-input>
+    <!-- 学校 -->
     <t-cell class="mb-16" title="学校" arrow hover note="{{cityText}}" bind:click="onCityPicker" />
     <t-picker
       visible="{{cityVisible}}"
@@ -55,7 +56,17 @@
       bindcancel="onPickerCancel"
     >
     <t-picker-item options="{{citys}}" /></t-picker>
-</view>
+    
+    <!-- 地址 -->
+    <t-cell title="地址" note="{{note}}" bind:click="showCascader" arrow></t-cell>
+    <t-cascader
+      visible="{{visible}}"
+      options="{{options}}"
+      title="请选择地址"
+      sub-titles="{{subTitles}}"
+      bind:change="onChange"
+    ></t-cascader>
+  </view>
   <!-- <view class="input-example">
   <t-input style="{{style}}" label="电话" placeholder="{{phoneNum}}" />
   </view> -->

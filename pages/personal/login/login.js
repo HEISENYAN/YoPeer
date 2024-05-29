@@ -6,7 +6,62 @@ const defaultPhoneNum = "电话"
 var avatarUrl = ''
 var app = getApp()
 wx.cloud.init()
-
+const data = {
+  areaList: [
+    {
+      label: '八校学生',
+      value: '110000',
+      children: [
+        {
+          value: '110100',
+          label: '香港理工大学',
+          children: [
+            { value: '110101', label: '何文田宿舍(佛光街15号)' },
+            { value: '110102', label: '红磡宿舍(红荔道1号)' },
+            { value: '110103', label: '其他' },
+          ],
+        },
+        {
+          value: '110110',
+          label: '香港其他大学',
+          children: [
+            { value: '110111', label: '其他' },
+            { value: '110112', label: '其他' },
+            { value: '110113', label: '其他' },
+          ],
+        },
+      ],
+    },
+    {
+      label: '其他',
+      value: '120000',
+      children: [
+        {
+          value: '120100',
+          label: '天津市',
+          children: [
+            { value: '120101', label: '和平区' },
+            { value: '120102', label: '河东区' },
+            { value: '120103', label: '河西区' },
+            { value: '120104', label: '南开区' },
+            { value: '120105', label: '河北区' },
+            { value: '120106', label: '红桥区' },
+            { value: '120110', label: '东丽区' },
+            { value: '120111', label: '西青区' },
+            { value: '120112', label: '津南区' },
+            { value: '120113', label: '北辰区' },
+            { value: '120114', label: '武清区' },
+            { value: '120115', label: '宝坻区' },
+            { value: '120116', label: '滨海新区' },
+            { value: '120117', label: '宁河区' },
+            { value: '120118', label: '静海区' },
+            { value: '120119', label: '蓟州区' },
+          ],
+        },
+      ],
+    },
+  ],
+};
 Page({
   /**
    * 页面的初始数据
@@ -32,6 +87,20 @@ Page({
     nickname: '',
     phoneNum: '',
     school: '',
+    // 地址
+    options: data.areaList,
+    note: '请选择地址',
+    visible: false,
+    subTitles: ['请选择', '请选择', '请选择'],
+  },
+  showCascader() {
+    this.setData({ visible: true });
+  },
+  onChange(e) {
+    const { selectedOptions } = e.detail;
+    this.setData({
+      note: selectedOptions.map((item) => item.label).join('/'),
+    });
   },
   onChooseAvatar(e) {//修改头像
     console.log(e);

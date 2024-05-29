@@ -10,6 +10,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/community/community",
+          "pathName": "packages/community-package/pages/community/community",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "activity",
           "pathName": "pages/activity/activity",
           "query": "",
@@ -19,13 +26,6 @@
         {
           "name": "login",
           "pathName": "pages/personal/login/login",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "pages/community/community",
-          "pathName": "packages/shop-package/pages/shop/shop",
           "query": "",
           "launchMode": "default",
           "scene": null
