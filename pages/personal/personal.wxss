@@ -1,3 +1,12 @@
+.order-group-wrapper {
+  margin-bottom: 16rpx;
+}
+.content-wrapper {
+  margin-top: 340rpx;
+  position: relative;
+  padding: 0 30rpx;
+}
+
 .loginBar {
   padding:100rpx 0 0 0;
   height: 300rpx;

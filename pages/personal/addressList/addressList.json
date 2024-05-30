@@ -2,5 +2,9 @@
   "component": true,
   "usingComponents": {
     "return-button": "/components/return-button/return-button"
-  }
+  },
+  "navigationBarTextStyle": "black",
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "收获地址",
+  "navigationBarBackgroundColor": "#ffffff"
 }
