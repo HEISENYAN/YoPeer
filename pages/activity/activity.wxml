@@ -1,41 +1,17 @@
-<!--pages/activity/activity.wxml>-->
-<scroll-view type = "custom" style="width: 100%; height: 100%; z-index:0"  scroll-y >
-      <list-view>
-        <image style="width: 750rpx; height: 4144rpx;" src="https://i.postimg.cc/vHmGbqFz/Post-body.jpg"></image>
-      </list-view>
+
+<scroll-view class = "main-page" type = "custom">
+  <!--顶部状态栏-->
+  <view class = "top-margin" style = "height:{{statusBarHeight}}px"> </view>
+  <view class = "navigation-bar"> 欢迎来到鱼饼</view>
+
+  <t-swiper 
+    current="{{1}}"
+    autoplay="{{true}}"
+    duration="{{500}}"
+    interval="{{5000}}"
+    list="{{swiperList}}"
+    navigation="{{ { type: 'dots-bar' } }}"
+  />
+
+  <view class = "activity-cell" bindtap = "onSelectActivity">特别活动:港校新生团购</view>
 </scroll-view>
-
-<cover-view class = "circle-button" bindtap = "returnToTop">
-  <text style = "line-height: 20rpx; color:rgba(0,0,0,0);" decode = "{{true}}" >n</text>
-  <sky-icon icon-name = "chevron-up" iconSize = "42" ></sky-icon>
-</cover-view>
-
-<mp-slide-screen topHeight = "0" id = "mainPage">
-  <view slot = "tab">
-  </view>
-  <view slot = "content">
-    <image style="width: 750rpx; height: 375rpx; background-color: #eeeeee;" src=https://i.postimg.cc/Bbms2DDH/Post-head.jpg" bindtap = "toBottom"></image>
-    <navigator url="/packages/shop-package/pages/shop/shop" wx:for = "{{[1,2,3,4,5,6,7,8,9,10]}}">
-      <!-- <swiper autoplay="true" interval="5000" indicator-dots="true">
-      <swiper-item>
-      item 1
-      </swiper-item>
-      <swiper-item>
-        <text>item2</text>
-      </swiper-item>
-      <swiper-item>
-      item 3
-      </swiper-item>
-      </swiper> -->
-      <t-swiper
-        current="{{current}}"
-        autoplay="{{autoplay}}"
-        duration="{{duration}}"
-        interval="{{interval}}"
-        list="{{swiperList}}"
-        navigation="{{ { type: 'dots-bar' } }}"
-      />
-    </navigator>
-  </view>
-</mp-slide-screen>
-

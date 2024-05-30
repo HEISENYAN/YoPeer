@@ -1,26 +1,28 @@
 {
   "pages": [
     "pages/activity/activity",
+    "pages/personal/personal",
+    
     "pages/test_page/test_page",
     "pages/test_page2/test_page2",
-    "pages/personal/personal",
     "packages/commnunity-package/pages/community/community",
     "pages/personal/login/login",
     "pages/personal/addressEdit/addressEdit",
-    "pages/personal/addressList/addressList"
+    "pages/personal/addressList/addressList",
+    "custom-tab-bar/index"
   ],
   "subpackages": [
     {
-      "root":"packages/shop-package",
-      "pages":[
+      "root": "packages/shop-package",
+      "pages": [
         "pages/check-out-page/check-out-page",
         "pages/shop/shop",
         "pages/product-detail/product-detail"
       ]
     },
     {
-      "root":"packages/community-package",
-      "pages":[
+      "root": "packages/community-package",
+      "pages": [
         "pages/community/community"
       ]
     }
@@ -40,7 +42,6 @@
     }
   },
   "tabBar": {
-    "custom": true,
     "backgroundColor": "#ffffff",
     "selectedColor": "#8271CB",
     "color": "#000000",
@@ -72,6 +73,6 @@
     "sky-text": "/miniprogram_npm/jieyue-ui-com/sky-text/sky-text",
     "mp-slide-screen": "/components/slide-screen/slide-screen",
     "return-button": "/components/return-button/return-button",
-    "yp-navigation":"/components/yp-navigation-bar/yp-navigation-bar"
+    "yp-navigation": "/components/yp-navigation-bar/yp-navigation-bar"
   }
 }

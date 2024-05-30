@@ -13,5 +13,5 @@ export default [
     icon: 'user',
     text: '个人中心',
     url: 'pages/personal/personal',
-  },
+  }
 ];

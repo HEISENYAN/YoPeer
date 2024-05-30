@@ -1,4 +1,5 @@
 // pages/activity/activity.js
+const deviceInfo = wx.getWindowInfo()
 const imageCdn = 'https://tdesign.gtimg.com/mobile/demos';
 const swiperList = [
   {
@@ -6,45 +7,52 @@ const swiperList = [
     ariaLabel: '图片1',
   },
   {
-    value: `${imageCdn}/swiper1.png`,
-    ariaLabel: '图片',
+    value: `${imageCdn}/swiper2.png`,
+    ariaLabel: '图片2',
   },
   {
     value: `${imageCdn}/swiper1.png`,
     ariaLabel: '图片1',
   },
-  
+  {
+    value: `${imageCdn}/swiper2.png`,
+    ariaLabel: '图片2',
+  },
 ];
-
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    current: 1,
-    autoplay: true,
-    duration: 500,
-    interval: 5000,
-    swiperList,
-  },
-  
-  returnToTop: function(){
-    const mainPage = this.selectComponent("#mainPage");
-    mainPage.returnToTop();
-    console.log("clicked");
-  },
-  toBottom: function(){
-    const mainPage = this.selectComponent("#mainPage");
-    mainPage.scrollTo(mainPage.initTransY.value);
+    statusBarHeight : deviceInfo.statusBarHeight,
+    loadingProps: {
+      size: '50rpx'
+    },
+    enableRefresh : false,
+    scrollTop: 0,
+    swiperList:swiperList
   },
   /**
    * 生命周期函数--监听页面加载
    */
+  onSelectActivity(){
+    wx.navigateTo({
+      url: '/packages/shop-package/pages/shop/shop'
+    })
+  },
+  onRefresh() {
+    this.setData({ enableRefresh: true });
+    setTimeout(() => {
+      this.setData({ enableRefresh: false });
+    }, 1500);
+  },
+  onScroll(e) {
+    const { scrollTop } = e.detail;
+    this.setData({ scrollTop });
+  },
   onLoad(options) {
 
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

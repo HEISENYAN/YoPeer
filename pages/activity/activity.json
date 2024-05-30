@@ -1,7 +1,9 @@
 {
   "usingComponents": {
     "sky-tabbar":"/miniprogram_npm/jieyue-ui-com/sky-tabbar/sky-tabbar",
-    "t-swiper": "tdesign-miniprogram/swiper/swiper"
+    "t-swiper": "tdesign-miniprogram/swiper/swiper",
+    "t-pull-down-refresh": "tdesign-miniprogram/pull-down-refresh/pull-down-refresh"
+
   }
 
 }

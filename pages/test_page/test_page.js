@@ -36,7 +36,7 @@ Page({
         content:"" + res
         })
       }
-    })*/
+    })
     const matching = /YP\d+/
     wx.getStorage({
       key:"ypCart",
@@ -46,6 +46,10 @@ Page({
           console.log(matching.exec(i)[0])
         }
       }
-    })
+    })*/
+    wx.navigateTo({
+      url:"/miniprogram_npm/tdesign-miniprogram/picker-item/picker-item"
+
+    });
   }
 });

@@ -21,6 +21,7 @@
   bindscrolltoupper="onScrollToTop"
   bindscrolltolower="onScrollToBottom"
   throttle="{{false}}"
+  type = "custom"
 >
   <view
     class="{{classPrefix}}__track {{classPrefix + '__track--' + (loosing ? 'loosing' : '')}}"
