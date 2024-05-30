@@ -28,7 +28,7 @@
   </van-cell-group>
 
   <!--增加的Margin抵消底部bar占用宽度-->
-  <view style = "height: {{offsetMargin}}px; width:100%;background-color: rgb(219, 202, 214);" ></view>
+  <view style = "height: {{offsetMargin}}px; width:100%;background-color: #B9BCDF;" ></view>
 
   <van-submit-bar
     price="{{ checkOutPrice*100 }}"

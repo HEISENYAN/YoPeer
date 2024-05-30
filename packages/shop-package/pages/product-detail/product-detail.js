@@ -15,8 +15,26 @@ Page({
     },
     selectedProduct:'',
     selectedNum:1,
-    selectedOptions:[]
+    selectedOptions:[],
   },
+  
+  // new UI kit
+  onRadioChange(event) {
+    const optionIndex = event.currentTarget.dataset.option;
+    const selectedOption = parseInt(event.detail);
+    this.setData({
+      [`selectedOptions[${optionIndex}]`]: selectedOption
+    });
+  },
+
+  onRadioCellClick(event) {
+    const { name } = event.currentTarget.dataset;
+    const optionIndex = event.currentTarget.dataset.option;
+    this.setData({
+      [`selectedOptions[${optionIndex}]`]: parseInt(name)
+    });
+  },
+  
   wrapProduct:function(){
     var ypProduct = new Object();
     ypProduct.selectedNum = this.data.selectedNum;

@@ -8,11 +8,20 @@
 </swiper>
 
 <!-- 下半部分：商品信息 -->
-<view scroll-y="true" class="product-info">
+<!-- <view scroll-y="true" class="product-info">
   <view class="product-name">{{selectedProduct.prodName}}</view>
   <view class="product-description">{{selectedProduct.introduction}}</view>
   <view class="product-price">￥{{selectedProduct.price}}</view>
-</view>
+</view> -->
+
+<!-- <van-cell title="单元格" value="内容" size="large" label="描述信息" /> -->
+<van-cell 
+  title="{{selectedProduct.prodName}}" 
+  value="￥{{selectedProduct.price}}" 
+  size="large" 
+  label="{{selectedProduct.introduction}}" 
+/>
+
 
 <!-- 规格选择模版 -->
 <!-- <view class="product-specs">
@@ -25,7 +34,7 @@
 </view> -->
 
   <!-- 规格选择 -->
-<view class="product-specs" wx:for = "{{selectedProduct.optionName}}" wx:key = "wholeOption" wx:for-index = "option" wx:for-item = "optionName">
+<!-- <view class="product-specs" wx:for = "{{selectedProduct.optionName}}" wx:key = "wholeOption" wx:for-index = "option" wx:for-item = "optionName">
   <view class="spec-title">{{optionName}}</view>
   <radio-group class="radio-group" bindchange="radioChange" data-option = "{{option}}">
     <label class="radio" wx:for="{{selectedProduct.options[option]}}" wx:key = "specOption" wx:for-index = "optionIndex" wx:for-item = "optionItem">
@@ -33,8 +42,46 @@
         <radio value="{{optionIndex}}" checked="{{optionIndex == selectedOptions[option]}}" color = "rgb(193, 153, 226)"/>
     </label>
   </radio-group>
+</view> -->
 
+<!-- <van-radio-group value="{{ radio }}" bind:change="onChange">
+  <van-cell-group>
+    <van-cell title="单选框 1" clickable data-name="1" bind:click="onClick">
+      <van-radio slot="right-icon" name="1" />
+    </van-cell>
+    <van-cell title="单选框 2" clickable data-name="2" bind:click="onClick">
+      <van-radio slot="right-icon" name="2" />
+    </van-cell>
+  </van-cell-group>
+</van-radio-group> -->
+
+<view class="product-specs" wx:for="{{selectedProduct.optionName}}" wx:key="wholeOption" wx:for-index="option" wx:for-item="optionName">
+  <view class="spec-title">{{optionName}}</view>
+  <van-radio-group value="{{selectedOptions[option]}}" bind:change="onRadioChange" data-option="{{option}}">
+    <van-cell-group>
+      <van-cell 
+        wx:for="{{selectedProduct.options[option]}}" 
+        wx:key="specOption" 
+        wx:for-index="optionIndex" 
+        wx:for-item="optionItem" 
+        title="{{optionItem}}" 
+        clickable 
+        data-name="{{optionIndex}}" 
+        data-option="{{option}}" 
+        bind:click="onRadioCellClick"
+      >
+        <van-radio 
+          slot="right-icon" 
+          name="{{optionIndex}}" 
+          checked="{{optionIndex == selectedOptions[option]}}" 
+        />
+      </van-cell>
+    </van-cell-group>
+  </van-radio-group>
 </view>
+
+
+
 
 <!-- 加入购物车 -->
 <view class = "order-bar">

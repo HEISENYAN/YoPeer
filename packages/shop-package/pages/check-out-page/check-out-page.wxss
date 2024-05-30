@@ -2,7 +2,7 @@ page {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-color: rgb(219, 202, 214);
+  background-color: #B9BCDF;
 }
 
 .scroll-area {

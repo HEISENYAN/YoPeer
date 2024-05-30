@@ -14,7 +14,7 @@
   width: 720rpx;
   padding:30rpx 0 30rpx 30rpx;
    /* min-height: 300rpx;设置最小高度 */
-  background: linear-gradient(45deg, rgb(228, 215, 240), rgb(187, 197, 232)); /* 渐变背景颜色 */
+  background-color: #B9BCDF;
   border-top-left-radius: 20rpx;
   border-top-right-radius: 20rpx;
   margin-top: -20rpx;
@@ -45,15 +45,11 @@
   width: 720rpx;
   padding:30rpx 0 30rpx 30rpx;
   /* background: linear-gradient(45deg, rgb(228, 215, 240), rgb(187, 197, 232)); 渐变背景颜色 */
-  background-color:rgb(245, 229, 200);
   margin-top: 20rpx;
-  border-bottom-left-radius: 20rpx;
-  border-bottom-right-radius: 20rpx;
-  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.1); /* 添加阴影 */
 }
 
 .spec-title {
-  font-size: 32rpx;
+  font-size: 27rpx;
   margin-bottom: 10rpx;
   padding: 0 0 0 10rpx
 }
@@ -90,7 +86,7 @@
   display:inline-flex;
   height:20px;
   width:20px;
-  background-color: wheat;
+  background-color: #e4e4e4;
   border-radius: 5px;
   justify-content: center; 
   align-items: center;
@@ -112,7 +108,7 @@
   width: 300rpx;
   height: 80rpx;
   display:inline-block;
-  background-color: rgb(193, 153, 226);
+  background-color: #8a91e0 ;
   border-radius: 10rpx;
   text-align: center;
   font-weight: bold;
