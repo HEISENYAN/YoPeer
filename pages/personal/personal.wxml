@@ -1,3 +1,13 @@
+<!-- <t-user-center-card
+  userInfo="{{userInfo}}"
+  isPhoneHide="{{true}}"
+  name-class="custom-name-class"
+  phone-class="custom-phone-class"
+  avatar-class="customer-avatar-class"
+  currAuthStep="{{currAuthStep}}"
+  bind:gotoUserEditPage="gotoUserEditPage"
+/> -->
+
 <view class = "personal">
   <view class = "loginBar" open-type = "getUserInfo" bindtap = "getUserProfile" >
     <image class = "loginImg" src ="{{avatarUrl}}"></image>
@@ -6,7 +16,11 @@
     <!-- <text>nickname: {{nickname}}</text> -->
   </view>
 </view>
-
+<!-- <view class="content-wrapper">
+  <view class="order-group-wrapper">
+    <t-order-group orderTagInfos="{{orderTagInfos}}" bind:onClickTop="jumpAllOrder" bind:onClickItem="jumpNav" />
+  </view>
+</view> -->
 <view style="left: 25rpx;">
   <view class="hr"></view>
   <view class="item" hover-class="pressStyle">

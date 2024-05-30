@@ -1,5 +1,3 @@
-<!--pages/personal/addressList/addressList.wxml-->
-
 <return-button bindtap = "returnPage"></return-button>
 <image style="width: 750rpx; height: 300rpx; background-color: #eeeeee;" src="https://i.postimg.cc/cHj6NRKT/shopping-head.png" ></image>
 <view class="hr"></view>
