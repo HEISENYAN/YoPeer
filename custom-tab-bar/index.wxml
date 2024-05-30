@@ -3,12 +3,30 @@
 <!-- <sky-tabbar title="动画与震动" canvas-id="tab1" type="norm" selected="1" tabbar-list="[object Object],[object Object],[object Object],[object Object]" safe-bottom="false" animation="true" vibration="true" border-radius="true" color="var(--text-l2)" selected-color="var(--text-l0)" background-color="var(--bg-l0)">
 </sky-tabbar> -->
 
-<t-tab-bar t-class="t-tab-bar" value="{{value}}" bindchange="onChange" theme="tag" split="{{false}}">
+<t-tab-bar t-class="t-tab-bar" value="{{value}}" default-value="{{2}}" bindchange="onChange" theme="tag" split="{{false}}">
   <t-tab-bar-item
     wx:for="{{list}}"
     wx:key="index"
     value="{{item.value}}"
+    
     icon="{{item.icon}}"
     ariaLabel="{{item.ariaLabel}}"
   ></t-tab-bar-item>
 </t-tab-bar>
+<!-- <t-tab-bar
+ value="{{active}}"
+ bindchange="onChange"
+ split="{{false}}"
+>
+	<t-tab-bar-item
+	 wx:for="{{list}}"
+	 wx:for-item="item"
+	 wx:for-index="index"
+	 wx:key="index"
+	>
+		<view class="custom-tab-bar-wrapper">
+			<t-icon prefix="wr" name="{{item.icon}}" size="48rpx" />
+			<view class="text">{{ item.text }}</view>
+		</view>
+	</t-tab-bar-item>
+</t-tab-bar> -->

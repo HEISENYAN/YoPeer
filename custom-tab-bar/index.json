@@ -4,6 +4,8 @@
   "usingComponents": {
     "sky-tabbar":"/miniprogram_npm/jieyue-ui-com/sky-tabbar/sky-tabbar",
     "t-tab-bar": "tdesign-miniprogram/tab-bar/tab-bar",
-    "t-tab-bar-item": "tdesign-miniprogram/tab-bar-item/tab-bar-item"
-  }
+    "t-tab-bar-item": "tdesign-miniprogram/tab-bar-item/tab-bar-item",
+    "t-icon": "tdesign-miniprogram/icon/icon"
+  },
+  "renderer": "webview"
 }
