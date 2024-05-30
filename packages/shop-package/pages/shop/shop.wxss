@@ -294,7 +294,10 @@
   height: 400rpx;
   /* background-color: #606ddd; */
   background-color: #8a91e0;
-  overflow: hidden; /* 确保图片溢出部分被隐藏 */
+  overflow: hidden;
+  background-image: url(packages/assets/WeChatfb1abcaecccee4f4601fa804927ef141.jpg);
+  background-size: cover; /* Ensure the image covers the container */
+  background-position: center; /* Center the image within the container */
 }
 
 .head-image-container img {
@@ -328,7 +331,7 @@
 
 .text-heading2{
   color: white;
-  font-size: 28rpx;
+  font-size: 25rpx;
   font-weight: 300;
 }
 
@@ -336,7 +339,7 @@
   color: white;
   font-size: 25rpx;
   font-weight: 200;
-  padding-top: 210rpx;
+  padding-top: 205rpx;
   padding-right: 30rpx;
   cursor: pointer;
 }
