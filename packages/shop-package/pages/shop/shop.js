@@ -24,9 +24,22 @@ Component({
     ifMaskOn: false,
     YPproduct:{},
     cartPrice:0,
-    ypCart:[]
+    ypCart:[],
+    isPopupVisible: false
   },
+
   methods:{
+    showPopup: function() {
+      this.setData({
+        isPopupVisible: true
+      });
+    },
+  
+    closePopup: function() {
+      this.setData({
+        isPopupVisible: false
+      });
+    },
     returnPage: function(){
       wx.reLaunch({
         url: '/pages/activity/activity'

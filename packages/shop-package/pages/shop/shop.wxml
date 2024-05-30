@@ -12,9 +12,25 @@
       <view class="text-heading1">🍥鱼饼 YoPeer</view>
       <view class="text-heading2">🛍️2024Fall港校新生团购活动</view>
     </view>
-    <view class="text-heading3">购前须知></view>
-    <!-- <image style="transform: scale(0.3) scaleX(0.75) translateX(900rpx) translateY(-100rpx); z-index: 10; position: absolute;" src="https://i.postimg.cc/wj0CDs1H/YOPEER-LOGO-NOLET.png" mode=""/> -->
+    <view class="text-heading3" bindtap="showPopup">购前须知&gt;</view>
   </div>
+
+  <view class="popup" wx:if="{{isPopupVisible}}">
+    <view class="popup-content">
+      <text class="close-popup" bindtap="closePopup">&times;</text>
+      <view class="notice-content">
+        <text class="notice-title">购前须知</text>
+        <text class="notice-text">
+          欢迎参加2024Fall港校新生团购活动！在您进行购物前，请仔细阅读以下须知：
+          1. 所有商品均为预售商品，预计发货时间为下单后的2-3周内。
+          2. 请确保填写的收货地址和联系方式准确无误，以免影响配送。
+          3. 团购商品享有特别优惠，价格已包含税费和运费。
+          4. 商品售出后，如无质量问题，概不退换。
+          5. 如果您有任何疑问，请随时联系我们的客服团队。感谢您的支持与理解，祝您购物愉快！
+        </text>
+      </view>
+    </view>
+  </view>
 
   <!--左侧一级菜单-->
   <view class = "menu-content">   
