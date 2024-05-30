@@ -15,11 +15,14 @@
 </view> -->
 
 <!-- <van-cell title="单元格" value="内容" size="large" label="描述信息" /> -->
-<van-cell 
-  title="{{selectedProduct.prodName}}" 
+<!-- <van-tag class="little-tag" color="#8a91e0" type="primary">团购价</van-tag> -->
+<van-cell
+  title="{{selectedProduct.prodName}}"
   value="￥{{selectedProduct.price}}" 
   size="large" 
   label="{{selectedProduct.introduction}}" 
+  title-class="cell-title"
+  value-class="cell-value"
 />
 
 

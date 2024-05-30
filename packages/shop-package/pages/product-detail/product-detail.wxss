@@ -22,6 +22,21 @@
   overflow: hidden;
 }
 
+.cell-title{
+  font-size: 35rpx !important;
+  font-weight: 400 !important;
+}
+
+.cell-value{
+  color: palevioletred !important;
+  font-size: 45rpx !important;
+  font-weight: 400 !important;
+}
+
+.little-tag{
+  margin-top: 20rpx !important;
+}
+
 .product-name {
   font-size: 36rpx;
   font-weight: bold;
@@ -138,3 +153,4 @@
   background-color: white;
   z-index: 99;
 }
+
