@@ -138,7 +138,7 @@ Page({
     const currentNum = this.data.selectedNum
     if(currentNum <= 1){
       wx.showToast({
-        title: '商品数量不可小于一',
+        title: '数量不可小于一',
         icon: 'error',
         duration: 1000
       })
