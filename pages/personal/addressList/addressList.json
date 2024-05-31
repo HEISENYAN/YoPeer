@@ -3,8 +3,9 @@
   "usingComponents": {
     "return-button": "/components/return-button/return-button"
   },
+  "renderer": "webview",
   "navigationBarTextStyle": "black",
-  "navigationStyle": "custom",
+  "navigationStyle": "default",
   "navigationBarTitleText": "收获地址",
   "navigationBarBackgroundColor": "#ffffff"
 }
