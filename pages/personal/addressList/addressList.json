@@ -1,11 +1,9 @@
 {
   "component": true,
+  "styleIsolation": "apply-shared",
   "usingComponents": {
-    "return-button": "/components/return-button/return-button"
+    "return-button": "/components/return-button/return-button",
+    "t-navbar": "tdesign-miniprogram/navbar/navbar"
   },
-  "renderer": "webview",
-  "navigationBarTextStyle": "black",
-  "navigationStyle": "default",
-  "navigationBarTitleText": "收获地址",
-  "navigationBarBackgroundColor": "#ffffff"
+  "renderer": "webview"
 }

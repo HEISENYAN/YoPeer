@@ -10,11 +10,8 @@ Page({
    nickname: app.globalData.nickname,
    avatarUrl: app.globalData.avatarUrl,
    yoPeerValue: 360,
-  // isPickerShown: false,
   // pickerOptions: ['PolyU', 'HKU', 'HKUST', 'CUHK', 'CITYU', 'HKBU', 'LINGU'],
-  // pickerOptions: ['香港大学', '香港中文大学', '香港科技大学', '香港城市大学', '香港理工大学', '香港浸会大学', '香港岭南大学', '香港教育大学'],
-  // selectedIndex: 0,
-  // isModalShown: false, // 控制弹窗是否显示
+
   },
   getUserProfile:function(e){  //进入登陆界面/个人信息
     wx.navigateTo({
