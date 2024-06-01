@@ -200,10 +200,28 @@
   padding: 10rpx;
 }
 
+.image-container-cart{
+  flex: 0.7;
+  padding: 10rpx;
+}
+
 .text-container {
   flex: 2;
   padding-top: 20rpx;
   padding-left: 70rpx;
+}
+
+.text-container-cart{
+  padding-left: 15rpx;
+  padding-top: 20rpx;
+}
+
+.middle-container-cart{
+  flex: 2;
+  /* background-color:peru; */
+  display: flex;
+  justify-content: space-between;
+  left: 0;
 }
 
 .number-container {
@@ -224,8 +242,8 @@
 }
 
 .quantity-size-container{
-  padding-top: 32rpx;
-  padding-left: 180rpx;
+  padding-top: 30rpx;
+  padding-left: 100rpx;
 }
 
 .button-area{
@@ -234,7 +252,7 @@
 }
 
 .add-button-area{
-  background-color:#ced0e0;
+  background-color:#ebebeb;
   border-radius: 10rpx;
   height: 50rpx;
   width: 50rpx;

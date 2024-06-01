@@ -89,17 +89,19 @@
       <view slot = "item">
         <view class="swiper-view-item" wx:for="{{ypCart}}" wx:key="ypCartIndex" wx:for-item="cartItem" > 
           <view class="item-container-cart">
-            <view class="image-container">
+            <view class="image-container-cart">
               <image class="view-item-photo" src = "https://images.pexels.com/photos/2536965/pexels-photo-2536965.jpeg" hover-class="this-check"></image>
             </view>
-            <view class="text-container" hover-class="this-check">
-              <view class="view-item-text overflow"></view>
-              <text style="font-size: 27rpx;" class="product-title"  >{{cartItem.prodName}}</text>
-              <view style="font-size:30rpx;color:palevioletred;padding: 0 0 0 0;display:inline-block" >￥{{cartItem.price}}</view>
-          </view>                                                                        
-          <view class="quantity-size-container">
-            <text wx:for = "{{cartItem.optionName}}" wx:for-index = "cartOptionIndex" wx:for-item = "cartOptionName" style="font-size:23rpx;font-weight: 200;color:gray;display:block;white-space:pre-line;text-overflow:ellipsis;white-space:pre-line;line-height:30rpx" > {{cartOptionName}}:{{cartItem.selectedItem[cartOptionIndex]}}</text>
-            数量{{cartItem.selectedNum}}
+            <view class="middle-container-cart">
+                <view class="text-container-cart" hover-class="this-check">
+                  <view class="view-item-text overflow"></view>
+                  <text style="font-size: 27rpx;" class="product-title"  >{{cartItem.prodName}}</text>
+                  <view style="font-size:30rpx;color:palevioletred;padding: 0 0 0 0;display:inline-block" >￥{{cartItem.price}}</view>
+              </view>                                                                        
+              <view class="quantity-size-container">
+                <text wx:for = "{{cartItem.optionName}}" wx:for-index = "cartOptionIndex" wx:for-item = "cartOptionName" style="font-size:23rpx;font-weight: 200;color:gray;display:block;white-space:pre-line;text-overflow:ellipsis;white-space:pre-line;line-height:30rpx" > {{cartOptionName}}:{{cartItem.selectedItem[cartOptionIndex]}}</text>
+                x{{cartItem.selectedNum}}
+              </view>
           </view>
           <view class="button-area">
             <view class="add-button-area">
