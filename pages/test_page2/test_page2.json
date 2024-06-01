@@ -4,7 +4,8 @@
     "t-input": "tdesign-miniprogram/input/input",
     "t-picker": "tdesign-miniprogram/picker/picker",
     "t-picker-item": "tdesign-miniprogram/picker-item/picker-item",
-    "t-cell": "tdesign-miniprogram/cell/cell"
+    "t-cell": "tdesign-miniprogram/cell/cell",
+    "t-cascader": "tdesign-miniprogram/cascader/cascader"
   },
   "component": true,
   "styleIsolation": "apply-shared",
