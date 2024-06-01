@@ -1,5 +1,5 @@
 .main-page{
-  background-color: rgb(246,246,246);
+  background-color: rgb(241,241,241);
   height: 100%;
   width:100%;
   display: block;

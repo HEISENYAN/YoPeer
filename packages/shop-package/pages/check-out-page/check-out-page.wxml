@@ -32,7 +32,7 @@
 
   <van-submit-bar
     price="{{ checkOutPrice*100 }}"
-    button-text="提交订单"
+    button-text="下一步"
     bind:submit="onClickButton"
     tip="{{ true }}"
     id = "subBar"

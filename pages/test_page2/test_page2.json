@@ -1,10 +1,16 @@
 {
   "usingComponents": {
-
+    "t-navbar": "tdesign-miniprogram/navbar/navbar",
+    "t-input": "tdesign-miniprogram/input/input",
+    "t-picker": "tdesign-miniprogram/picker/picker",
+    "t-picker-item": "tdesign-miniprogram/picker-item/picker-item",
+    "t-cell": "tdesign-miniprogram/cell/cell"
   },
+  "component": true,
+  "styleIsolation": "apply-shared",
   "renderer":"webview",
   "navigationBarTextStyle": "black",
-  "navigationStyle": "default",
+  "navigationStyle": "custom",
   "navigationBarTitleText": "webview测试页面",
   "navigationBarBackgroundColor": "#ffffff"
 }

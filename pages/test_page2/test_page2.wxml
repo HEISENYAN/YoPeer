@@ -1,7 +1,42 @@
 
 
-<radio-group class="radio-group" bindchange="radioChange">
-    <label class="radio" wx:for="{{items}}">
-        {{item.value}}<radio value="{{item.name}}" checked="{{item.checked}}"/>
-    </label>
-</radio-group>
+<view class = "main-page">
+  <view class="block">
+    <t-navbar
+      t-class-placeholder="t-navbar-placeholder"
+      t-class-content="t-navbar-content"
+      class="block"
+      title="收货信息"
+      left-arrow
+      bind:go-back="handleBack"
+      borderless = "true"
+    />
+  </view>
+  <view class = "personal-cell">
+    <view style = "display: flex;">
+      <view style = "width:3vw"></view>
+      <view style = "width:20vw;display: flex;justify-content:start;align-items: center;">收货人</view>
+      <view style = "width:77vw;"><t-input label="" style = "--td-input-border-radius: @radius-large" borderless="{{true}}" placeholder="请填写收件人姓名" ></t-input></view>
+    </view>
+    <view style = "display: flex;">
+      <view style = "width:3vw"></view>
+      <view style = "width:20vw;display: flex;justify-content:start;align-items: center;">手机号码</view>
+      <view style = "width:20vw;display:inline-block"><t-cell class="mb-16" title="{{selectedArea}}" arrow hover bind:click="onSelectArea" bordered = "{{false}}" /></view>
+      <view style = "width: 57vw;"><t-input label="" placeholder="请填写收货人手机号码" class = "input" type = "number" maxlength = "{{11}}" borderless="{{true}}"></t-input></view>
+    </view>
+  </view>
+  <t-picker
+    visible="{{showAreaPicker}}"
+    data-key="area"
+    title="选择地区"
+    cancelBtn="取消"
+    confirmBtn="确认"
+    usingCustomNavbar
+    bindchange="onChangeArea"
+    bindpick=""
+  >
+    <t-picker-item options="{{areas}}" />
+  </t-picker>
+  
+
+</view>   
