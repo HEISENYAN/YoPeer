@@ -26,3 +26,35 @@
   padding-top: 10rpx;
   padding-bottom: 10rpx;
 }
+.address-cell{
+  background-color: white;
+  width:92vw;
+  border-radius: 10px;
+  margin-left: 4vw;
+  box-sizing:border-box;
+  margin-top: 2vh;
+  display:block;
+  padding-bottom: 10rpx;
+}
+.address-option{
+  background-color:rgb(236, 234, 234);
+  color:rgb(80, 79, 79);
+  width:46vw;
+  display: inline-flex;
+  height: 8vh;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+  font-weight: bold;
+}
+.address-option.selected{
+  background-color:white;
+  color:rgb(43, 43, 43);
+  width:46vw;
+  display: inline-flex;
+  height: 8vh;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+  font-weight: bold;
+}

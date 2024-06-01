@@ -1,5 +1,3 @@
-
-
 <view class = "main-page">
   <view class="block">
     <t-navbar
@@ -12,6 +10,8 @@
       borderless = "true"
     />
   </view>
+
+  <!--姓名与手机号填写-->
   <view class = "personal-cell">
     <view style = "display: flex;">
       <view style = "width:3vw"></view>
@@ -38,5 +38,42 @@
     <t-picker-item options="{{areas}}" />
   </t-picker>
   
+  <!--选地址栏-->
+  <view class = "address-cell">
+    <view 
+      class = "address-option {{selectedAddressType == 0?'selected':''}}" 
+      style = "border-top-left-radius: 10px;border-bottom-right-radius: {{selectedAddressType == 1?20:0}}px;" 
+      data-selected-address = "{{0}}" 
+      catchtap = "onSelectAdress">宿舍住户</view>
+    <view 
+      class = "address-option {{selectedAddressType == 1?'selected':''}}" 
+      style = "border-top-right-radius: 10px; border-bottom-left-radius: {{selectedAddressType == 0?20:0}}px; " 
+      data-selected-address = "{{1}}" 
+      catchtap = "onSelectAdress">校外住户</view>
+
+    <!--宿舍地址选择-->
+    <t-cell wx:if = "{{selectedAddressType == 0}}" title="地址" note="请选择宿舍" bind:click="onOpenCascader" hover arrow bordered = "{{false}}"></t-cell>
+    <t-cell wx:if = "{{selectedAddressType == 0&&selectedHallAddress!=''}}" note="{{selectedHallAddress}}" bind:click="onOpenCascader"bordered = "{{false}}"></t-cell>
+    <t-cascader
+      visible="{{showHallCascadar}}"
+      options="{{hallList}}"
+      title="请选择宿舍"
+      sub-titles="{{subTitles}}"
+      bind:change="onChangeHallAdress"
+    ></t-cascader>
+    <!--校外地址选择与填写-->
+    <t-cell wx:if = "{{selectedAddressType == 1}}" title="地区" note="{{selectedAreaAddress}}" bind:click="onOpenCascader" hover arrow bordered = "{{false}}"></t-cell>
+    <t-input wx:if = "{{selectedAddressType == 1}}" label="街道" borderless="{{true}}" placeholder="请填写住址街道" ></t-input>
+    <t-input wx:if = "{{selectedAddressType == 1}}" label="楼宇" borderless="{{true}}" placeholder="请填写楼宇或社区名称" ></t-input>
+    <t-input wx:if = "{{selectedAddressType == 1}}" label="门牌号" borderless="{{true}}" placeholder="请填写门牌号（选填）" bind:enter = "enter"></t-input>
+    <t-cascader
+      visible="{{showAreaCascadar}}"
+      options="{{areaList}}"
+      title="请选择地区"
+      sub-titles="{{subTitles}}"
+      bind:change="onChangeAreaAdress"
+    ></t-cascader>
+
+  </view>
 
 </view>   
