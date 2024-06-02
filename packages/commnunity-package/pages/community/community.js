@@ -1,12 +1,32 @@
 // pages/community/community.js
+const imageCdn = 'https://tdesign.gtimg.com/mobile/demos';
+const swiperList = [
+`${imageCdn}/swiper1.png`,
+`${imageCdn}/swiper2.png`,
+`${imageCdn}/swiper1.png`,
+`${imageCdn}/swiper2.png`,
+`${imageCdn}/swiper1.png`,
+];
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    show:false
+    current: 0,
+    autoplay: false,
+    duration: 500,
+    interval: 5000,
+    swiperList,
   },
+  onChange(e) {
+    const {
+      detail: { current, source },
+    } = e;
+    console.log(current, source);
+  },
+
   open: function () {
     this.setData({
         show: true
