@@ -12,7 +12,7 @@
   </view>
 
 
-  <block wx:if="{{false}}">
+  <block wx:if="{{currentStep == 0}}">
   <view class="scroll-area" type="list">
     <view class="intro">欢迎来到YoPeer港校新生团购活动🐱</view>
     <van-cell-group inset class="unit-area">
@@ -37,7 +37,7 @@
     <van-submit-bar
       price="{{ checkOutPrice*100 }}"
       button-text="下一步"
-      bind:submit="onClickButton"
+      bind:submit="onClickNext"
       tip="{{ true }}"
       id = "subBar"
     >
@@ -47,7 +47,7 @@
 
 
   <!--收货信息-->
-  <block wx:if = "{{true}}">
+  <block wx:if = "{{currentStep == 1}}">
   
     <!--姓名与手机号填写-->
     <view class = "personal-cell">
@@ -119,7 +119,10 @@
     >
     </van-submit-bar>
   </block>
+  <!--确认信息并付款-->
+  <block wx:if = "{{currentStep == 2}}">
   
+  </block>
 </view>   
 
 <!--

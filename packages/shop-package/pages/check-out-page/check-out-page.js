@@ -146,7 +146,8 @@ Page({
     showAreaCascadar: false,
     areaList:areaAddress,
     selectedAreaAddress:'',
-    receiverInfo:{}
+    receiverInfo:{},
+    currentStep:0
   },
   onSelectArea(){
     this.setData({
@@ -178,6 +179,12 @@ Page({
   onChangeAreaAdress(e){
     this.setData({
       selectedAreaAddress: e.detail.selectedOptions[0].label + " "+ e.detail.selectedOptions[1].label
+    })
+  },
+  onClickNext(){
+    const currentTemp = this.data.currentStep;
+    this.setData({
+      currentStep: currentTemp + 1
     })
   },
   /**
