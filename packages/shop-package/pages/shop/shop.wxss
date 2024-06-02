@@ -207,7 +207,7 @@
 
 .text-container {
   flex: 2;
-  padding-top: 10rpx;
+  padding-top: 8rpx;
   margin-left: 90rpx;
   /* background-color: blueviolet; */
 }
@@ -226,7 +226,7 @@
 }
 
 .number-container {
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
   margin-right: 20rpx;
   box-sizing: border-box;
   padding-top: 100rpx;
