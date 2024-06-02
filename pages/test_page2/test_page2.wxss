@@ -58,3 +58,9 @@
   font-size: large;
   font-weight: bold;
 }
+.step-cell{
+  width:100vw;
+  background-color: white;
+  padding-top:20rpx;
+  
+}

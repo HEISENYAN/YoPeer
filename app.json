@@ -1,10 +1,10 @@
 {
   "pages": [
-    "pages/test_page2/test_page2",
+
     "pages/activity/activity",
-    "pages/personal/personal",
+    "pages/test_page2/test_page2",
     "pages/test_page/test_page",
-    
+    "pages/personal/personal",
     "packages/commnunity-package/pages/community/community",
     "pages/personal/login/login",
     "pages/personal/addressEdit/addressEdit",
@@ -17,8 +17,7 @@
       "pages": [
         "pages/check-out-page/check-out-page",
         "pages/shop/shop",
-        "pages/product-detail/product-detail",
-        "pages/order-infomation/order-information"
+        "pages/product-detail/product-detail"
       ]
     },
     {

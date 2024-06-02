@@ -1,8 +1,8 @@
 <!-- 上半部分：横向滑动图片 -->
 <swiper class="swiper-container" autoplay="true" interval="3000" duration="500" indicator-dots="true">
-  <block wx:for="{{product.images}}" wx:key="index">
+  <block wx:for="{{selectedProduct.specifiedUrls}}" wx:for-item="imagUrl" wx:key="index">
     <swiper-item>
-      <image class="swiper-image" src="{{item}}" mode="aspectFill"></image>
+      <image class="swiper-image" src="{{imagUrl[0]}}" mode="aspectFill"></image>
     </swiper-item>
   </block>
 </swiper>

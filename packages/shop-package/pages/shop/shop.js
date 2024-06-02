@@ -176,7 +176,6 @@ Component({
           var totalPrice = 0
           var tempCart = []
           const matching = /YP\d+/
-          console.log(that.data.YPproduct)
           for(let i in res.data){
             totalPrice += res.data[i].price * res.data[i].selectedNum
             tempCart.push({
@@ -184,7 +183,8 @@ Component({
               price:res.data[i].price,
               prodName:res.data[i].prodName,
               selectedItem:res.data[i].selectedItem,
-              optionName:res.data[i].optionName
+              optionName:res.data[i].optionName,
+              thumbnailUrl:res.data[i].thumbnailUrl
             })
           }
           that.setData({

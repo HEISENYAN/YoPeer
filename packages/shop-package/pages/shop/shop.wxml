@@ -54,7 +54,7 @@
           <view class="swiper-view-item" wx:for="{{item.items}}" bindtap="chooseSecondMenu" wx:key="prodIndex" wx:for-item="prodItem" data-selected="{{prodItem}}"> 
             <view class="item-container" data-selected="{{prodItem}}">
               <view class="image-container" data-selected="{{prodItem}}">
-                <image class="view-item-photo" src = "https://images.pexels.com/photos/2536965/pexels-photo-2536965.jpeg" data-selected="{{prodItem}}" hover-class="this-check"></image>
+                <image class="view-item-photo" src = "{{prodItem.thumbnailUrl}}" data-selected="{{prodItem}}" hover-class="this-check"></image>
               </view>
               <view class="text-container" data-selected="{{prodItem}}" hover-class="this-check">
                 <view class="view-item-text overflow" data-selected="{{prodItem}}"></view>
@@ -90,7 +90,7 @@
         <view class="swiper-view-item" wx:for="{{ypCart}}" wx:key="ypCartIndex" wx:for-item="cartItem" > 
           <view class="item-container-cart">
             <view class="image-container-cart">
-              <image class="view-item-photo" src = "https://images.pexels.com/photos/2536965/pexels-photo-2536965.jpeg" hover-class="this-check"></image>
+              <image class="view-item-photo" src = "{{cartItem.thumbnailUrl}}" hover-class="this-check"></image>
             </view>
             <view class="middle-container-cart">
                 <view class="text-container-cart" hover-class="this-check">

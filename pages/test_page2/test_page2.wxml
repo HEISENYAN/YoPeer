@@ -1,3 +1,7 @@
+<wxs module="_">
+  module.exports.getText = function(value, curr) { if (value > curr) return '已完成'; if (value == curr)
+  return'当前步骤'; return '未完成'; }
+</wxs>
 <view class = "main-page">
   <view class="block">
     <t-navbar
@@ -10,7 +14,11 @@
       borderless = "true"
     />
   </view>
-
+  <view class="step-cell">
+    <t-steps current="{{second}}" bind:change="onSecondChange">
+      <t-step-item wx:for="{{3}}" wx:key="index" title="{{_.getText(second, index)}}" content="辅助信息" icon="cart" />
+    </t-steps>
+  </view>
   <!--姓名与手机号填写-->
   <view class = "personal-cell">
     <view style = "display: flex;">
@@ -73,7 +81,7 @@
       sub-titles="{{subTitles}}"
       bind:change="onChangeAreaAdress"
     ></t-cascader>
-
   </view>
 
+  
 </view>   

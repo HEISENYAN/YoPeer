@@ -7,11 +7,15 @@
     "van-cell-group": "/miniprogram_npm/@vant/weapp/cell-group/index",
     "van-icon": "/miniprogram_npm/@vant/weapp/icon/index",
     "van-submit-bar": "/miniprogram_npm/@vant/weapp/submit-bar/index",
-    "yp-navigation":"/components/yp-navigation-bar/yp-navigation-bar"
+    "yp-navigation":"/components/yp-navigation-bar/yp-navigation-bar",
+    "t-navbar": "tdesign-miniprogram/navbar/navbar",
+    "t-input": "tdesign-miniprogram/input/input",
+    "t-picker": "tdesign-miniprogram/picker/picker",
+    "t-picker-item": "tdesign-miniprogram/picker-item/picker-item",
+    "t-cell": "tdesign-miniprogram/cell/cell",
+    "t-cascader": "tdesign-miniprogram/cascader/cascader",
+    "t-steps": "tdesign-miniprogram/steps/steps",
+  "t-step-item": "tdesign-miniprogram/step-item/step-item"
   },
-  "renderer":"webview",
-  "navigationBarTextStyle": "black",
-  "navigationStyle": "default",
-  "navigationBarTitleText": "结算",
-  "navigationBarBackgroundColor": "#ffffff"
+  "renderer":"webview"
 }

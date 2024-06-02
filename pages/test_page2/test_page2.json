@@ -5,7 +5,9 @@
     "t-picker": "tdesign-miniprogram/picker/picker",
     "t-picker-item": "tdesign-miniprogram/picker-item/picker-item",
     "t-cell": "tdesign-miniprogram/cell/cell",
-    "t-cascader": "tdesign-miniprogram/cascader/cascader"
+    "t-cascader": "tdesign-miniprogram/cascader/cascader",
+    "t-steps": "tdesign-miniprogram/steps/steps",
+  "t-step-item": "tdesign-miniprogram/step-item/step-item"
   },
   "component": true,
   "styleIsolation": "apply-shared",

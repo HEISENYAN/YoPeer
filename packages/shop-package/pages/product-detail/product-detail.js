@@ -43,6 +43,7 @@ Page({
     ypProduct.prodName = this.data.selectedProduct.prodName;
     ypProduct.selectedItem = new Array(0);
     ypProduct.optionName = this.data.selectedProduct.optionName;
+    ypProduct.thumbnailUrl = this.data.selectedProduct.thumbnailUrl;
     for(let i = 0; i < this.data.selectedOptions.length;i++){
       ypProduct.selectedItem.push(this.data.selectedProduct.options[i][this.data.selectedOptions[i]])
     }
