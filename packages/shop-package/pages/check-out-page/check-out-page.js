@@ -187,6 +187,13 @@ Page({
       currentStep: currentTemp + 1
     })
   },
+  goPreviousStep() {
+    if (this.data.currentStep > 0) {
+      this.setData({
+        currentStep: this.data.currentStep - 1,
+      });
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */

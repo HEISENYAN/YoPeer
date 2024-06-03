@@ -16,13 +16,11 @@ page {
 }
 
 .unit-area2{
-  margin-top: 15rpx;
+  margin-top: 50rpx !important;
+  margin-bottom: 300rpx !important;
+
 }
 
-.unit-area3{
-  margin-top: 15rpx;
-  margin-bottom: 300rpx;
-}
 /* pages/test_page2/test_page2.wxss */
 .radio-group{
   display:inline-block;
@@ -88,4 +86,17 @@ page {
   background-color: white;
   padding-top:20rpx;
   
+}
+
+.backToButton{
+  border-radius: 50rpx !important;
+  margin-left: 50rpx !important;
+}
+
+.van-button--default1 {
+  padding-right: 200rpx !important;
+}
+
+.checkOutPrice{
+  color: rgb(228, 0, 0) !important;
 }

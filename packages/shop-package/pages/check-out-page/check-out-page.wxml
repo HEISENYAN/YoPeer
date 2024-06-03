@@ -18,18 +18,16 @@
     <van-cell-group inset class="unit-area">
       <van-cell title="港校新生团购结算"/>
       <block wx:for = "{{checkOutInfo}}" wx:key = "checkOutKey" wx:for-item = "checkOutItem">
-        <van-cell title="{{checkOutItem.prodName}}" value="¥{{checkOutItem.price * checkOutItem.selectedNum}}" label="件数：{{checkOutItem.selectedNum}}" />
+        <van-cell title="{{checkOutItem.prodName}}" value="¥{{checkOutItem.price * checkOutItem.selectedNum}}" label="件数：{{checkOutItem.selectedNum}}   规格：粉色，18m*18m" />
       </block>
       
-      <van-cell title="实付款：" value="¥{{checkOutPrice}}" size="large" />
+      <van-cell title="实付款：" value="¥{{checkOutPrice}}" size="large" value-class="checkOutPrice"/>
     </van-cell-group>
 
     <van-cell-group inset class="unit-area2">
       <van-cell title="优惠券" is-link value="" />
-    </van-cell-group>
-
-    <van-cell-group inset class="unit-area3">
-      <van-cell title="备注" is-link value="" />
+      <van-cell title="备注" is-link value="" arrow-direction="down"/>
+      <van-cell title="预计送达时间"  value="2024.9.5" />
     </van-cell-group>
 
     <view style = "height: {{offsetMargin}}px; width:100%;background-color: rgb(241,241,241);" ></view>
@@ -41,6 +39,8 @@
       tip="{{ true }}"
       id = "subBar"
     >
+      <van-button plain hairline size="normal" bind:click="goPreviousStep">上一步</van-button>
+      <!-- <view slot="tip">想修改购物车内容？<text>点此修改</text></view> -->
     </van-submit-bar>
     </view>
   </block>
@@ -112,12 +112,16 @@
         bind:change="onChangeAreaAdress"
       ></t-cascader>
     </view>
+
     <van-submit-bar
+      price="{{ checkOutPrice*100 }}"
       button-text="下一步"
       bind:submit="onClickButton"
       id = "subBar"
     >
+    <van-button plain hairline size="normal" bind:click="goPreviousStep">上一步</van-button>
     </van-submit-bar>
+
   </block>
   <!--确认信息并付款-->
   <block wx:if = "{{currentStep == 2}}">
