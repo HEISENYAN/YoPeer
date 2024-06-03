@@ -41,7 +41,7 @@
       tip="{{ true }}"
       id = "subBar"
     >
-      <van-button plain hairline size="normal">上一步</van-button>
+      <van-button plain hairline size="normal" bind:click="goPreviousStep">上一步</van-button>
       <!-- <view slot="tip">想修改购物车内容？<text>点此修改</text></view> -->
     </van-submit-bar>
     </view>
@@ -121,7 +121,7 @@
       bind:submit="onClickButton"
       id = "subBar"
     >
-    <van-button type="default" plain hairline size="normal">上一步</van-button>
+    <van-button plain hairline size="normal" bind:click="goPreviousStep">上一步</van-button>
     </van-submit-bar>
 
   </block>
