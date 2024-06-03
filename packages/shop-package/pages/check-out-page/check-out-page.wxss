@@ -89,3 +89,7 @@ page {
   padding-top:20rpx;
   
 }
+
+.backToButton{
+  border-radius: 50rpx !important;
+}

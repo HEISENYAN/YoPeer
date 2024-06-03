@@ -18,7 +18,7 @@
     <van-cell-group inset class="unit-area">
       <van-cell title="港校新生团购结算"/>
       <block wx:for = "{{checkOutInfo}}" wx:key = "checkOutKey" wx:for-item = "checkOutItem">
-        <van-cell title="{{checkOutItem.prodName}}" value="¥{{checkOutItem.price * checkOutItem.selectedNum}}" label="件数：{{checkOutItem.selectedNum}}" />
+        <van-cell title="{{checkOutItem.prodName}}" value="¥{{checkOutItem.price * checkOutItem.selectedNum}}" label="件数：{{checkOutItem.selectedNum}}   规格：粉色，18m*18m" />
       </block>
       
       <van-cell title="实付款：" value="¥{{checkOutPrice}}" size="large" />
@@ -41,6 +41,8 @@
       tip="{{ true }}"
       id = "subBar"
     >
+      <van-button plain hairline size="normal">上一步</van-button>
+      <!-- <view slot="tip">想修改购物车内容？<text>点此修改</text></view> -->
     </van-submit-bar>
     </view>
   </block>
