@@ -9,7 +9,8 @@
     "t-picker-item": "tdesign-miniprogram/picker-item/picker-item",
     "yp-navigation":"/components/yp-navigation-bar/yp-navigation-bar",
     "van-field": "@vant/weapp/field/index",
-    "t-cascader": "tdesign-miniprogram/cascader/cascader"
+    "t-cascader": "tdesign-miniprogram/cascader/cascader",
+    "t-image": "tdesign-miniprogram/image/image"
   },
   "renderer": "webview",
   "navigationBarTextStyle": "black",

@@ -28,6 +28,7 @@
     }
   ],
   "window": {
+    "backgroundTextStyle": "light",
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom",
     "navigationBarTitleText": "YoPeer 鱼饼"

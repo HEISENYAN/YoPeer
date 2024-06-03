@@ -1,7 +1,10 @@
 <view class = "personal">
   <view class = "loginBar" open-type = "getUserInfo" bindtap = "getUserProfile" >
-    <image class = "loginImg" src ="{{avatarUrl}}"></image>
-    <text style ="width:200rpx;height:200rpx;display:inline-block;font-size:40rpx;">{{nickname}}</text> 
+    <!-- <image class = "loginImg" src ="{{avatarUrl}}"></image> -->
+    <view class = "loginImg">
+      <t-image src="{{avatarUrl}}" mode="aspectFill" width="56" height="56" shape="round"/>
+    </view>
+    <text style ="width:200rpx;height:200rpx;display:inline-block;font-size:40rpx;">{{nickname}}</text>
   </view>
 </view>
 <!-- <view class="order-group__item__icon icon-class">

@@ -2,7 +2,8 @@
 .avatar-wrapper {
   padding: 0;
   width: 56px !important;
-  border-radius: 8px;
+  height: 56px;
+  /* border-radius: 8px; */
   margin-top: 40px;
   margin-bottom: 40px;
 }
@@ -47,7 +48,3 @@
 .mb-16 {
   margin-bottom: 32rpx;
 }
-/* 地址 */
-/* page .demo {
-  --td-cascader-active-color: green;
-} */

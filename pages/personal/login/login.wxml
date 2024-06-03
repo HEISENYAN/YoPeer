@@ -1,5 +1,8 @@
 <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
-  <image name="avatarUrl" class="avatar" src="{{avatarUrl}}"></image>
+  <!-- <image name="avatarUrl" class="avatar" src="{{avatarUrl}}"></image> -->
+  <view class="col">
+    <t-image src="{{avatarUrl}}" mode="aspectFill" width="56" height="56" shape="round"/>
+  </view>
 </button> 
 <form bindsubmit = "formSubmit">
   <!-- <view class="nickname-wrapper">
@@ -73,6 +76,6 @@
   <view style="display: flex; justify-content: space-between;">
   <!-- <navigator url="../personal/personal" open-type="navigateBack" style="align-self: center;"> -->
   <!-- </navigator> -->
-    <button form-type="submit" type="primary" style="width: 250rpx;">提交</button>
+    <button form-type="submit" type="primary" style="width: 200rpx; margin-top: 50px;">提交</button>
   </view>
 </form>

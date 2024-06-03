@@ -6,25 +6,28 @@ Component({
   },
 
   methods: {
-      onChange(event) {
-        this.setData({ active: event.detail.value });
-        wx.switchTab({
-          url: this.data.list[event.detail.value].url.startsWith('/')
-            ? this.data.list[event.detail.value].url
-            : `/${this.data.list[event.detail.value].url}`,
-        });
-        console.log(event.detail.value)
-      },
-      init() {
-        const page = getCurrentPages().pop();
-        const route = page ? page.route.split('?')[0] : '';
-        const active = this.data.list.findIndex(
-          (item) =>
-            (item.url.startsWith('/') ? item.url.substr(1) : item.url) ===
-            `${route}`,
-        );
-        this.setData({ active });
-      },
+    onChange(event) {
+      // this.setData({ active: event.detail.value });
+      // console.log("Switched to tab " + event.detail.value)
+      wx.switchTab({
+        url: this.data.list[event.detail.value].url.startsWith('/')
+          ? this.data.list[event.detail.value].url
+          : `/${this.data.list[event.detail.value].url}`,
+      });
+      // console.log("change link to " + this.data.list[event.detail.value].url)
+      // console.log(event.detail.value)
     },
+    init() {
+      console.log("init...")
+      const page = getCurrentPages().pop();
+      const route = page ? page.route.split('?')[0] : '';
+      const active = this.data.list.findIndex(
+        (item) =>
+          (item.url.startsWith('/') ? item.url.substr(1) : item.url) ===
+          `${route}`,
+      );
+      this.setData({ active });
+    },
+  },
 
 })

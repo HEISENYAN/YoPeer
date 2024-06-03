@@ -1,4 +1,4 @@
-<view class="card-theme">
+<!-- <view class="card-theme">
 
   <view class="box" style="height: 142px" />
 
@@ -18,4 +18,4 @@
     t-class-prev-image="scale-candidate"
     t-class-next-image="scale-candidate"
   />
-</view>
+</view> -->
