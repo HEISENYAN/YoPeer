@@ -92,6 +92,11 @@ page {
 
 .backToButton{
   border-radius: 50rpx !important;
+  margin-left: 50rpx !important;
+}
+
+.van-button--default1 {
+  padding-right: 200rpx !important;
 }
 
 .checkOutPrice{

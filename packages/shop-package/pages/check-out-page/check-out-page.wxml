@@ -114,12 +114,16 @@
         bind:change="onChangeAreaAdress"
       ></t-cascader>
     </view>
+
     <van-submit-bar
+      price="{{ checkOutPrice*100 }}"
       button-text="下一步"
       bind:submit="onClickButton"
       id = "subBar"
     >
+    <van-button type="default" plain hairline size="normal">上一步</van-button>
     </van-submit-bar>
+
   </block>
   <!--确认信息并付款-->
   <block wx:if = "{{currentStep == 2}}">
