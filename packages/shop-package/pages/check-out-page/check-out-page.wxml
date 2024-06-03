@@ -21,7 +21,7 @@
         <van-cell title="{{checkOutItem.prodName}}" value="¥{{checkOutItem.price * checkOutItem.selectedNum}}" label="件数：{{checkOutItem.selectedNum}}   规格：粉色，18m*18m" />
       </block>
       
-      <van-cell title="实付款：" value="¥{{checkOutPrice}}" size="large" />
+      <van-cell title="实付款：" value="¥{{checkOutPrice}}" size="large" value-class="checkOutPrice"/>
     </van-cell-group>
 
     <van-cell-group inset class="unit-area2">

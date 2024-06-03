@@ -93,3 +93,7 @@ page {
 .backToButton{
   border-radius: 50rpx !important;
 }
+
+.checkOutPrice{
+  color: rgb(228, 0, 0) !important;
+}
