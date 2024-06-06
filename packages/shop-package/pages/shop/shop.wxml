@@ -45,29 +45,32 @@
     </view>
   
   <!--右侧二级菜单-->
-    <scroll-view scroll-y style="width: 100%; height: 100%; background-color:white;" type="custom" scroll-into-view="{{scrollIntoView}}"  bindscroll ="scrollDetection">
+    <scroll-view scroll-y style="width: 100%; height: 100%; background-color:rgb(241,241,241);" type="custom" scroll-into-view="{{scrollIntoView}}"  bindscroll ="scrollDetection">
       <sticky-section wx:for="{{YPproduct}}" wx:key = "index" wx:for-item = "item" >
         <sticky-header>
           <view class="header" id = "menuIndex{{index}}">{{item.classification}}</view>
         </sticky-header>
         <list-view class = "item-list">
-          <view class="swiper-view-item" wx:for="{{item.items}}" bindtap="chooseSecondMenu" wx:key="prodIndex" wx:for-item="prodItem" data-selected="{{prodItem}}"> 
-            <view class="item-container" data-selected="{{prodItem}}">
-              <view class="image-container" data-selected="{{prodItem}}">
-                <image class="view-item-photo" src = "{{prodItem.thumbnailUrl}}" data-selected="{{prodItem}}" hover-class="this-check"></image>
-              </view>
-              <view class="text-container" data-selected="{{prodItem}}" hover-class="this-check">
-                <view class="view-item-text overflow" data-selected="{{prodItem}}"></view>
-                <text style="font-size: 25rpx;" class="product-title" data-selected="{{prodItem}}" >{{prodItem.prodName}}</text>
-                <!--<text style="font-size:23rpx;;color:gray;display:block;text-overflow:ellipsis;white-space:pre-line;line-height:40rpx" data-cid="{{prodItem.id}}" data-cname="{{prodItem.name}}">{{prodItem.introduction}}</text> -->
-                <text style="font-size:21rpx;font-weight: 200;color:gray;display:block;white-space:pre-line;text-overflow:ellipsis;white-space:pre-line;line-height:30rpx" data-selected="{{prodItem}}">已售：{{prodItem.soldNum}}</text>
-                <view style="font-size:30rpx;color:palevioletred;padding: 0 0 0 0;display:inline-block" data-selected="{{prodItem}}">￥{{prodItem.price}}</view>
-            </view>                                                                        
-            <view class="number-container" data-selected="{{prodItem}}">
-                  <view class = "choose-button" data-selected="{{prodItem}}">选规格</view>
+          <view class="shopping-item" wx:for="{{item.items}}" bindtap="chooseSecondMenu" wx:key="prodIndex" wx:for-item="prodItem" data-selected="{{prodItem}}"> 
+            <view class="shopping-image" data-selected="{{prodItem}}">
+              <image style = "height: 180rpx; width: 180rpx;" src="{{prodItem.thumbnailUrl}}" data-selected="{{prodItem}}"> </image>
             </view>
-            </view>                                                                   
+            <view class="shopping-info-container" data-selected="{{prodItem}}">
+              <text class = "shopping-item-title" max-lines = "{{2}}" overflow = "ellipsis" data-selected="{{prodItem}}">{{prodItem.prodName}}</text>
+              <text class = "shopping-item-title" max-lines = "{{2}}" overflow = "ellipsis" style = "color:red" data-selected="{{prodItem}}">￥{{prodItem.price}}</text>
+            </view>
           </view>
+          <!--<block  wx:for="{{item.items}}" bindtap="chooseSecondMenu" wx:key="prodIndex" wx:for-item="prodItem" data-selected="{{prodItem}}">
+            <van-card<view class = "choose-button" data-selected="{{prodItem}}">选规格</view>
+              bindtap="chooseSecondMenu"
+              data-selected="{{prodItem}}"
+              num=""
+              price="{{prodItem.price}}"
+              desc="{{prodItem.prodName}}"
+              title="{{prodItem.prodName}}"
+              thumb="{{ prodItem.thumbnailUrl }}"
+            />
+          </block>-->
         </list-view>
       </sticky-section>
     </scroll-view>
@@ -87,6 +90,7 @@
       </view>
       <!--购物车内视图-->
       <view slot = "item">
+        <!--
         <view class="swiper-view-item" wx:for="{{ypCart}}" wx:key="ypCartIndex" wx:for-item="cartItem" > 
           <view class="item-container-cart">
             <view class="image-container-cart">
@@ -112,6 +116,20 @@
             </view>
           </view>
           </view>                                                                   
+        </view>-->
+        <view class = "cart-item-container" wx:for="{{ypCart}}" wx:key="ypCartIndex" wx:for-item="cartItem">
+          <view class="shopping-image">
+            <image style = "height: 180rpx; width: 180rpx;" src="{{cartItem.thumbnailUrl}}"> </image>
+          </view>
+          <view class="shopping-info-container" style = "width:300rpx">
+            <text class = "shopping-item-title" max-lines = "{{2}}" overflow = "ellipsis">{{cartItem.prodName}}</text>
+            <text class = "shopping-item-title" style = "font-size:20rpx; color:gray" max-lines = "{{3}}" overflow = "ellipsis"><block wx:for = "{{cartItem.optionName}}" wx:for-index = "cartOptionIndex" wx:for-item = "cartOptionName">{{cartOptionName}}:{{cartItem.selectedItem[cartOptionIndex]}}</block>
+            </text>
+            <text class = "shopping-item-title" max-lines = "{{2}}" overflow = "ellipsis" style = "color:red">￥{{cartItem.price}}</text>
+          </view>
+          <view class="stepper-container">
+            <t-stepper defaultValue="{{cartItem.selectedNum}}" theme="outline" />
+          </view>
         </view>
         
         <!--总结条-->

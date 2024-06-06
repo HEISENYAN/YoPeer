@@ -3,7 +3,9 @@
     "van-card": "/miniprogram_npm/@vant/weapp/card/index",
     "van-popup": "/miniprogram_npm/@vant/weapp/popup/index",
     "van-cell": "/miniprogram_npm/@vant/weapp/cell/index",
-    "van-cell-group": "/miniprogram_npm/@vant/weapp/cell-group/index"
+    "van-cell-group": "/miniprogram_npm/@vant/weapp/cell-group/index",
+    "van-sticky": "/miniprogram_npm/@vant/weapp/sticky/index",
+    "t-stepper": "tdesign-miniprogram/stepper/stepper"
   },
   "renderer": "skyline"
 }

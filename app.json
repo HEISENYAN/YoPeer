@@ -33,7 +33,7 @@
     "navigationStyle": "custom",
     "navigationBarTitleText": "YoPeer 鱼饼"
   },
-  "renderer": "skyline",
+  "renderer": "webview",
   "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents",
