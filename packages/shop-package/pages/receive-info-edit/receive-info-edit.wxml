@@ -74,6 +74,8 @@
       bind:change="onChangeAreaAdress"
     ></t-cascader>
   </view>
-
+  <view class = "submit-button-container">
+    <t-button theme="primary" size="large" block>保存并使用</t-button>
+  </view>
   
 </view>   

@@ -28,7 +28,7 @@
       <van-cell title="优惠券" is-link value="" />
       <van-cell title="备注" is-link value="" arrow-direction="down"/>
       <van-cell title="地址" is-link value="" bind:tap="onEditAddress"/>
-      <van-cell title="预计送达时间"  value="2024.9.5" />
+      <van-cell title="预计送达时间"  value=""  />
     </van-cell-group>
 
     <view style = "height: {{offsetMargin}}px; width:100%;background-color: rgb(241,241,241);" ></view>
