@@ -10,8 +10,15 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/test_page2/test_page2",
-          "pathName": "pages/test_page2/test_page2",
+          "name": "packages/shop-package/pages/check-out-page/check-out-page",
+          "pathName": "packages/shop-package/pages/check-out-page/check-out-page",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "packages/shop-package/pages/receive-info-edit/receive-info-edit",
+          "pathName": "packages/shop-package/pages/receive-info-edit/receive-info-edit",
           "query": "",
           "launchMode": "default",
           "scene": null

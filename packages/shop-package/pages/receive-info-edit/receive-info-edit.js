@@ -124,6 +124,11 @@ const areaAddress = [
 
 Page({ 
   data: {
+    consigneeName: '',
+    consigneePhnoneNum: '',
+    hallSelectNote1:'请选择宿舍',
+    hallSelectNote2:'',
+    maxphonenum: 11,
     selectedArea:'+86',
     areas: [
       { label: '中国大陆 +86', value: '+86' },
@@ -134,12 +139,25 @@ Page({
     selectedAddressType : 0,
     hallList:hallAddress,
     showHallCascadar: false,
-    subTitles: ['请选择', '请选择', '请选择'],
-    selectedHallAddress:'',
+    subTitles_hall: ['请选择大学', '请选择宿舍'],
+    subTitles_area: ['请选择', '请选择'],
+    selectedHallAddress:[],
     showAreaCascadar: false,
     areaList:areaAddress,
-    selectedAreaAddress:'',
+    selectedAreaAddress:[],
+    areaSelectNote: [],
+    areaStreet: '',
+    areaBuilding: '',
+    areaHouseNum: '',
     receiverInfo:{}
+  },
+  saveAddress(e){
+    this.setData({selectedAreaAddress: [this.data.selectedAreaAddress, e.detail.value.areaStreet, e.detail.value.areaBuilding, e.detail.value.areaHouseNum]})
+    console.log("收货人：", e.detail.value.consigneeName)
+    console.log("手机号码：", this.data.selectedArea, e.detail.value.consigneePhnoneNum)
+    if(!this.data.selectedHallAddress.includes(undefined)) console.log("宿舍地址: ", this.data.selectedHallAddress)
+    if(!this.data.selectedAreaAddress.includes(undefined)) console.log("校外地址: ", this.data.selectedAreaAddress)
+
   },
   radioChange: function(e) {
     console.log('radio发生change事件，携带value值为：', e.detail.value)
@@ -153,9 +171,11 @@ Page({
     this.setData({
       selectedArea:e.detail.value[0]
     })
-    console.log(e)
+    if(e.detail.value[0]=="+852"||e.detail.value[0]=="+853")  this.setData({maxphonenum: 8})
+    else if (e.detail.value[0]=="+86")  this.setData({maxphonenum: 11})
+    // console.log(e.detail.value[0])
   },
-  onSelectAdress(e){
+  onSelectAddress(e){
     this.setData({
       selectedAddressType:e.target.dataset.selectedAddress
     })
@@ -168,12 +188,16 @@ Page({
   },
   onChangeHallAdress(e){
     this.setData({
-      selectedHallAddress: e.detail.selectedOptions[0].label + " "+ e.detail.selectedOptions[1].label
+      selectedHallAddress: [e.detail.selectedOptions[0].label, e.detail.selectedOptions[1].label],
+      hallSelectNote1: '',
+      hallSelectNote2: `${e.detail.selectedOptions[0].label}\n${e.detail.selectedOptions[1].label}`
     })
+
   },
   onChangeAreaAdress(e){
     this.setData({
-      selectedAreaAddress: e.detail.selectedOptions[0].label + " "+ e.detail.selectedOptions[1].label
+      selectedAreaAddress: [e.detail.selectedOptions[0].label, e.detail.selectedOptions[1].label],
+      areaSelectNote: [e.detail.selectedOptions[0].label, e.detail.selectedOptions[1].label]
     })
   },
   
