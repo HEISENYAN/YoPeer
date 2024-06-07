@@ -1,4 +1,3 @@
-// pages/check-out-page/check-out-page.js
 const hallAddress = [
   {
     value: '100000',
@@ -122,15 +121,9 @@ const areaAddress = [
     ],
   }
 ]
-Page({
 
-  /**
-   * 页面的初始数据
-   */
+Page({ 
   data: {
-    checkOutInfo:[],
-    checkOutPrice:0,
-    offsetMargin:84,
     selectedArea:'+86',
     areas: [
       { label: '中国大陆 +86', value: '+86' },
@@ -146,8 +139,10 @@ Page({
     showAreaCascadar: false,
     areaList:areaAddress,
     selectedAreaAddress:'',
-    receiverInfo:{},
-    currentStep:0
+    receiverInfo:{}
+  },
+  radioChange: function(e) {
+    console.log('radio发生change事件，携带value值为：', e.detail.value)
   },
   onSelectArea(){
     this.setData({
@@ -163,11 +158,6 @@ Page({
   onSelectAdress(e){
     this.setData({
       selectedAddressType:e.target.dataset.selectedAddress
-    })
-  },
-  onEditAddress(){
-    wx.navigateTo({
-      url: '../receive-info-edit/receive-info-edit',
     })
   },
   onOpenCascader(){
@@ -186,75 +176,5 @@ Page({
       selectedAreaAddress: e.detail.selectedOptions[0].label + " "+ e.detail.selectedOptions[1].label
     })
   },
-  onClickNext(){
-    wx.navigateTo({
-      url: '../receive-info-edit/receive-info-edit',
-    })
-  },
-  goPreviousStep() {
-    if (this.data.currentStep > 0) {
-      this.setData({
-        currentStep: this.data.currentStep - 1,
-      });
-    }
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-    this.setData({
-      checkOutInfo:JSON.parse(options.cartinfo),
-      checkOutPrice:options.totalprice
-    },()=>console.log(this.data.checkOutInfo))
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
-  }
+  
 })

@@ -1,6 +1,5 @@
 {
   "pages": [
-
     "pages/activity/activity",
     "pages/test_page2/test_page2",
     "pages/test_page/test_page",
@@ -17,7 +16,8 @@
       "pages": [
         "pages/check-out-page/check-out-page",
         "pages/shop/shop",
-        "pages/product-detail/product-detail"
+        "pages/product-detail/product-detail",
+        "pages/receive-info-edit/receive-info-edit"
       ]
     },
     {

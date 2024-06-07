@@ -56,9 +56,8 @@ Page({
       key:"ypCart",
       fail: function(res){
         console.log(res)
-        //判断是否创造过购物车
-        if(res.errMsg == "getStorage:fail data not found" || res.errMsg =='getStorage:fail :data not found'){
-          console.log("123123")
+        //判断是否创造过购物车 有bug 不同设备errmsg不一样 改为直接运行
+        if(true){
           const ypProduct = that.wrapProduct()
           wx.setStorage({
             key:"ypCart",
