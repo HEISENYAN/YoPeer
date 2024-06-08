@@ -127,8 +127,9 @@ let Tabs = class Tabs extends SuperComponent {
                     return;
                 this.setData({
                     currentIndex: index,
+                }, () => {
+                    this.setTrack();
                 });
-                this.setTrack();
             },
             getCurrentName() {
                 if (this.children) {

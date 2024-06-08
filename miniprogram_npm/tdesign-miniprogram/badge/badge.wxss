@@ -81,6 +81,7 @@
 .t-badge--ribbon {
   display: inline-block;
   transform: rotate(45deg);
+  transform-origin: center center;
   border-radius: 0;
 }
 .t-badge--bubble {
@@ -105,4 +106,5 @@
 .t-badge__content-text {
   display: block;
   line-height: 48rpx;
+  color: var(--td-badge-content-text-color, var(--td-text-color-primary, var(--td-font-gray-1, rgba(0, 0, 0, 0.9))));
 }

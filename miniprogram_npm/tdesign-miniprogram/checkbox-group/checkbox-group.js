@@ -31,6 +31,16 @@ let CheckBoxGroup = class CheckBoxGroup extends SuperComponent {
             options() {
                 this.initWithOptions();
             },
+            disabled(v) {
+                var _a;
+                if ((_a = this.data.options) === null || _a === void 0 ? void 0 : _a.length) {
+                    this.initWithOptions();
+                    return;
+                }
+                this.getChildren().forEach((item) => {
+                    item.setDisabled(v);
+                });
+            },
         };
         this.lifetimes = {
             ready() {
@@ -135,7 +145,7 @@ let CheckBoxGroup = class CheckBoxGroup extends SuperComponent {
                 if (!this.$checkAll)
                     return;
                 const { value } = this.data;
-                const valueSet = new Set(value.filter((val) => val !== this.$checkAll.data.value));
+                const valueSet = new Set(value === null || value === void 0 ? void 0 : value.filter((val) => val !== this.$checkAll.data.value));
                 const isCheckall = items.every((item) => (item.data.checkAll ? true : valueSet.has(item.data.value)));
                 this.$checkAll.setData({
                     checked: valueSet.size > 0,

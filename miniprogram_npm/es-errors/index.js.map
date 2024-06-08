@@ -1,1 +1,1 @@
-{"version":3,"sources":["index.js"],"names":[],"mappings":";;;;;;;AAAA;AACA;AACA;AACA;AACA","file":"index.js","sourcesContent":["\n\n/** @type {import('.')} */\nmodule.exports = Error;\n"]}
+{"version":3,"sources":["index.js"],"names":[],"mappings":";;;;;;;AAAA;AACA;AACA;AACA;AACA","file":"index.js","sourcesContent":["\r\n\r\n/** @type {import('.')} */\r\nmodule.exports = Error;\r\n"]}
