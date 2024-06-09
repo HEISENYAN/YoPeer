@@ -16,7 +16,10 @@
     "t-cascader": "tdesign-miniprogram/cascader/cascader",
     "t-steps": "tdesign-miniprogram/steps/steps",
     "t-step-item": "tdesign-miniprogram/step-item/step-item",
-    "t-date-time-picker": "tdesign-miniprogram/date-time-picker/date-time-picker"
+    "t-date-time-picker": "tdesign-miniprogram/date-time-picker/date-time-picker",
+    "t-popup": "tdesign-miniprogram/popup/popup",
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-button": "tdesign-miniprogram/button/button"
   },
   "renderer":"webview"
 }

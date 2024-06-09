@@ -150,40 +150,68 @@ Page({
     currentStep:0,
     // 预计收获时间 参数
     mode: '',
-    dateVisible: true,
+    dateVisible: false,
     date: new Date().getTime(), // 支持时间戳传入  Date('2021-12-23')
     dateText: '',
     start: '2024-08-20 00:00:00',
     end: '2024-09-05 23:59:59',
+    //结算时弹出框
+    cur: {},
+    position: [
+      { value: 'top', text: '顶部弹出' },
+      { value: 'left', text: '左侧弹出' },
+      { value: 'center', text: '中间弹出' },
+      { value: 'bottom', text: '底部弹出' },
+      { value: 'right', text: '右侧弹出' },
+    ],
+    CheckoutPopupContent: '',
   },
-  showPicker(e) {
-    // console.log(e.currentTarget.dataset)
+  // 结算时弹出框 开始
+  checkoutPopup(e) {
+    const { item } = e.currentTarget.dataset;
+    this.setData({
+        visible: true,
+        CheckoutPopupContent: "确认\n收货地址：\n取货时间："
+      },
+    );
+
+  },
+  onVisibleChange(e) {
+    this.setData({
+      visible: e.detail.visible,
+    });
+  },
+  onClose() {
+    this.setData({visible: false,});
+  },
+// 结算时弹出框 结束
+
+
+  // 预计收获时间 开始
+  showDatePicker(e) {
     const { mode } = e.currentTarget.dataset;
-    console.log(this.data.mode)
-    // console.log("mode", mode)
     this.setData({
       mode,
       [`${mode}Visible`]: true,
     });
   },
-  hidePicker() {
-    console.log("dateVisible", this.data.dateVisible)
+  hideDatePicker() {
     const { mode } = this.data;
     this.setData({
       [`${mode}Visible`]: false,
     });
   },
-  onConfirm(e) {
+  onDateConfirm(e) {
     const { value } = e.detail;
     const { mode } = this.data;
-    console.log('confirm', value);
+    console.log('select date ', value);
     this.setData({
       [mode]: value,
       [`${mode}Text`]: value,
     });
-    this.hidePicker();
+    this.hideDatePicker();
   },
-
+// 预计收获时间 结束
 
 
   onSelectArea(){

@@ -31,7 +31,7 @@
       <t-cell title="优惠券" hover arrow />
       <t-cell title="备注" hover arrow />
       <t-cell title="地址" hover arrow bind:tap="onEditAddress" />
-      <t-cell title="预计收货时间" hover note="{{dateText || ''}}" arrow data-mode="date" bindtap="showPicker"  class="test" t-class="panel-item"/>
+      <t-cell title="预计收货时间" hover note="{{dateText || ''}}" arrow data-mode="date" bindtap="showDatePicker"  class="test" t-class="panel-item"/>
       <!-- 年月日 picker-->
       <t-date-time-picker
         title="选择收获时间"
@@ -39,22 +39,30 @@
         mode="date"
         defaultValue="{{date}}"
         format="YYYY-MM-DD"
-        bindchange="onConfirm"
+        bindchange="onDateConfirm"
         bindpick="onColumnChange"
-        bindcancel="hidePicker"
+        bindcancel="hideDatePicker"
         start="{{start}}"
         end="{{end}}"
       />
     </van-cell-group>
 
     <view style = "height: {{offsetMargin}}px; width:100%;background-color: rgb(241,241,241);" ></view>
-
+    <!-- 结算前弹出框 -->
+    <t-popup visible="{{visible}}" bind:visible-change="onVisibleChange" placement="center">
+      <view class="block">
+        <text>{{CheckoutPopupContent}}</text>
+        <!-- <t-icon t-class="close-btn" name="close-circle" size="32" color="#fff" bind:tap="onClose" /> -->
+      </view>
+      <t-button style="position: relative; width: 240px; align-items: center; border-radius: 16rpx;" bind:tap="onClose" theme="light" >确认无误 立即付款!</t-button>
+    </t-popup>
     <van-submit-bar
       price="{{ checkOutPrice*100 }}"
       button-text="结算"
       bind:submit=""
       tip="{{ true }}"
       id = "subBar"
+      bind:tap="checkoutPopup"
     >
       <van-button plain hairline size="normal" bind:click="goPreviousStep">上一步</van-button>
       <!-- <view slot="tip">想修改购物车内容？<text>点此修改</text></view> -->

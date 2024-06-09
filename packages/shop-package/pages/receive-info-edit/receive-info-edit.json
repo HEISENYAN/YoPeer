@@ -8,7 +8,8 @@
     "t-cascader": "tdesign-miniprogram/cascader/cascader",
     "t-steps": "tdesign-miniprogram/steps/steps",
     "t-step-item": "tdesign-miniprogram/step-item/step-item",
-    "t-button": "tdesign-miniprogram/button/button"
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-toast": "tdesign-miniprogram/toast/toast"
   },
   "component": true,
   "styleIsolation": "apply-shared",

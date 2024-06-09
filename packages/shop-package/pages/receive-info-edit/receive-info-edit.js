@@ -1,3 +1,4 @@
+import Toast from 'tdesign-miniprogram/toast/index';
 const hallAddress = [
   {
     value: '100000',
@@ -125,7 +126,7 @@ const areaAddress = [
 Page({ 
   data: {
     consigneeName: '',
-    consigneePhnoneNum: '',
+    consigneePhoneNum: '',
     hallSelectNote1:'请选择宿舍',
     hallSelectNote2:'',
     maxphonenum: 11,
@@ -145,48 +146,89 @@ Page({
     showAreaCascadar: false,
     areaList:areaAddress,
     selectedAreaAddress:[],
-    areaSelectNote: [],
+    areaSelectNote: '请选择地区',
     areaStreet: '',
     areaBuilding: '',
     areaHouseNum: '',
-    receiverInfo:{}
+    receiverInfo:{},
+    phoneInput: [],
   },
-  saveAddress(e){
-    this.setData({selectedAreaAddress: [this.data.selectedAreaAddress, e.detail.value.areaStreet, e.detail.value.areaBuilding, e.detail.value.areaHouseNum]})
-    console.log("收货人：", e.detail.value.consigneeName)
-    console.log("手机号码：", this.data.selectedArea, e.detail.value.consigneePhnoneNum)
-    if(!this.data.selectedHallAddress.includes(undefined)) console.log("宿舍地址: ", this.data.selectedHallAddress)
-    if(!this.data.selectedAreaAddress.includes(undefined)) console.log("校外地址: ", this.data.selectedAreaAddress)
+  onPhoneInput(e) {
+    this.setData({phoneInput: [e.detail.value.toString()]})
+    // if (this.data.selectedArea === "+86") {
+    //   const formattedValue = e.detail.value.toString().replace(/(\d{3})(\d{4})(\d+)/, '$1 $2 $3');
+    //   this.setData({ maxphonenum: 13, phoneInput: [formattedValue] });
+    // } 
+    // else if(this.data.selectedArea === "+852"||this.data.selectedArea === "+853"){
+    //   const formattedValue = e.detail.value.toString().replace(/(\d{4})(\d+)/, '$1 $2');
+    //   this.setData({ maxphonenum: 9, phoneInput: [formattedValue] });
+    // }
+  },
+  // showWarningToast(e) {
 
+  // },
+  checkNotNull(params) {  //检查非空字符，非空：返回true
+    if (params === "" || params === null) return false;
+    else return true;
+  },
+  checkSubmit(event){  //检查所有内容, 填完表单返回true
+    var flag_hall = false;
+    var flag_area = false;
+    if(!this.data.selectedHallAddress.length==0)  flag_hall = true;  //判断宿舍住户表单
+    if(this.data.selectedAreaAddress.length!=0 && this.checkNotNull(event.detail.value.areaStreet) && this.checkNotNull(event.detail.value.areaBuilding))  flag_area = true;  //判断校外住户表单
+    if(this.checkNotNull(event.detail.value.consigneeName)&&this.checkNotNull(event.detail.value.consigneePhoneNum)&&(flag_hall||flag_area))  return true
+    else return false
+  },
+  saveAddress(e){  
+    if(this.checkSubmit(e)){// show toast
+      this.setData({
+        consigneeName: e.detail.value.consigneeName,
+        consigneePhoneNum: e.detail.value.consigneePhoneNum,
+        selectedAreaAddress: [this.data.selectedAreaAddress, e.detail.value.areaStreet, e.detail.value.areaBuilding, e.detail.value.areaHouseNum],
+      })
+      console.log("收货人：", this.data.consigneeName)
+      console.log("手机号码：", this.data.selectedArea, this.data.consigneePhoneNum)
+      if(!this.data.selectedHallAddress.includes(undefined)) console.log("宿舍地址: ", this.data.selectedHallAddress)
+      if(!this.data.selectedAreaAddress.includes(undefined)) console.log("校外地址: ", this.data.selectedAreaAddress)
+    }
+    else{
+      Toast({
+        context: this,
+        selector: '#t-toast',
+        message: '请将信息填写完整!',
+        theme: 'warning',
+        direction: 'row',
+        placement: 'bottom'
+      });
+    }
   },
   radioChange: function(e) {
     console.log('radio发生change事件，携带value值为：', e.detail.value)
   },
-  onSelectArea(){
-    this.setData({
-      showAreaPicker:true
-    })
+  onSelectArea(){  //点击区号
+    this.setData({showAreaPicker:true})
   },
-  onChangeArea(e){
-    this.setData({
-      selectedArea:e.detail.value[0]
-    })
+  onChangeArea(e){  //选择手机号码区号
+    this.setData({selectedArea:e.detail.value[0]})
     if(e.detail.value[0]=="+852"||e.detail.value[0]=="+853")  this.setData({maxphonenum: 8})
     else if (e.detail.value[0]=="+86")  this.setData({maxphonenum: 11})
-    // console.log(e.detail.value[0])
   },
-  onSelectAddress(e){
+  onSelectAddress(e){  //宿舍住户，校外住户切换
     this.setData({
-      selectedAddressType:e.target.dataset.selectedAddress
+      selectedAddressType:e.target.dataset.selectedAddress,
+      selectedHallAddress: [],
+      hallSelectNote1:'请选择宿舍',
+      selectedAreaAddress: [],
+      areaSelectNote: '请选择地区',
     })
   },
-  onOpenCascader(){
+  onOpenCascader(){  //级联选择器展示（宿舍住户，校外住户共用）
     this.setData({
       showHallCascadar:this.data.selectedAddressType == 0?true:false,
       showAreaCascadar:this.data.selectedAddressType == 1?true:false
     })
   },
-  onChangeHallAdress(e){
+  onChangeHallAdress(e){  //宿舍住户 级联选择
     this.setData({
       selectedHallAddress: [e.detail.selectedOptions[0].label, e.detail.selectedOptions[1].label],
       hallSelectNote1: '',
@@ -194,11 +236,11 @@ Page({
     })
 
   },
-  onChangeAreaAdress(e){
+  onChangeAreaAdress(e){  //校外住户 级联选择
     this.setData({
       selectedAreaAddress: [e.detail.selectedOptions[0].label, e.detail.selectedOptions[1].label],
       areaSelectNote: [e.detail.selectedOptions[0].label, e.detail.selectedOptions[1].label]
     })
   },
-  
+
 })
