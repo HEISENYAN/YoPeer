@@ -171,7 +171,7 @@ Page({
     const { item } = e.currentTarget.dataset;
     this.setData({
         visible: true,
-        CheckoutPopupContent: "确认\n收货地址：\n取货时间："
+        CheckoutPopupContent: "\n收货地址：\n取货时间："
       },
     );
 
