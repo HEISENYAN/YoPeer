@@ -1,9 +1,15 @@
 <!-- <return-button bindtap = "returnPage"></return-button>
 <image style="width: 750rpx; height: 300rpx; background-color: #eeeeee;" src="https://i.postimg.cc/cHj6NRKT/shopping-head.png" ></image> -->
-<view class="block" >
-  <t-navbar t-class-placeholder="t-navbar-placeholder" t-class-content="t-navbar-content" delta="{{2}}" left-arrow title="收获地址" />
-</view>
-<view class="hr"></view>
+<t-navbar
+      t-class-placeholder="t-navbar-placeholder"
+      t-class-content="t-navbar-content"
+      class="block"
+      title="收货地址"
+      left-arrow
+      bind:go-back="handleBack"
+      borderless = "true"
+    />
+<!-- <view class="hr"></view>
 <view class='item' hover-class="pressStyle">
     <view class="title">收货地址1</view>
     <view class="detail2">
@@ -17,9 +23,7 @@
       <text>></text>
     </view>
   </view>
-<view class="line"></view>
-<view class="btn-area">
+<view class="line"></view> -->
+<!-- <view class="btn-area">
     <button type="primary" bindtap="chooseAddress">获取收货地址</button>
-</view>
-<navigator open-type="navigateBack">fanhui
-</navigator>
+</view> -->

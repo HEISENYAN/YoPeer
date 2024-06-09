@@ -147,8 +147,45 @@ Page({
     areaList:areaAddress,
     selectedAreaAddress:'',
     receiverInfo:{},
-    currentStep:0
+    currentStep:0,
+    // 预计收获时间 参数
+    mode: '',
+    dateVisible: true,
+    date: new Date().getTime(), // 支持时间戳传入  Date('2021-12-23')
+    dateText: '',
+    start: '2024-08-20 00:00:00',
+    end: '2024-09-05 23:59:59',
   },
+  showPicker(e) {
+    // console.log(e.currentTarget.dataset)
+    const { mode } = e.currentTarget.dataset;
+    console.log(this.data.mode)
+    // console.log("mode", mode)
+    this.setData({
+      mode,
+      [`${mode}Visible`]: true,
+    });
+  },
+  hidePicker() {
+    console.log("dateVisible", this.data.dateVisible)
+    const { mode } = this.data;
+    this.setData({
+      [`${mode}Visible`]: false,
+    });
+  },
+  onConfirm(e) {
+    const { value } = e.detail;
+    const { mode } = this.data;
+    console.log('confirm', value);
+    this.setData({
+      [mode]: value,
+      [`${mode}Text`]: value,
+    });
+    this.hidePicker();
+  },
+
+
+
   onSelectArea(){
     this.setData({
       showAreaPicker:true

@@ -15,7 +15,8 @@
     "t-cell": "tdesign-miniprogram/cell/cell",
     "t-cascader": "tdesign-miniprogram/cascader/cascader",
     "t-steps": "tdesign-miniprogram/steps/steps",
-  "t-step-item": "tdesign-miniprogram/step-item/step-item"
+    "t-step-item": "tdesign-miniprogram/step-item/step-item",
+    "t-date-time-picker": "tdesign-miniprogram/date-time-picker/date-time-picker"
   },
   "renderer":"webview"
 }

@@ -100,3 +100,11 @@ page {
 .checkOutPrice{
   color: rgb(228, 0, 0) !important;
 }
+
+.panel-item {
+  margin-bottom: 32rpx;
+}
+
+.panel-item::after {
+  border: 0;
+}

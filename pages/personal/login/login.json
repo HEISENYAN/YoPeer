@@ -12,9 +12,6 @@
     "t-cascader": "tdesign-miniprogram/cascader/cascader",
     "t-image": "tdesign-miniprogram/image/image"
   },
-  "renderer": "webview",
-  "navigationBarTextStyle": "black",
-  "navigationStyle": "default",
-  "navigationBarTitleText": "个人资料",
-  "navigationBarBackgroundColor": "#ffffff"
+  "renderer": "webview"
+
 }

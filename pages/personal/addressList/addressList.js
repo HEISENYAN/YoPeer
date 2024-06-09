@@ -3,25 +3,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-    addressInfo: null
+    // addressInfo: null
   },
-  returnPage: function(){
-    wx.reLaunch({
-      url: '../personal'
-    })
-  },
-  chooseAddress() {
-    wx.chooseAddress({
-      success: (res) => {
-        this.setData({
-          addressInfo: res
-        })
-      },
-      fail: function(err) {
-        console.log(err)
-      }
-    })
-  },
+
+  // chooseAddress() {
+  //   wx.chooseAddress({
+  //     success: (res) => {
+  //       this.setData({
+  //         addressInfo: res
+  //       })
+  //     },
+  //     fail: function(err) {
+  //       console.log(err)
+  //     }
+  //   })
+  // },
   /**
    * 生命周期函数--监听页面加载
    */

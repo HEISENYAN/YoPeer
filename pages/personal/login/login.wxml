@@ -1,3 +1,13 @@
+<t-navbar
+      t-class-placeholder="t-navbar-placeholder"
+      t-class-content="t-navbar-content"
+      class="block"
+      title="个人资料"
+      left-arrow
+      bind:go-back="handleBack"
+      borderless = "true"
+    />
+
 <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
   <!-- <image name="avatarUrl" class="avatar" src="{{avatarUrl}}"></image> -->
   <view class="col">

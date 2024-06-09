@@ -19,8 +19,8 @@ Page({
     })
   },
   getAddressList:function(e){
-    wx.reLaunch({
-      url:"./addressList/addressList"
+    wx.navigateTo({
+      url:"../../packages/shop-package/pages/receive-info-edit/receive-info-edit"
     })
   },
   /**
