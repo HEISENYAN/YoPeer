@@ -28,10 +28,10 @@
       <!-- <van-cell title="优惠券" is-link value="" />
       <van-cell title="备注" is-link value="" arrow-direction="down"/>
       <van-cell title="地址" is-link value="" bind:tap="onEditAddress"/> -->
-      <t-cell title="优惠券" hover arrow />
-      <t-cell title="备注" hover arrow />
-      <t-cell title="地址" hover arrow bind:tap="onEditAddress" />
-      <t-cell title="预计收货时间" hover note="{{dateText || ''}}" arrow data-mode="date" bindtap="showDatePicker"  class="test" t-class="panel-item"/>
+      <van-cell title="优惠码" is-link  />
+      <van-cell title="备注" is-link  />
+      <van-cell title="地址" is-link  bind:tap="onEditAddress" />
+      <van-cell title="预计收货时间" is-link note="{{dateText || ''}}" data-mode="date" bindtap="showDatePicker"  class="test" t-class="panel-item"/>
       <!-- 年月日 picker-->
       <t-date-time-picker
         title="选择收获时间"

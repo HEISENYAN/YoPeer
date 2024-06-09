@@ -25,10 +25,45 @@ Component({
     YPproduct:{},
     cartPrice:0,
     ypCart:[],
-    isPopupVisible: false
+    isPopupVisible: false,
+    cartFresh:true
   },
 
   methods:{
+    onChangeStepper(e){
+      //console.log(e.detail.value)
+      const operatedItem = e.target.dataset.operatedItem
+      const currentIndex =  e.target.dataset.currentIndex
+      const that = this
+      wx.getStorage({
+        key: "ypCart",
+        success:function(res){
+          if(e.detail.value == 0){
+            delete res.data[operatedItem.itemKey]
+          }
+          else{
+            res.data[operatedItem.itemKey].selectedNum = e.detail.value
+          }
+          that.setData({
+            cartPrice:that.data.cartPrice + (e.detail.value - operatedItem.selectedNum) * operatedItem.price,
+            ["ypCart["+currentIndex+"].selectedNum"]: e.detail.value
+          })
+          console.log(that.data.ypCart)
+          //that.setData({cartFresh:false},()=>{that.setData({cartFresh:true})})
+          wx.setStorage({
+            key:"ypCart",
+            data:res.data
+          })
+        },
+        fail:function(res){
+          wx.showToast({
+            title: '操作失败',
+            icon: "error",
+            duration: 15000
+          })
+        }
+      })
+    },
     showPopup: function() {
       this.setData({
         isPopupVisible: true
@@ -150,7 +185,6 @@ Component({
           query.select("#menuIndex0").boundingClientRect();
           query.selectViewport().scrollOffset();
           query.exec(function(res){
- 
           that.setData({
             headerTop:parseInt(res[0].top)
           })
@@ -179,6 +213,7 @@ Component({
           for(let i in res.data){
             totalPrice += res.data[i].price * res.data[i].selectedNum
             tempCart.push({
+              itemKey:i,
               selectedNum:res.data[i].selectedNum,
               price:res.data[i].price,
               prodName:res.data[i].prodName,
@@ -190,7 +225,8 @@ Component({
           that.setData({
             cartPrice:totalPrice,
             ypCart:tempCart
-          },()=>console.log(that.data.ypCart))
+          },()=>{console.log(that.data.ypCart)
+            that.setData({cartFresh:false},()=>{that.setData({cartFresh:true})})})
         },
         fail:function(){
           that.setData({

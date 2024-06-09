@@ -90,47 +90,24 @@
       </view>
       <!--购物车内视图-->
       <view slot = "item">
-        <!--
-        <view class="swiper-view-item" wx:for="{{ypCart}}" wx:key="ypCartIndex" wx:for-item="cartItem" > 
-          <view class="item-container-cart">
-            <view class="image-container-cart">
-              <image class="view-item-photo" src = "{{cartItem.thumbnailUrl}}" hover-class="this-check"></image>
-            </view>
-            <view class="middle-container-cart">
-                <view class="text-container-cart" hover-class="this-check">
-                  <view class="view-item-text overflow"></view>
-                  <text style="font-size: 27rpx;" class="product-title"  >{{cartItem.prodName}}</text>
-                  <view style="font-size:30rpx;color:palevioletred;padding: 0 0 0 0;display:inline-block" >￥{{cartItem.price}}</view>
-              </view>                                                                        
-              <view class="quantity-size-container">
-                <text wx:for = "{{cartItem.optionName}}" wx:for-index = "cartOptionIndex" wx:for-item = "cartOptionName" style="font-size:23rpx;font-weight: 200;color:gray;display:block;white-space:pre-line;text-overflow:ellipsis;white-space:pre-line;line-height:30rpx" > {{cartOptionName}}:{{cartItem.selectedItem[cartOptionIndex]}}</text>
-                x{{cartItem.selectedNum}}
+        <block wx:for="{{ypCart}}" wx:key="ypCartIndex" wx:for-item="cartItem" wx:for-index = "cartIndex" wx:if = "{{cartFresh}}">
+          <block wx:if = "{{cartItem.selectedNum != 0}}">
+            <view class = "cart-item-container" >
+              <view class="shopping-image">
+                <image style = "height: 180rpx; width: 180rpx;" src="{{cartItem.thumbnailUrl}}"> </image>
               </view>
-          </view>
-          <view class="button-area">
-            <view class="add-button-area">
-              <view class="add-button">+</view>
+              <view class="shopping-info-container" style = "width:300rpx">
+                <text class = "shopping-item-title" max-lines = "{{2}}" overflow = "ellipsis">{{cartItem.prodName}}</text>
+                <text class = "shopping-item-title" style = "font-size:20rpx; color:gray" max-lines = "{{3}}" overflow = "ellipsis"><block wx:for = "{{cartItem.optionName}}" wx:for-index = "cartOptionIndex" wx:for-item = "cartOptionName">{{cartOptionName}}:{{cartItem.selectedItem[cartOptionIndex]}}</block>
+                </text>
+                <text class = "shopping-item-title" max-lines = "{{2}}" overflow = "ellipsis" style = "color:red">￥{{cartItem.price}}</text>
+              </view>
+              <view class="stepper-container">
+                <t-stepper defaultValue="{{cartItem.selectedNum}}" theme="outline" catch:change = "onChangeStepper" data-operated-Item = "{{cartItem}}" data-current-index = "{{cartIndex}}"/>
+              </view>
             </view>
-            <view class="add-button-area">
-              <view class="delete-button">-</view>
-            </view>
-          </view>
-          </view>                                                                   
-        </view>-->
-        <view class = "cart-item-container" wx:for="{{ypCart}}" wx:key="ypCartIndex" wx:for-item="cartItem">
-          <view class="shopping-image">
-            <image style = "height: 180rpx; width: 180rpx;" src="{{cartItem.thumbnailUrl}}"> </image>
-          </view>
-          <view class="shopping-info-container" style = "width:300rpx">
-            <text class = "shopping-item-title" max-lines = "{{2}}" overflow = "ellipsis">{{cartItem.prodName}}</text>
-            <text class = "shopping-item-title" style = "font-size:20rpx; color:gray" max-lines = "{{3}}" overflow = "ellipsis"><block wx:for = "{{cartItem.optionName}}" wx:for-index = "cartOptionIndex" wx:for-item = "cartOptionName">{{cartOptionName}}:{{cartItem.selectedItem[cartOptionIndex]}}</block>
-            </text>
-            <text class = "shopping-item-title" max-lines = "{{2}}" overflow = "ellipsis" style = "color:red">￥{{cartItem.price}}</text>
-          </view>
-          <view class="stepper-container">
-            <t-stepper defaultValue="{{cartItem.selectedNum}}" theme="outline" />
-          </view>
-        </view>
+          </block>
+        </block>
         
         <!--总结条-->
         <view wx:if = "{{ifMaskOn}}" class = "cart-bar" style = "position: fixed; bottom:0">

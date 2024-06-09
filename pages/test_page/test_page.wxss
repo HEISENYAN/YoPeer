@@ -3,7 +3,3 @@
   margin-right: 50rpx;
   margin-left: 50rpx;
 }
-Page{
-
-  background-color: red;
-}

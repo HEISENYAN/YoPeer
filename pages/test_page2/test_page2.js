@@ -176,5 +176,9 @@ Page({
       selectedAreaAddress: e.detail.selectedOptions[0].label + " "+ e.detail.selectedOptions[1].label
     })
   },
-  
+  onLoad(e){
+    wx.navigateTo({
+      url:"/packages/shop-package/pages/shop/shop"
+    })
+  }
 })
