@@ -1,4 +1,5 @@
 // pages/check-out-page/check-out-page.js
+wx.cloud.init()
 const hallAddress = [
   {
     value: '100000',
@@ -168,6 +169,7 @@ Page({
   },
   onCheckout(){
     const that = this
+    const tradeNumber = Math.round(Math.random() * (10 ** 13)) + Date.now()//生成随机订单号
     wx.cloud.callFunction({
       name: 'cloudbase_module',
       data: {
@@ -181,7 +183,7 @@ Page({
            */
           description: "鱼饼优选-测试产品",
           // 商户订单号，业务自行生成，此处仅为示例
-          out_trade_no: Math.round(Math.random() * (10 ** 13)) + Date.now(),
+          out_trade_no: tradeNumber,
           amount: {
             total: parseInt(that.data.checkOutPrice*100),
             currency: "CNY"
@@ -201,10 +203,29 @@ Page({
           signType: "RSA", // 
           success(res) {
             console.log('唤起支付组件成功：', res);
+            wx.cloud.callFunction({
+              name:"orderSettlement",
+              data:{
+                expectedDate: that.data.dateText,
+                tradeNumber:tradeNumber,
+                timeStamp:paymentData?.timeStamp,
+                productInfo:that.data.checkOutInfo
+              },
+              success: function(res){
+                wx.showToast({
+                  title: '下单已成功',
+                  icon:"success",
+                  duration:3000
+                })
+              },
+              fail: function(res){
+                console.log(res)
+              }
+            })
           },
           fail(err) {
             // 支付失败回调
-            //console.error('唤起支付组件失败：', err);
+            console.error('唤起支付组件失败：', err);
             wx.showToast({
               title: '支付失败请重试',
               icon: "error",

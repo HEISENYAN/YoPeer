@@ -1,8 +1,8 @@
 {
   "pages": [
-    
-    "pages/test_page2/test_page2",
     "pages/activity/activity",
+    "pages/test_page2/test_page2",
+    
     "pages/test_page/test_page",
     "pages/personal/personal",
     "packages/commnunity-package/pages/community/community",
