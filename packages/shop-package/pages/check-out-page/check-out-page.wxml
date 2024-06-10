@@ -1,27 +1,22 @@
 <view class = "main-page">
-  <view class="block">
-    <t-navbar
-      t-class-placeholder="t-navbar-placeholder"
-      t-class-content="t-navbar-content"
-      class="block"
-      title="结算"
-      left-arrow
-      bind:go-back="handleBack"
-      borderless = "true"
-    />
-  </view>
-
-
-  <block wx:if="{{currentStep == 0}}">
+  <t-navbar
+    t-class-placeholder="t-navbar-placeholder"
+    t-class-content="t-navbar-content"
+    title="结算"
+    left-arrow
+    bind:go-back="handleBack"
+    borderless = "true"
+  />
   <view class="scroll-area" type="list">
     <view class="intro">欢迎来到YoPeer港校新生团购活动🐱</view>
     <van-cell-group inset class="unit-area">
       <van-cell title="港校新生团购结算"/>
       <block wx:for = "{{checkOutInfo}}" wx:key = "checkOutKey" wx:for-item = "checkOutItem">
-        <van-cell title="{{checkOutItem.prodName}}" value="¥{{checkOutItem.price * checkOutItem.selectedNum}}" label="件数：{{checkOutItem.selectedNum}}    " />
+        <block wx:if = "{{checkOutItem.selectedNum!=0}}">
+          <van-cell title="{{checkOutItem.prodName}}" value="¥{{checkOutItem.price * checkOutItem.selectedNum}}" label="件数：{{checkOutItem.selectedNum}} " />
+        </block>
       </block>
-      
-      <van-cell title="实付款：" value="¥{{checkOutPrice}}" size="large" value-class="checkOutPrice"/>
+      <van-cell title="总金额：" value="¥{{checkOutPrice}}" size="large" value-class="checkOutPrice"/>
     </van-cell-group>
 
     <van-cell-group inset class="unit-area2">
@@ -31,7 +26,7 @@
       <van-cell title="优惠码" is-link  />
       <van-cell title="备注" is-link  />
       <van-cell title="地址" is-link  bind:tap="onEditAddress" />
-      <van-cell title="预计收货时间" is-link note="{{dateText || ''}}" data-mode="date" bindtap="showDatePicker"  class="test" t-class="panel-item"/>
+      <van-cell title="预计收货时间" is-link label="{{dateText || ''}}" data-mode="date" bindtap="showDatePicker"  class="test" t-class="panel-item"/>
       <!-- 年月日 picker-->
       <t-date-time-picker
         title="选择收获时间"
@@ -57,103 +52,17 @@
         <text>{{CheckoutPopupContent}}</text>
         <!-- <t-icon t-class="close-btn" name="close-circle" size="32" color="#fff" bind:tap="onClose" /> -->
       </view>
-      <t-button style="position: relative; width: 240px; align-items: center; --td-button-border-radius: 12rpx;" bind:tap="onClose" theme="primary" >确认无误 立即付款!</t-button>
+      <t-button style="position: relative; width: 240px; align-items: center; --td-button-border-radius: 12rpx;" bind:tap="onCheckout" theme="primary" >确认无误 立即付款!</t-button>
     </t-popup>
-    <van-submit-bar
-      price="{{ checkOutPrice*100 }}"
-      button-text="结算"
-      bind:submit=""
-      tip="{{ true }}"
-      id = "subBar"
-      bind:tap="checkoutPopup"
-    >
-      <van-button plain hairline size="normal" bind:click="goPreviousStep">上一步</van-button>
-      <!-- <view slot="tip">想修改购物车内容？<text>点此修改</text></view> -->
-    </van-submit-bar>
-    </view>
-  </block>
-
-
-  <!--收货信息-->
-  <block wx:if = "{{currentStep == 1}}">
-  
-    <!--姓名与手机号填写-->
-    <view class = "personal-cell">
-      <view style = "display: flex;">
-        <view style = "width:3vw"></view>
-        <view style = "width:20vw;display: flex;justify-content:start;align-items: center;">收货人</view>
-        <view style = "width:77vw;"><t-input label="" style = "--td-input-border-radius: @radius-large" borderless="{{true}}" placeholder="请填写收件人姓名" ></t-input></view>
-      </view>
-      <view style = "display: flex;">
-        <view style = "width:3vw"></view>
-        <view style = "width:20vw;display: flex;justify-content:start;align-items: center;">手机号码</view>
-        <view style = "width:20vw;display:inline-block"><t-cell class="mb-16" title="{{selectedArea}}" arrow hover bind:click="onSelectArea" bordered = "{{false}}" /></view>
-        <view style = "width: 57vw;"><t-input label="" placeholder="请填写收货人手机号码" class = "input" type = "number" maxlength = "{{11}}" borderless="{{true}}"></t-input></view>
-      </view>
-    </view>
-    <t-picker
-      visible="{{showAreaPicker}}"
-      data-key="area"
-      title="选择地区"
-      cancelBtn="取消"
-      confirmBtn="确认"
-      usingCustomNavbar
-      bindchange="onChangeArea"
-      bindpick=""
-    >
-      <t-picker-item options="{{areas}}" />
-    </t-picker>
-    
-    <!--选地址栏-->
-    <view class = "address-cell">
-      <view 
-        class = "address-option {{selectedAddressType == 0?'selected':''}}" 
-        style = "border-top-left-radius: 10px;border-bottom-right-radius: {{selectedAddressType == 1?20:0}}px;" 
-        data-selected-address = "{{0}}" 
-        catchtap = "onSelectAdress">宿舍住户</view>
-      <view 
-        class = "address-option {{selectedAddressType == 1?'selected':''}}" 
-        style = "border-top-right-radius: 10px; border-bottom-left-radius: {{selectedAddressType == 0?20:0}}px; " 
-        data-selected-address = "{{1}}" 
-        catchtap = "onSelectAdress">校外住户</view>
-
-      <!--宿舍地址选择-->
-      <t-cell wx:if = "{{selectedAddressType == 0}}" title="地址" note="请选择宿舍" bind:click="onOpenCascader" hover arrow bordered = "{{false}}"></t-cell>
-      <t-cell wx:if = "{{selectedAddressType == 0&&selectedHallAddress!=''}}" note="{{selectedHallAddress}}" bind:click="onOpenCascader"bordered = "{{false}}"></t-cell>
-      <t-cascader
-        visible="{{showHallCascadar}}"
-        options="{{hallList}}"
-        title="请选择宿舍"
-        sub-titles="{{subTitles}}"
-        bind:change="onChangeHallAdress"
-      ></t-cascader>
-      <!--校外地址选择与填写-->
-      <t-cell wx:if = "{{selectedAddressType == 1}}" title="地区" note="{{selectedAreaAddress}}" bind:click="onOpenCascader" hover arrow bordered = "{{false}}"></t-cell>
-      <t-input wx:if = "{{selectedAddressType == 1}}" label="街道" borderless="{{true}}" placeholder="请填写住址街道" ></t-input>
-      <t-input wx:if = "{{selectedAddressType == 1}}" label="楼宇" borderless="{{true}}" placeholder="请填写楼宇或社区名称" ></t-input>
-      <t-input wx:if = "{{selectedAddressType == 1}}" label="门牌号" borderless="{{true}}" placeholder="请填写门牌号（选填）" bind:enter = "enter"></t-input>
-      <t-cascader
-        visible="{{showAreaCascadar}}"
-        options="{{areaList}}"
-        title="请选择地区"
-        sub-titles="{{subTitles}}"
-        bind:change="onChangeAreaAdress"
-      ></t-cascader>
+      <van-submit-bar
+        price="{{ checkOutPrice*100 }}"
+        button-text="结算"
+        bind:submit="checkoutPopup"
+        tip="{{ true }}"
+        id = "subBar"
+      >
+      </van-submit-bar>
     </view>
 
-    <van-submit-bar
-      price="{{ checkOutPrice*100 }}"
-      button-text="下一步"
-      bind:submit="onClickButton"
-      id = "subBar"
-    >
-    <van-button plain hairline size="normal" bind:click="goPreviousStep">上一步</van-button>
-    </van-submit-bar>
-
-  </block>
-  <!--确认信息并付款-->
-  <block wx:if = "{{currentStep == 2}}">
-  
-  </block>
 </view>   
 

@@ -1,4 +1,5 @@
 import Toast from 'tdesign-miniprogram/toast/index';
+wx.cloud.init();
 const hallAddress = [
   {
     value: '100000',
@@ -181,15 +182,51 @@ Page({
   },
   saveAddress(e){  
     if(this.checkSubmit(e)){// show toast
+      var ifHallResident = 0
+      var address = ''
+      const that = this
       this.setData({
         consigneeName: e.detail.value.consigneeName,
         consigneePhoneNum: e.detail.value.consigneePhoneNum,
         selectedAreaAddress: [this.data.selectedAreaAddress, e.detail.value.areaStreet, e.detail.value.areaBuilding, e.detail.value.areaHouseNum],
+      },()=>{
+        console.log("收货人：", this.data.consigneeName)
+        console.log("手机号码：", this.data.selectedArea, this.data.consigneePhoneNum)
+        if(!this.data.selectedHallAddress.includes(undefined)){
+          console.log("宿舍地址: ", this.data.selectedHallAddress)
+          address = this.data.selectedHallAddress
+          ifHallResident = 0
+        }
+        if(!this.data.selectedAreaAddress.includes(undefined)){
+          console.log("校外地址: ", this.data.selectedAreaAddress)
+          address = this.data.selectedAreaAddress
+          ifHallResident = 1
+        }
+        //收货地址传入数据库
+        wx.cloud.callFunction({
+          name:"setReceiveInfo",
+          data:{
+            receiveName:that.data.consigneeName,
+            receivePhoneNumber:that.data.consigneePhoneNum,
+            receiveAddress:address,
+            ifHallResident:ifHallResident
+          },
+          success:function(res){//成功回调
+            console.log(res)
+          },
+          fail:function(err){//失败回调
+            wx.showToast({
+              title: "出错",
+              icon:"error",
+              duration:2000
+            })
+          }
+        })
+
       })
-      console.log("收货人：", this.data.consigneeName)
-      console.log("手机号码：", this.data.selectedArea, this.data.consigneePhoneNum)
-      if(!this.data.selectedHallAddress.includes(undefined)) console.log("宿舍地址: ", this.data.selectedHallAddress)
-      if(!this.data.selectedAreaAddress.includes(undefined)) console.log("校外地址: ", this.data.selectedAreaAddress)
+      
+     
+      
     }
     else{
       Toast({
