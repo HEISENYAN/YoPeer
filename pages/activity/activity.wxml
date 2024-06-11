@@ -19,6 +19,7 @@
     />
   </view>
   
+  <view class="subTitle">2024港校新生团购活动</view>
   <view class = "activity-cell" bindtap = "onSelectActivity"></view>
   <view class="subTitle">Weekend x 周末活动</view>
   <view class = "activity-cell" bindtap = "onSelectActivity"></view>
