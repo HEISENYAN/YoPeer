@@ -448,7 +448,10 @@
 
 }
 .shopping-item-title{
+  padding-top: 5rpx;
+  padding-left: 5rpx;
   overflow: hidden;
+  font-weight: 300;
   font-size: 25rpx;
   display:-webkit-box;
   -webkit-line-clamp: 2;
