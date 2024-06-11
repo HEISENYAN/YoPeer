@@ -9,12 +9,24 @@
   background-color: rgb(54,55,59);
   width: 100%;
 }
-.navigation-bar{
+/* .navigation-bar{
   background-color: rgb(54,55,59);
+  background-image: url(/packages/assets/WeChat6ce9dee2c0b20591e7642b3d3a163b51.jpg);
   width:100%;
   height: 20vh;
   display:flex;
   justify-content: center;
+  align-items: center;
+  color: white;
+} */
+.navigation-bar {
+  overflow: hidden;
+  background-image: url(https://i.postimg.cc/RV0p1ZvX/We-Chat6ce9dee2c0b20591e7642b3d3a163b51.jpg);
+  background-size: cover; /* 可以改为 contain 或 100% 100% 以适应不同需求 */
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   color: white;
 }

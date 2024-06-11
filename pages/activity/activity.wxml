@@ -1,9 +1,9 @@
 
 <scroll-view class = "main-page" type = "custom" scroll-y="true">
   <!--顶部状态栏-->
-  <view class = "top-margin" style = "height:{{statusBarHeight}}px"> </view>
+  <!-- <view class = "top-margin" style = "height:{{statusBarHeight}}px"> </view> -->
   <view style = "position: relative; width:100%;height:42vh;">
-    <view class = "navigation-bar"> 欢迎来到鱼饼</view>
+    <view class = "navigation-bar"></view>
     <view class = "notice-bar" >提示</view>
   </view>
   <view class = "swiper-container">
