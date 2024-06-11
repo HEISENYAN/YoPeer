@@ -31,6 +31,7 @@
   z-index: 99;
   position: relative;
   top: -6vh;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .user-info {
@@ -86,7 +87,6 @@
   margin-top: 0;
 }
 .activity-cell{
-  background-color: white;
   background-image: url(https://i.postimg.cc/1tSwMGYh/We-Chat8a13d978e2a2a37ce3c285b4d9fcf676.jpg);
   background-size: cover;
   height: 20vh;
