@@ -3,19 +3,11 @@ const deviceInfo = wx.getWindowInfo()
 const imageCdn = 'https://tdesign.gtimg.com/mobile/demos';
 const swiperList = [
   {
-    value: `${imageCdn}/swiper1.png`,
+    value: `https://i.postimg.cc/fTpmYxxC/We-Chatd249c89681a46aa4eafcf08746fff827.jpg`,
     ariaLabel: '图片1',
   },
   {
-    value: `${imageCdn}/swiper2.png`,
-    ariaLabel: '图片2',
-  },
-  {
-    value: `${imageCdn}/swiper1.png`,
-    ariaLabel: '图片1',
-  },
-  {
-    value: `${imageCdn}/swiper2.png`,
+    value: `https://i.postimg.cc/WpKhyshb/We-Chat13fe8fec90b8f0dce54e3419fa50529a.jpg`,
     ariaLabel: '图片2',
   },
 ];
