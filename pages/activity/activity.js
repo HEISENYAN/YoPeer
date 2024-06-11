@@ -22,7 +22,17 @@ Page({
     },
     enableRefresh : false,
     scrollTop: 0,
-    swiperList:swiperList
+    swiperList:swiperList,
+
+    //user demo
+    userInfo: {
+      name: '张三',
+      avatar: 'https://i.postimg.cc/GpLLtmMR/We-Chat9e0e9fbeaa05c3c5da083cbdf52bdf6f.jpg', // 用户头像的URL
+      level: 'VIP 3',
+      exp: 20, // 经验值百分比
+      university: '香港中文大学'
+    }
+
   },
   /**
    * 生命周期函数--监听页面加载

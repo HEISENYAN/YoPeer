@@ -19,20 +19,68 @@
   color: white;
 }
 
-.notice-bar{
+/* index.wxss */
+.notice-bar {
   background-color: white;
-  background-size: cover;
   height: 15vh;
   width: 92vw;
-  margin-left:4vw;
+  margin-left: 4vw;
   border-radius: 10px;
-  display:flex;
-  justify-content: center;
+  display: flex;
   align-items: center;
   z-index: 99;
   position: relative;
-  top:-6vh;
+  top: -6vh;
 }
+
+.user-info {
+  margin-left: 2vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+  text-align: center;
+  font-weight: 300;
+  font-size: 25rpx;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  margin-bottom: 5px;
+}
+
+.level-exp {
+  width: 60%;
+  text-align: center;
+  font-weight: 300;
+  font-size: 25rpx;
+}
+
+.separator {
+  width: 1px;
+  height: 60%;
+  background-color: #ccc;
+  margin: 0 10px;
+}
+
+.exp-bar-container {
+  width: 80%;
+  height: 10px;
+  background-color: #ddd;
+  border-radius: 5px;
+  margin: 5px auto;
+}
+
+.exp-bar {
+  height: 100%;
+  background-color: #5dca60;
+  border-radius: 5px;
+}
+
+
 .swiper-container{
   width: 100%;
   margin-top: 0;
