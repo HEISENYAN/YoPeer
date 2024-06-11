@@ -1,3 +1,0 @@
-<view class="numberview">
-  <text   class=" {{ fontType == 'din' ? 'numberfont' : ''}}" user-select>{{formatNumber}}</text>
-</view>
