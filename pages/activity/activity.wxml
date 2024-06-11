@@ -20,6 +20,7 @@
   </view>
   
   <view class = "activity-cell" bindtap = "onSelectActivity"></view>
+  <view class="subTitle">Weekend x 周末活动</view>
   <view class = "activity-cell" bindtap = "onSelectActivity"></view>
   <view class = "activity-cell" bindtap = "onSelectActivity"></view>
 
