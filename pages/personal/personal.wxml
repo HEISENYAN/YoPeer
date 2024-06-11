@@ -23,7 +23,7 @@
   <t-cell title="我的鱼饼值：{{yoPeerValue}}" hover arrow />
   <t-cell title="个人资料" bindtap = "getUserProfile" hover arrow />
   <t-cell title="收货地址" bindtap = "getAddressList" hover arrow />
-  <t-cell title="我的订单" hover arrow bordered="{{false}}"/>
+  <t-cell title="我的订单" bindtap= "getOrder" hover arrow bordered="{{false}}"/>
 </t-cell-group>
 <!-- <view class="line"></view> -->
 <view class="hr"></view>

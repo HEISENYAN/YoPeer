@@ -10,6 +10,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "order",
+          "pathName": "pages/personal/order/order",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "receive-info-edit/receive-info-edit",
           "pathName": "packages/shop-package/pages/receive-info-edit/receive-info-edit",
           "query": "",

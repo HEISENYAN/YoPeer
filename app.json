@@ -7,8 +7,7 @@
     "pages/personal/personal",
     "packages/commnunity-package/pages/community/community",
     "pages/personal/login/login",
-    "pages/personal/addressEdit/addressEdit",
-    "pages/personal/addressList/addressList",
+    "pages/personal/order/order",
     "custom-tab-bar/index"
   ],
   "subpackages": [

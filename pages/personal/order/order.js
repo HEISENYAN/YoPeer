@@ -1,4 +1,4 @@
-// pages/personal/addressEdit/addressEdit.js
+// pages/personal/order/order.js
 Component({
 
   /**

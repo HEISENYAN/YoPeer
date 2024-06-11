@@ -26,7 +26,7 @@
       <van-cell title="优惠码" is-link  />
       <van-cell title="备注" is-link  />
       <van-cell title="地址" is-link  bind:tap="onEditAddress" />
-      <van-cell title="预计收货时间" is-link label="{{dateText || ''}}" data-mode="date" bindtap="showDatePicker"  class="test" t-class="panel-item"/>
+      <van-cell title="预计收货时间" is-link value="{{dateText || ''}}" data-mode="date" bindtap="showDatePicker"  class="test" t-class="panel-item"/>
       <!-- 年月日 picker-->
       <t-date-time-picker
         title="选择收获时间"

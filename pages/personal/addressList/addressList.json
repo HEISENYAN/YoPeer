@@ -1,9 +1,0 @@
-{
-  "component": true,
-  "styleIsolation": "apply-shared",
-  "usingComponents": {
-    "return-button": "/components/return-button/return-button",
-    "t-navbar": "tdesign-miniprogram/navbar/navbar"
-  },
-  "renderer": "webview"
-}
