@@ -53,7 +53,7 @@
         <list-view class = "item-list">
           <view class="shopping-item" wx:for="{{item.items}}" bindtap="chooseSecondMenu" wx:key="prodIndex" wx:for-item="prodItem" data-selected="{{prodItem}}"> 
             <view class="shopping-image" data-selected="{{prodItem}}">
-              <image style = "height: 180rpx; width: 180rpx;" src="{{prodItem.thumbnailUrl}}" data-selected="{{prodItem}}"> </image>
+              <image style = "border-radius: 10rpx; height: 180rpx; width: 180rpx;" src="{{prodItem.thumbnailUrl}}" data-selected="{{prodItem}}"> </image>
             </view>
             <view class="shopping-info-container" data-selected="{{prodItem}}">
               <text class = "shopping-item-title" max-lines = "{{2}}" overflow = "ellipsis" data-selected="{{prodItem}}">{{prodItem.prodName}}</text>
