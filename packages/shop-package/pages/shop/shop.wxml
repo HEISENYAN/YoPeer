@@ -80,7 +80,9 @@
   <view style = "z-index: 2; position:relative">
     <mp-half-screen screenHeight = "50" id = "shoppingCart" style = "z-index:10000" bindtouchend = "moveCart">
       <view slot = "tab" class = "cart-bar" bindtap = "openCart">
-        <view class = "cart-icon"> <sky-icon icon-name = "shopping-cart" icon-size = "50"></sky-icon></view>
+        <view class="cart-icon">
+          <image style="height: 50rpx; width: 50rpx;" src="https://i.postimg.cc/T2NFhQQ2/We-Chat71b9eb668c0868cde41149edfca8e03e.jpg"></image>
+        </view>
         <view class = "cart-price">￥{{cartPrice/100}}</view>
         <view class = "check-out-button" > <view class= "theButton" catchtap = "checkOut">去结算</view></view>
       </view>
@@ -111,7 +113,9 @@
         
         <!--总结条-->
         <view wx:if = "{{ifMaskOn}}" class = "cart-bar" style = "position: fixed; bottom:0">
-          <view class = "cart-icon"> <sky-icon icon-name = "shopping-cart" icon-size = "50"></sky-icon></view>
+          <view class="cart-icon">
+            <image style="height: 50rpx; width: 50rpx;" src="https://i.postimg.cc/T2NFhQQ2/We-Chat71b9eb668c0868cde41149edfca8e03e.jpg"></image>
+          </view>
           <view class = "cart-price">￥{{cartPrice/100}}</view>
           <view class = "check-out-button" > <view class= "theButton" catchtap = "checkOut">去结算</view></view>
         </view>

@@ -113,7 +113,7 @@
   box-sizing: border-box;
   height:100%;
   width:100rpx;
-  padding: 20rpx 40rpx;
+  padding: 30rpx 40rpx;
   display: inline-block;
 }
 .cart-price{
