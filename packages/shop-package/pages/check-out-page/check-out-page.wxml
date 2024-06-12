@@ -44,16 +44,17 @@
 
     <view style = "height: {{offsetMargin}}px; width:100%;background-color: rgb(241,241,241);" ></view>
     <!-- 结算前弹出框 -->
-    <t-popup visible="{{visible}}" bind:visible-change="onVisibleChange" placement="center">
-      <view class="block">
-        <view class="header">
-          <view class="title">请确认以下信息准确无误：</view>
+      <t-popup visible="{{visible}}" bind:visible-change="onVisibleChange" placement="center">
+        <view class="popup-container">
+          <view class="header">
+            <view class="title">请确认以下信息准确无误：</view>
+            <!-- 可选：添加一个关闭按钮 -->
+            <t-icon t-class="close-btn" name="close-circle" size="32" color="#fff" bind:tap="onClose" />
+          </view>
+          <text class="content">{{CheckoutPopupContent}}</text>
+          <t-button class="checkout-button" bind:tap="onCheckout" theme="primary">确认无误 立即付款!</t-button>
         </view>
-        <text>{{CheckoutPopupContent}}</text>
-        <!-- <t-icon t-class="close-btn" name="close-circle" size="32" color="#fff" bind:tap="onClose" /> -->
-      </view>
-      <t-button style="position: relative; width: 240px; align-items: center; --td-button-border-radius: 12rpx;" bind:tap="onCheckout" theme="primary" >确认无误 立即付款!</t-button>
-    </t-popup>
+      </t-popup>
       <van-submit-bar
         price="{{ checkOutPrice * 1}}"
         button-text="结算"
