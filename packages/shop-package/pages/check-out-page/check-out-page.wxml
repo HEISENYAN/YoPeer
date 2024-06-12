@@ -13,10 +13,10 @@
       <van-cell title="港校新生团购结算"/>
       <block wx:for = "{{checkOutInfo}}" wx:key = "checkOutKey" wx:for-item = "checkOutItem">
         <block wx:if = "{{checkOutItem.selectedNum!=0}}">
-          <van-cell title="{{checkOutItem.prodName}}" value="¥{{checkOutItem.price * checkOutItem.selectedNum}}" label="件数：{{checkOutItem.selectedNum}} " />
+          <van-cell title="{{checkOutItem.prodName}}" value="¥{{checkOutItem.price * checkOutItem.selectedNum / 100}}" label="件数：{{checkOutItem.selectedNum}} {{checkOutItem.specificOptions}}" />
         </block>
       </block>
-      <van-cell title="总金额：" value="¥{{checkOutPrice}}" size="large" value-class="checkOutPrice"/>
+      <van-cell title="总金额：" value="¥{{checkOutPrice/100}}" size="large" value-class="checkOutPrice"/>
     </van-cell-group>
 
     <van-cell-group inset class="unit-area2">
@@ -25,7 +25,7 @@
       <van-cell title="地址" is-link value="" bind:tap="onEditAddress"/> -->
       <van-cell title="优惠码" is-link  />
       <van-cell title="备注" is-link  />
-      <van-cell title="地址" is-link  bind:tap="onEditAddress" />
+      <van-cell title="地址" is-link  label = "{{addressText}}" bind:tap="onEditAddress" />
       <van-cell title="预计收货时间" is-link value="{{dateText || ''}}" data-mode="date" bindtap="showDatePicker"  class="test" t-class="panel-item"/>
       <!-- 年月日 picker-->
       <t-date-time-picker
@@ -55,7 +55,7 @@
       <t-button style="position: relative; width: 240px; align-items: center; --td-button-border-radius: 12rpx;" bind:tap="onCheckout" theme="primary" >确认无误 立即付款!</t-button>
     </t-popup>
       <van-submit-bar
-        price="{{ checkOutPrice*100 }}"
+        price="{{ checkOutPrice * 1}}"
         button-text="结算"
         bind:submit="checkoutPopup"
         tip="{{ true }}"

@@ -1,3 +1,5 @@
+//import { RenderSystem } from "XrFrame/systems";
+
 // pages/check-out-page/check-out-page.js
 wx.cloud.init()
 const hallAddress = [
@@ -148,7 +150,10 @@ Page({
     areaList:areaAddress,
     selectedAreaAddress:'',
     receiverInfo:{},
+    addressText: null,
     currentStep:0,
+    phoneText: null,
+    nameText: null,
     // 预计收获时间 参数
     mode: '',
     dateVisible: false,
@@ -244,11 +249,20 @@ Page({
   // 结算时弹出框 开始
   checkoutPopup(e) {
     const { item } = e.currentTarget.dataset;
-    this.setData({
+    if(this.data.addressText && this.data.dateText){
+      this.setData({
         visible: true,
-        CheckoutPopupContent: "\n收货地址：\n取货时间："
-      },
-    );
+        CheckoutPopupContent: "收货人：" + this.data.nameText+ "\n联系电话："+this.data.phoneText+"\n收货地址："+ this.data.addressText +"\n取货时间：" + this.data.dateText
+      });
+    }
+    else{
+      wx.showToast({
+        title: '请完善收货信息',
+        icon:"error",
+        duration:2000
+      })
+    }
+    
 
   },
   onVisibleChange(e) {
@@ -287,8 +301,6 @@ Page({
     this.hideDatePicker();
   },
 // 预计收获时间 结束
-
-
   onSelectArea(){
     this.setData({
       showAreaPicker:true
@@ -342,10 +354,33 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    this.setData({
-      checkOutInfo:JSON.parse(options.cartinfo),
-      checkOutPrice:options.totalprice
-    },()=>console.log(this.data.checkOutInfo))
+    var cart = new Object()
+    var totalPrice = 0
+    var cartInfo = []
+    const that = this
+    wx.getStorage({
+      key:"ypCart",
+      success:function(res){
+        for(let i in res.data){
+          cart.specificOptions = ''
+          totalPrice += res.data[i].price * res.data[i].selectedNum
+          cart.prodName = res.data[i].prodName
+          cart.price = res.data[i].price
+          cart.selectedNum = res.data[i].selectedNum
+          cart.optionName = res.data[i].optionName
+          cart.selectedItem = res.data[i].selectedItem
+          for(let j in res.data[i].optionName){
+            cart.specificOptions += res.data[i].optionName[j] + ':' + res.data[i].selectedItem[j]
+          }
+          cartInfo.push(cart)
+        }
+        console.log(cartInfo)
+        that.setData({
+          checkOutInfo: cartInfo,
+          checkOutPrice:totalPrice
+        })
+      }
+    })
     
   },
 
@@ -360,7 +395,22 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    const that = this
+    var address = ''
+    wx.getStorage({
+      key:"ypReceiveInfo",
+      success:function(res){
+        for(let i in res.data.receiveAddress){
+          address += res.data.receiveAddress[i]
+        }
+        console.log(address)
+        that.setData({
+          addressText:address,
+          phoneText:res.data.receivePhoneNumber,
+          nameText:res.data.receiveName
+        })
+      }
+    })
   },
 
   /**

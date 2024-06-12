@@ -57,7 +57,7 @@
             </view>
             <view class="shopping-info-container" data-selected="{{prodItem}}">
               <text class = "shopping-item-title" max-lines = "{{2}}" overflow = "ellipsis" data-selected="{{prodItem}}">{{prodItem.prodName}}</text>
-              <text class = "shopping-item-title" max-lines = "{{2}}" overflow = "ellipsis" style = "color:palevioletred" data-selected="{{prodItem}}">￥{{prodItem.price}}</text>
+              <text class = "shopping-item-title" max-lines = "{{2}}" overflow = "ellipsis" style = "color:palevioletred" data-selected="{{prodItem}}">￥{{prodItem.price/100}}</text>
             </view>
           </view>
           <!--<block  wx:for="{{item.items}}" bindtap="chooseSecondMenu" wx:key="prodIndex" wx:for-item="prodItem" data-selected="{{prodItem}}">
@@ -81,7 +81,7 @@
     <mp-half-screen screenHeight = "50" id = "shoppingCart" style = "z-index:10000" bindtouchend = "moveCart">
       <view slot = "tab" class = "cart-bar" bindtap = "openCart">
         <view class = "cart-icon"> <sky-icon icon-name = "shopping-cart" icon-size = "50"></sky-icon></view>
-        <view class = "cart-price">￥{{cartPrice}}</view>
+        <view class = "cart-price">￥{{cartPrice/100}}</view>
         <view class = "check-out-button" > <view class= "theButton" catchtap = "checkOut">去结算</view></view>
       </view>
       <view slot = "tabTitle" class = "cart-tab">
@@ -100,7 +100,7 @@
                 <text class = "shopping-item-title" max-lines = "{{2}}" overflow = "ellipsis">{{cartItem.prodName}}</text>
                 <text class = "shopping-item-title" style = "font-size:20rpx; color:gray" max-lines = "{{3}}" overflow = "ellipsis"><block wx:for = "{{cartItem.optionName}}" wx:for-index = "cartOptionIndex" wx:for-item = "cartOptionName">{{cartOptionName}}:{{cartItem.selectedItem[cartOptionIndex]}}</block>
                 </text>
-                <text class = "shopping-item-title" max-lines = "{{2}}" overflow = "ellipsis" style = "color:red">￥{{cartItem.price}}</text>
+                <text class = "shopping-item-title" max-lines = "{{2}}" overflow = "ellipsis" style = "color:red">￥{{cartItem.price/100}}</text>
               </view>
               <view class="stepper-container">
                 <t-stepper defaultValue="{{cartItem.selectedNum}}" theme="outline" catch:change = "onChangeStepper" data-operated-Item = "{{cartItem}}" data-current-index = "{{cartIndex}}"/>
@@ -112,7 +112,7 @@
         <!--总结条-->
         <view wx:if = "{{ifMaskOn}}" class = "cart-bar" style = "position: fixed; bottom:0">
           <view class = "cart-icon"> <sky-icon icon-name = "shopping-cart" icon-size = "50"></sky-icon></view>
-          <view class = "cart-price">￥{{cartPrice}}</view>
+          <view class = "cart-price">￥{{cartPrice/100}}</view>
           <view class = "check-out-button" > <view class= "theButton" catchtap = "checkOut">去结算</view></view>
         </view>
         <!--渲染补偿条-->

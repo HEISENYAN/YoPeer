@@ -207,12 +207,29 @@ Page({
           name:"setReceiveInfo",
           data:{
             receiveName:that.data.consigneeName,
-            receivePhoneNumber:that.data.consigneePhoneNum,
+            receivePhoneNumber: that.data.selectedArea +" "+ that.data.consigneePhoneNum,
             receiveAddress:address,
             ifHallResident:ifHallResident
           },
           success:function(res){//成功回调
-            console.log(res)
+            wx.setStorage({
+              key:'ypReceiveInfo',
+              data:{
+                receiveName:that.data.consigneeName,
+                receivePhoneNumber:that.data.selectedArea+ " " + that.data.consigneePhoneNum,
+                receiveAddress:address,
+                ifHallResident:ifHallResident
+              },
+              success:function(){
+                wx.navigateBack()
+                wx.showToast({
+                  title: '保存成功',
+                  icon: 'success',
+                  duration:2000
+                })
+              }
+            })
+            
           },
           fail:function(err){//失败回调
             wx.showToast({
