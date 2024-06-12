@@ -29,7 +29,7 @@
         <view class="exp-bar-container">
           <view class="exp-bar" style="width: {{userInfo.exp}}%;"></view>
         </view>
-        <text>距离下一级还有：200</text>
+        <text class="levelExpRmd">距离下一级还有：200</text>
       </view>
     </view>
   </view>
