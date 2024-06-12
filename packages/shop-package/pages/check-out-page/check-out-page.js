@@ -190,7 +190,7 @@ Page({
           // 商户订单号，业务自行生成，此处仅为示例
           out_trade_no: tradeNumber,
           amount: {
-            total: parseInt(that.data.checkOutPrice*100),
+            total: parseInt(that.data.checkOutPrice),
             currency: "CNY"
           }
         }
@@ -354,7 +354,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    var cart = new Object()
+    
     var totalPrice = 0
     var cartInfo = []
     const that = this
@@ -362,6 +362,7 @@ Page({
       key:"ypCart",
       success:function(res){
         for(let i in res.data){
+          var cart = new Object()
           cart.specificOptions = ''
           totalPrice += res.data[i].price * res.data[i].selectedNum
           cart.prodName = res.data[i].prodName
