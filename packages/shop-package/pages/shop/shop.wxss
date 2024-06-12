@@ -117,13 +117,14 @@
   display: inline-block;
 }
 .cart-price{
+  font-weight: 350;
   box-sizing: border-box;
   height:100%;
   width:300rpx;
   font-size: 35rpx;
   padding: 30rpx 0;
   display: inline-block;
-  color:palevioletred;
+  color:rgb(255, 82, 82);
 }
 .check-out-button{
   box-sizing: border-box;
