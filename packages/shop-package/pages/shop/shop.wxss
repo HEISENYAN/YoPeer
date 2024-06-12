@@ -105,34 +105,33 @@
 .cart-bar{
   width:750rpx;
   height: 150rpx;
-  display:inline-box;
+  display:flex;
   background-color: white;
   
 }
 .cart-icon{
-  box-sizing: border-box;
+  display: flex;
   height:100%;
   width:100rpx;
-  padding: 30rpx 40rpx;
-  display: inline-block;
+  align-items: center;
+  justify-content: flex-end;
 }
 .cart-price{
   font-weight: 350;
   box-sizing: border-box;
   height:100%;
-  width:300rpx;
+  width:450rpx;
   font-size: 35rpx;
-  padding: 30rpx 0;
-  display: inline-block;
+  display: flex;
   color:rgb(255, 82, 82);
+  align-items: center;
 }
 .check-out-button{
   box-sizing: border-box;
   height:100%;
-  width:350rpx;
-  display: inline-block;
-  padding: 17rpx 160rpx;
-  font-size: 27rpx;
+  width:200rpx;
+  align-items: center;
+  display: flex;
   font-weight: 400;
 }
 .theButton{
