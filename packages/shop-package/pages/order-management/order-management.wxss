@@ -38,7 +38,9 @@ page {
   height: 200rpx;
   width: 200rpx;
   background-color: white;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .order-info-container{
   width: 350rpx;
