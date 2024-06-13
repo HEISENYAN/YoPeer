@@ -266,20 +266,33 @@ Page({
   checkoutPopup(e) {
     const { item } = e.currentTarget.dataset;
     if(this.data.addressText && this.data.dateText){
+      console.log("优惠码:", this.data.promotionCode)
       this.setData({
         visible: true,
         CheckoutPopupContent: "收货人：" + this.data.nameText+ "\n联系电话："+this.data.phoneText+"\n收货地址："+ this.data.addressText +"\n取货时间：" + this.data.dateText
       });
     }
-    else{
+    else if(!(this.data.addressText||this.data.dateText)){
       wx.showToast({
         title: '请完善收货信息',
         icon:"error",
         duration:2000
       })
     }
-    
-
+    else if(!this.data.addressText){
+      wx.showToast({
+        title: '请填写收货地址',
+        icon:"error",
+        duration:2000
+      })
+    }
+    else if (!this.data.dateText){
+      wx.showToast({
+        title: '请填写收货时间',
+        icon:"error",
+        duration:2000
+      })
+    }
   },
   onVisibleChange(e) {
     this.setData({

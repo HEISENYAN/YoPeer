@@ -175,13 +175,18 @@ Page({
   checkSubmit(event){  //检查所有内容, 填完表单返回true
     var flag_hall = false;
     var flag_area = false;
+    // console.log(event.detail.value.consigneePhoneNum.length)
     if(!this.data.selectedHallAddress.length==0)  flag_hall = true;  //判断宿舍住户表单
     if(this.data.selectedAreaAddress.length!=0 && this.checkNotNull(event.detail.value.areaStreet) && this.checkNotNull(event.detail.value.areaBuilding))  flag_area = true;  //判断校外住户表单
     if(this.checkNotNull(event.detail.value.consigneeName)&&this.checkNotNull(event.detail.value.consigneePhoneNum)&&(flag_hall||flag_area))  return true
     else return false
   },
-  saveAddress(e){  
-    if(this.checkSubmit(e)){// show toast
+  checkPhoneNum(event){
+    if(event.detail.value.consigneePhoneNum.length==this.data.maxphonenum) return true
+    else return false
+  },
+  saveAddress(e){
+    if(this.checkSubmit(e)&&this.checkPhoneNum(e)){
       var ifHallResident = 0
       var address = ''
       const that = this
@@ -229,7 +234,6 @@ Page({
                 })
               }
             })
-            
           },
           fail:function(err){//失败回调
             wx.showToast({
@@ -239,13 +243,9 @@ Page({
             })
           }
         })
-
       })
-      
-     
-      
     }
-    else{
+    else if(!this.checkSubmit(e)){
       Toast({
         context: this,
         selector: '#t-toast',
@@ -255,6 +255,26 @@ Page({
         placement: 'bottom'
       });
     }
+    else if(!this.checkPhoneNum(e)){
+      Toast({
+        context: this,
+        selector: '#t-toast',
+        message: '请输入正确的手机号!',
+        theme: 'warning',
+        direction: 'row',
+        placement: 'bottom'
+      });
+    }
+    // else{
+    //   Toast({
+    //     context: this,
+    //     selector: '#t-toast',
+    //     message: '请将信息填写完整!',
+    //     theme: 'warning',
+    //     direction: 'row',
+    //     placement: 'bottom'
+    //   });
+    // }
   },
   radioChange: function(e) {
     console.log('radio发生change事件，携带value值为：', e.detail.value)
