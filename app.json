@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/personal/personal",
     "pages/activity/activity",
-    "pages/test_page2/test_page2",
+    "pages/personal/personal",
     "pages/test_page/test_page",
+    "pages/test_page2/test_page2",
     "packages/commnunity-package/pages/community/community",
     "pages/personal/login/login",
     "custom-tab-bar/index",

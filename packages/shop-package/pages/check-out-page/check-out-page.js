@@ -3,6 +3,8 @@
 // pages/check-out-page/check-out-page.js
 wx.cloud.init()
 var Price = 0;
+var actualPrice = 0;
+const yopeerVoucher =  "HONGKONG2024"
 const hallAddress = [
   {
     value: '100000',
@@ -155,7 +157,7 @@ Page({
     currentStep:0,
     phoneText: null,
     nameText: null,
-
+    finalPrice:0,
     // 预计收获时间 参数
     mode: '',
     dateVisible: false,
@@ -179,9 +181,22 @@ Page({
     promotionCode: '',
   },
   setPromotionCode(e){
-    console.log(e.detail.value)
+    //console.log(e.detail.value)
     this.setData({
       promotionCode: e.detail.value
+    },()=>{
+      if(this.data.promotionCode == yopeerVoucher){
+        actualPrice = Price - 1//减少价格 单位分
+        this.setData({
+          finalPrice:actualPrice
+        })
+      }
+      else{
+        actualPrice = Price//减少价格 单位分
+        this.setData({
+          finalPrice:actualPrice
+        })
+      }
     })
   },
   onCheckout(){
@@ -202,7 +217,7 @@ Page({
           // 商户订单号，业务自行生成，此处仅为示例
           out_trade_no: tradeNumber,
           amount: {
-            total: Price,
+            total: actualPrice,
             currency: "CNY"
           }
         }
@@ -227,17 +242,24 @@ Page({
                 tradeNumber:tradeNumber,
                 timeStamp:paymentData?.timeStamp,
                 productInfo:that.data.checkOutInfo,
-                paidPrice:Price
+                paidPrice:actualPrice,
+                totalPrice:Price,
+                isDiscount: !(Price == actualPrice)
               },
               success: function(res){
-                wx.showToast({
-                  title: '下单已成功',
-                  icon:"success",
-                  duration:3000
+                wx.showModal({
+                  title: '下单成功',
+                  content: '您可前往个人中心->我的团购订单内查看已支付订单',
+                  success (res) {
+                    wx.removeStorage({
+                      key: 'ypCart'
+                    })
+                    wx.reLaunch({
+                      url: '/pages/activity/activity'
+                    })
+                  }
                 })
-                wx.removeStorage({
-                  key: 'ypCart'
-                })
+                
               },
               fail: function(res){
                 console.log(res)
@@ -407,9 +429,11 @@ Page({
         }
         console.log(cartInfo)
         Price = totalPrice
+        actualPrice = totalPrice
         that.setData({
           checkOutInfo: cartInfo,
-          checkOutPrice: totalPrice
+          checkOutPrice: totalPrice,
+          finalPrice:totalPrice
         })
       }
     })

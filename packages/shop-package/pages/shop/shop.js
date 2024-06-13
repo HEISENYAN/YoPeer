@@ -126,9 +126,9 @@ Component({
       })
     },
     checkOut: function(e){
-      if(this.data.cartPrice == 0){
+      if(this.data.cartPrice < 5){
         wx.showToast({
-          title: '请先加入物品',
+          title: '最低消费额5分',
           icon:"error"
         })
       }
