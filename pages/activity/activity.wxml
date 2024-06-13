@@ -35,9 +35,13 @@
   </view>
   
   <view class="subTitle">2024港校新生团购活动</view>
-  <view class = "activity-cell" bindtap = "onSelectActivity"></view>
-  <view class="subTitle">Weekend x 周末活动</view>
-  <view class = "activity-cell" bindtap = "onSelectActivity"></view>
-  <view class = "activity-cell" bindtap = "onSelectActivity"></view>
+  <image class = "activity-cell" bindtap = "onSelectActivity" src = "cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/YoPeerDesign/huodong.jpg">
+  </image>
 
+  <view class="subTitle">Weekend x 周末活动</view>
+  <image class = "activity-cell" bindtap = "onSelectActivity" src = "cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/YoPeerDesign/huodong.jpg">
+  </image>
+  <image class = "activity-cell" bindtap = "onSelectActivity" src = "cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/YoPeerDesign/huodong.jpg">
+  </image>
+  <view style = "width:100vw;height: 15vh;"></view>
 </scroll-view>

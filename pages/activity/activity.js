@@ -1,13 +1,13 @@
 // pages/activity/activity.js
 const deviceInfo = wx.getWindowInfo()
-const imageCdn = 'https://tdesign.gtimg.com/mobile/demos';
+const imageCdn = 'cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/YoPeerDesign/WeChat9e0e9fbeaa05c3c5da083cbdf52bdf6f.jpg';
 const swiperList = [
   {
-    value: `https://i.postimg.cc/fTpmYxxC/We-Chatd249c89681a46aa4eafcf08746fff827.jpg`,
+    value: `cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/YoPeerDesign/lunbotu2.jpg`,
     ariaLabel: '图片1',
   },
   {
-    value: `https://i.postimg.cc/WpKhyshb/We-Chat13fe8fec90b8f0dce54e3419fa50529a.jpg`,
+    value: `cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/YoPeerDesign/lunbotu3.jpg`,
     ariaLabel: '图片2',
   },
 ];
@@ -27,7 +27,7 @@ Page({
     //user demo
     userInfo: {
       name: '张三',
-      avatar: 'https://i.postimg.cc/GpLLtmMR/We-Chat9e0e9fbeaa05c3c5da083cbdf52bdf6f.jpg', // 用户头像的URL
+      avatar: 'cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/YoPeerDesign/WeChat9e0e9fbeaa05c3c5da083cbdf52bdf6f.jpg', // 用户头像的URL
       level: 'VIP 3',
       exp: 20, // 经验值百分比
       university: '香港中文大学'
