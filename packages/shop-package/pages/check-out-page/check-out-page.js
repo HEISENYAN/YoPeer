@@ -155,6 +155,7 @@ Page({
     currentStep:0,
     phoneText: null,
     nameText: null,
+
     // 预计收获时间 参数
     mode: '',
     dateVisible: false,
@@ -162,6 +163,7 @@ Page({
     dateText: '',
     start: '2024-08-20 00:00:00',
     end: '2024-09-05 23:59:59',
+
     //结算时弹出框
     cur: {},
     position: [
@@ -172,6 +174,15 @@ Page({
       { value: 'right', text: '右侧弹出' },
     ],
     CheckoutPopupContent: '',
+
+    // 优惠码
+    promotionCode: '',
+  },
+  setPromotionCode(e){
+    console.log(e.detail.value)
+    this.setData({
+      promotionCode: e.detail.value
+    })
   },
   onCheckout(){
     const that = this
