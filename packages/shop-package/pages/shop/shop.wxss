@@ -331,7 +331,7 @@
   display: flex;
   width: 100rpx;
   height: 50rpx;
-  background-color: #B9BCDF;
+  background-color: #8a91e0;
   font-size: 24rpx;
   border-radius: 10rpx;
   justify-content: center;
@@ -427,6 +427,7 @@
   margin-bottom: 20rpx;
   margin-left: 4%;
   border-radius: 10px;
+  align-items: center;
 }
 .shopping-image{
   height:200rpx;

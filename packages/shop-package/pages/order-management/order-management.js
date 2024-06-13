@@ -1,18 +1,28 @@
-// pages/personal/order/order.js
+// packages/shop-package/pages/order-management/order-management.js
+wx.cloud.init()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    orderInfo:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    const that = this
+    wx.cloud.callFunction({
+      name:"getOrder",
+      success:function(res){
+        console.log(res.result)
+        that.setData({
+          orderInfo:res.result
+        })
+      }
+    })
   },
 
   /**

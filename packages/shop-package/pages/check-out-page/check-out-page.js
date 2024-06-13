@@ -2,6 +2,7 @@
 
 // pages/check-out-page/check-out-page.js
 wx.cloud.init()
+var Price = 0;
 const hallAddress = [
   {
     value: '100000',
@@ -190,7 +191,7 @@ Page({
           // 商户订单号，业务自行生成，此处仅为示例
           out_trade_no: tradeNumber,
           amount: {
-            total: parseInt(that.data.checkOutPrice),
+            total: Price,
             currency: "CNY"
           }
         }
@@ -214,13 +215,17 @@ Page({
                 expectedDate: that.data.dateText,
                 tradeNumber:tradeNumber,
                 timeStamp:paymentData?.timeStamp,
-                productInfo:that.data.checkOutInfo
+                productInfo:that.data.checkOutInfo,
+                paidPrice:Price
               },
               success: function(res){
                 wx.showToast({
                   title: '下单已成功',
                   icon:"success",
                   duration:3000
+                })
+                wx.removeStorage({
+                  key: 'ypCart'
                 })
               },
               fail: function(res){
@@ -370,15 +375,17 @@ Page({
           cart.selectedNum = res.data[i].selectedNum
           cart.optionName = res.data[i].optionName
           cart.selectedItem = res.data[i].selectedItem
+          cart.thumbnailUrl = res.data[i].thumbnailUrl
           for(let j in res.data[i].optionName){
-            cart.specificOptions += res.data[i].optionName[j] + ':' + res.data[i].selectedItem[j]
+            cart.specificOptions += res.data[i].optionName[j] + ':' + res.data[i].selectedItem[j]+"；"
           }
           cartInfo.push(cart)
         }
         console.log(cartInfo)
+        Price = totalPrice
         that.setData({
           checkOutInfo: cartInfo,
-          checkOutPrice:totalPrice
+          checkOutPrice: totalPrice
         })
       }
     })

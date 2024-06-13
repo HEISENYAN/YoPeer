@@ -25,7 +25,7 @@ Page({
   },
   getOrder:function(e){
     wx.navigateTo({
-      url:"./order/order"
+      url:"/packages/shop-package/pages/order-management/order-management"
     })
   },
   /**

@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "t-popup": "tdesign-miniprogram/popup/popup",
+    "t-cell-group": "tdesign-miniprogram/cell-group/cell-group",
+    "t-cell": "tdesign-miniprogram/cell/cell",
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-badge": "tdesign-miniprogram/badge/badge",
+    "t-image": "tdesign-miniprogram/image/image",
+    "t-navbar": "tdesign-miniprogram/navbar/navbar"
+  },
+  "renderer": "webview"
+}

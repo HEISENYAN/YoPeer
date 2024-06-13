@@ -13,7 +13,7 @@
       <van-cell title="港校新生团购结算"/>
       <block wx:for = "{{checkOutInfo}}" wx:key = "checkOutKey" wx:for-item = "checkOutItem">
         <block wx:if = "{{checkOutItem.selectedNum!=0}}">
-          <van-cell title="{{checkOutItem.prodName}}" value="¥{{checkOutItem.price * checkOutItem.selectedNum / 100}}" label="件数：{{checkOutItem.selectedNum}} {{checkOutItem.specificOptions}}" />
+          <van-cell title="{{checkOutItem.prodName}}" value="¥{{checkOutItem.price * checkOutItem.selectedNum / 100}}" label="件数：{{checkOutItem.selectedNum}}；{{checkOutItem.specificOptions}}" />
         </block>
       </block>
       <van-cell title="总金额：" value="¥{{checkOutPrice/100}}" size="large" value-class="checkOutPrice"/>

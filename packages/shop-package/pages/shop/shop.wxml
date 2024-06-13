@@ -59,6 +59,7 @@
               <text class = "shopping-item-title" max-lines = "{{2}}" overflow = "ellipsis" data-selected="{{prodItem}}">{{prodItem.prodName}}</text>
               <text class = "shopping-item-title" max-lines = "{{2}}" overflow = "ellipsis" style = "color:red" data-selected="{{prodItem}}">￥{{prodItem.price/100}}</text>
             </view>
+            <view class = "choose-button" data-selected="{{prodItem}}">选规格</view>
           </view>
           <!--<block  wx:for="{{item.items}}" bindtap="chooseSecondMenu" wx:key="prodIndex" wx:for-item="prodItem" data-selected="{{prodItem}}">
             <van-card<view class = "choose-button" data-selected="{{prodItem}}">选规格</view>
