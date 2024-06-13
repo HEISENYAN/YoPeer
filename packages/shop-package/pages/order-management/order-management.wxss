@@ -22,7 +22,6 @@ page {
   -webkit-box-orient: vertical;
 }
 .order-number-container{
-  height:30px;
   width:100%;
   background-color: transparent;
   display:flex;
@@ -49,6 +48,11 @@ page {
   background-color: white;
   box-sizing:border-box;
   padding:5px;
+}
+.order-price-container{
+  width:550rpx;
+  display:inline-flex;
+  font-size: 25rpx;
 }
 .order-item-specification{
   overflow: hidden;
