@@ -1,3 +1,13 @@
+<!-- 导航栏 -->
+<t-navbar
+    t-class-placeholder="t-navbar-placeholder"
+    t-class-content="t-navbar-content"
+    title="商品详情"
+    left-arrow
+    bind:go-back="handleBack"
+    borderless = "true"
+  />
+
 <!-- 上半部分：横向滑动图片 -->
 <swiper class="swiper-container" autoplay="true" interval="3000" duration="500" indicator-dots="true">
   <block wx:for="{{selectedProduct.specifiedUrls}}" wx:for-item="imagUrl" wx:key="index">

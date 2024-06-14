@@ -10,11 +10,8 @@
     "yp-navigation":"/components/yp-navigation-bar/yp-navigation-bar",
     "van-radio": "@vant/weapp/radio/index",
     "van-radio-group": "@vant/weapp/radio-group/index",
-    "van-tag": "@vant/weapp/tag/index"
+    "van-tag": "@vant/weapp/tag/index",
+    "t-navbar": "tdesign-miniprogram/navbar/navbar"
   },
-  "renderer":"webview",
-  "navigationBarTextStyle": "black",
-  "navigationStyle": "default",
-  "navigationBarTitleText": "商品详情",
-  "navigationBarBackgroundColor": "#ffffff"
+  "renderer":"webview"
 }
