@@ -1,8 +1,9 @@
 /* components/return-button/return-button.wxss */
 .returnButton{
   position:fixed;
-  background-color: rgba(0,0,0,0.3);
-  display:block;
-  padding: -2px 4px;
+  background-color: rgba(241,241,241,0.3);
+  display:flex;
+  justify-content: center;
+  align-items: center;
   z-index: 99999;
 }

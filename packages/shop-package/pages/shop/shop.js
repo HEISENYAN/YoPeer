@@ -8,12 +8,17 @@ const GestureState = {
 }
 const { shared, timing } = wx.worklet
 wx.cloud.init()
+const capsule = wx.getMenuButtonBoundingClientRect()
+console.log(capsule)
 Component({
 
   /**
    * 页面的初始数据
    */
   data: {
+    capBottom: capsule.bottom,
+    capWidth: capsule.width,
+    capHeight: capsule.height,
     indexSize: 0, // 当前点击
     indicatorDots: false, // 是否显示面板指示点
     autoplay: false,  // 是否自动切换
