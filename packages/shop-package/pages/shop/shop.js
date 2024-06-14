@@ -26,7 +26,8 @@ Component({
     cartPrice:0,
     ypCart:[],
     isPopupVisible: false,
-    cartFresh:true
+    cartFresh:true,
+    cartItemCount: 0 // 用于存储购物车商品总数量
   },
 
   methods:{
@@ -49,6 +50,7 @@ Component({
             ["ypCart["+currentIndex+"].selectedNum"]: e.detail.value
           })
           console.log(that.data.ypCart)
+          that.calculateCartItemCount();
           //that.setData({cartFresh:false},()=>{that.setData({cartFresh:true})})
           wx.setStorage({
             key:"ypCart",
@@ -153,6 +155,7 @@ Component({
                 cartPrice:0,
                 ypCart:[]
               },()=>that.closeCart())
+              that.calculateCartItemCount(); // 调用计算购物车商品总数量的函数
             }
           })
         },
@@ -164,8 +167,16 @@ Component({
           })
         }
       })
-    }
-    
+    },
+    calculateCartItemCount() {
+      let count = 0;
+      this.data.ypCart.forEach(item => {
+        count += item.selectedNum; // 假设 selectedNum 是商品数量
+      });
+      this.setData({
+        cartItemCount: count
+      });
+    },
 
   },
   lifetimes:{
@@ -226,6 +237,7 @@ Component({
             cartPrice:totalPrice,
             ypCart:tempCart
           },()=>{console.log(that.data.ypCart)
+            that.calculateCartItemCount(); // 调用计算购物车商品总数量的函数
             that.setData({cartFresh:false},()=>{that.setData({cartFresh:true})})})
         },
         fail:function(){

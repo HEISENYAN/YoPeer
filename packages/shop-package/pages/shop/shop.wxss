@@ -465,3 +465,18 @@
   display:flex;
   align-items: center;
 }
+
+.cart-item-count {
+  margin-left: -30rpx;
+  margin-top: -5rpx;
+  position: absolute;
+  background-color: #8a91e0;
+  color: white;
+  border-radius: 50%;
+  width: 25rpx;
+  height: 25rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20rpx;
+}

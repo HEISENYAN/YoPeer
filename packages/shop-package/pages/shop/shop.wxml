@@ -78,50 +78,50 @@
   </view>
     
   <!--底部购物车-->
-  <view style = "z-index: 2; position:relative">
-    <mp-half-screen screenHeight = "50" id = "shoppingCart" style = "z-index:10000" bindtouchend = "moveCart">
-      <view slot = "tab" class = "cart-bar" bindtap = "openCart">
-        <view class="cart-icon">
+  <view style="z-index: 2; position:relative">
+    <mp-half-screen screenHeight="50" id="shoppingCart" style="z-index:10000" bindtouchend="moveCart">
+      <view slot="tab" class="cart-bar" bindtap="openCart">
+        <view class="cart-icon" style="position:relative;">
           <image style="height: 50rpx; width: 50rpx;" src="https://i.postimg.cc/T2NFhQQ2/We-Chat71b9eb668c0868cde41149edfca8e03e.jpg"></image>
+          <view wx:if="{{cartItemCount > 0}}" class="cart-item-count">{{cartItemCount}}</view> <!-- 新增的数字图标 -->
         </view>
-        <view class = "cart-price">￥{{cartPrice/100}}</view>
-        <view class = "check-out-button" > <view class= "theButton" catchtap = "checkOut">去结算</view></view>
+        <view class="cart-price">￥{{cartPrice/100}}</view>
+        <view class="check-out-button"><view class="theButton" catchtap="checkOut">去结算</view></view>
       </view>
-      <view slot = "tabTitle" class = "cart-tab">
-        <view class = "cross-button" catchtap = "closeCart"> <sky-icon icon-name = "x" icon-size = "45" iconColor = "var(--low-chroma-l0)" >   </sky-icon> </view>
-        <view class = "clear-button"> <text catchtap = "onClearCart"> 清除</text> </view>
+      <view slot="tabTitle" class="cart-tab">
+        <view class="cross-button" catchtap="closeCart"><sky-icon icon-name="x" icon-size="45" iconColor="var(--low-chroma-l0)"></sky-icon></view>
+        <view class="clear-button"><text catchtap="onClearCart"> 清除</text></view>
       </view>
-      <!--购物车内视图-->
-      <view slot = "item">
-        <block wx:for="{{ypCart}}" wx:key="ypCartIndex" wx:for-item="cartItem" wx:for-index = "cartIndex" wx:if = "{{cartFresh}}">
-          <block wx:if = "{{cartItem.selectedNum != 0}}">
-            <view class = "cart-item-container" >
+      <!-- 购物车内视图 -->
+      <view slot="item">
+        <block wx:for="{{ypCart}}" wx:key="ypCartIndex" wx:for-item="cartItem" wx:for-index="cartIndex" wx:if="{{cartFresh}}">
+          <block wx:if="{{cartItem.selectedNum != 0}}">
+            <view class="cart-item-container">
               <view class="shopping-image">
-                <image style = "height: 180rpx; width: 180rpx;" src="{{cartItem.thumbnailUrl}}"> </image>
+                <image style="height: 180rpx; width: 180rpx;" src="{{cartItem.thumbnailUrl}}"></image>
               </view>
-              <view class="shopping-info-container" style = "width:300rpx">
-                <text class = "shopping-item-title" max-lines = "{{2}}" overflow = "ellipsis">{{cartItem.prodName}}</text>
-                <text class = "shopping-item-title" style = "font-size:20rpx; color:gray" max-lines = "{{3}}" overflow = "ellipsis"><block wx:for = "{{cartItem.optionName}}" wx:for-index = "cartOptionIndex" wx:for-item = "cartOptionName">{{cartOptionName}}:{{cartItem.selectedItem[cartOptionIndex]}}</block>
+              <view class="shopping-info-container" style="width:300rpx">
+                <text class="shopping-item-title" max-lines="{{2}}" overflow="ellipsis">{{cartItem.prodName}}</text>
+                <text class="shopping-item-title" style="font-size:20rpx; color:gray" max-lines="{{3}}" overflow="ellipsis"><block wx:for="{{cartItem.optionName}}" wx:for-index="cartOptionIndex" wx:for-item="cartOptionName">{{cartOptionName}}:{{cartItem.selectedItem[cartOptionIndex]}}</block>
                 </text>
-                <text class = "shopping-item-title" max-lines = "{{2}}" overflow = "ellipsis" style = "color:red">￥{{cartItem.price/100}}</text>
+                <text class="shopping-item-title" max-lines="{{2}}" overflow="ellipsis" style="color:red">￥{{cartItem.price/100}}</text>
               </view>
               <view class="stepper-container">
-                <t-stepper defaultValue="{{cartItem.selectedNum}}" theme="outline" catch:change = "onChangeStepper" data-operated-Item = "{{cartItem}}" data-current-index = "{{cartIndex}}"/>
+                <t-stepper defaultValue="{{cartItem.selectedNum}}" theme="outline" catch:change="onChangeStepper" data-operated-Item="{{cartItem}}" data-current-index="{{cartIndex}}"/>
               </view>
             </view>
           </block>
         </block>
-        
-        <!--总结条-->
-        <view wx:if = "{{ifMaskOn}}" class = "cart-bar" style = "position: fixed; bottom:0">
+        <!-- 总结条 -->
+        <view wx:if="{{ifMaskOn}}" class="cart-bar" style="position: fixed; bottom:0">
           <view class="cart-icon">
             <image style="height: 50rpx; width: 50rpx;" src="https://i.postimg.cc/T2NFhQQ2/We-Chat71b9eb668c0868cde41149edfca8e03e.jpg"></image>
           </view>
-          <view class = "cart-price">￥{{cartPrice/100}}</view>
-          <view class = "check-out-button" > <view class= "theButton" catchtap = "checkOut">去结算</view></view>
+          <view class="cart-price">￥{{cartPrice/100}}</view>
+          <view class="check-out-button"><view class="theButton" catchtap="checkOut">去结算</view></view>
         </view>
-        <!--渲染补偿条-->
-        <view class = "cart-bar">
+        <!-- 渲染补偿条 -->
+        <view class="cart-bar">
         </view>
       </view>
     </mp-half-screen>
