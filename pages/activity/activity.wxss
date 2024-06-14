@@ -30,7 +30,7 @@
   align-items: center;
   z-index: 99;
   position: relative;
-  top: -6vh;
+  top: -7.5vh;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -74,21 +74,18 @@
   border-radius: 5px;
   margin: 5px auto;
 }
-
 .exp-bar {
   height: 100%;
   background-color: #5dca60;
   border-radius: 5px;
 }
-
-
 .swiper-container{
   width: 100%;
   margin-top: 0;
 }
 .activity-cell{
   background-size: cover;
-  height: 20vh;
+  height: 12vh;
   width: 92vw;
   box-sizing:border-box;
   margin-left:4vw;
@@ -108,4 +105,7 @@
 .levelExpRmd{
   font-size: 20rpx;
   color: grey;
+}
+.special{
+  height:30vh
 }

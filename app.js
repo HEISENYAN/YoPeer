@@ -3,13 +3,13 @@ wx.cloud.init()
 App({
   globalData:{
     openID: null,
-    isLogin:0,
+    isLogin: 0,
     // avatarUrl:"./icons/portrait.png",
     avatarUrl:"https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0",
-    nickname:"游客",
-    phoneNum: "12345678",
+    nickName:"游客",
+    phoneNum: "",
     school: '',
-    yoPeerValue: 360,
+    yoPeerValue: 0,
     sky_system:{},
     sky_menu:{}
   },
@@ -24,16 +24,7 @@ App({
       // 小程序自动更新方法
       wx.SkyUtils.versionUpdate()
     })()
-    wx.getStorage({
-      key: "userApperance",
-      success:res=>{
-        // var result = JSON.parse(res.data);
-        // this.globalData.isLogin = result.isLogin;
-        // this.globalData.nickname = result.nickname;
-        // this.globalData.phoneNum = result.phoneNum;
-        // this.globalData.avatarUrl = result.avatarUrl;
-        // this.globalData.yoPeerValue = result.yoPeerValue;
-      }
-    })
+    const that = this
+    
   }
 })

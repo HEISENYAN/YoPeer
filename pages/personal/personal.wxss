@@ -33,7 +33,7 @@ page {
   padding: 0 30rpx;
 }
 .up{
-  top:-5vh;
+  top:-13vh;
 }
 .loginBar {
   padding:100rpx 0 0 0;

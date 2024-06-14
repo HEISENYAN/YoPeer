@@ -22,8 +22,9 @@ exports.main = async (event, context) => {
       yoPeerValue:0,
       nickName:"游客",
       schoolIndex:0,
-      school:"未选择",
-      isRegistered: false
+      school:"未知学校",
+      isRegistered: false,
+
     }
   })
   const userInfo2 = await db.collection('yopeerUser').doc(wxContext.OPENID).get()

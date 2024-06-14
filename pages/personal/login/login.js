@@ -3,8 +3,9 @@ const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia0
 // const defaultAvatarUrl = "../../icons/portrait.png"
 const defaultNickname = "昵称"
 const defaultPhoneNum = "电话"
-var avatarUrl = ''
 var app = getApp()
+var avatarUrl = ''
+
 wx.cloud.init()
 const data = {
   areaList: [
@@ -156,10 +157,10 @@ Page({
       { label: '香港教育大学', value: '香港教育大学' },
     ],
     phoneError: false,
-    avatarUrl: '',
-    nickname: '',
-    phoneNum: '',
-    school: '',
+    avatarUrl: app.globalData.avatarUrl,
+    nickname: app.globalData.nickName,
+    phoneNum: app.globalData.phoneNumber,
+    school: app.globalData.school,
     // 地址
     options: data.areaList,
     note: '请选择地址',
@@ -243,14 +244,9 @@ Page({
         nickName: updatedNickname,
         avatarUrl: this.data.avatarUrl,
         school: app.globalData.school,
+        isRegistered: true
       },
       success:function(res){
-        wx.showToast({
-          title:"修改成功",
-          icon:"success",
-          duration:1500,
-          mask: true
-        })
         wx.reLaunch({  //提交按钮，返回个人中心
           url: '../personal',
         })

@@ -34,7 +34,7 @@ Page({
   onLoad() {
     this.setData({
       isLogin : app.globalData.isLogin, 
-      nickname: app.globalData.nickname,
+      nickname: app.globalData.nickName,
       avatarUrl: app.globalData.avatarUrl,
       yoPeerValue: app.globalData.yoPeerValue,
     })

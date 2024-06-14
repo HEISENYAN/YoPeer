@@ -1,5 +1,6 @@
 // pages/activity/activity.js
 const deviceInfo = wx.getWindowInfo()
+var app = getApp()
 const imageCdn = 'cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/YoPeerDesign/WeChat9e0e9fbeaa05c3c5da083cbdf52bdf6f.jpg';
 const swiperList = [
   {
@@ -26,11 +27,11 @@ Page({
 
     //user demo
     userInfo: {
-      name: '张三',
-      avatar: 'cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/YoPeerDesign/WeChat9e0e9fbeaa05c3c5da083cbdf52bdf6f.jpg', // 用户头像的URL
-      level: 'VIP 3',
-      exp: 20, // 经验值百分比
-      university: '香港中文大学'
+      name: app.globalData.nickName,
+      avatar: app.globalData.avatarUrl, // 用户头像的URL
+      level: 'VIP 0',
+      exp: 0, // 经验值百分比
+      university: app.globalData.school
     }
 
   },
@@ -53,7 +54,27 @@ Page({
     this.setData({ scrollTop });
   },
   onLoad(options) {
-
+    const that = this
+    wx.cloud.callFunction({
+      name:"getUserInfo",
+      success:function(res){
+        console.log(res.result)
+        app.globalData.nickName = res.result.nickName
+        app.globalData.isRegistered = res.result.isRegistered
+        app.globalData.school = res.result.school
+        app.globalData.avatarUrl = res.result.avatarUrl
+        app.globalData.phoneNumber = res.result.phoneNumber
+        that.setData({
+          userInfo:{
+            name : app.globalData.nickName,
+            university : app.globalData.school,
+            avatar : app.globalData.avatarUrl,
+            exp : app.globalData.yoPeerValue,
+            level : 'VIP 0',
+          }
+        })
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

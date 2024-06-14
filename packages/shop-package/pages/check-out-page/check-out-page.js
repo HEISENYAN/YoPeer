@@ -202,6 +202,9 @@ Page({
   onCheckout(){
     const that = this
     const tradeNumber = Math.round(Math.random() * (10 ** 13)) + Date.now()//生成随机订单号
+    this.setData({
+      visible:false
+    })
     wx.cloud.callFunction({
       name: 'cloudbase_module',
       data: {
