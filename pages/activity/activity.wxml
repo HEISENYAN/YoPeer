@@ -27,7 +27,7 @@
         <text>我的鱼饼等级：</text> 
         <text style="color: #fcad37;">{{userInfo.level}}</text>
         <view class="exp-bar-container">
-          <view class="exp-bar" style="width: {{userInfo.exp}}%;"></view>
+          <view class="exp-bar" style="width: {{userInfo.exp}}\%;"></view>
         </view>
         <text class="levelExpRmd">距离下一级还有：200</text>
       </view>

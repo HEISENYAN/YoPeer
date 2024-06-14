@@ -32,6 +32,14 @@
       <text style = "margin-left: auto;font-size: 25rpx;margin-top: 5px; color:red">￥{{order.paidPrice/100}}</text>
     </view>
     <view class = "order-number-container">
+      <text style = "font-size: small;">收货人</text>
+      <text style = "margin-left: auto;font-size: small;">{{order.receiveInfo.Name}}</text>
+    </view>
+    <view class = "order-number-container">
+      <text style = "font-size: small;">收货人联系电话</text>
+      <text style = "margin-left: auto;font-size: small;">{{order.receiveInfo.phoneNumer}}</text>
+    </view>
+    <view class = "order-number-container">
       <text style = "font-size: small;">预计收货日期：</text>
       <text style = "margin-left: auto;font-size: small;">{{order.expectedDate}}</text>
     </view>
