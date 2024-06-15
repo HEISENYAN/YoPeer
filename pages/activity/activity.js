@@ -4,12 +4,16 @@ var app = getApp()
 const imageCdn = 'cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/YoPeerDesign/WeChat9e0e9fbeaa05c3c5da083cbdf52bdf6f.jpg';
 const swiperList = [
   {
-    value: `cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/YoPeerDesign/lunbotu2.jpg`,
+    value: `cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/小程序插画设计-1/主页-顶部滑动栏-1标语.jpg`,
     ariaLabel: '图片1',
   },
   {
-    value: `cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/YoPeerDesign/lunbotu3.jpg`,
+    value: `cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/小程序插画设计-1/主页-顶部滑动栏-2社区简介入口.jpg`,
     ariaLabel: '图片2',
+  },
+  {
+    value: `cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/小程序插画设计-1/主页-顶部滑动栏-3.jpg`,
+    ariaLabel: '图片3',
   },
 ];
 Page({
@@ -38,6 +42,14 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  onClickSwiper(e){
+    console.log(e)
+    if(e.detail.index == 1){
+      wx.navigateTo({
+        url: '/pages/about-us/about-us',
+      })
+    }
+  },
   onSelectActivity(){
     wx.navigateTo({
       url: '/packages/shop-package/pages/shop/shop'

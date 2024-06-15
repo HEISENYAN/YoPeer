@@ -7,7 +7,8 @@
     "packages/commnunity-package/pages/community/community",
     "pages/personal/login/login",
     "custom-tab-bar/index",
-    "pages/personal/order/order"
+    "pages/personal/order/order",
+    "pages/about-us/about-us"
   ],
   "subpackages": [
     {

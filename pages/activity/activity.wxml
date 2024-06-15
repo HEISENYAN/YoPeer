@@ -14,6 +14,7 @@
         height = "25vh"
         navigation="{{ { type: 'dots-bar' } }}"
         class = "notice-swiper"
+        bind:click = "onClickSwiper"
       />
     </view>
     <view class="notice-bar">
@@ -27,7 +28,7 @@
         <text>我的鱼饼等级：</text> 
         <text style="color: #fcad37;">{{userInfo.level}}</text>
         <view class="exp-bar-container">
-          <view class="exp-bar" style="width: {{userInfo.exp}}\%;"></view>
+          <view class="exp-bar" style="width: {{userInfo.exp}}%;"></view>
         </view>
         <text class="levelExpRmd">距离下一级还有：200</text>
       </view>
@@ -35,13 +36,13 @@
   </view>
   
   <view class="subTitle">2024港校新生团购活动</view>
-  <image class = "activity-cell special" bindtap = "onSelectActivity" src = "cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/YoPeerDesign/huodong.jpg">
+  <image class = "activity-cell special" bindtap = "onSelectActivity" src = "cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/小程序插画设计-1/团购活动入口海报-2.jpg">
   </image>
 
   <view class="subTitle">Weekend x 周末活动</view>
-  <image class = "activity-cell" src = "cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/YoPeerDesign/huodong.jpg">
+  <image class = "activity-cell" bindtap = "onSelectActivity" src = "cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/小程序插画设计-1/团购活动入口主海报-1.jpg">
   </image>
-  <image class = "activity-cell" src = "cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/YoPeerDesign/huodong.jpg">
+  <image class = "activity-cell" src = "cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/小程序插画设计-1/行前分享会活动入口海报-3.jpg">
   </image>
   <!--<view style = "width:100vw;height: 15vh;"></view>-->
 </scroll-view>
