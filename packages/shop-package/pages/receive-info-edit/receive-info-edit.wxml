@@ -75,7 +75,7 @@
     ></t-cascader>
   </view>
   <view class = "submit-button-container">
-    <t-button type="submit" theme="primary" size="large" block >保存并使用</t-button>
+    <t-button type="submit" theme="primary" size="large" block style = "--td-button-primary-active-bg-color:#8a91e0;--td-button-primary-bg-color:#7581ff;--td-button-primary-border-color:#7581ff;--td-button-primary-active-border-color:#8a91e0;">保存并使用</t-button>
   </view>
   <t-toast id="t-toast" style="--td-toast-max-width: 500rpx"/>
 </form>   

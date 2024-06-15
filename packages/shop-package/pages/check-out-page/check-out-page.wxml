@@ -55,7 +55,7 @@
             <t-icon t-class="close-btn" name="close-circle" size="32" color="#fff" bind:tap="onClose" />
           </view>
           <text class="content">{{CheckoutPopupContent}}</text>
-          <t-button class="checkout-button" bind:tap="onCheckout" theme="primary">确认无误 立即付款!</t-button>
+          <t-button class="checkout-button" bind:tap="onCheckout" theme="primary" style = "--td-button-primary-active-bg-color:#8a91e0;--td-button-primary-bg-color:#7581ff;--td-button-primary-border-color:#7581ff;--td-button-primary-active-border-color:#8a91e0;">确认无误 立即付款!</t-button>
         </view>
       </t-popup>
       <van-submit-bar
