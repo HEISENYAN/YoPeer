@@ -23,24 +23,9 @@
           <text class="nickname-label">电话</text>
           <input type="number" name="phoneNum" class="nickname-input" placeholder="{{phoneNum}}" bind:change="onInputChange" />
   </view> -->
-  <!-- <view class="input-example">
-  <t-input style="{{style}}" label="昵称" placeholder="{{nickname}}" />
-  </view> -->
-  <!-- <input name="test" type="nickname"/> -->
-  <view class="input-example">
-    <!-- <van-cell-group>
-      <van-field
-        type="nickname"
-        name="nickname"
-        placeholder="{{nickname}}"
-        label="用户名"
-        placeholder="请输入用户名"
-        input-align="right"
-        size = "large"
-      />
-    </van-cell-group> -->
-    <t-input prefixIcon="user-1" label="用户名" name="nickname" placeholder="{{nickname}}" maxlength="{{10}}"></t-input>
-    <t-input 
+
+    <!-- <t-input prefixIcon="user-1" label="用户名" name="nickname" type="nickname" placeholder="{{nickname}}" maxlength="{{10}}" bindchange="onNickNameInput" ></t-input> -->
+    <!-- <t-input 
       prefixIcon="call" 
       label="手机号"
       name="phoneNum"
@@ -50,15 +35,47 @@
       bindchange="onPhoneInput">
       <view slot="suffix" style="display: flex; align-items: center">
         <view class="suffix--line"></view>
-        <!-- <view class="verify" aria-role="button"> 发送验证码 </view> -->
       </view>
-    </t-input>
-    <!-- 学校 -->
-    <t-cell class="mb-16" title="学校" arrow hover note="{{cityText}}" bind:click="onCityPicker" />
-    <t-picker
-      visible="{{cityVisible}}"
-      value="{{cityValue}}"
-      data-key="city"
+    </t-input> -->
+
+  <view class = "personal-cell">
+    <view style = "display: flex;">
+      <view style = "width:3vw"></view>
+      <view style = "width:13vw;display:flex;justify-content:start;align-items:center;">用户名</view>
+      <view style = "width:77vw;"><t-input name="nickname" style = "--td-input-border-radius: @radius-large" borderless="{{true}}" maxlength="{{20}}" placeholder="{{nickname}}" bindchange="onNickNameInput">
+      <!-- <input name="consigneeName" type="nickname"></input> -->
+      </t-input></view>
+    </view>
+    <view style = "display: flex;">
+      <view style = "width:3vw"></view>
+      <view style = "width:13vw;display:flex;justify-content:start;align-items:center;">手机号</view>
+      <view style = "width:20vw;display:inline-block"><t-cell title="{{phoneAreaText}}" arrow bind:click="onSelectArea" bordered = "{{false}}" bind:click="onPhoneAreaPicker" /></view>
+      <view style = "width: 57vw;"><t-input name="phoneNum" label="" placeholder="{{phoneNum}}" type = "number" maxlength = "{{maxphonenum}}" borderless="{{true}}" value="{{phoneInput}}" bindchange="onPhoneInput"></t-input></view>
+    </view>
+    <view style = "display: flex;">
+      <t-cell class="mb-16" title="学校" arrow hover note="{{schoolText}}" bordered="{{false}}" bind:click="onSchoolPicker" />
+    </view>
+  </view>
+  <!-- 手机区号 -->
+  <t-picker  
+    visible="{{phoneAreaVisible}}"
+    value="{{phoneAreaValue}}"
+    data-key="phoneArea"
+    title="选择区号"
+    cancelBtn="取消"
+    confirmBtn="确认"
+    usingCustomNavbar
+    bindchange="onPickerChange"
+    bindcancel="onPickerCancel"
+  >
+    <t-picker-item options="{{areas}}" />
+  </t-picker>
+  
+  <!-- 学校 -->
+  <t-picker
+      visible="{{schoolVisible}}"
+      value="{{schoolValue}}"
+      data-key="school"
       title="选择学校"
       cancelBtn="取消"
       confirmBtn="确认"
@@ -68,24 +85,31 @@
       bindcancel="onPickerCancel"
     >
     <t-picker-item options="{{citys}}" /></t-picker>
+  <view class="input-example">
+
+    <!-- 学校 -->
+    <!-- <t-cell class="mb-16" title="学校" arrow hover note="{{schoolText}}" bind:click="onSchoolPicker" /> -->
+
     
     <!-- 地址 -->
-    <t-cell title="地址" note="{{note}}" bind:click="showCascader" arrow></t-cell>
+    <!-- <t-cell title="地址" note="{{note}}" bind:click="showCascader" arrow></t-cell>
     <t-cascader
       visible="{{visible}}"
       options="{{options}}"
       title="请选择地址"
       sub-titles="{{subTitles}}"
       bind:change="onChange"
-    ></t-cascader>
+    ></t-cascader> -->
   </view>
   <!-- <view class="input-example">
   <t-input style="{{style}}" label="电话" placeholder="{{phoneNum}}" />
   </view> -->
 
-  <view style="display: flex; justify-content: space-between;">
-  <!-- <navigator url="../personal/personal" open-type="navigateBack" style="align-self: center;"> -->
-  <!-- </navigator> -->
+  <!-- <view style="display: flex; justify-content: space-between;">
     <button form-type="submit" type="primary" style="width: 200rpx; margin-top: 50px;">提交</button>
+  </view> -->
+  <view class = "submit-button-container">
+    <t-button type="submit" theme="primary" size="large" block style = "--td-button-primary-active-bg-color:#8a91e0;--td-button-primary-bg-color:#7581ff;--td-button-primary-border-color:#7581ff;--td-button-primary-active-border-color:#8a91e0;">保存并使用</t-button>
   </view>
+
 </form>

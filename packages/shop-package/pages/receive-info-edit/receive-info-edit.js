@@ -130,6 +130,7 @@ Page({
     consigneePhoneNum: '',
     hallSelectNote1:'请选择宿舍',
     hallSelectNote2:'',
+    // 手机号码区号
     maxphonenum: 11,
     selectedArea:'+86',
     areas: [
@@ -138,7 +139,8 @@ Page({
       { label: '中国澳门 +853', value: '+853' }
     ],
     showAreaPicker:false,
-    selectedAddressType : 0,
+
+    selectedAddressType : 0,  //宿舍住户/校外住户
     hallList:hallAddress,
     showHallCascadar: false,
     subTitles_hall: ['请选择大学', '请选择宿舍'],
@@ -156,6 +158,7 @@ Page({
   },
   onPhoneInput(e) {
     this.setData({phoneInput: [e.detail.value.toString()]})
+    // console.log(e.detail.value.toString())
     // if (this.data.selectedArea === "+86") {
     //   const formattedValue = e.detail.value.toString().replace(/(\d{3})(\d{4})(\d+)/, '$1 $2 $3');
     //   this.setData({ maxphonenum: 13, phoneInput: [formattedValue] });

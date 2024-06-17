@@ -10,7 +10,8 @@
     "yp-navigation":"/components/yp-navigation-bar/yp-navigation-bar",
     "van-field": "@vant/weapp/field/index",
     "t-cascader": "tdesign-miniprogram/cascader/cascader",
-    "t-image": "tdesign-miniprogram/image/image"
+    "t-image": "tdesign-miniprogram/image/image",
+    "t-button": "tdesign-miniprogram/button/button"
   },
   "renderer": "webview"
 
