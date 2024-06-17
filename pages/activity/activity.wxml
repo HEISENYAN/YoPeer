@@ -36,13 +36,24 @@
   </view>
   
   <view class="subTitle">2024港校新生团购活动</view>
-  <image class = "activity-cell special" bindtap = "onSelectActivity" src = "cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/小程序插画设计-1/团购活动入口海报-2.jpg">
+  <image class = "activity-cell-head" bindtap = "onSelectActivity" src = "cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/小程序插画设计-1/团购活动入口海报-2.jpg">
   </image>
 
-  <view class="subTitle">Weekend x 周末活动</view>
-  <image class = "activity-cell" bindtap = "onSelectActivity" src = "cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/小程序插画设计-1/团购活动入口主海报-1.jpg">
-  </image>
-  <image class = "activity-cell" src = "cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/小程序插画设计-1/行前分享会活动入口海报-3.jpg">
-  </image>
+  <view class="subTitle-2">Weekend x 周末活动</view>
+  <view class="waterfall">
+    <view class="column">
+      <image class="activity-cell" bindtap="onSelectActivity" src=""></image>
+      <image class="activity-cell" src=""></image>
+      <image class="activity-cell" src=""></image>
+      <image class="activity-cell" src=""></image>
+    </view>
+    <view class="column">
+      <image class="activity-cell" src=""></image>
+      <image class="activity-cell" src=""></image>
+      <image class="activity-cell" src=""></image>
+      <image class="activity-cell" src=""></image>
+    </view>
+  </view>
+
   <!--<view style = "width:100vw;height: 15vh;"></view>-->
 </scroll-view>
