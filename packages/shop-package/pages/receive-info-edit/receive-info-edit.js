@@ -123,7 +123,7 @@ const areaAddress = [
     ],
   }
 ]
-
+var app = getApp()
 Page({ 
   data: {
     consigneeName: '',
@@ -156,6 +156,12 @@ Page({
     receiverInfo:{},
     phoneInput: [],
   },
+  onShow() {
+    this.setData({
+      consigneeName: app.globalData.consigneeName,
+      consigneePhoneNum: app.globalData.consigneePhoneNum,
+    });
+  },
   onPhoneInput(e) {
     this.setData({phoneInput: [e.detail.value.toString()]})
     // console.log(e.detail.value.toString())
@@ -168,9 +174,18 @@ Page({
     //   this.setData({ maxphonenum: 9, phoneInput: [formattedValue] });
     // }
   },
-  // showWarningToast(e) {
 
-  // },
+  handleBack(e){  //点击返回时触发
+    wx.showToast({
+      title: "确定返回吗",
+      icon:"error",
+      duration:2000
+    })
+    // console.log(e)
+    // if(!this.checkNotNull(this.data.consigneeName))  console.log("null 1")
+    console.log(this.data.selectedAreaAddress)
+    if(this.data.selectedAreaAddress.length==0)  console.log("null 1")
+  },
   checkNotNull(params) {  //检查非空字符，非空：返回true
     if (params === "" || params === null) return false;
     else return true;
@@ -210,6 +225,8 @@ Page({
           address = this.data.selectedAreaAddress
           ifHallResident = 1
         }
+        app.globalData.consigneeName = this.data.consigneeName
+        app.globalData.consigneePhoneNum = this.data.consigneePhoneNum
         //收货地址传入数据库
         wx.cloud.callFunction({
           name:"setReceiveInfo",
@@ -268,16 +285,6 @@ Page({
         placement: 'bottom'
       });
     }
-    // else{
-    //   Toast({
-    //     context: this,
-    //     selector: '#t-toast',
-    //     message: '请将信息填写完整!',
-    //     theme: 'warning',
-    //     direction: 'row',
-    //     placement: 'bottom'
-    //   });
-    // }
   },
   radioChange: function(e) {
     console.log('radio发生change事件，携带value值为：', e.detail.value)

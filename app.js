@@ -4,13 +4,16 @@ App({
   globalData:{
     openID: null,
     isLogin: 0,
-    // avatarUrl:"./icons/portrait.png",
+    // 个人信息
     avatarUrl:"https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0",
     nickName:"游客",
     phoneNum: "",
     phoneAreaValue: ['+852'],
     school: '',
     yoPeerValue: 0,
+    // 收货信息
+    consigneeName: '请填写收货人姓名',
+    consigneePhoneNum: '请填写收货人手机号码',
     sky_system:{},
     sky_menu:{}
   },

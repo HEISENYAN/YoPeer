@@ -62,7 +62,7 @@ page {
   margin-top: 2vh;
   display:block;
   padding-top: 10rpx;
-  padding-bottom: 10rpx;
+  /* padding-bottom: 10rpx; */
 }
 
 .submit-button-container{

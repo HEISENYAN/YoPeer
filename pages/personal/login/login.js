@@ -228,7 +228,6 @@ Page({
     });
     if(key=="school"){
       app.globalData.school = value;
-      console.log("app.globalData.school", value)
     }
     if(key=="phoneArea"){
       if(e.detail.value=="+852"||e.detail.value=="+853")  this.setData({maxphonenum: 8})
@@ -255,11 +254,9 @@ Page({
     this.setData({ phoneAreaVisible: true });
   },
   onNickNameInput(e) {//昵称变化
-    console.log(e.detail.value)
+    // console.log(e.detail.value)
   },
   formSubmit(e){
-    // console.log("consigneeName", e.detail.value.consigneeName)
-    // console.log(this.data.phoneAreaText)  //区号
     if(e.detail.value.nickname)  app.globalData.nickname = e.detail.value.nickname;
     if(e.detail.value.phoneNum)  app.globalData.phoneNum = e.detail.value.phoneNum;
     const updatedPhoneNum = (e.detail.value.phoneNum)? e.detail.value.phoneNum : this.data.phoneNum;
@@ -298,9 +295,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    // console.log("maxphonenum", this.data.maxphonenum)
-    // console.log("phoneAreaValue", this.data.phoneAreaValue)
-    console.log("schoolValue", String(app.globalData.school).split(' '))
+    // console.log("schoolValue", String(app.globalData.school).split(' '))
     this.setData({
       isLogin : app.globalData.isLogin,
       avatarUrl: app.globalData.avatarUrl ? app.globalData.avatarUrl : defaultAvatarUrl,
