@@ -1,7 +1,41 @@
-/* pages/test_page2/test_page2.wxss */
+/* 返回popup */
+.popup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 380rpx;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.title {
+  width: 100%;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+.checkout-button {
+  width: 50rpx;
+  border-radius: 12rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #007aff;
+  color: #fff;
+}
+/* 返回popup */
+
+
 .radio-group{
   display:inline-block;
-  
 }
 .radio{
   display:inline-block;

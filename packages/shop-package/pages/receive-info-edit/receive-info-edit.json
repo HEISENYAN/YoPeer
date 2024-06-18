@@ -9,7 +9,9 @@
     "t-steps": "tdesign-miniprogram/steps/steps",
     "t-step-item": "tdesign-miniprogram/step-item/step-item",
     "t-button": "tdesign-miniprogram/button/button",
-    "t-toast": "tdesign-miniprogram/toast/toast"
+    "t-toast": "tdesign-miniprogram/toast/toast",
+    "t-dialog": "tdesign-miniprogram/dialog/dialog",
+    "t-popup": "tdesign-miniprogram/popup/popup"
   },
   "component": true,
   "styleIsolation": "apply-shared",
