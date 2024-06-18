@@ -127,7 +127,9 @@ var app = getApp()
 Page({ 
   data: {
     consigneeName: '',
+    consigneeNameValue: '',  //表单显示
     consigneePhoneNum: '',
+    consigneePhoneNumValue: '',  //表单显示
     hallSelectNote1:'请选择宿舍',
     hallSelectNote2:'',
     // 手机号码区号
@@ -159,11 +161,13 @@ Page({
   onShow() {
     this.setData({
       consigneeName: app.globalData.consigneeName,
+      consigneeNameValue: (app.globalData.consigneeName=="请填写收货人姓名")?"":app.globalData.consigneeName,
       consigneePhoneNum: app.globalData.consigneePhoneNum,
+      consigneePhoneNumValue: (app.globalData.consigneePhoneNum=="请填写收货人手机号码")?"":app.globalData.consigneePhoneNum,
     });
   },
   onPhoneInput(e) {
-    this.setData({phoneInput: [e.detail.value.toString()]})
+    this.setData({consigneePhoneNum: [e.detail.value.toString()]})
     // console.log(e.detail.value.toString())
     // if (this.data.selectedArea === "+86") {
     //   const formattedValue = e.detail.value.toString().replace(/(\d{3})(\d{4})(\d+)/, '$1 $2 $3');
@@ -184,7 +188,7 @@ Page({
     // console.log(e)
     // if(!this.checkNotNull(this.data.consigneeName))  console.log("null 1")
     console.log(this.data.selectedAreaAddress)
-    if(this.data.selectedAreaAddress.length==0)  console.log("null 1")
+    // if(this.data.selectedAreaAddress.length==0)  console.log("null 1")
   },
   checkNotNull(params) {  //检查非空字符，非空：返回true
     if (params === "" || params === null) return false;
@@ -210,7 +214,9 @@ Page({
       const that = this
       this.setData({
         consigneeName: e.detail.value.consigneeName,
+        consigneeNameValue: e.detail.value.consigneeName,
         consigneePhoneNum: e.detail.value.consigneePhoneNum,
+        consigneePhoneNumValue: e.detail.value.consigneePhoneNum,
         selectedAreaAddress: [this.data.selectedAreaAddress, e.detail.value.areaStreet, e.detail.value.areaBuilding, e.detail.value.areaHouseNum],
       },()=>{
         console.log("收货人：", this.data.consigneeName)

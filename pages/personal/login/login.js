@@ -259,13 +259,13 @@ Page({
   formSubmit(e){
     if(e.detail.value.nickname)  app.globalData.nickname = e.detail.value.nickname;
     if(e.detail.value.phoneNum)  app.globalData.phoneNum = e.detail.value.phoneNum;
-    const updatedPhoneNum = (e.detail.value.phoneNum)? e.detail.value.phoneNum : this.data.phoneNum;
-    const updatedNickname = (e.detail.value.nickname)? e.detail.value.nickname : this.data.nickname;
+    // const updatedPhoneNum = (e.detail.value.phoneNum)? e.detail.value.phoneNum : this.data.phoneNum;
+    // const updatedNickname = (e.detail.value.nickname)? e.detail.value.nickname : this.data.nickname;
     wx.cloud.callFunction({
       name: 'userUpdate',
       data:{
-        phoneNumber : updatedPhoneNum,
-        nickName: updatedNickname,
+        phoneNumber : (e.detail.value.phoneNum)? e.detail.value.phoneNum : this.data.phoneNum,
+        nickName: (e.detail.value.nickname)? e.detail.value.nickname : this.data.nickname,
         avatarUrl: this.data.avatarUrl,
         school: app.globalData.school,
         isRegistered: true

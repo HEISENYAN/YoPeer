@@ -16,13 +16,13 @@
     <view style = "display: flex;">
       <view style = "width:3vw"></view>
       <view style = "width:20vw;display: flex;justify-content:start;align-items: center;">收货人</view>
-      <view style = "width:77vw;"><t-input name="consigneeName" style = "--td-input-border-radius: @radius-large" borderless="{{true}}" maxlength="{{20}}" placeholder="{{consigneeName}}" ></t-input></view>
+      <view style = "width:77vw;"><t-input name="consigneeName" style = "--td-input-border-radius: @radius-large" borderless="{{true}}" maxlength="{{20}}" placeholder="{{consigneeName}}" value="{{consigneeNameValue}}"></t-input></view>
     </view>
     <view style = "display: flex;">
       <view style = "width:3vw"></view>
       <view style = "width:20vw;display: flex;justify-content:start;align-items: center;">手机号码</view>
       <view style = "width:20vw;display:inline-block"><t-cell class="mb-16" title="{{selectedArea}}" arrow bind:click="onSelectArea" bordered = "{{false}}" /></view>
-      <view style = "width: 57vw;"><t-input name="consigneePhoneNum" label="" placeholder="{{consigneePhoneNum}}" class = "input" type = "number" maxlength = "{{maxphonenum}}" borderless="{{true}}" value="{{phoneInput}}" bindchange="onPhoneInput"></t-input></view>
+      <view style = "width: 57vw;"><t-input name="consigneePhoneNum" label="" placeholder="{{consigneePhoneNum}}" class = "input" type = "number" maxlength = "{{maxphonenum}}" borderless="{{true}}" value="{{consigneePhoneNumValue}}" bindchange="onPhoneInput"></t-input></view>
     </view>
   </view>
   <t-picker
