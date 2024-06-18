@@ -16,6 +16,20 @@ const swiperList = [
     ariaLabel: '图片3',
   },
 ];
+const swiperList2 = [
+  {
+    value: `https://i.postimg.cc/52xp1b3Q/We-Chat43e0e6c799d5af8fca53ce08af2c7c99.jpg`,
+    ariaLabel: '图片1',
+  },
+  {
+    value: `https://i.postimg.cc/52xp1b3Q/We-Chat43e0e6c799d5af8fca53ce08af2c7c99.jpg`,
+    ariaLabel: '图片2',
+  },
+  {
+    value: `https://i.postimg.cc/52xp1b3Q/We-Chat43e0e6c799d5af8fca53ce08af2c7c99.jpg`,
+    ariaLabel: '图片3',
+  },
+];
 Page({
   /**
    * 页面的初始数据
@@ -28,6 +42,7 @@ Page({
     enableRefresh : false,
     scrollTop: 0,
     swiperList:swiperList,
+    swiperList2:swiperList2,
 
     //user demo
     userInfo: {
