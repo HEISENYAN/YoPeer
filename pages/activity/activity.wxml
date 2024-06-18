@@ -39,6 +39,26 @@
   <image class = "activity-cell-head" bindtap = "onSelectActivity" src = "cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/小程序插画设计-1/团购活动入口海报-2.jpg">
   </image>
 
+  <view class="subTitle">Weekend x 鱼饼精选</view>
+  <t-swiper
+    class="scale-card-theme"
+    current="{{current}}"
+    autoplay="{{autoplay}}"
+    duration="{{duration}}"
+    interval="{{interval}}"
+    bindchange="onChange"
+    navigation="{{ { type: 'dots' } }}"
+    list="{{swiperList2}}"
+    image-props="{{ { shape: 'round' } }}"
+    previousMargin="34px"
+    nextMargin="34px"
+    height="60vh"
+    t-class-nav="card-theme-nav"
+    t-class-prev-image="scale-candidate"
+    t-class-next-image="scale-candidate"
+  />
+
+
   <view class="subTitle-2">Weekend x 周末活动</view>
   <view class="waterfall">
     <view class="column">
