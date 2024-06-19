@@ -20,14 +20,17 @@ const swiperList2 = [
   {
     value: `https://i.postimg.cc/52xp1b3Q/We-Chat43e0e6c799d5af8fca53ce08af2c7c99.jpg`,
     ariaLabel: '图片1',
+    text: '1231232132312312312313'
   },
   {
     value: `https://i.postimg.cc/52xp1b3Q/We-Chat43e0e6c799d5af8fca53ce08af2c7c99.jpg`,
     ariaLabel: '图片2',
+    text: '1233213313123'
   },
   {
     value: `https://i.postimg.cc/52xp1b3Q/We-Chat43e0e6c799d5af8fca53ce08af2c7c99.jpg`,
     ariaLabel: '图片3',
+    text: '123'
   },
 ];
 Page({

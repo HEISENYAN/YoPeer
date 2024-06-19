@@ -167,3 +167,52 @@
 .scale-card-theme{
   margin-top: 50rpx;
 }
+
+.activity-cell {
+  background-color: white;
+  width: 92%;
+  height: 30vh;
+  box-sizing: border-box;
+  margin-left: 6.5%;
+  margin-top: 2vh;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.activity-image {
+  width: 100%;
+  height: 70%; /* 图片占据上半部分 */
+  border-radius: 10px 10px 0 0;
+}
+
+.activity-content {
+  width: 100%;
+  height: 30%; /* 文字内容占据下半部分 */
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.activity-title {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 2px;
+  align-items: center;
+  justify-content: center;
+}
+
+.bubble{
+  font-size: 10px;
+  color: #8a91e0;
+}
+
+.activity-date {
+  font-size: 10px;
+  color: gray;
+}

@@ -58,11 +58,19 @@
     t-class-next-image="scale-candidate"
   />
 
-
   <view class="subTitle-2">Weekend x 周末活动</view>
   <view class="waterfall">
     <view class="column">
-      <image class="activity-cell" bindtap="onSelectActivity" src=""></image>
+
+      <view class="activity-cell">
+        <image class="activity-image" src="cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/小程序插画设计-1/团购活动入口海报-2.jpg" mode="aspectFill"></image>
+        <view class="activity-content">
+          <text class="activity-title">云台寺精心禅修之旅</text>
+          <text class="bubble">静心探寺 深度交流</text>
+          <text class="activity-date">2024-06-23/南山区金地购物中心</text>
+        </view>
+      </view>
+
       <image class="activity-cell" src=""></image>
       <image class="activity-cell" src=""></image>
       <image class="activity-cell" src=""></image>
