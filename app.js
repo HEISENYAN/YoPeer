@@ -15,7 +15,8 @@ App({
     consigneeName: '请填写收货人姓名',
     consigneePhoneNum: '请填写收货人手机号码',
     sky_system:{},
-    sky_menu:{}
+    sky_menu:{},
+    tabbarActive:0
   },
   onLaunch(options){
     ;(async ()=>{

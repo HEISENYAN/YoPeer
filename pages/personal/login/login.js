@@ -6,7 +6,7 @@ const defaultPhoneNum = "电话"
 var app = getApp()
 var avatarUrl = ''
 wx.cloud.init()
-
+var nickNameReviewFlag = 0
 Page({
   /**
    * 页面的初始数据
@@ -127,32 +127,45 @@ Page({
   onNickNameInput(e) {//昵称变化
     // console.log(e.detail.value)
   },
+  nickNameReview(e) {
+    console.log(e);
+    console.log("reviewing.............")
+    if (e.detail.pass) nickNameReviewFlag = 1
+    else nickNameReviewFlag = 0
+    console.log("nickNameReviewFlag", nickNameReviewFlag)
+    
+},
   formSubmit(e){
-    if(e.detail.value.nickname)  app.globalData.nickname = e.detail.value.nickname;
-    if(e.detail.value.phoneNum)  app.globalData.phoneNum = e.detail.value.phoneNum;
-    // const updatedPhoneNum = (e.detail.value.phoneNum)? e.detail.value.phoneNum : this.data.phoneNum;
-    // const updatedNickname = (e.detail.value.nickname)? e.detail.value.nickname : this.data.nickname;
-    wx.cloud.callFunction({
-      name: 'userUpdate',
-      data:{
-        phoneNumber : (e.detail.value.phoneNum)? e.detail.value.phoneNum : this.data.phoneNum,
-        nickName: (e.detail.value.nickname)? e.detail.value.nickname : this.data.nickname,
-        avatarUrl: this.data.avatarUrl,
-        school: app.globalData.school,
-        isRegistered: true
-      },
-      success:function(res){
-        wx.reLaunch({  //提交按钮，返回个人中心
-          url: '../personal',
-        })
-      },
-      fail:function(res){
-        wx.showModal({
-        title:"错误",
-        content:"" + res
-        })
+    if(nickNameReviewFlag==1){
+      nickNameReviewFlag = 0
+      if(e.detail.value.nickname)  app.globalData.nickname = e.detail.value.nickname;
+      if(e.detail.value.phoneNum)  app.globalData.phoneNum = e.detail.value.phoneNum;
+      // const updatedPhoneNum = (e.detail.value.phoneNum)? e.detail.value.phoneNum : this.data.phoneNum;
+      // const updatedNickname = (e.detail.value.nickname)? e.detail.value.nickname : this.data.nickname;
+      wx.cloud.callFunction({
+        name: 'userUpdate',
+        data:{
+          phoneNumber : (e.detail.value.phoneNum)? e.detail.value.phoneNum : this.data.phoneNum,
+          nickName: (e.detail.value.nickname)? e.detail.value.nickname : this.data.nickname,
+          avatarUrl: this.data.avatarUrl,
+          school: app.globalData.school,
+          isRegistered: true
+        },
+        success:function(res){
+          wx.reLaunch({  //提交按钮，返回个人中心
+            url: '../personal',
+          })
+        },
+        fail:function(res){
+          wx.showModal({
+          title:"错误",
+          content:"" + res
+          })
+        }
+      })}
+      else{
+        console.log("fail............")
       }
-    })
   },
   /**
    * 生命周期函数--监听页面加载

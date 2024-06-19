@@ -1,12 +1,4 @@
-<!-- <t-dialog
-  visible="{{showWarnConfirm}}"
-  title="是否保存？"
-  confirm-btn="{{ { content: '确定', variant: 'base' } }}"
-  cancel-btn="取消"
-  bind:confirm="handleBack"
-  bind:cancel="closeDialog"
-  style="--td-dialog-close-color: #8a91e0;"
-></t-dialog> -->
+<!-- 返回弹出框 -->
 <t-popup visible="{{visible}}" bind:visible-change="onVisibleChange" placement="center">
   <view class="popup-container">
     <view class="header">
@@ -16,7 +8,6 @@
       <t-button class="checkout-button" style="margin-right: 50rpx;" bind:tap="noSave">不保存</t-button>
       <t-button class="checkout-button" bind:tap="save" theme="primary" style = "--td-button-primary-active-bg-color:#8a91e0;--td-button-primary-bg-color:#7581ff;--td-button-primary-border-color:#7581ff;--td-button-primary-active-border-color:#8a91e0;">保存</t-button>
     </view>
-    
   </view>
 </t-popup>
 
@@ -39,13 +30,13 @@
     <view style = "display: flex;">
       <view style = "width:3vw"></view>
       <view style = "width:20vw;display: flex;justify-content:start;align-items: center;">收货人</view>
-      <view style = "width:77vw;"><t-input name="consigneeName" style = "--td-input-border-radius: @radius-large" borderless="{{true}}" maxlength="{{20}}" placeholder="{{consigneeName}}" value="{{consigneeNameValue}}"></t-input></view>
+      <view style = "width:77vw;"><t-input name="consigneeName" style = "--td-input-border-radius: @radius-large" borderless="{{true}}" maxlength="{{20}}" placeholder="{{consigneeName}}" value="{{consigneeNameValue}}" bindchange="onFormChange" data-field="name"></t-input></view>
     </view>
     <view style = "display: flex;">
       <view style = "width:3vw"></view>
       <view style = "width:20vw;display: flex;justify-content:start;align-items: center;">手机号码</view>
       <view style = "width:20vw;display:inline-block"><t-cell class="mb-16" title="{{selectedArea}}" arrow bind:click="onSelectArea" bordered = "{{false}}" /></view>
-      <view style = "width: 57vw;"><t-input name="consigneePhoneNum" label="" placeholder="{{consigneePhoneNum}}" class = "input" type = "number" maxlength = "{{maxphonenum}}" borderless="{{true}}" value="{{consigneePhoneNumValue}}" bindchange="onPhoneInput"></t-input></view>
+      <view style = "width: 57vw;"><t-input name="consigneePhoneNum" label="" placeholder="{{consigneePhoneNum}}" class = "input" type = "number" maxlength = "{{maxphonenum}}" borderless="{{true}}" value="{{consigneePhoneNumValue}}" bindchange="onFormChange" data-field="phone"></t-input></view>
     </view>
   </view>
   <t-picker
@@ -87,9 +78,9 @@
     ></t-cascader>
     <!--校外地址选择与填写-->
     <t-cell wx:if = "{{selectedAddressType == 1}}" title="地区" note="{{areaSelectNote}}" bind:click="onOpenCascader" hover arrow bordered = "{{false}}"></t-cell>
-    <t-input wx:if = "{{selectedAddressType == 1}}" maxlength="{{25}}" name="areaStreet" label="街道" borderless="{{true}}" placeholder="请填写住址街道" ></t-input>
-    <t-input wx:if = "{{selectedAddressType == 1}}" maxlength="{{25}}" name="areaBuilding" label="楼宇" borderless="{{true}}" placeholder="请填写楼宇或社区名称" ></t-input>
-    <t-input wx:if = "{{selectedAddressType == 1}}" maxlength="{{25}}" name="areaHouseNum" label="门牌号" borderless="{{true}}" placeholder="请填写门牌号（选填）" bind:enter = "enter"></t-input>
+    <t-input wx:if = "{{selectedAddressType == 1}}" maxlength="{{25}}" name="areaStreet" label="街道" borderless="{{true}}" placeholder="请填写住址街道" bindchange="onFormChange" data-field="street"></t-input>
+    <t-input wx:if = "{{selectedAddressType == 1}}" maxlength="{{25}}" name="areaBuilding" label="楼宇" borderless="{{true}}" placeholder="请填写楼宇或社区名称" bindchange="onFormChange" data-field="building"></t-input>
+    <t-input wx:if = "{{selectedAddressType == 1}}" maxlength="{{25}}" name="areaHouseNum" label="门牌号" borderless="{{true}}" placeholder="请填写门牌号（选填）" bindchange="onFormChange" data-field="house"></t-input>
     <t-cascader
       visible="{{showAreaCascadar}}"
       options="{{areaList}}"

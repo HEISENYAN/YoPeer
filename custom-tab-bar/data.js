@@ -1,4 +1,4 @@
-export default [
+export default  [
   {
     icon: 'home',
     text: '首页',
@@ -7,7 +7,7 @@ export default [
   {
     icon: 'chat',
     text: '社区',
-    url: '/packages/commnunity-package/pages/community/community',
+    url: '/pages/community/community',
   },
   {
     icon: 'user',

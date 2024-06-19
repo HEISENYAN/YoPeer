@@ -4,7 +4,7 @@
     "pages/personal/personal",
     "pages/test_page/test_page",
     "pages/test_page2/test_page2",
-    "packages/commnunity-package/pages/community/community",
+    "pages/community/community",
     "pages/personal/login/login",
     "custom-tab-bar/index",
     "pages/personal/order/order",
@@ -19,12 +19,6 @@
         "pages/product-detail/product-detail",
         "pages/receive-info-edit/receive-info-edit",
         "pages/order-management/order-management"
-      ]
-    },
-    {
-      "root": "packages/community-package",
-      "pages": [
-        "pages/community/community"
       ]
     }
   ],
@@ -44,7 +38,7 @@
     }
   },
   "tabBar": {
-    "custom": false,
+    "custom": true,
     "backgroundColor": "#ffffff",
     "selectedColor": "#8271CB",
     "color": "#000000",
@@ -56,7 +50,7 @@
         "selectedIconPath": "icons/Picture1a.png"
       },
       {
-        "pagePath": "packages/commnunity-package/pages/community/community",
+        "pagePath": "pages/community/community",
         "text": "社区",
         "iconPath": "icons/Picture4a.png",
         "selectedIconPath": "icons/Picture3a.png"

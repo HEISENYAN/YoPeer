@@ -1,27 +1,31 @@
 import TabMenu from './data';
+var app = getApp()
 Component({
   data: {
-    active: 2,
+    active: app.globalData.tabbarActive,
     list: TabMenu,
+    isShow:1
   },
   methods: {
     onChange(event) {
-      
+      // var activeValue = event.detail.value
+      // this.setData({ active: activeValue });
       const url = this.data.list[event.detail.value].url.startsWith('/')
       ? this.data.list[event.detail.value].url
       : `/${this.data.list[event.detail.value].url}`;
+      const that = this
       wx.switchTab({
         url,
-        success: () =>{
-          var activeValue = event.detail.value
-          this.setData({ active: activeValue });
-          console.log("switched to ", activeValue)
-        },
-        fail: function(error) {
+        success:function(){
+          wx.vibrateShort({
+            type:"light"
+          })
+         },
+        fail:function(error) {
           console.error('Failed to switch tab:', error);
         }
       })
-      
+    
       // this.switchTabAsync(url)
       // .then(() => {
       //   console.log("active: ", event.detail.value)
@@ -76,7 +80,10 @@ Component({
   lifetimes:{
     attached(){
       console.log("ready")
-      // this.setData({ active });
+      //this.setData({ active: app.globalData.tabbarActive });
+    },
+    show:function(){
+      //this.setData({ active: app.globalData.tabbarActive });
     }
   },
 });

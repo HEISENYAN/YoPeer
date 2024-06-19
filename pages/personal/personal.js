@@ -74,6 +74,14 @@ Page({
     avatarUrl: app.globalData.avatarUrl,
     yoPeerValue: app.globalData.yoPeerValue,
     });
+    
+    
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({
+        active: 2
+    })
+
+}
     // console.log("app.globalData.nickname: " + app.globalData.nickname)
     // console.log("app.globalData.avatarUrl: " + app.globalData.avatarUrl)
     // console.log("avatarUrl: " + this.data.avatarUrl)

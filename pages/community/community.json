@@ -1,4 +1,6 @@
 {
-  "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "t-swiper": "tdesign-miniprogram/swiper/swiper"
+  },
+  "renderer": "webview"
 }

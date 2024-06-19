@@ -4,15 +4,7 @@ wx.cloud.init();
 var app = getApp()
 Page({ 
   data: {
-    // 点击返回时
-
-    // showMultiBtn: false,
-    // multiBtnList: [
-    //   { content: '次要按钮', theme: 'light' },
-    //   { content: '次要按钮', theme: 'light' },
-    //   { content: '主要按钮', theme: 'primary' },
-    // ],
-    delta: 0,  //后退层数
+    delta: 0,  //返回后退层数
     consigneeName: '',
     consigneeNameValue: '',  //表单显示
     consigneePhoneNum: '',
@@ -43,7 +35,13 @@ Page({
     areaBuilding: '',
     areaHouseNum: '',
     receiverInfo:{},
-    phoneInput: [],
+
+    // 用户返回时，临时存储
+    // temp_consigneeName: '',
+    // temp_consigneePhoneNum: '',
+    // temp_areaStreet: '',
+    // temp_areaBuilding: '',
+    // temp_areaHouseNum: '',
   },
 
   // 返回时弹窗 //
@@ -51,30 +49,69 @@ Page({
     this.setData({
       visible: true,
     })
+    const tempAddress = {
+      temp_consigneeName: this.data.consigneeName,
+      temp_consigneePhoneNum: this.data.consigneePhoneNum,
+      temp_areaStreet: this.data.areaStreet,
+      temp_areaBuilding: this.data.areaBuilding,
+      temp_areaHouseNum: this.data.areaHouseNum,
+    }
+    wx.setStorage({
+      key: 'tempAddress',
+      data: tempAddress
+    })
+    console.log("temp_consigneeName", this.data.consigneeName)
+    console.log("temp_consigneePhoneNum", this.data.consigneePhoneNum)
+    console.log("temp_areaStreet", this.data.areaStreet)
+    console.log("temp_areaBuilding", this.data.areaBuilding)
+    console.log("temp_areaHouseNum", this.data.areaHouseNum)
   },
   onVisibleChange(e) {  //点击空白处取消弹窗
     this.setData({
       visible: e.detail.visible,
     });
   },
-  // closeDialog() {  //
-  //   console.log("close dialog")
-  //   this.setData({
-  //     visible: false,
-  //   })
-  // },
-
   onShow() {
-    this.setData({
-      consigneeName: app.globalData.consigneeName,
-      consigneeNameValue: (app.globalData.consigneeName=="请填写收货人姓名")?"":app.globalData.consigneeName,
-      consigneePhoneNum: app.globalData.consigneePhoneNum,
-      consigneePhoneNumValue: (app.globalData.consigneePhoneNum=="请填写收货人手机号码")?"":app.globalData.consigneePhoneNum,
-    });
+    
+    const that = this
+    wx.getStorage({
+      key: 'tempAddress',
+      success(res) {
+        console.log(res.data.temp_consigneeName);
+        console.log(res.data.temp_consigneePhoneNum);
+        console.log(res.data.temp_areaStreet);
+        console.log(res.data.temp_areaBuilding);
+        console.log(res.data.temp_areaHouseNum);
+        that.setData({
+          consigneeName: res.data.temp_consigneeName,
+          consigneeNameValue: res.data.temp_consigneeName,
+          consigneePhoneNum: res.data.temp_consigneePhoneNum,
+          consigneePhoneNumValue: res.data.temp_consigneePhoneNum,
+        });
+      },
+      fail(){
+        console.log("failed..")
+        that.setData({
+          consigneeName: app.globalData.consigneeName,
+          consigneeNameValue: (app.globalData.consigneeName=="请填写收货人姓名")?"":app.globalData.consigneeName,
+          consigneePhoneNum: app.globalData.consigneePhoneNum,
+          consigneePhoneNumValue: (app.globalData.consigneePhoneNum=="请填写收货人手机号码")?"":app.globalData.consigneePhoneNum,
+        });
+      }
+    })
+    // wx.removeStorage({key: 'tempAddress'})
+
   },
-  onPhoneInput(e) {
-    this.setData({consigneePhoneNum: [e.detail.value.toString()]})
-    // console.log(e.detail.value.toString())
+
+  onFormChange(e) { //temp
+    const content = e.detail.value
+    const key = e.target.dataset.field
+    if(key=="name")  this.data.consigneeName = content
+    else if(key=="phone") this.data.consigneePhoneNum = content
+    else if(key=="street") this.data.areaStreet = content
+    else if(key=="building") this.data.areaBuilding = content
+    else if(key=="house") this.data.areaHouseNum = content
+
     // if (this.data.selectedArea === "+86") {
     //   const formattedValue = e.detail.value.toString().replace(/(\d{3})(\d{4})(\d+)/, '$1 $2 $3');
     //   this.setData({ maxphonenum: 13, phoneInput: [formattedValue] });
@@ -112,6 +149,17 @@ Page({
     else return false
   },
   saveAddress(e){
+    // wx.cloud.callFunction({
+    //   name:"getReceiveInfo",
+    //   success(res){
+    //     console.log("res1")
+    //     console.log(res)
+    //   },
+    //   fail(){
+    //     console.log("res2")
+    //     console.log(res)
+    //   }
+    // })
     console.log(e)
     if(this.checkSubmit(e)&&this.checkPhoneNum(e)){
       var ifHallResident = 0
@@ -209,7 +257,6 @@ Page({
     else if (e.detail.value[0]=="+86")  this.setData({maxphonenum: 11})
   },
   onSelectAddress(e){  //宿舍住户，校外住户切换
-    
     if(e.target.dataset.selectedAddress!=this.data.selectedAddressType) {  //校内校外切换时，清空选择
       this.setData({
         selectedHallAddress: [],
@@ -234,7 +281,6 @@ Page({
       hallSelectNote1: '',
       hallSelectNote2: `${e.detail.selectedOptions[0].label}\n${e.detail.selectedOptions[1].label}`
     })
-
   },
   onChangeAreaAdress(e){  //校外住户 级联选择
     this.setData({
@@ -242,5 +288,4 @@ Page({
       areaSelectNote: [e.detail.selectedOptions[0].label, e.detail.selectedOptions[1].label]
     })
   },
-
 })
