@@ -3,6 +3,15 @@ Page({
   data: {
   },
   testcloud:function(){
+    wx.cloud.callFunction({
+      name:"getReceiveInfo",
+      success:function(res){
+        console.log(res)
+      },
+      fail:function(res){
+        console.log(res)
+      }
+    })
     console.log("clicked")
     /*
     wx.cloud.callFunction({
@@ -58,8 +67,5 @@ Page({
         console.log(e)
       }
     })*/
-    wx.reLaunch({
-      url: '/pages/activity/activity',
-    })
   }
 });
