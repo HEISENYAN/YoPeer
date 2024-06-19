@@ -58,11 +58,18 @@ Page({
 
     //
     cardList: [
-      { image: 'cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/小程序插画设计-1/主页-顶部滑动栏-3.jpg', title: '探索系列', subtitle: '上新啦！探索本周新品 >>>' },
-      { image: '/path/to/image2.jpg', title: '探索系列2', subtitle: '上新啦！探索本周新品 >>>' },
-      { image: '/path/to/image3.jpg', title: '探索系列3', subtitle: '上新啦！探索本周新品 >>>' },
-      { image: '/path/to/image4.jpg', title: '探索系列4', subtitle: '上新啦！探索本周新品 >>>' },
-      { image: '/path/to/image5.jpg', title: '探索系列5', subtitle: '上新啦！探索本周新品 >>>' }
+      {
+        image: 'cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/小程序插画设计-1/团购活动入口海报-2.jpg',
+        title: '云台寺精心禅修之旅',
+        date: '2024-06-23/南山区金地购物中心',
+        description: '“云台寺精心禅修之旅”是一场宁静而深邃的心灵之旅，带您走进历史悠久的云台寺，在大师的指导下，通过禅修、冥想与自然融合，寻觅内心的平和与智慧，体验身心灵的全方位升华。',
+        participants: [
+          { avatar: 'path/to/avatar1.jpg' },
+          { avatar: 'path/to/avatar2.jpg' },
+          { avatar: 'path/to/avatar3.jpg' }
+        ]
+      },
+      // 其他卡片数据...
     ]
 
   },

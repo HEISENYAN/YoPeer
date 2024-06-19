@@ -53,13 +53,22 @@
         <swiper-item>
           <view class="card" style="z-index: {{cardList.length - index}}">
             <image class="card-image" src="{{item.image}}" mode="aspectFill"></image>
-            <text class="card-title">{{item.title}}</text>
-            <text class="card-subtitle">{{item.subtitle}}</text>
+            <view class="card-content">
+              <text class="card-title">{{item.title}}</text>
+              <text class="card-date">{{item.date}}</text>
+              <view class="card-buttons">
+                <view class="card-button">静心探寺</view>
+                <view class="card-button">深度交流</view>
+              </view>
+              <view class="card-description">{{item.description}}</view>
+              <view class="join-button">即刻加入</view>
+            </view>
           </view>
         </swiper-item>
       </block>
     </swiper>
   </view>
+
 
 
   <view class="subTitle-2">Weekend x 周末活动</view>
