@@ -54,7 +54,16 @@ Page({
       level: 'VIP 0',
       exp: 0, // 经验值百分比
       university: app.globalData.school
-    }
+    },
+
+    //
+    cardList: [
+      { image: 'cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/小程序插画设计-1/主页-顶部滑动栏-3.jpg', title: '探索系列', subtitle: '上新啦！探索本周新品 >>>' },
+      { image: '/path/to/image2.jpg', title: '探索系列2', subtitle: '上新啦！探索本周新品 >>>' },
+      { image: '/path/to/image3.jpg', title: '探索系列3', subtitle: '上新啦！探索本周新品 >>>' },
+      { image: '/path/to/image4.jpg', title: '探索系列4', subtitle: '上新啦！探索本周新品 >>>' },
+      { image: '/path/to/image5.jpg', title: '探索系列5', subtitle: '上新啦！探索本周新品 >>>' }
+    ]
 
   },
   /**

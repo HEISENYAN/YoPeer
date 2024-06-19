@@ -216,3 +216,50 @@
   font-size: 10px;
   color: gray;
 }
+
+/* 鱼饼精选部分 */
+.container {
+  margin-top: -170rpx;
+  margin-bottom: -180rpx;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-swiper {
+  width: 80%;
+  height: 100%;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-image {
+  width: 100%;
+  height: 70%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.card-subtitle {
+  font-size: 14px;
+  color: gray;
+  margin-top: 5px;
+}

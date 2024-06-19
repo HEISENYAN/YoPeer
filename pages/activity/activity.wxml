@@ -40,23 +40,27 @@
   </image>
 
   <view class="subTitle">Weekend x 鱼饼精选</view>
-  <t-swiper
-    class="scale-card-theme"
-    current="{{current}}"
-    autoplay="{{autoplay}}"
-    duration="{{duration}}"
-    interval="{{interval}}"
-    bindchange="onChange"
-    navigation="{{ { type: 'dots' } }}"
-    list="{{swiperList2}}"
-    image-props="{{ { shape: 'round' } }}"
-    previousMargin="34px"
-    nextMargin="34px"
-    height="60vh"
-    t-class-nav="card-theme-nav"
-    t-class-prev-image="scale-candidate"
-    t-class-next-image="scale-candidate"
-  />
+  <view class="container">
+    <swiper
+      class="card-swiper"
+      duration="300"
+      interval="5000"
+      circular="{{true}}"
+      indicator-dots="{{false}}"
+      bindchange="onSwiperChange"
+    >
+      <block wx:for="{{cardList}}" wx:key="index">
+        <swiper-item>
+          <view class="card" style="z-index: {{cardList.length - index}}">
+            <image class="card-image" src="{{item.image}}" mode="aspectFill"></image>
+            <text class="card-title">{{item.title}}</text>
+            <text class="card-subtitle">{{item.subtitle}}</text>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
 
   <view class="subTitle-2">Weekend x 周末活动</view>
   <view class="waterfall">
