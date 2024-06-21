@@ -4,7 +4,7 @@ var __DEFINE__ = function(modId, func, req) { var m = { exports: {}, _tempexport
 var __REQUIRE__ = function(modId, source) { if(!__MODS__[modId]) return require(source); if(!__MODS__[modId].status) { var m = __MODS__[modId].m; m._exports = m._tempexports; var desp = Object.getOwnPropertyDescriptor(m, "exports"); if (desp && desp.configurable) Object.defineProperty(m, "exports", { set: function (val) { if(typeof val === "object" && val !== m._exports) { m._exports.__proto__ = val.__proto__; Object.keys(val).forEach(function (k) { m._exports[k] = val[k]; }); } m._tempexports = val }, get: function () { return m._tempexports; } }); __MODS__[modId].status = 1; __MODS__[modId].func(__MODS__[modId].req, m, m.exports); } return __MODS__[modId].m.exports; };
 var __REQUIRE_WILDCARD__ = function(obj) { if(obj && obj.__esModule) { return obj; } else { var newObj = {}; if(obj != null) { for(var k in obj) { if (Object.prototype.hasOwnProperty.call(obj, k)) newObj[k] = obj[k]; } } newObj.default = obj; return newObj; } };
 var __REQUIRE_DEFAULT__ = function(obj) { return obj && obj.__esModule ? obj.default : obj; };
-__DEFINE__(1718111096233, function(require, module, exports) {
+__DEFINE__(1718955544989, function(require, module, exports) {
 // Copyright 2015 Joyent, Inc.
 
 var Key = require('./key');
@@ -46,8 +46,8 @@ module.exports = {
 	CertificateParseError: errs.CertificateParseError
 };
 
-}, function(modId) {var map = {"./key":1718111096234,"./fingerprint":1718111096236,"./signature":1718111096239,"./private-key":1718111096238,"./certificate":1718111096253,"./identity":1718111096254,"./errors":1718111096237}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1718111096234, function(require, module, exports) {
+}, function(modId) {var map = {"./key":1718955544990,"./fingerprint":1718955544992,"./signature":1718955544995,"./private-key":1718955544994,"./certificate":1718955545009,"./identity":1718955545010,"./errors":1718955544993}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1718955544990, function(require, module, exports) {
 // Copyright 2018 Joyent, Inc.
 
 module.exports = Key;
@@ -343,8 +343,8 @@ Key._oldVersionDetect = function (obj) {
 	return ([1, 0]);
 };
 
-}, function(modId) { var map = {"./algs":1718111096235,"./fingerprint":1718111096236,"./signature":1718111096239,"./dhe":1718111096242,"./errors":1718111096237,"./utils":1718111096240,"./private-key":1718111096238,"./ed-compat":1718111096243,"./formats/auto":1718111096244,"./formats/pem":1718111096245,"./formats/pkcs1":1718111096246,"./formats/pkcs8":1718111096247,"./formats/rfc4253":1718111096249,"./formats/ssh":1718111096250,"./formats/ssh-private":1718111096248,"./formats/dnssec":1718111096251,"./formats/putty":1718111096252}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1718111096235, function(require, module, exports) {
+}, function(modId) { var map = {"./algs":1718955544991,"./fingerprint":1718955544992,"./signature":1718955544995,"./dhe":1718955544998,"./errors":1718955544993,"./utils":1718955544996,"./private-key":1718955544994,"./ed-compat":1718955544999,"./formats/auto":1718955545000,"./formats/pem":1718955545001,"./formats/pkcs1":1718955545002,"./formats/pkcs8":1718955545003,"./formats/rfc4253":1718955545005,"./formats/ssh":1718955545006,"./formats/ssh-private":1718955545004,"./formats/dnssec":1718955545007,"./formats/putty":1718955545008}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1718955544991, function(require, module, exports) {
 // Copyright 2015 Joyent, Inc.
 
 var Buffer = require('safer-buffer').Buffer;
@@ -515,7 +515,7 @@ module.exports = {
 };
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1718111096236, function(require, module, exports) {
+__DEFINE__(1718955544992, function(require, module, exports) {
 // Copyright 2018 Joyent, Inc.
 
 module.exports = Fingerprint;
@@ -737,8 +737,8 @@ Fingerprint._oldVersionDetect = function (obj) {
 	return ([1, 0]);
 };
 
-}, function(modId) { var map = {"./algs":1718111096235,"./errors":1718111096237,"./key":1718111096234,"./private-key":1718111096238,"./certificate":1718111096253,"./utils":1718111096240}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1718111096237, function(require, module, exports) {
+}, function(modId) { var map = {"./algs":1718955544991,"./errors":1718955544993,"./key":1718955544990,"./private-key":1718955544994,"./certificate":1718955545009,"./utils":1718955544996}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1718955544993, function(require, module, exports) {
 // Copyright 2015 Joyent, Inc.
 
 var assert = require('assert-plus');
@@ -825,7 +825,7 @@ module.exports = {
 };
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1718111096238, function(require, module, exports) {
+__DEFINE__(1718955544994, function(require, module, exports) {
 // Copyright 2017 Joyent, Inc.
 
 module.exports = PrivateKey;
@@ -1074,8 +1074,8 @@ PrivateKey._oldVersionDetect = function (obj) {
 	return ([1, 0]);
 };
 
-}, function(modId) { var map = {"./algs":1718111096235,"./fingerprint":1718111096236,"./signature":1718111096239,"./errors":1718111096237,"./utils":1718111096240,"./dhe":1718111096242,"./ed-compat":1718111096243,"./key":1718111096234,"./formats/auto":1718111096244,"./formats/pem":1718111096245,"./formats/pkcs1":1718111096246,"./formats/pkcs8":1718111096247,"./formats/rfc4253":1718111096249,"./formats/ssh-private":1718111096248,"./formats/dnssec":1718111096251,"./formats/putty":1718111096252}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1718111096239, function(require, module, exports) {
+}, function(modId) { var map = {"./algs":1718955544991,"./fingerprint":1718955544992,"./signature":1718955544995,"./errors":1718955544993,"./utils":1718955544996,"./dhe":1718955544998,"./ed-compat":1718955544999,"./key":1718955544990,"./formats/auto":1718955545000,"./formats/pem":1718955545001,"./formats/pkcs1":1718955545002,"./formats/pkcs8":1718955545003,"./formats/rfc4253":1718955545005,"./formats/ssh-private":1718955545004,"./formats/dnssec":1718955545007,"./formats/putty":1718955545008}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1718955544995, function(require, module, exports) {
 // Copyright 2015 Joyent, Inc.
 
 module.exports = Signature;
@@ -1391,8 +1391,8 @@ Signature._oldVersionDetect = function (obj) {
 	return ([1, 0]);
 };
 
-}, function(modId) { var map = {"./algs":1718111096235,"./errors":1718111096237,"./utils":1718111096240,"./ssh-buffer":1718111096241}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1718111096240, function(require, module, exports) {
+}, function(modId) { var map = {"./algs":1718955544991,"./errors":1718955544993,"./utils":1718955544996,"./ssh-buffer":1718955544997}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1718955544996, function(require, module, exports) {
 // Copyright 2015 Joyent, Inc.
 
 module.exports = {
@@ -1798,8 +1798,8 @@ function opensshCipherInfo(cipher) {
 	return (inf);
 }
 
-}, function(modId) { var map = {"./private-key":1718111096238,"./key":1718111096234,"./algs":1718111096235}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1718111096241, function(require, module, exports) {
+}, function(modId) { var map = {"./private-key":1718955544994,"./key":1718955544990,"./algs":1718955544991}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1718955544997, function(require, module, exports) {
 // Copyright 2015 Joyent, Inc.
 
 module.exports = SSHBuffer;
@@ -1951,7 +1951,7 @@ SSHBuffer.prototype.write = function (buf) {
 };
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1718111096242, function(require, module, exports) {
+__DEFINE__(1718955544998, function(require, module, exports) {
 // Copyright 2017 Joyent, Inc.
 
 module.exports = {
@@ -2350,8 +2350,8 @@ function generateECDSA(curve) {
 	}
 }
 
-}, function(modId) { var map = {"./algs":1718111096235,"./utils":1718111096240,"./key":1718111096234,"./private-key":1718111096238}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1718111096243, function(require, module, exports) {
+}, function(modId) { var map = {"./algs":1718955544991,"./utils":1718955544996,"./key":1718955544990,"./private-key":1718955544994}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1718955544999, function(require, module, exports) {
 // Copyright 2015 Joyent, Inc.
 
 module.exports = {
@@ -2445,8 +2445,8 @@ Signer.prototype.sign = function () {
 	return (sigObj);
 };
 
-}, function(modId) { var map = {"./signature":1718111096239}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1718111096244, function(require, module, exports) {
+}, function(modId) { var map = {"./signature":1718955544995}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1718955545000, function(require, module, exports) {
 // Copyright 2018 Joyent, Inc.
 
 module.exports = {
@@ -2572,8 +2572,8 @@ function write(key, options) {
 	throw (new Error('"auto" format cannot be used for writing'));
 }
 
-}, function(modId) { var map = {"../utils":1718111096240,"../key":1718111096234,"../private-key":1718111096238,"./pem":1718111096245,"./ssh":1718111096250,"./rfc4253":1718111096249,"./dnssec":1718111096251,"./putty":1718111096252}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1718111096245, function(require, module, exports) {
+}, function(modId) { var map = {"../utils":1718955544996,"../key":1718955544990,"../private-key":1718955544994,"./pem":1718955545001,"./ssh":1718955545006,"./rfc4253":1718955545005,"./dnssec":1718955545007,"./putty":1718955545008}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1718955545001, function(require, module, exports) {
 // Copyright 2018 Joyent, Inc.
 
 module.exports = {
@@ -2865,8 +2865,8 @@ function write(key, options, type) {
 	return (buf.slice(0, o));
 }
 
-}, function(modId) { var map = {"../algs":1718111096235,"../utils":1718111096240,"../key":1718111096234,"../private-key":1718111096238,"./pkcs1":1718111096246,"./pkcs8":1718111096247,"./ssh-private":1718111096248,"./rfc4253":1718111096249,"../errors":1718111096237}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1718111096246, function(require, module, exports) {
+}, function(modId) { var map = {"../algs":1718955544991,"../utils":1718955544996,"../key":1718955544990,"../private-key":1718955544994,"./pkcs1":1718955545002,"./pkcs8":1718955545003,"./ssh-private":1718955545004,"./rfc4253":1718955545005,"../errors":1718955544993}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1718955545002, function(require, module, exports) {
 // Copyright 2015 Joyent, Inc.
 
 module.exports = {
@@ -3241,8 +3241,8 @@ function writePkcs1EdDSAPublic(der, key) {
 	throw (new Error('Public keys are not supported for EdDSA PKCS#1'));
 }
 
-}, function(modId) { var map = {"../algs":1718111096235,"../utils":1718111096240,"../key":1718111096234,"../private-key":1718111096238,"./pem":1718111096245,"./pkcs8":1718111096247}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1718111096247, function(require, module, exports) {
+}, function(modId) { var map = {"../algs":1718955544991,"../utils":1718955544996,"../key":1718955544990,"../private-key":1718955544994,"./pem":1718955545001,"./pkcs8":1718955545003}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1718955545003, function(require, module, exports) {
 // Copyright 2018 Joyent, Inc.
 
 module.exports = {
@@ -3887,8 +3887,8 @@ function writePkcs8EdDSAPrivate(key, der) {
 	utils.writeBitString(der, key.part.A.data, asn1.Ber.Context | 1);
 }
 
-}, function(modId) { var map = {"../algs":1718111096235,"../utils":1718111096240,"../key":1718111096234,"../private-key":1718111096238,"./pem":1718111096245}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1718111096248, function(require, module, exports) {
+}, function(modId) { var map = {"../algs":1718955544991,"../utils":1718955544996,"../key":1718955544990,"../private-key":1718955544994,"./pem":1718955545001}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1718955545004, function(require, module, exports) {
 // Copyright 2015 Joyent, Inc.
 
 module.exports = {
@@ -4152,8 +4152,8 @@ function write(key, options) {
 	return (buf.slice(0, o));
 }
 
-}, function(modId) { var map = {"../algs":1718111096235,"../utils":1718111096240,"../key":1718111096234,"../private-key":1718111096238,"./pem":1718111096245,"./rfc4253":1718111096249,"../ssh-buffer":1718111096241,"../errors":1718111096237}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1718111096249, function(require, module, exports) {
+}, function(modId) { var map = {"../algs":1718955544991,"../utils":1718955544996,"../key":1718955544990,"../private-key":1718955544994,"./pem":1718955545001,"./rfc4253":1718955545005,"../ssh-buffer":1718955544997,"../errors":1718955544993}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1718955545005, function(require, module, exports) {
 // Copyright 2015 Joyent, Inc.
 
 module.exports = {
@@ -4321,8 +4321,8 @@ function write(key, options) {
 	return (buf.toBuffer());
 }
 
-}, function(modId) { var map = {"../algs":1718111096235,"../utils":1718111096240,"../key":1718111096234,"../private-key":1718111096238,"../ssh-buffer":1718111096241}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1718111096250, function(require, module, exports) {
+}, function(modId) { var map = {"../algs":1718955544991,"../utils":1718955544996,"../key":1718955544990,"../private-key":1718955544994,"../ssh-buffer":1718955544997}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1718955545006, function(require, module, exports) {
 // Copyright 2015 Joyent, Inc.
 
 module.exports = {
@@ -4439,8 +4439,8 @@ function write(key, options) {
 	return (Buffer.from(parts.join(' ')));
 }
 
-}, function(modId) { var map = {"./rfc4253":1718111096249,"../utils":1718111096240,"../key":1718111096234,"../private-key":1718111096238,"./ssh-private":1718111096248}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1718111096251, function(require, module, exports) {
+}, function(modId) { var map = {"./rfc4253":1718955545005,"../utils":1718955544996,"../key":1718955544990,"../private-key":1718955544994,"./ssh-private":1718955545004}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1718955545007, function(require, module, exports) {
 // Copyright 2017 Joyent, Inc.
 
 module.exports = {
@@ -4729,8 +4729,8 @@ function write(key, options) {
 	}
 }
 
-}, function(modId) { var map = {"../key":1718111096234,"../private-key":1718111096238,"../utils":1718111096240,"../ssh-buffer":1718111096241,"../dhe":1718111096242}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1718111096252, function(require, module, exports) {
+}, function(modId) { var map = {"../key":1718955544990,"../private-key":1718955544994,"../utils":1718955544996,"../ssh-buffer":1718955544997,"../dhe":1718955544998}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1718955545008, function(require, module, exports) {
 // Copyright 2018 Joyent, Inc.
 
 module.exports = {
@@ -4926,8 +4926,8 @@ function wrap(txt, len) {
 	return (lines);
 }
 
-}, function(modId) { var map = {"./rfc4253":1718111096249,"../key":1718111096234,"../ssh-buffer":1718111096241,"../private-key":1718111096238,"../errors":1718111096237}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1718111096253, function(require, module, exports) {
+}, function(modId) { var map = {"./rfc4253":1718955545005,"../key":1718955544990,"../ssh-buffer":1718955544997,"../private-key":1718955544994,"../errors":1718955544993}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1718955545009, function(require, module, exports) {
 // Copyright 2016 Joyent, Inc.
 
 module.exports = Certificate;
@@ -5339,8 +5339,8 @@ Certificate._oldVersionDetect = function (obj) {
 	return ([1, 0]);
 };
 
-}, function(modId) { var map = {"./algs":1718111096235,"./fingerprint":1718111096236,"./signature":1718111096239,"./errors":1718111096237,"./utils":1718111096240,"./key":1718111096234,"./private-key":1718111096238,"./identity":1718111096254,"./formats/openssh-cert":1718111096255,"./formats/x509":1718111096256,"./formats/x509-pem":1718111096257}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1718111096254, function(require, module, exports) {
+}, function(modId) { var map = {"./algs":1718955544991,"./fingerprint":1718955544992,"./signature":1718955544995,"./errors":1718955544993,"./utils":1718955544996,"./key":1718955544990,"./private-key":1718955544994,"./identity":1718955545010,"./formats/openssh-cert":1718955545011,"./formats/x509":1718955545012,"./formats/x509-pem":1718955545013}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1718955545010, function(require, module, exports) {
 // Copyright 2017 Joyent, Inc.
 
 module.exports = Identity;
@@ -5715,8 +5715,8 @@ Identity._oldVersionDetect = function (obj) {
 	return ([1, 0]);
 };
 
-}, function(modId) { var map = {"./algs":1718111096235,"./fingerprint":1718111096236,"./signature":1718111096239,"./errors":1718111096237,"./utils":1718111096240}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1718111096255, function(require, module, exports) {
+}, function(modId) { var map = {"./algs":1718955544991,"./fingerprint":1718955544992,"./signature":1718955544995,"./errors":1718955544993,"./utils":1718955544996}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1718955545011, function(require, module, exports) {
 // Copyright 2017 Joyent, Inc.
 
 module.exports = {
@@ -6070,8 +6070,8 @@ function getCertType(key) {
 	throw (new Error('Unsupported key type ' + key.type));
 }
 
-}, function(modId) { var map = {"../ssh-buffer":1718111096241,"../algs":1718111096235,"../key":1718111096234,"../private-key":1718111096238,"../identity":1718111096254,"./rfc4253":1718111096249,"../signature":1718111096239,"../utils":1718111096240,"../certificate":1718111096253}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1718111096256, function(require, module, exports) {
+}, function(modId) { var map = {"../ssh-buffer":1718955544997,"../algs":1718955544991,"../key":1718955544990,"../private-key":1718955544994,"../identity":1718955545010,"./rfc4253":1718955545005,"../signature":1718955544995,"../utils":1718955544996,"../certificate":1718955545009}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1718955545012, function(require, module, exports) {
 // Copyright 2017 Joyent, Inc.
 
 module.exports = {
@@ -6825,8 +6825,8 @@ function writeBitField(setBits, bitIndex) {
 	return (bits);
 }
 
-}, function(modId) { var map = {"../algs":1718111096235,"../utils":1718111096240,"../key":1718111096234,"../private-key":1718111096238,"./pem":1718111096245,"../identity":1718111096254,"../signature":1718111096239,"../certificate":1718111096253,"./pkcs8":1718111096247}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1718111096257, function(require, module, exports) {
+}, function(modId) { var map = {"../algs":1718955544991,"../utils":1718955544996,"../key":1718955544990,"../private-key":1718955544994,"./pem":1718955545001,"../identity":1718955545010,"../signature":1718955544995,"../certificate":1718955545009,"./pkcs8":1718955545003}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1718955545013, function(require, module, exports) {
 // Copyright 2016 Joyent, Inc.
 
 var x509 = require('./x509');
@@ -6916,8 +6916,8 @@ function write(cert, options) {
 	return (buf.slice(0, o));
 }
 
-}, function(modId) { var map = {"./x509":1718111096256,"../algs":1718111096235,"../utils":1718111096240,"../key":1718111096234,"../private-key":1718111096238,"./pem":1718111096245,"../identity":1718111096254,"../signature":1718111096239,"../certificate":1718111096253}; return __REQUIRE__(map[modId], modId); })
-return __REQUIRE__(1718111096233);
+}, function(modId) { var map = {"./x509":1718955545012,"../algs":1718955544991,"../utils":1718955544996,"../key":1718955544990,"../private-key":1718955544994,"./pem":1718955545001,"../identity":1718955545010,"../signature":1718955544995,"../certificate":1718955545009}; return __REQUIRE__(map[modId], modId); })
+return __REQUIRE__(1718955544989);
 })()
 //miniprogram-npm-outsideDeps=["assert-plus","crypto","safer-buffer","util","tweetnacl","asn1","ecc-jsbn/lib/ec","jsbn","ecc-jsbn","stream","bcrypt-pbkdf"]
 //# sourceMappingURL=index.js.map

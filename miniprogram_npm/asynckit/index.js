@@ -4,7 +4,7 @@ var __DEFINE__ = function(modId, func, req) { var m = { exports: {}, _tempexport
 var __REQUIRE__ = function(modId, source) { if(!__MODS__[modId]) return require(source); if(!__MODS__[modId].status) { var m = __MODS__[modId].m; m._exports = m._tempexports; var desp = Object.getOwnPropertyDescriptor(m, "exports"); if (desp && desp.configurable) Object.defineProperty(m, "exports", { set: function (val) { if(typeof val === "object" && val !== m._exports) { m._exports.__proto__ = val.__proto__; Object.keys(val).forEach(function (k) { m._exports[k] = val[k]; }); } m._tempexports = val }, get: function () { return m._tempexports; } }); __MODS__[modId].status = 1; __MODS__[modId].func(__MODS__[modId].req, m, m.exports); } return __MODS__[modId].m.exports; };
 var __REQUIRE_WILDCARD__ = function(obj) { if(obj && obj.__esModule) { return obj; } else { var newObj = {}; if(obj != null) { for(var k in obj) { if (Object.prototype.hasOwnProperty.call(obj, k)) newObj[k] = obj[k]; } } newObj.default = obj; return newObj; } };
 var __REQUIRE_DEFAULT__ = function(obj) { return obj && obj.__esModule ? obj.default : obj; };
-__DEFINE__(1718111095985, function(require, module, exports) {
+__DEFINE__(1718955544741, function(require, module, exports) {
 module.exports =
 {
   parallel      : require('./parallel.js'),
@@ -12,8 +12,8 @@ module.exports =
   serialOrdered : require('./serialOrdered.js')
 };
 
-}, function(modId) {var map = {"./parallel.js":1718111095986,"./serial.js":1718111095993,"./serialOrdered.js":1718111095994}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1718111095986, function(require, module, exports) {
+}, function(modId) {var map = {"./parallel.js":1718955544742,"./serial.js":1718955544749,"./serialOrdered.js":1718955544750}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1718955544742, function(require, module, exports) {
 var iterate    = require('./lib/iterate.js')
   , initState  = require('./lib/state.js')
   , terminator = require('./lib/terminator.js')
@@ -58,8 +58,8 @@ function parallel(list, iterator, callback)
   return terminator.bind(state, callback);
 }
 
-}, function(modId) { var map = {"./lib/iterate.js":1718111095987,"./lib/state.js":1718111095991,"./lib/terminator.js":1718111095992}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1718111095987, function(require, module, exports) {
+}, function(modId) { var map = {"./lib/iterate.js":1718955544743,"./lib/state.js":1718955544747,"./lib/terminator.js":1718955544748}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1718955544743, function(require, module, exports) {
 var async = require('./async.js')
   , abort = require('./abort.js')
   ;
@@ -136,8 +136,8 @@ function runJob(iterator, key, item, callback)
   return aborter;
 }
 
-}, function(modId) { var map = {"./async.js":1718111095988,"./abort.js":1718111095990}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1718111095988, function(require, module, exports) {
+}, function(modId) { var map = {"./async.js":1718955544744,"./abort.js":1718955544746}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1718955544744, function(require, module, exports) {
 var defer = require('./defer.js');
 
 // API
@@ -173,8 +173,8 @@ function async(callback)
   };
 }
 
-}, function(modId) { var map = {"./defer.js":1718111095989}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1718111095989, function(require, module, exports) {
+}, function(modId) { var map = {"./defer.js":1718955544745}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1718955544745, function(require, module, exports) {
 module.exports = defer;
 
 /**
@@ -203,7 +203,7 @@ function defer(fn)
 }
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1718111095990, function(require, module, exports) {
+__DEFINE__(1718955544746, function(require, module, exports) {
 // API
 module.exports = abort;
 
@@ -235,7 +235,7 @@ function clean(key)
 }
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1718111095991, function(require, module, exports) {
+__DEFINE__(1718955544747, function(require, module, exports) {
 // API
 module.exports = state;
 
@@ -275,7 +275,7 @@ function state(list, sortMethod)
 }
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1718111095992, function(require, module, exports) {
+__DEFINE__(1718955544748, function(require, module, exports) {
 var abort = require('./abort.js')
   , async = require('./async.js')
   ;
@@ -306,8 +306,8 @@ function terminator(callback)
   async(callback)(null, this.results);
 }
 
-}, function(modId) { var map = {"./abort.js":1718111095990,"./async.js":1718111095988}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1718111095993, function(require, module, exports) {
+}, function(modId) { var map = {"./abort.js":1718955544746,"./async.js":1718955544744}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1718955544749, function(require, module, exports) {
 var serialOrdered = require('./serialOrdered.js');
 
 // Public API
@@ -326,8 +326,8 @@ function serial(list, iterator, callback)
   return serialOrdered(list, iterator, null, callback);
 }
 
-}, function(modId) { var map = {"./serialOrdered.js":1718111095994}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1718111095994, function(require, module, exports) {
+}, function(modId) { var map = {"./serialOrdered.js":1718955544750}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1718955544750, function(require, module, exports) {
 var iterate    = require('./lib/iterate.js')
   , initState  = require('./lib/state.js')
   , terminator = require('./lib/terminator.js')
@@ -404,8 +404,8 @@ function descending(a, b)
   return -1 * ascending(a, b);
 }
 
-}, function(modId) { var map = {"./lib/iterate.js":1718111095987,"./lib/state.js":1718111095991,"./lib/terminator.js":1718111095992}; return __REQUIRE__(map[modId], modId); })
-return __REQUIRE__(1718111095985);
+}, function(modId) { var map = {"./lib/iterate.js":1718955544743,"./lib/state.js":1718955544747,"./lib/terminator.js":1718955544748}; return __REQUIRE__(map[modId], modId); })
+return __REQUIRE__(1718955544741);
 })()
 //miniprogram-npm-outsideDeps=[]
 //# sourceMappingURL=index.js.map

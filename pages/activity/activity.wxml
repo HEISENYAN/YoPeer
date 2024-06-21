@@ -60,6 +60,7 @@
                 <view class="card-button">静心探寺</view>
                 <view class="card-button">深度交流</view>
               </view>
+              <view class="separator-horizon"></view>
               <view class="card-description">{{item.description}}</view>
               <view class="join-button">即刻加入</view>
             </view>
