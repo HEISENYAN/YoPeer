@@ -256,14 +256,14 @@
   width: 100%;
   height: 50%;
   border-radius: 20rpx;
-  margin-top: -60rpx;
+  margin-top: -20rpx;
 }
 
 .card-title {
   display: flex;
   font-size: 18px;
   font-weight: bold;
-  margin-top: 20px;
+  margin-top: 10px;
   justify-content: center;
   align-items: center;
 }

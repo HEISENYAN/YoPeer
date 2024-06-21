@@ -59,7 +59,7 @@ Page({
     //
     cardList: [
       {
-        image: 'cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/小程序插画设计-1/团购活动入口海报-2.jpg',
+        image: 'https://i.postimg.cc/bwBnc0tC/a5cc2b7e904a6fbe712c3886db8f3853.jpg',
         title: '云台寺精心禅修之旅',
         date: '2024-06-23/南山区金地购物中心',
         description: '“云台寺精心禅修之旅”是一场宁静而深邃的心灵之旅，带您走进历史悠久的云台寺，在大师的指导下，通过禅修、冥想与自然融合，寻觅内心的平和与智慧，体验身心灵的全方位升华。',
