@@ -93,7 +93,7 @@
 }
 .activity-cell-head{
   background-size: cover;
-  height: 30vh;
+  height: 20vh;
   width: 92vw;
   box-sizing:border-box;
   margin-left:4vw;
@@ -209,7 +209,7 @@
 .activity-title {
   font-size: 14px;
   font-weight: bold;
-  margin-top: 2px;
+  margin-top: 0px;
   align-items: center;
   justify-content: center;
 }
@@ -238,6 +238,8 @@
 .card-swiper {
   width: 80%;
   height: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
 }
 
 .card {
@@ -256,7 +258,8 @@
   width: 100%;
   height: 50%;
   border-radius: 20rpx;
-  margin-top: -20rpx;
+  margin-top: -40rpx;
+  object-fit: cover; /* 确保图片填满容器并裁剪超出部分 */
 }
 
 .card-title {

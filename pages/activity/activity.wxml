@@ -36,7 +36,7 @@
   </view>
   
   <view class="subTitle">2024港校新生团购活动</view>
-  <image class = "activity-cell-head" bindtap = "onSelectActivity" src = "cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/小程序插画设计-1/团购活动入口海报-2.jpg">
+  <image class = "activity-cell-head" bindtap = "onSelectActivity" src = "https://i.postimg.cc/HspJKvV4/huodong.jpg">
   </image>
 
   <view class="subTitle">Weekend x 鱼饼精选</view>
@@ -52,7 +52,7 @@
       <block wx:for="{{cardList}}" wx:key="index">
         <swiper-item>
           <view class="card" style="z-index: {{cardList.length - index}}">
-            <image class="card-image" src="{{item.image}}" mode="aspectFill"></image>
+            <image class="card-image" src="{{item.image}}"></image>
             <view class="card-content">
               <text class="card-title">{{item.title}}</text>
               <text class="card-date">{{item.date}}</text>
@@ -77,23 +77,72 @@
     <view class="column">
 
       <view class="activity-cell">
-        <image class="activity-image" src="cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/小程序插画设计-1/团购活动入口海报-2.jpg" mode="aspectFill"></image>
+        <image class="activity-image" src="https://i.postimg.cc/65cNjYvZ/leonardo-140265-173460235-362381.jpg" mode="aspectFill"></image>
         <view class="activity-content">
           <text class="activity-title">云台寺精心禅修之旅</text>
           <text class="bubble">静心探寺 深度交流</text>
           <text class="activity-date">2024-06-23/南山区金地购物中心</text>
         </view>
       </view>
-
-      <image class="activity-cell" src=""></image>
-      <image class="activity-cell" src=""></image>
-      <image class="activity-cell" src=""></image>
+      <view class="activity-cell">
+        <image class="activity-image" src="https://i.postimg.cc/65cNjYvZ/leonardo-140265-173460235-362381.jpg" mode="aspectFill"></image>
+        <view class="activity-content">
+          <text class="activity-title">云台寺精心禅修之旅</text>
+          <text class="bubble">静心探寺 深度交流</text>
+          <text class="activity-date">2024-06-23/南山区金地购物中心</text>
+        </view>
+      </view>      
+      <view class="activity-cell">
+        <image class="activity-image" src="https://i.postimg.cc/65cNjYvZ/leonardo-140265-173460235-362381.jpg" mode="aspectFill"></image>
+        <view class="activity-content">
+          <text class="activity-title">云台寺精心禅修之旅</text>
+          <text class="bubble">静心探寺 深度交流</text>
+          <text class="activity-date">2024-06-23/南山区金地购物中心</text>
+        </view>
+      </view>      
+      <view class="activity-cell">
+        <image class="activity-image" src="https://i.postimg.cc/65cNjYvZ/leonardo-140265-173460235-362381.jpg" mode="aspectFill"></image>
+        <view class="activity-content">
+          <text class="activity-title">云台寺精心禅修之旅</text>
+          <text class="bubble">静心探寺 深度交流</text>
+          <text class="activity-date">2024-06-23/南山区金地购物中心</text>
+        </view>
+      </view>
     </view>
     <view class="column">
-      <image class="activity-cell" src=""></image>
-      <image class="activity-cell" src=""></image>
-      <image class="activity-cell" src=""></image>
-      <image class="activity-cell" src=""></image>
+      <view class="activity-cell">
+        <image class="activity-image" src="https://i.postimg.cc/bwBnc0tC/a5cc2b7e904a6fbe712c3886db8f3853.jpg" mode="aspectFill"></image>
+        <view class="activity-content">
+          <text class="activity-title">云台寺精心禅修之旅</text>
+          <text class="bubble">静心探寺 深度交流</text>
+          <text class="activity-date">2024-06-23/南山区金地购物中心</text>
+        </view>
+      </view>
+      <view class="activity-cell">
+        <image class="activity-image" src="https://i.postimg.cc/bwBnc0tC/a5cc2b7e904a6fbe712c3886db8f3853.jpg" mode="aspectFill"></image>
+        <view class="activity-content">
+          <text class="activity-title">云台寺精心禅修之旅</text>
+          <text class="bubble">静心探寺 深度交流</text>
+          <text class="activity-date">2024-06-23/南山区金地购物中心</text>
+        </view>
+      </view>
+      <view class="activity-cell">
+        <image class="activity-image" src="https://i.postimg.cc/bwBnc0tC/a5cc2b7e904a6fbe712c3886db8f3853.jpg" mode="aspectFill"></image>
+        <view class="activity-content">
+          <text class="activity-title">云台寺精心禅修之旅</text>
+          <text class="bubble">静心探寺 深度交流</text>
+          <text class="activity-date">2024-06-23/南山区金地购物中心</text>
+        </view>
+      </view>
+      <view class="activity-cell">
+        <image class="activity-image" src="https://i.postimg.cc/bwBnc0tC/a5cc2b7e904a6fbe712c3886db8f3853.jpg" mode="aspectFill"></image>
+        <view class="activity-content">
+          <text class="activity-title">云台寺精心禅修之旅</text>
+          <text class="bubble">静心探寺 深度交流</text>
+          <text class="activity-date">2024-06-23/南山区金地购物中心</text>
+        </view>
+      </view>
+      
     </view>
   </view>
 
