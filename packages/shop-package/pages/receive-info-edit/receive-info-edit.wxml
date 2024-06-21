@@ -5,8 +5,8 @@
       <view class="title">是否保存收货信息？</view>
     </view>
     <view style="flex-direction: row;">
-      <t-button class="checkout-button" style="margin-right: 50rpx;" bind:tap="noSave">不保存</t-button>
-      <t-button class="checkout-button" bind:tap="save" theme="primary" style = "--td-button-primary-active-bg-color:#8a91e0;--td-button-primary-bg-color:#7581ff;--td-button-primary-border-color:#7581ff;--td-button-primary-active-border-color:#8a91e0;">保存</t-button>
+      <t-button class="checkout-button" style="margin-right: 50rpx;" bind:tap="backWithoutSave">不保存</t-button>
+      <t-button class="checkout-button" bind:tap="backSave" theme="primary" style = "--td-button-primary-active-bg-color:#8a91e0;--td-button-primary-bg-color:#7581ff;--td-button-primary-border-color:#7581ff;--td-button-primary-active-border-color:#8a91e0;">保存</t-button>
     </view>
   </view>
 </t-popup>
@@ -34,12 +34,13 @@
     </view>
     <view style = "display: flex;">
       <view style = "width:3vw"></view>
-      <view style = "width:20vw;display: flex;justify-content:start;align-items: center;">手机号码</view>
+      <view style = "width:20vw;display: flex;justify-content:start;align-items: center;">手机号</view>
       <view style = "width:20vw;display:inline-block"><t-cell class="mb-16" title="{{selectedArea}}" arrow bind:click="onSelectArea" bordered = "{{false}}" /></view>
       <view style = "width: 57vw;"><t-input name="consigneePhoneNum" label="" placeholder="{{consigneePhoneNum}}" class = "input" type = "number" maxlength = "{{maxphonenum}}" borderless="{{true}}" value="{{consigneePhoneNumValue}}" bindchange="onFormChange" data-field="phone"></t-input></view>
     </view>
   </view>
-  <t-picker
+  <!-- 手机区号 -->
+  <t-picker  
     visible="{{showAreaPicker}}"
     value="{{phoneAreaValue}}"
     data-key="area"
@@ -47,8 +48,8 @@
     cancelBtn="取消"
     confirmBtn="确认"
     usingCustomNavbar
-    bindchange="onChangeArea"
-    bindpick=""
+    bindchange="onChangePhoneArea"
+    bindpick="onColumnChange"
   >
     <t-picker-item options="{{areas}}" />
   </t-picker>
@@ -75,18 +76,20 @@
       title="请选择宿舍"
       sub-titles="{{subTitles_hall}}"
       bind:change="onChangeHallAdress"
+      bind:pick = "onColumnChange"
     ></t-cascader>
     <!--校外地址选择与填写-->
     <t-cell wx:if = "{{selectedAddressType == 1}}" title="地区" note="{{areaSelectNote}}" bind:click="onOpenCascader" hover arrow bordered = "{{false}}"></t-cell>
-    <t-input wx:if = "{{selectedAddressType == 1}}" maxlength="{{25}}" name="areaStreet" label="街道" borderless="{{true}}" placeholder="请填写住址街道" bindchange="onFormChange" data-field="street"></t-input>
-    <t-input wx:if = "{{selectedAddressType == 1}}" maxlength="{{25}}" name="areaBuilding" label="楼宇" borderless="{{true}}" placeholder="请填写楼宇或社区名称" bindchange="onFormChange" data-field="building"></t-input>
-    <t-input wx:if = "{{selectedAddressType == 1}}" maxlength="{{25}}" name="areaHouseNum" label="门牌号" borderless="{{true}}" placeholder="请填写门牌号（选填）" bindchange="onFormChange" data-field="house"></t-input>
+    <t-input wx:if = "{{selectedAddressType == 1}}" maxlength="{{25}}" name="areaStreet" label="街道" borderless="{{true}}" placeholder="请填写住址街道" bindchange="onFormChange" data-field="street" value="{{areaStreet}}"></t-input>
+    <t-input wx:if = "{{selectedAddressType == 1}}" maxlength="{{25}}" name="areaBuilding" label="楼宇" borderless="{{true}}" placeholder="请填写楼宇或社区名称" bindchange="onFormChange" data-field="building" value="{{areaBuilding}}"></t-input>
+    <t-input wx:if = "{{selectedAddressType == 1}}" maxlength="{{25}}" name="areaHouseNum" label="门牌号" borderless="{{true}}" placeholder="请填写门牌号（选填）" bindchange="onFormChange" data-field="house" value="{{areaHouseNum}}"></t-input>
     <t-cascader
       visible="{{showAreaCascadar}}"
       options="{{areaList}}"
       title="请选择地区"
       sub-titles="{{subTitles_area}}"
-      bind:change="onChangeAreaAdress"
+      bind:change="onChangeAreaAddress"
+      bind:pick = "onColumnChange"
     ></t-cascader>
   </view>
   <view class = "submit-button-container">

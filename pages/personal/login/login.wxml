@@ -66,6 +66,7 @@
     usingCustomNavbar
     bindchange="onPickerChange"
     bindcancel="onPickerCancel"
+    bindpick="onColumnChange"
   >
     <t-picker-item options="{{areas}}" />
   </t-picker>

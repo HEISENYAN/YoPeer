@@ -6,7 +6,8 @@ const defaultPhoneNum = "电话"
 var app = getApp()
 var avatarUrl = ''
 wx.cloud.init()
-var nickNameReviewFlag = 0
+var nickNameReviewFlag = 0  //1: proper
+var nickNameChangeFlag = 0  //1: changed
 Page({
   /**
    * 页面的初始数据
@@ -81,15 +82,16 @@ Page({
       });
     }
   },
-  // onColumnChange(e) {
-  //   console.log('picker pick:', e);
-  // },
+  onColumnChange(e) {
+    wx.vibrateShort({type:"light"})
+  },
   onPickerChange(e) {  //学校 或 手机区号
     const { key } = e.currentTarget.dataset;
-    const { value } = e.detail;
-    // console.log('select:', e.detail);
+    const { value } = e.detail;  //取字典中key为"value"的值
+    console.log('select:', e.detail);
     // console.log("key: " + key)
-    // console.log("value: " + value)
+    console.log("value: " + typeof value)
+    console.log("value: " + value)
     // console.log(e)
     this.setData({
       school: key == "school" ? e.detail.value : this.data.school,
@@ -125,15 +127,16 @@ Page({
     this.setData({ phoneAreaVisible: true });
   },
   onNickNameInput(e) {//昵称变化
+    nickNameChangeFlag = 1
     // console.log(e.detail.value)
   },
   nickNameReview(e) {
-    console.log(e);
-    console.log("reviewing.............")
-    if (e.detail.pass) nickNameReviewFlag = 1
-    else nickNameReviewFlag = 0
-    console.log("nickNameReviewFlag", nickNameReviewFlag)
-    
+    // console.log(e);
+    if (e.detail.pass||nickNameChangeFlag==1){
+      nickNameReviewFlag = 1  //pass
+      nickNameChangeFlag = 0
+    } 
+    else nickNameReviewFlag = 0  //fail
 },
   formSubmit(e){
     if(nickNameReviewFlag==1){
@@ -164,7 +167,7 @@ Page({
         }
       })}
       else{
-        console.log("fail............")
+        console.log("Improper user name")
       }
   },
   /**
