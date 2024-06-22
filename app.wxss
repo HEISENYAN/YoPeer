@@ -1,5 +1,4 @@
 /**app.wxss**/
-@import 'miniprogram_npm/weui-miniprogram/weui-wxss/dist/style/weui.wxss';
 @import '/miniprogram_npm/jieyue-ui-com/skywxss/skycolor.wxss';
 @import '/miniprogram_npm/jieyue-ui-com/skywxss/skycolor_dark.wxss';
 @import '/miniprogram_npm/jieyue-ui-com/skywxss/skyfontline.wxss';

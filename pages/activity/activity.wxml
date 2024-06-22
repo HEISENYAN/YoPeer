@@ -47,7 +47,7 @@
       interval="5000"
       circular="{{true}}"
       indicator-dots="{{false}}"
-      bindchange="onSwiperChange"
+      bindchange="onSelectSpecialActivity"
     >
       <block wx:for="{{cardList}}" wx:key="index">
         <swiper-item>
@@ -69,9 +69,6 @@
       </block>
     </swiper>
   </view>
-
-
-
   <view class="subTitle-2">Weekend x 周末活动</view>
   <view class="waterfall">
     <view class="column">

@@ -109,6 +109,11 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  onSelectSpecialActivity(e){
+    wx.navigateTo({
+      url: '/packages/activity-package/pages/activity-detail/activity-detail',
+    })
+  },
   onClickSwiper(e){
     console.log(e)
     if(e.detail.index == 1){
