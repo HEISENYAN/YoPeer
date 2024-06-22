@@ -11,7 +11,8 @@
     "van-field": "@vant/weapp/field/index",
     "t-cascader": "tdesign-miniprogram/cascader/cascader",
     "t-image": "tdesign-miniprogram/image/image",
-    "t-button": "tdesign-miniprogram/button/button"
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-toast": "tdesign-miniprogram/toast/toast"
   },
   "renderer": "webview"
 

@@ -1,4 +1,4 @@
-// pages/login/login.js
+import Toast from 'tdesign-miniprogram/toast/index';
 const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
 // const defaultAvatarUrl = "../../icons/portrait.png"
 const defaultNickname = "昵称"
@@ -7,7 +7,7 @@ var app = getApp()
 var avatarUrl = ''
 wx.cloud.init()
 var nickNameReviewFlag = 0  //1: proper
-var nickNameChangeFlag = 0  //1: changed
+var ifFormChange = 0  //1: changed
 Page({
   /**
    * 页面的初始数据
@@ -73,26 +73,28 @@ Page({
     })
     app.globalData.avatarUrl = e.detail.avatarUrl;
   },
-  onPhoneInput(e) {
-    const { phoneError } = this.data;
-    const isPhoneNumber = /^(852|853)\d{8}$|^86\d{11}$/.test(e.detail.value);
-    if (phoneError === isPhoneNumber) {
-      this.setData({
-        phoneError: !isPhoneNumber,
-      });
-    }
+  // onPhoneInput(e) {
+  //   const { phoneError } = this.data;
+  //   const isPhoneNumber = /^(852|853)\d{8}$|^86\d{11}$/.test(e.detail.value);
+  //   if (phoneError === isPhoneNumber) {
+  //     this.setData({
+  //       phoneError: !isPhoneNumber,
+  //     });
+  //   }
+  // },
+  onFormChange(e){
+    ifFormChange = 1
   },
   onColumnChange(e) {
     wx.vibrateShort({type:"light"})
   },
   onPickerChange(e) {  //学校 或 手机区号
+    ifFormChange = 1
     const { key } = e.currentTarget.dataset;
     const { value } = e.detail;  //取字典中key为"value"的值
-    console.log('select:', e.detail);
+    // console.log('select:', e.detail);
     // console.log("key: " + key)
-    console.log("value: " + typeof value)
-    console.log("value: " + value)
-    // console.log(e)
+    // console.log("value: " + value)
     this.setData({
       school: key == "school" ? e.detail.value : this.data.school,
       [`${key}Visible`]: false,  //是否显示picker
@@ -126,28 +128,34 @@ Page({
   onPhoneAreaPicker(){
     this.setData({ phoneAreaVisible: true });
   },
-  onNickNameInput(e) {//昵称变化
-    nickNameChangeFlag = 1
-    // console.log(e.detail.value)
-  },
-  nickNameReview(e) {
-    // console.log(e);
-    if (e.detail.pass||nickNameChangeFlag==1){
+  // onNickNameInput(e) {//昵称变化
+  //   ifFormChange = 1  //changed
+  // },
+  nickNameReview(e) {  //审核昵称
+    if (e.detail.pass){
       nickNameReviewFlag = 1  //pass
-      nickNameChangeFlag = 0
     } 
     else nickNameReviewFlag = 0  //fail
 },
   formSubmit(e){
-    if(nickNameReviewFlag==1){
+    if(e.detail.value.phoneNum.length!=this.data.maxphonenum&&e.detail.value.phoneNum.length!=0){
+      Toast({
+        context: this,
+        selector: '#t-toast',
+        message: '请输入正确的手机号!',
+        theme: 'warning',
+        direction: 'row',
+        placement: 'bottom'
+      });
+    }
+    else if(nickNameReviewFlag==1||ifFormChange==0){
       nickNameReviewFlag = 0
       if(e.detail.value.nickname)  app.globalData.nickname = e.detail.value.nickname;
       if(e.detail.value.phoneNum)  app.globalData.phoneNum = e.detail.value.phoneNum;
       wx.cloud.callFunction({
         name: 'userUpdate',
         data:{
-          phoneNumber : (e.detail.value.phoneNum)? e.detail.value.phoneNum : this.data.phoneNum,
-          // phoneAreaValue: 加一个手机区号
+          phoneNumber : (e.detail.value.phoneNum)? this.data.phoneAreaText + " " + e.detail.value.phoneNum : this.data.phoneAreaText + " " + this.data.phoneNum,
           nickName: (e.detail.value.nickname)? e.detail.value.nickname : this.data.nickname,
           avatarUrl: this.data.avatarUrl,
           school: app.globalData.school,
@@ -165,9 +173,16 @@ Page({
           })
         }
       })}
-      else{
-        console.log("Improper user name")
-      }
+      // else{
+      //   Toast({
+      //     context: this,
+      //     selector: '#t-toast',
+      //     message: '请使用合适的昵称!',
+      //     theme: 'warning',
+      //     direction: 'row',
+      //     placement: 'bottom'
+      //   });
+      // }
   },
   /**
    * 生命周期函数--监听页面加载
@@ -181,14 +196,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    // console.log("schoolValue", String(app.globalData.school).split(' '))
+    ifFormChange = 0
     this.setData({
       isLogin : app.globalData.isLogin,
       avatarUrl: app.globalData.avatarUrl ? app.globalData.avatarUrl : defaultAvatarUrl,
       nickname: (app.globalData.nickname!="游客") ? app.globalData.nickname : defaultNickname,
       phoneNum: (app.globalData.phoneNum!="12345678") ? app.globalData.phoneNum : defaultPhoneNum,
-      phoneAreaValue: app.globalData.phoneAreaValue,  //显示在picker
-      phoneAreaText: app.globalData.phoneAreaValue[0],  //显示在cell
+      phoneAreaText: app.globalData.phoneAreaValue,  //显示在cell
+      phoneAreaValue: [app.globalData.phoneAreaValue],  //显示在picker
       maxphonenum: (app.globalData.phoneAreaValue=="+86") ? 11 : 8,
       schoolText: app.globalData.school,  //显示在cell
       schoolValue: String(app.globalData.school).split(' ')  //显示在picker

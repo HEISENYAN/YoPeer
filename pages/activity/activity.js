@@ -137,12 +137,14 @@ Page({
     wx.cloud.callFunction({
       name:"getUserInfo",
       success:function(res){
+        const phoneString = res.result.phoneNumber.split(" ")
         console.log(res.result)
         app.globalData.nickName = res.result.nickName
         app.globalData.isRegistered = res.result.isRegistered
         app.globalData.school = res.result.school
         app.globalData.avatarUrl = res.result.avatarUrl
-        app.globalData.phoneNum = res.result.phoneNumber
+        app.globalData.phoneAreaValue = phoneString[0]
+        app.globalData.phoneNum = phoneString[1]
         that.setData({
           userInfo:{
             name : app.globalData.nickName,
@@ -152,8 +154,10 @@ Page({
             level : 'VIP 0',
           }
         })
+        // console.log()
       }
-    })
+    });
+    
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

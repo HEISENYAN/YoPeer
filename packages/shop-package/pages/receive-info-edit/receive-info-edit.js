@@ -3,7 +3,7 @@ import {hallAddress, areaAddress} from './data'
 wx.cloud.init();
 var app = getApp()
 var ifHallResident = 0  // 0：宿舍；1：校外
-var ifFormChange = 0  // 0: changed; 1: not changed
+var ifFormChange = 0  // 0: not changed; 1: changed
 Page({ 
   data: {
     delta: 0,  //返回后退层数
