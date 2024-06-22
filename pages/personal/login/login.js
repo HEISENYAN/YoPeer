@@ -143,12 +143,11 @@ Page({
       nickNameReviewFlag = 0
       if(e.detail.value.nickname)  app.globalData.nickname = e.detail.value.nickname;
       if(e.detail.value.phoneNum)  app.globalData.phoneNum = e.detail.value.phoneNum;
-      // const updatedPhoneNum = (e.detail.value.phoneNum)? e.detail.value.phoneNum : this.data.phoneNum;
-      // const updatedNickname = (e.detail.value.nickname)? e.detail.value.nickname : this.data.nickname;
       wx.cloud.callFunction({
         name: 'userUpdate',
         data:{
           phoneNumber : (e.detail.value.phoneNum)? e.detail.value.phoneNum : this.data.phoneNum,
+          // phoneAreaValue: 加一个手机区号
           nickName: (e.detail.value.nickname)? e.detail.value.nickname : this.data.nickname,
           avatarUrl: this.data.avatarUrl,
           school: app.globalData.school,

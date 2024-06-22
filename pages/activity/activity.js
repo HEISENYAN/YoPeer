@@ -142,7 +142,7 @@ Page({
         app.globalData.isRegistered = res.result.isRegistered
         app.globalData.school = res.result.school
         app.globalData.avatarUrl = res.result.avatarUrl
-        app.globalData.phoneNumber = res.result.phoneNumber
+        app.globalData.phoneNum = res.result.phoneNumber
         that.setData({
           userInfo:{
             name : app.globalData.nickName,
