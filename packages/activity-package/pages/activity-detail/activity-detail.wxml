@@ -37,11 +37,22 @@
   <view>
     <text style = "font-size: 27rpx;color:red;">￥{{activityInfo.price/100}}</text>
   </view>
-  <t-divider content="{{activityInfo.registeredPerson}}人已报名" align="left" />
+  <t-divider content="{{activityInfo.registeredPerson}}人已报名，还可加入{{activityInfo.quota - activityInfo.registeredPerson}}人" align="left" />
   <t-avatar-group max="8" collapseAvatar="+{{activityInfo.registeredPerson>8?pics.length-8:0}}" size = "80rpx">
     <t-avatar wx:for="{{activityInfo.avatarUrlList}}" wx:for-item="pic" wx:key="index" image="{{pic}}" size = "80rpx"/>
   </t-avatar-group>
 
-
+  <view class = "submit-bar">
+    <view class = "count-down-container">
+      <view style = "font-size: 28rpx;font-weight: bold;" >距报名截止还有：</view>
+      <t-count-down size="medium" time="{{(activityInfo.deadline - nowTime)}}" format = "DD:HH:mm:ss" theme="round" style = "--td-countdown-bg-color:#8a91e0"/>
+    </view>
+    <view class = "share-button-container">
+      <t-button theme="primary" size="medium" shape="round" style = "--td-button-primary-active-bg-color:#8a91e0;--td-button-primary-bg-color:#7581ff;--td-button-primary-border-color:#7581ff;--td-button-primary-active-border-color:#8a91e0;">分享</t-button>
+    </view>
+    <view class = "submit-button-container">
+      <t-button theme="primary" size="medium" shape="round" style = "--td-button-primary-active-bg-color:#8a91e0;--td-button-primary-bg-color:#7581ff;--td-button-primary-border-color:#7581ff;--td-button-primary-active-border-color:#8a91e0;" bindtap = "onRegisterActivity" data-is-expiry = "{{(activityInfo.deadline - nowTime)<0}}">{{(activityInfo.deadline - nowTime)<0?"已截止":"立即参加"}}</t-button>
+    </view>
+  </view>
 
 </view>
