@@ -1,18 +1,33 @@
 // packages/activity-package/pages/activity-detail/activity-detail.js
+wx.cloud.init()
+var activityID = ''
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    activityInfo:null
   },
-
+  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    const that = this
+    activityID = '9fe3c0fd66781b250371751a4163eebd'
+    wx.cloud.callFunction({
+      name:"getActivityDetail",
+      data:{
+        activityID:'9fe3c0fd66781b250371751a4163eebd'
+      },
+      success:function(res){
+        that.setData({
+          activityInfo:res.result
+        },()=>console.log(that.data.activityInfo))
+        console.log(res)
+      }
+    })
   },
 
   /**
@@ -40,7 +55,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload() {
-
+    
   },
 
   /**

@@ -1,1 +1,20 @@
 /* packages/activity-package/pages/activity-detail/activity-detail.wxss */
+Page{
+  background-color: rgb(241,241,241);
+}
+.top-image-container{
+  background-color: white;
+  height: 20vh;
+  width:100vw;
+}
+.information-container{
+  background-color: white;
+  height: auto;
+  box-sizing: border-box;
+  width:92vw;
+  padding:20rpx;
+  border-radius: 10px;
+  margin-left: 4vw;
+  position: relative;
+  top:-3vh;
+}

@@ -113,6 +113,7 @@ Page({
     wx.navigateTo({
       url: '/packages/activity-package/pages/activity-detail/activity-detail',
     })
+    
   },
   onClickSwiper(e){
     console.log(e)

@@ -47,7 +47,7 @@
       interval="5000"
       circular="{{true}}"
       indicator-dots="{{false}}"
-      bindchange="onSelectSpecialActivity"
+      bindtap="onSelectSpecialActivity"
     >
       <block wx:for="{{cardList}}" wx:key="index">
         <swiper-item>

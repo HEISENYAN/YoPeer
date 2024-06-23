@@ -1,2 +1,47 @@
-<!--packages/activity-package/pages/activity-detail/activity-detail.wxml-->
-<text>packages/activity-package/pages/activity-detail/activity-detail.wxml</text>
+<wxs module="formatData">
+    module.exports=function(timestamp){
+        var date=getDate(timestamp)
+        var y=date.getFullYear()
+        var m=date.getMonth() + 1
+        var d=date.getDate()
+        var h=date.getHours()
+        var i=date.getMinutes()
+        var s=date.getSeconds()
+        var k = date.getDay()
+        var day = ["日","一","二","三","四","五","六"]
+        return [y+'-'+m+'-'+d, h+':'+i, day[k]]
+    }
+</wxs>
+<t-navbar
+    t-class-placeholder="t-navbar-placeholder"
+    t-class-content="t-navbar-content"
+    title="活动详情"
+    left-arrow
+    bind:go-back="handleBack"
+    borderless = "true"
+  />
+
+<view class = "top-image-container">
+  <image src = "{{activityInfo.topImageUrl}}" style = "height:100%;width:100%;"></image>
+</view>
+<view class = "information-container">
+  <view style = "margin-bottom: 10rpx;">
+    <text style = "font-size: 30rpx;font-weight: bold;">{{activityInfo.activityName}}</text>
+  </view>
+  <view>
+    <text style = "font-size: 27rpx;">{{activityInfo.place}}</text>
+  </view>
+  <view>
+    <text style = "font-size: 27rpx;">{{formatData(activityInfo.hostDate)[0]}} 周{{formatData(activityInfo.hostDate)[2]}}</text>
+  </view>
+  <view>
+    <text style = "font-size: 27rpx;color:red;">￥{{activityInfo.price/100}}</text>
+  </view>
+  <t-divider content="{{activityInfo.registeredPerson}}人已报名" align="left" />
+  <t-avatar-group max="8" collapseAvatar="+{{activityInfo.registeredPerson>8?pics.length-8:0}}" size = "80rpx">
+    <t-avatar wx:for="{{activityInfo.avatarUrlList}}" wx:for-item="pic" wx:key="index" image="{{pic}}" size = "80rpx"/>
+  </t-avatar-group>
+
+
+
+</view>
