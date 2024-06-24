@@ -33,6 +33,7 @@ Page({
     avatarUrl: app.globalData.avatarUrl,
     nickname: app.globalData.nickName,
     phoneNum: app.globalData.phoneNumber,
+    wechatID: app.globalData.wechatID,
     school: app.globalData.school,
     // 地址
     // options: data.areaList,
@@ -139,9 +140,9 @@ Page({
     else nickNameReviewFlag = 0  //fail
 },
   formSubmit(e){
-    // console.log(e.detail.value)
+    console.log(e.detail.value)
     const that = this
-    console.log("nickname", this.data.nickname)
+    // console.log("nickname", this.data.nickname)
     if(e.detail.value.phoneNum.length!=this.data.maxphonenum&&e.detail.value.phoneNum.length!=0){
       Toast({
         context: this,
@@ -155,8 +156,9 @@ Page({
     else if(nickNameReviewFlag==1||ifFormChange==0){
       nickNameReviewFlag = 0 
       var uploadResult = 0
-      if(e.detail.value.nickname)  app.globalData.nickname = e.detail.value.nickname;
-      if(e.detail.value.phoneNum)  app.globalData.phoneNum = e.detail.value.phoneNum;
+      // if(e.detail.value.nickname)  app.globalData.nickname = e.detail.value.nickname;
+      // if(e.detail.value.phoneNum)  app.globalData.phoneNum = e.detail.value.phoneNum;
+      // if(e.detail.value.wechatID)  app.globalData.wechatID = e.detail.value.wechatID;
       if(ifChooseAvatar){
         wx.cloud.uploadFile({
           cloudPath: 'yopeer-user-avatar/' + e.detail.value.nickname, // 上传至云端的路径
@@ -173,6 +175,7 @@ Page({
           phoneNumber : (e.detail.value.phoneNum)? that.data.phoneAreaText + " " + e.detail.value.phoneNum : that.data.phoneAreaText + " " + that.data.phoneNum,
           nickName: (e.detail.value.nickname)? e.detail.value.nickname : that.data.nickname,
           avatarUrl: uploadResult.fileID,
+          wechatID: (e.detail.value.wechatID) ? e.detail.value.wechatID : this.data.wechatID,
           school: app.globalData.school,
           isRegistered: true
         },
@@ -223,6 +226,7 @@ Page({
       phoneAreaText: app.globalData.phoneAreaValue,  //显示在cell
       phoneAreaValue: [app.globalData.phoneAreaValue],  //显示在picker
       maxphonenum: (app.globalData.phoneAreaValue=="+86") ? 11 : 8,
+      wechatID: app.globalData.wechatID,
       schoolText: app.globalData.school,  //显示在cell
       schoolValue: String(app.globalData.school).split(' ')  //显示在picker
       });

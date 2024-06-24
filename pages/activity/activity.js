@@ -156,6 +156,7 @@ Page({
         app.globalData.avatarUrl = res.result.avatarUrl
         app.globalData.phoneAreaValue = phoneString[0]
         app.globalData.phoneNum = phoneString[1]
+        app.globalData.wechatID = res.result.wechatID
         that.setData({
           userInfo:{
             name : app.globalData.nickName,
@@ -166,7 +167,8 @@ Page({
           }
         })
         // console.log()
-      }
+      },
+      
     });
     
   },
