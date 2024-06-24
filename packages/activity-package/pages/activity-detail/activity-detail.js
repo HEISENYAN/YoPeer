@@ -67,7 +67,7 @@ Page({
                       success:function(res){
                         wx.showModal({
                           title: '报名成功',
-                          content: '您已报名，请等待客服联系，或联系客服',
+                          content: '您已报名，请等待客服联系',
                         })
                       },
                       fail:function(res){
@@ -98,7 +98,17 @@ Page({
 
           }
           else{
-            console.log("未注册")
+            wx.showModal({
+              title: '需完善个人信息',
+              content: '如需报名活动，需要先完善个人信息，是否现在去完善？',
+              complete: (res) => {
+                if (res.confirm) {
+                  wx.navigateTo({
+                    url: '/pages/personal/login/login',
+                  })
+                }
+              }
+            })
           }
         }
       })
@@ -135,7 +145,7 @@ Page({
           activityInfo:res.result,
           nowTime:now,
           isParticipated: res.result.participantOpenIDList.includes(res.result._openid)
-        },()=>console.log(that.data.isParticipated))
+        },()=>console.log(that.data.activityInfo))
         console.log(now)
       },
       fail:function(res){

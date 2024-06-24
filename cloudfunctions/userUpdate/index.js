@@ -6,7 +6,7 @@ db = cloud.database()
 // 云函数入口函数
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
-  const {phoneNumber, avatarUrl, nickName, school, isRegistered} = event
+  const {phoneNumber, avatarUrl, nickName, school, isRegistered, wechatID} = event
   await db.collection('yopeerUser').doc(wxContext.OPENID).update({
     data:{
       phoneNumber:phoneNumber,
@@ -14,7 +14,8 @@ exports.main = async (event, context) => {
       nickName:nickName,
       _openid:wxContext.OPENID,
       school: school,
-      isRegistered: isRegistered
+      isRegistered: isRegistered,
+      wechatID:wechatID
     }
   })
   return context

@@ -4,7 +4,7 @@ Page{
 }
 .top-image-container{
   background-color: white;
-  height: 20vh;
+  height: 25vh;
   width:100vw;
 }
 .information-container{
@@ -51,4 +51,13 @@ Page{
   justify-content: center;
   display:flex;
   align-items: center;
+}
+.activity-introduction-container{
+  width:92vw;
+  height: auto;
+  background-color: white;
+  margin-left: 4vw;
+  box-sizing: border-box;
+  padding:15rpx;
+  border-radius: 10px;
 }

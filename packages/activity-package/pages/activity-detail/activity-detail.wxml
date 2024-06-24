@@ -55,5 +55,6 @@
         {{(isParticipated)?"已报名":((activityInfo.deadline - nowTime)<0?"已截止":"立即参加")}}</t-button>
     </view>
   </view>
-
 </view>
+
+<view class = "activity-introduction-container"><image  src="{{activityInfo.activityIntroductionUrl}}" style = "width:100%" mode="widthFix"></image></view>

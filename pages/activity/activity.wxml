@@ -46,7 +46,7 @@
       duration="300"
       interval="5000"
       circular="{{true}}"
-      indicator-dots="{{false}}"
+      indicator-dots="{{true}}"
       bindtap="onSelectSpecialActivity"
     >
       <block wx:for="{{cardList}}" wx:key="index">
@@ -92,7 +92,7 @@
     <view class="category-scroll"></view>
     <view class="category-scroll2"></view>
   </scroll-view>
-
+<!--
   <view class="subTitle-2">其他</view>
   <view class="waterfall">
     <view class="column">
@@ -166,6 +166,6 @@
       
     </view>
   </view>
-
-  <!--<view style = "width:100vw;height: 15vh;"></view>-->
+-->
+  <view style = "width:100vw;height: 12.5vh;"></view>
 </scroll-view>

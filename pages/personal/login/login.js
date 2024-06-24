@@ -151,9 +151,8 @@ Page({
         isRegistered: true
       },
       success:function(res){
-        wx.reLaunch({  //提交按钮，返回个人中心
-          url: '../personal',
-        })
+        wx.hideLoading()
+        wx.navigateBack()
       },
       fail:function(res){
         wx.showModal({
@@ -178,11 +177,13 @@ Page({
       });
     }
     else if(nickNameReviewFlag==1||ifFormChange==0){
+      wx.showLoading({
+        title: '正在更新'
+      })
       nickNameReviewFlag = 0 
-      
-      // if(e.detail.value.nickname)  app.globalData.nickname = e.detail.value.nickname;
-      // if(e.detail.value.phoneNum)  app.globalData.phoneNum = e.detail.value.phoneNum;
-      // if(e.detail.value.wechatID)  app.globalData.wechatID = e.detail.value.wechatID;
+      if(e.detail.value.nickname)  app.globalData.nickName = e.detail.value.nickname;
+      if(e.detail.value.phoneNum)  app.globalData.phoneNum = e.detail.value.phoneNum;
+      if(e.detail.value.wechatID)  app.globalData.wechatID = e.detail.value.wechatID;
       var uploadResult = app.globalData.avatarUrl
       if(ifChooseAvatar){
         wx.cloud.uploadFile({
@@ -193,12 +194,13 @@ Page({
             this.cloudCall(e, that, uploadResult)
           },
           fail: res =>{
-            this.cloudCall(e, that, uploadResult)
+            
           }
         })
       }
-      else console.log("avatar not changed")
-
+      else {
+        this.cloudCall(e, that, uploadResult)
+      }
       }
       // else{
       //   Toast({
