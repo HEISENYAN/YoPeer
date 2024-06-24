@@ -141,6 +141,7 @@
   border-image: linear-gradient(to right, orange, #fcfcfc) 5;
 }
 
+/* 周末活动部分 */
 .category{
   margin-top: 35rpx;
   margin-bottom: -30rpx;
@@ -149,7 +150,6 @@
   width: 92%;
   white-space: nowrap;
 }
-
 .category-scroll{
   height: 12vh;
   width:75%;
@@ -158,6 +158,7 @@
   margin-right: 20rpx;
   border: 2px solid; /* 紫色边框 */
   border-image: linear-gradient(to right, #6972dd, #fcfcfc) 1;
+  overflow-x:hidden; /* 确保内容溢出时可以滚动 */
 }
 .category-scroll2{
   height: 12vh;
@@ -167,6 +168,34 @@
   margin-right: 20rpx;
   border: 2px solid; /* 紫色边框 */
   border-image: linear-gradient(to right, orange, #fcfcfc) 1;
+  overflow-x:scroll; /* 确保内容溢出时可以滚动 */
+}
+.title {
+  padding-left: 3%;
+  padding-top: 3%;
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 5rpx;
+}
+.date {
+  padding-left: 3%;
+  font-size: 10px;
+  color: gray;
+  margin-bottom: 10rpx;
+}
+.description-block {
+  margin-left: 3%;
+  height: 90rpx;
+  width: 380rpx;
+  /* background-color: #8a91e0; */
+  font-size: 10px;
+  display: flex;
+}
+.description-block view {
+  font-size: 20rpx;
+  text-align: left;
+  word-break: break-word; /* 强制长单词换行 */
+  white-space: normal;
 }
 
 .subTitle{
