@@ -172,7 +172,7 @@
 }
 .title {
   padding-left: 3%;
-  padding-top: 3%;
+  padding-top: 4%;
   font-size: 15px;
   font-weight: bold;
   margin-bottom: 5rpx;
