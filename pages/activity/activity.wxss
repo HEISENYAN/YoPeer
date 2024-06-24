@@ -256,9 +256,9 @@
 
 .card-image {
   width: 100%;
-  height: 50%;
+  height: 54%;
   border-radius: 20rpx;
-  margin-top: -40rpx;
+  margin-top: -35rpx;
   object-fit: cover; /* 确保图片填满容器并裁剪超出部分 */
 }
 
