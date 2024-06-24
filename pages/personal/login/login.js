@@ -164,7 +164,7 @@ Page({
         data:{
           phoneNumber : (e.detail.value.phoneNum)? that.data.phoneAreaText + " " + e.detail.value.phoneNum : that.data.phoneAreaText + " " + that.data.phoneNum,
           nickName: (e.detail.value.nickname)? e.detail.value.nickname : that.data.nickname,
-          avatarUrl: that.data.avatarUrl,
+          avatarUrl: res.fileID,
           school: app.globalData.school,
           isRegistered: true
         },
