@@ -35,7 +35,7 @@
     </view>
   </view>
   
-  <view class="subTitle">2024港校新生团购活动</view>
+  <view class="subTitle">最新2024港校新生团购活动</view>
   <image class = "activity-cell-head" bindtap = "onSelectActivity" src = "https://i.postimg.cc/HspJKvV4/huodong.jpg">
   </image>
 
@@ -69,7 +69,31 @@
       </block>
     </swiper>
   </view>
+
   <view class="subTitle-2">Weekend x 周末活动</view>
+  <!-- <view class="activity-cell-zhoumo"></view> -->
+  <scroll-view class="category" scroll-x>
+    <view class="category-scroll">
+      <view class="title">云台寺精心禅修之旅</view>
+      <view class="date">2024-06-23/南山区金地购物中心</view>
+      <view class="description-block">
+        <view>“云台寺精心禅修之旅”是一场宁静而深邃的心灵之旅，带您走进历史悠久的云台寺。</view>
+      </view>
+    </view>
+    <view class="category-scroll2">
+      <view class="title">云台寺精心禅修之旅</view>
+      <view class="date">2024-06-23/南山区金地购物中心</view>
+      <view class="description-block">
+        <view>“云台寺精心禅修之旅”是一场宁静而深邃的心灵之旅，带您走进历史悠久的云台寺。</view>
+      </view>
+    </view>
+    <view class="category-scroll"></view>
+    <view class="category-scroll2"></view>
+    <view class="category-scroll"></view>
+    <view class="category-scroll2"></view>
+  </scroll-view>
+
+  <view class="subTitle-2">其他</view>
   <view class="waterfall">
     <view class="column">
 
