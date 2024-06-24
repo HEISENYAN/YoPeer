@@ -116,7 +116,6 @@
   justify-content: center;
   align-items: center;
 }
-
 .activity-cell-zhoumo::before,
 .activity-cell-zhoumo::after {
   content: '';
@@ -126,7 +125,6 @@
   width: 75%; /* 初始宽度，稍后修改 */
   border-radius: 10px; /* 圆角 */
 }
-
 .activity-cell-zhoumo::before {
   left: 0;
   background-color: white;
@@ -134,7 +132,6 @@
   border: 2px solid; /* 紫色边框 */
   border-image: linear-gradient(to right, #6972dd, #fcfcfc) 1;
 }
-
 .activity-cell-zhoumo::after {
   right: 0;
   background-color: white;
@@ -142,6 +139,34 @@
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); /* 右侧梯形 */
   border: 2px solid; /* 紫色边框 */
   border-image: linear-gradient(to right, orange, #fcfcfc) 5;
+}
+
+.category{
+  margin-top: 35rpx;
+  margin-bottom: -30rpx;
+  margin-left: 4%;
+  height: 14vh;
+  width: 92%;
+  white-space: nowrap;
+}
+
+.category-scroll{
+  height: 12vh;
+  width:75%;
+  background-color: white;
+  display: inline-block;
+  margin-right: 20rpx;
+  border: 2px solid; /* 紫色边框 */
+  border-image: linear-gradient(to right, #6972dd, #fcfcfc) 1;
+}
+.category-scroll2{
+  height: 12vh;
+  width:75%;
+  background-color: white;
+  display: inline-block;
+  margin-right: 20rpx;
+  border: 2px solid; /* 紫色边框 */
+  border-image: linear-gradient(to right, orange, #fcfcfc) 1;
 }
 
 .subTitle{

@@ -71,7 +71,15 @@
   </view>
 
   <view class="subTitle-2">Weekend x 周末活动</view>
-  <view class="activity-cell-zhoumo"></view>
+  <!-- <view class="activity-cell-zhoumo"></view> -->
+  <scroll-view class="category" scroll-x>
+    <view class="category-scroll"></view>
+    <view class="category-scroll2"></view>
+    <view class="category-scroll"></view>
+    <view class="category-scroll2"></view>
+    <view class="category-scroll"></view>
+    <view class="category-scroll2"></view>
+  </scroll-view>
 
   <view class="subTitle-2">其他</view>
   <view class="waterfall">
