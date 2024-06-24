@@ -139,6 +139,30 @@ Page({
     } 
     else nickNameReviewFlag = 0  //fail
 },
+  cloudCall(e, that, uploadResult){
+    wx.cloud.callFunction({
+      name: 'userUpdate',
+      data:{
+        phoneNumber : (e.detail.value.phoneNum)? that.data.phoneAreaText + " " + e.detail.value.phoneNum : that.data.phoneAreaText + " " + that.data.phoneNum,
+        nickName: (e.detail.value.nickname)? e.detail.value.nickname : that.data.nickname,
+        avatarUrl: uploadResult.fileID,
+        wechatID: (e.detail.value.wechatID) ? e.detail.value.wechatID : that.data.wechatID,
+        school: app.globalData.school,
+        isRegistered: true
+      },
+      success:function(res){
+        wx.reLaunch({  //提交按钮，返回个人中心
+          url: '../personal',
+        })
+      },
+      fail:function(res){
+        wx.showModal({
+        title:"错误",
+        content:"" + res
+        })
+      }
+    })
+  },
   formSubmit(e){
     console.log(e.detail.value)
     const that = this
@@ -155,42 +179,26 @@ Page({
     }
     else if(nickNameReviewFlag==1||ifFormChange==0){
       nickNameReviewFlag = 0 
-      var uploadResult = 0
+      
       // if(e.detail.value.nickname)  app.globalData.nickname = e.detail.value.nickname;
       // if(e.detail.value.phoneNum)  app.globalData.phoneNum = e.detail.value.phoneNum;
       // if(e.detail.value.wechatID)  app.globalData.wechatID = e.detail.value.wechatID;
+      var uploadResult = app.globalData.avatarUrl
       if(ifChooseAvatar){
         wx.cloud.uploadFile({
           cloudPath: 'yopeer-user-avatar/' + e.detail.value.nickname, // 上传至云端的路径
           filePath: that.data.avatarUrl, // 小程序临时文件路径
           success: res => {
             uploadResult = res
+            this.cloudCall(e, that, uploadResult)
           },
+          fail: res =>{
+            this.cloudCall(e, that, uploadResult)
+          }
         })
       }
       else console.log("avatar not changed")
-      wx.cloud.callFunction({
-        name: 'userUpdate',
-        data:{
-          phoneNumber : (e.detail.value.phoneNum)? that.data.phoneAreaText + " " + e.detail.value.phoneNum : that.data.phoneAreaText + " " + that.data.phoneNum,
-          nickName: (e.detail.value.nickname)? e.detail.value.nickname : that.data.nickname,
-          avatarUrl: uploadResult.fileID,
-          wechatID: (e.detail.value.wechatID) ? e.detail.value.wechatID : this.data.wechatID,
-          school: app.globalData.school,
-          isRegistered: true
-        },
-        success:function(res){
-          wx.reLaunch({  //提交按钮，返回个人中心
-            url: '../personal',
-          })
-        },
-        fail:function(res){
-          wx.showModal({
-          title:"错误",
-          content:"" + res
-          })
-        }
-      })
+
       }
       // else{
       //   Toast({
