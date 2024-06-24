@@ -35,7 +35,7 @@
     </view>
   </view>
   
-  <view class="subTitle">2024港校新生团购活动</view>
+  <view class="subTitle">最新2024港校新生团购活动</view>
   <image class = "activity-cell-head" bindtap = "onSelectActivity" src = "https://i.postimg.cc/HspJKvV4/huodong.jpg">
   </image>
 
@@ -69,7 +69,11 @@
       </block>
     </swiper>
   </view>
+
   <view class="subTitle-2">Weekend x 周末活动</view>
+  <view class="activity-cell-zhoumo"></view>
+
+  <view class="subTitle-2">其他</view>
   <view class="waterfall">
     <view class="column">
 
