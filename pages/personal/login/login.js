@@ -231,7 +231,7 @@ Page({
       avatarUrl: app.globalData.avatarUrl ? app.globalData.avatarUrl : defaultAvatarUrl,
       // nickname: (app.globalData.nickname!="游客") ? app.globalData.nickname : defaultNickname,
       // phoneNum: (app.globalData.phoneNum!="12345678") ? app.globalData.phoneNum : defaultPhoneNum,
-      nickname: app.globalData.nickname,
+      nickname: app.globalData.nickName,
       phoneNum: app.globalData.phoneNum,
       phoneAreaText: app.globalData.phoneAreaValue,  //显示在cell
       phoneAreaValue: [app.globalData.phoneAreaValue],  //显示在picker
