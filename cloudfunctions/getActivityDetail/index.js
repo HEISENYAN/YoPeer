@@ -7,12 +7,14 @@ db = cloud.database()
 exports.main = async (event, context) => {
   const{activityID} = event
   const activityInfo = await db.collection("yopeerActivityInventory").doc(activityID).get()
-  const {quota,activityBackendID,activityIntroductionUrl,activityName,deadline,price,topImageUrl,hostDate} = activityInfo.data
-  const participantInfo = await db.collection("yopeerActivityBackend").doc(activityBackendID).get()
+  const {quota,participantInfo,activityIntroductionUrl,activityName,deadline,price,topImageUrl,hostDate,registeredNum} = activityInfo.data
+  const wxContext = cloud.getWXContext()
+  const _openid = wxContext.OPENID
   var avatarUrlList = []
-  for(let i in participantInfo.data.participantInfo){
-    avatarUrlList.push(participantInfo.data.participantInfo[i].avatarUrl)
+  var participantOpenIDList = []
+  for(let i in participantInfo){
+    avatarUrlList.push(participantInfo[i].avatarUrl)
+    participantOpenIDList.push(participantInfo[i].openid)
   }
-  const registeredPerson = participantInfo.data.registeredPerson
-  return {activityIntroductionUrl,activityName,deadline,price,topImageUrl,hostDate,quota,registeredPerson,avatarUrlList}
+  return {activityIntroductionUrl,activityName,deadline,price,topImageUrl,hostDate,quota,registeredNum,avatarUrlList,participantOpenIDList,_openid}
 }

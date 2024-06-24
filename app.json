@@ -1,7 +1,10 @@
 {
   "pages": [
+
     "pages/activity/activity",
     "pages/test_page/test_page",
+    
+    
     "pages/personal/personal",
     "pages/test_page2/test_page2",
     "pages/community/community",

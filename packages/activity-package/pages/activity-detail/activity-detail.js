@@ -9,12 +9,13 @@ Page({
    */
   data: {
     activityInfo:null,
-    nowTime:0
+    nowTime:0,
+    isParticipated:false
   },
   onRegisterActivity(e){
     console.log(e.currentTarget.dataset.isExpiry)
     const that = this
-    if(!e.currentTarget.dataset.isExpiry){//活动未截止
+    if(!e.currentTarget.dataset.isExpiry && !this.data.isParticipated){//活动未截止 并且未报名
       wx.cloud.callFunction({//登录获取用户信息
         name:"getUserInfo",
         success:function(personalInfo){
@@ -64,10 +65,16 @@ Page({
                         paidPrice:that.data.activityInfo.price
                       },
                       success:function(res){
-                        console.log(res)
+                        wx.showModal({
+                          title: '报名成功',
+                          content: '您已报名，请等待客服联系，或联系客服',
+                        })
                       },
                       fail:function(res){
-                        console.log(res)
+                        wx.showModal({
+                          title: '报名失败',
+                          content: '如果您已付款成功，请联系客服解决',
+                        })
                       }
                     })
                   },
@@ -97,7 +104,18 @@ Page({
       })
     }
     else{
-
+      if(this.data.isParticipated == true){
+        wx.showModal({
+          title: '已报名',
+          content: '您已报名，请勿重复报名，请等待客服联系',
+        })
+      }
+      else if(e.currentTarget.dataset.isExpiry == true){
+        wx.showModal({
+          title: '活动已截止',
+          content: '此活动已截止，请关注我们更多其它活动',
+        })
+      }
     }
   },
   /**
@@ -115,9 +133,17 @@ Page({
       success:function(res){
         that.setData({
           activityInfo:res.result,
-          nowTime:now
-        },()=>console.log(that.data.activityInfo))
+          nowTime:now,
+          isParticipated: res.result.participantOpenIDList.includes(res.result._openid)
+        },()=>console.log(that.data.isParticipated))
         console.log(now)
+      },
+      fail:function(res){
+        console.log(res)
+        wx.showToast({
+          title: '加载出错请重试',
+          icon:"error"
+        })
       }
     })
   },

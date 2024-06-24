@@ -138,6 +138,8 @@ Page({
     else nickNameReviewFlag = 0  //fail
 },
   formSubmit(e){
+    const that = this
+    console.log(this.data.nickname)
     if(e.detail.value.phoneNum.length!=this.data.maxphonenum&&e.detail.value.phoneNum.length!=0){
       Toast({
         context: this,
@@ -150,14 +152,19 @@ Page({
     }
     else if(nickNameReviewFlag==1||ifFormChange==0){
       nickNameReviewFlag = 0
+      
       if(e.detail.value.nickname)  app.globalData.nickname = e.detail.value.nickname;
       if(e.detail.value.phoneNum)  app.globalData.phoneNum = e.detail.value.phoneNum;
-      wx.cloud.callFunction({
+      wx.cloud.uploadFile({
+        cloudPath: 'yopeer-user-avatar/' + e.detail.value.nickname, // 上传至云端的路径
+        filePath: that.data.avatarUrl, // 小程序临时文件路径
+        success: res => {
+          wx.cloud.callFunction({
         name: 'userUpdate',
         data:{
-          phoneNumber : (e.detail.value.phoneNum)? this.data.phoneAreaText + " " + e.detail.value.phoneNum : this.data.phoneAreaText + " " + this.data.phoneNum,
-          nickName: (e.detail.value.nickname)? e.detail.value.nickname : this.data.nickname,
-          avatarUrl: this.data.avatarUrl,
+          phoneNumber : (e.detail.value.phoneNum)? that.data.phoneAreaText + " " + e.detail.value.phoneNum : that.data.phoneAreaText + " " + that.data.phoneNum,
+          nickName: (e.detail.value.nickname)? e.detail.value.nickname : that.data.nickname,
+          avatarUrl: that.data.avatarUrl,
           school: app.globalData.school,
           isRegistered: true
         },
@@ -172,7 +179,11 @@ Page({
           content:"" + res
           })
         }
-      })}
+      })
+        },
+        fail: console.error
+      })
+      }
       // else{
       //   Toast({
       //     context: this,

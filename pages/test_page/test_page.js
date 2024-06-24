@@ -3,14 +3,14 @@ Page({
   data: {
   },
   testcloud:function(){
-    wx.cloud.callFunction({
-      name:"getReceiveInfo",
-      success:function(res){
-        console.log(res)
+    wx.cloud.uploadFile({
+      cloudPath: 'yopeer-user-avatar/testing', // 上传至云端的路径
+      filePath: "http://tmp/tuy50tn7eshZ1cfa8824fc281a6cca9e962c9938a64a.jpeg", // 小程序临时文件路径
+      success: res => {
+        // 返回文件 ID
+        console.log(res.fileID)
       },
-      fail:function(res){
-        console.log(res)
-      }
+      fail: console.error
     })
     console.log("clicked")
     /*

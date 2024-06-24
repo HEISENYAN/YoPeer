@@ -8,23 +8,23 @@ exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   const {activityID,nickName,avatarUrl,phoneNumber,tradeNumber,timeStamp,paidPrice} = event
   const activityInfo = await db.collection("yopeerActivityInventory").doc(activityID).get()
-  var activityBackendInfo = await db.collection("yopeerActivityBackend").doc(activityInfo.data.activityBackendID).get()
-  activityBackendInfo.data.participantInfo.push({
-    _openID:wxContext.OPENID,
+  activityInfo.data.participantInfo.push({
+    openid:wxContext.OPENID,
     avatarUrl:avatarUrl,
     nickName:nickName,
     wechatID:"暂无",
     phoneNumber:phoneNumber
   })
-  await db.collection("yopeerActivityBackend").doc(activityInfo.data.activityBackendID).update({
+  await db.collection("yopeerActivityInventory").doc(activityID).update({
     data:{
-      participantInfo:activityBackendInfo.data.participantInfo,
-      registeredPerson:activityBackendInfo.data.registeredPerson + 1
+      participantInfo:activityInfo.data.participantInfo,
+      registeredNum:activityInfo.data.registeredNum + 1
     }
   })
   await db.collection("yopeerActivityOrder").add({
     data:{
       _openid:wxContext.OPENID,
+      activityID:activityID,
       avatarUrl:avatarUrl,
       nickName:nickName,
       wechatID:"暂无",
