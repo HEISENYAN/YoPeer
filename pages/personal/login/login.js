@@ -8,6 +8,7 @@ var avatarUrl = ''
 wx.cloud.init()
 var nickNameReviewFlag = 0  //1: proper
 var ifFormChange = 0  //1: changed
+var ifChooseAvatar = 0
 Page({
   /**
    * 页面的初始数据
@@ -67,11 +68,11 @@ Page({
   // },
   onChooseAvatar(e) {//修改头像
     console.log(e);
-    // avatarUrl = e.detail.avatarUrl
     this.setData({
       avatarUrl:e.detail.avatarUrl
     })
     app.globalData.avatarUrl = e.detail.avatarUrl;
+    ifChooseAvatar = 1
   },
   // onPhoneInput(e) {
   //   const { phoneError } = this.data;
@@ -138,8 +139,9 @@ Page({
     else nickNameReviewFlag = 0  //fail
 },
   formSubmit(e){
+    // console.log(e.detail.value)
     const that = this
-    console.log(this.data.nickname)
+    console.log("nickname", this.data.nickname)
     if(e.detail.value.phoneNum.length!=this.data.maxphonenum&&e.detail.value.phoneNum.length!=0){
       Toast({
         context: this,
@@ -151,20 +153,26 @@ Page({
       });
     }
     else if(nickNameReviewFlag==1||ifFormChange==0){
-      nickNameReviewFlag = 0
-      
+      nickNameReviewFlag = 0 
+      var uploadResult = 0
       if(e.detail.value.nickname)  app.globalData.nickname = e.detail.value.nickname;
       if(e.detail.value.phoneNum)  app.globalData.phoneNum = e.detail.value.phoneNum;
-      wx.cloud.uploadFile({
-        cloudPath: 'yopeer-user-avatar/' + e.detail.value.nickname, // 上传至云端的路径
-        filePath: that.data.avatarUrl, // 小程序临时文件路径
-        success: res => {
-          wx.cloud.callFunction({
+      if(ifChooseAvatar){
+        wx.cloud.uploadFile({
+          cloudPath: 'yopeer-user-avatar/' + e.detail.value.nickname, // 上传至云端的路径
+          filePath: that.data.avatarUrl, // 小程序临时文件路径
+          success: res => {
+            uploadResult = res
+          },
+        })
+      }
+      else console.log("avatar not changed")
+      wx.cloud.callFunction({
         name: 'userUpdate',
         data:{
           phoneNumber : (e.detail.value.phoneNum)? that.data.phoneAreaText + " " + e.detail.value.phoneNum : that.data.phoneAreaText + " " + that.data.phoneNum,
           nickName: (e.detail.value.nickname)? e.detail.value.nickname : that.data.nickname,
-          avatarUrl: res.fileID,
+          avatarUrl: uploadResult.fileID,
           school: app.globalData.school,
           isRegistered: true
         },
@@ -179,9 +187,6 @@ Page({
           content:"" + res
           })
         }
-      })
-        },
-        fail: console.error
       })
       }
       // else{
@@ -211,8 +216,10 @@ Page({
     this.setData({
       isLogin : app.globalData.isLogin,
       avatarUrl: app.globalData.avatarUrl ? app.globalData.avatarUrl : defaultAvatarUrl,
-      nickname: (app.globalData.nickname!="游客") ? app.globalData.nickname : defaultNickname,
-      phoneNum: (app.globalData.phoneNum!="12345678") ? app.globalData.phoneNum : defaultPhoneNum,
+      // nickname: (app.globalData.nickname!="游客") ? app.globalData.nickname : defaultNickname,
+      // phoneNum: (app.globalData.phoneNum!="12345678") ? app.globalData.phoneNum : defaultPhoneNum,
+      nickname: app.globalData.nickname,
+      phoneNum: app.globalData.phoneNum,
       phoneAreaText: app.globalData.phoneAreaValue,  //显示在cell
       phoneAreaValue: [app.globalData.phoneAreaValue],  //显示在picker
       maxphonenum: (app.globalData.phoneAreaValue=="+86") ? 11 : 8,

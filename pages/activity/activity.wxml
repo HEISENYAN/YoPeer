@@ -18,7 +18,7 @@
       />
     </view>
     <view class="notice-bar">
-      <view class="user-info">
+      <view class="user-info" bindtap = "getUserProfile">
         <image src="{{userInfo.avatar}}" class="avatar" />
         <text>{{userInfo.name}}</text>
         <text>{{userInfo.university}}</text>

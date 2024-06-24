@@ -138,6 +138,11 @@ Page({
     const { scrollTop } = e.detail;
     this.setData({ scrollTop });
   },
+  getUserProfile:function(e){  //进入登陆界面/个人信息
+    wx.navigateTo({
+      url:"../personal/login/login"
+    })
+  },
   onLoad(options) {
     const that = this
     wx.cloud.callFunction({
