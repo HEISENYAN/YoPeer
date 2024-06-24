@@ -6,6 +6,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    imageIconList: [
+      'https://tdesign.gtimg.com/mobile/demos/icon1.png',
+      'https://tdesign.gtimg.com/mobile/demos/icon2.png',
+      'https://tdesign.gtimg.com/mobile/demos/icon1.png',
+      'https://tdesign.gtimg.com/mobile/demos/icon2.png',
+    ],
    isLogin : '',
    nickname: app.globalData.nickname,
    avatarUrl: app.globalData.avatarUrl,

@@ -54,7 +54,7 @@
     <view style = "display: flex;">
       <view style = "width:3vw"></view>
       <view style = "width:13vw;display:flex;justify-content:start;align-items:center;">微信号</view>
-      <view style = "width:77vw;"><t-input style = "--td-input-border-radius: @radius-large" borderless="{{true}}" maxlength="{{20}}" placeholder="选填，让我们方便联系" name="wechatID" type = "number" value="{{wechatID}}" bindchange="onFormChange"> 
+      <view style = "width:77vw;"><t-input style = "--td-input-border-radius: @radius-large" borderless="{{true}}" maxlength="{{20}}" placeholder="选填，让我们方便联系" name="wechatID" type = "text" value="{{wechatID}}" bindchange="onFormChange"> 
       </t-input></view>
     </view>
     <view style = "display: flex; border-radius: 10px; margin-top: -5rpx;">

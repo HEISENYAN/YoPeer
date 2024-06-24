@@ -23,12 +23,23 @@
   <t-cell title="我的鱼饼值：{{yoPeerValue}}" hover arrow />
   <t-cell title="个人资料" bindtap = "getUserProfile" hover arrow />
   <t-cell title="收货地址" bindtap = "getAddressList" hover arrow />
-  <t-cell title="我的团购订单" bindtap= "getOrder" hover arrow bordered="{{false}}"/>
+  <t-cell title="我的团购订单" bindtap= "getOrder" hover arrow />
+  <t-cell title="我的活动"  hover arrow bordered="{{false}}"/>
 </t-cell-group>
+
 <!-- <view class="line"></view> -->
 <view class="hr"></view>
 <t-cell-group theme="card" class="up">
   <t-cell title="设置" hover arrow />
   <t-cell title="鱼饼服务站" hover arrow/>
 </t-cell-group>
+
+<view class="demo__list">
+  <view class="demo__card" wx:for="{{imageIconList}}" wx:key="index">
+    <t-icon name="{{item}}" size="40" data-name="{{item}}" bind:click="onIconTap" />
+  </view>
+  <view class="demo__card" wx:for="{{imageIconList}}" wx:key="index">
+    <view class="demo__card-name">已参加</view>
+  </view>
+</view>
 <view class="footer__version">YoPeer 鱼饼</view>
