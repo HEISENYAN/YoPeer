@@ -75,7 +75,7 @@ Page({
       title: '正在上传头像',
     })
     wx.cloud.uploadFile({
-      cloudPath: 'yopeer-user-avatar/' + SHA256(pathRandom.toString()) + '.jpeg', // 上传至云端的路径
+      cloudPath: 'yopeer-user-avatar/' + SHA256(app.globalData._openid) + '.jpeg', // 上传至云端的路径
       filePath: e.detail.avatarUrl, // 小程序临时文件路径
       success: res => {
         wx.hideLoading()
@@ -107,7 +107,6 @@ Page({
   // },
   onFormChange(e){
     ifFormChange = 1
-    console.log(e)
   },
   onColumnChange(e) {
     wx.vibrateShort({type:"light"})

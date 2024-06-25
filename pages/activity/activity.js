@@ -145,6 +145,7 @@ Page({
         app.globalData.phoneAreaValue = phoneString[0]
         app.globalData.phoneNum = phoneString[1]
         app.globalData.wechatID = res.result.wechatID
+        app.globalData._openid = res.result._openid
         that.setData({
           userInfo:{
             name : app.globalData.nickName,
