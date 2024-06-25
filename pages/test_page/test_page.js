@@ -1,8 +1,12 @@
 wx.cloud.init()
+const SHA256 = require('../../utils/sha256')
 Page({
   data: {
   },
   testcloud:function(){
+    const k = Math.round(Date.now() + Math.random() * 1000)
+    console.log(SHA256(k.toString()))
+    /*
     wx.cloud.uploadFile({
       cloudPath: 'yopeer-user-avatar/testing', // 上传至云端的路径
       filePath: "http://tmp/tuy50tn7eshZ1cfa8824fc281a6cca9e962c9938a64a.jpeg", // 小程序临时文件路径
@@ -11,7 +15,7 @@ Page({
         console.log(res.fileID)
       },
       fail: console.error
-    })
+    })*/
     console.log("clicked")
     /*
     wx.cloud.callFunction({

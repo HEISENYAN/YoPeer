@@ -16,7 +16,7 @@ exports.main = async (event, context) => {
   if(userInfo.data.length != 0) return userInfo.data[0]
   await db.collection('yopeerUser').doc(wxContext.OPENID).set({
     data:{
-      phoneNumber:'+86 ',
+      phoneNumber:'+86 电话',
       _openid: wxContext.OPENID,
       avatarUrl:"https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0",
       yoPeerValue:0,

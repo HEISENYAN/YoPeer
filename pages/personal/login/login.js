@@ -1,4 +1,5 @@
 import Toast from 'tdesign-miniprogram/toast/index';
+const SHA256 = require("../../../utils/sha256")
 const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
 // const defaultAvatarUrl = "../../icons/portrait.png"
 const defaultNickname = "昵称"
@@ -68,12 +69,32 @@ Page({
   //   });
   // },
   onChooseAvatar(e) {//修改头像
-    console.log(e);
-    this.setData({
-      avatarUrl:e.detail.avatarUrl
+    const that = this
+    const pathRandom = Math.round(Date.now() + Math.random() * 1000)
+    wx.showLoading({
+      title: '正在上传头像',
     })
-    app.globalData.avatarUrl = e.detail.avatarUrl;
-    ifChooseAvatar = 1
+    wx.cloud.uploadFile({
+      cloudPath: 'yopeer-user-avatar/' + SHA256(pathRandom.toString()) + '.jpeg', // 上传至云端的路径
+      filePath: e.detail.avatarUrl, // 小程序临时文件路径
+      success: res => {
+        wx.hideLoading()
+        that.setData({
+          avatarUrl:res.fileID
+        })
+        app.globalData.avatarUrl = res.fileID;
+        ifChooseAvatar = 1
+        console.log(res.fileID)
+      },
+      fail: res =>{
+        wx.hideLoading()
+        wx.showToast({
+          title: '上传失败',
+          icon:"error"
+        })
+      }
+    })
+    
   },
   // onPhoneInput(e) {
   //   const { phoneError } = this.data;
@@ -86,12 +107,12 @@ Page({
   // },
   onFormChange(e){
     ifFormChange = 1
+    console.log(e)
   },
   onColumnChange(e) {
     wx.vibrateShort({type:"light"})
   },
   onPickerChange(e) {  //学校 或 手机区号
-    ifFormChange = 1
     const { key } = e.currentTarget.dataset;
     const { value } = e.detail;  //取字典中key为"value"的值
     // console.log('select:', e.detail);
@@ -145,7 +166,7 @@ Page({
       data:{
         phoneNumber : (e.detail.value.phoneNum)? that.data.phoneAreaText + " " + e.detail.value.phoneNum : that.data.phoneAreaText + " " + that.data.phoneNum,
         nickName: (e.detail.value.nickname)? e.detail.value.nickname : that.data.nickname,
-        avatarUrl: uploadResult.fileID,
+        avatarUrl: app.globalData.avatarUrl,
         wechatID: (e.detail.value.wechatID) ? e.detail.value.wechatID : that.data.wechatID,
         school: app.globalData.school,
         isRegistered: true
@@ -185,23 +206,8 @@ Page({
       if(e.detail.value.phoneNum)  app.globalData.phoneNum = e.detail.value.phoneNum;
       if(e.detail.value.wechatID)  app.globalData.wechatID = e.detail.value.wechatID;
       var uploadResult = app.globalData.avatarUrl
-      if(ifChooseAvatar){
-        wx.cloud.uploadFile({
-          cloudPath: 'yopeer-user-avatar/' + e.detail.value.nickname, // 上传至云端的路径
-          filePath: that.data.avatarUrl, // 小程序临时文件路径
-          success: res => {
-            uploadResult = res
-            this.cloudCall(e, that, uploadResult)
-          },
-          fail: res =>{
-            
-          }
-        })
-      }
-      else {
-        this.cloudCall(e, that, uploadResult)
-      }
-      }
+      this.cloudCall(e, that, uploadResult)
+    }
       // else{
       //   Toast({
       //     context: this,
