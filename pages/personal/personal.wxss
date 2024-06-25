@@ -33,7 +33,7 @@ page {
   padding: 0 30rpx;
 }
 .up{
-  top:-13vh;
+  top:-2vh;
 }
 .loginBar {
   padding:100rpx 0 0 0;
@@ -130,10 +130,11 @@ page {
 
 /* icon */
 .demo__list {
+  
   display: flex;
   flex-wrap: wrap;
   padding: 16rpx 32rpx;
-  margin-top: -200rpx;
+  margin-top: -1000rpx;
 }
 .demo__card {
   flex: 0 0 25%;
