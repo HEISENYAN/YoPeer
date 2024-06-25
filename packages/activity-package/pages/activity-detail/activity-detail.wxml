@@ -51,8 +51,15 @@
       <t-button theme="primary" size="medium" shape="round" style = "--td-button-primary-active-bg-color:#8a91e0;--td-button-primary-bg-color:#7581ff;--td-button-primary-border-color:#7581ff;--td-button-primary-active-border-color:#8a91e0;" open-type="share">分享</t-button>
     </view>
     <view class = "submit-button-container">
-      <t-button theme="primary" size="medium" shape="round" style = "--td-button-primary-active-bg-color:#8a91e0;--td-button-primary-bg-color:#7581ff;--td-button-primary-border-color:#7581ff;--td-button-primary-active-border-color:#8a91e0; " bindtap = "onRegisterActivity" data-is-expiry = "{{(activityInfo.deadline - nowTime)<0}}">
-        {{(isParticipated)?"已报名":((activityInfo.deadline - nowTime)<0?"已截止":"立即参加")}}</t-button>
+      <t-button 
+      theme="primary" 
+      size="medium" 
+      shape="round" 
+      style = "--td-button-primary-active-bg-color:#8a91e0;--td-button-primary-bg-color:#7581ff;--td-button-primary-border-color:#7581ff;--td-button-primary-active-border-color:#8a91e0; " 
+      bindtap = "onRegisterActivity" 
+      data-is-expiry = "{{(activityInfo.deadline - nowTime)<0}}" 
+      data-has-vacancy = "{{activityInfo.quota - activityInfo.registeredNum > 0}}">
+        {{!isParticipated?((activityInfo.deadline - nowTime)<0?"已截止":(activityInfo.quota - activityInfo.registeredNum > 0?"立即参加":"报名已满")):"已报名"}}</t-button>
     </view>
   </view>
 </view>

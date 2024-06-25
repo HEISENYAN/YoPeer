@@ -13,9 +13,9 @@ Page({
     isParticipated:false
   },
   onRegisterActivity(e){
-    console.log(e.currentTarget.dataset.isExpiry)
+    console.log(e.currentTarget.dataset.hasVacancy)
     const that = this
-    if(!e.currentTarget.dataset.isExpiry && !this.data.isParticipated){//活动未截止 并且未报名
+    if(!e.currentTarget.dataset.isExpiry && !this.data.isParticipated && e.currentTarget.dataset.hasVacancy){//活动未截止 并且未报名
       wx.cloud.callFunction({//登录获取用户信息
         name:"getUserInfo",
         success:function(personalInfo){
@@ -121,13 +121,19 @@ Page({
       if(this.data.isParticipated == true){
         wx.showModal({
           title: '已报名',
-          content: '您已报名，请勿重复报名，请等待客服联系',
+          content: '您已报名，请勿重复报名，请等待客服联系，或前往 “个人中心->我的活动” 查看已报名活动',
         })
       }
       else if(e.currentTarget.dataset.isExpiry == true){
         wx.showModal({
           title: '活动已截止',
           content: '此活动已截止，请关注我们更多其它活动',
+        })
+      }
+      else if(e.currentTarget.dataset.hasVacancy == false){
+        wx.showModal({
+          title: '活动报名已满',
+          content: '此活动报名人数已满，请关注我们更多其它活动',
         })
       }
     }
