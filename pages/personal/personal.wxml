@@ -24,7 +24,7 @@
   <t-cell title="个人资料" bindtap = "getUserProfile" hover arrow />
   <t-cell title="收货地址" bindtap = "getAddressList" hover arrow />
   <t-cell title="我的团购订单" bindtap= "getOrder" hover arrow />
-  <t-cell title="我的活动"  hover arrow bordered="{{false}}"/>
+  <t-cell title="我的活动" bindtap = "getActivityOrder" hover arrow bordered="{{false}}"/>
 </t-cell-group>
 
 <!-- <view class="line"></view> -->

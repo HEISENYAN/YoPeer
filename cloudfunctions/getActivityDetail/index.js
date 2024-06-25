@@ -16,5 +16,6 @@ exports.main = async (event, context) => {
     avatarUrlList.push(participantInfo[i].avatarUrl)
     participantOpenIDList.push(participantInfo[i].openid)
   }
-  return {activityIntroductionUrl,activityName,deadline,price,topImageUrl,hostDate,quota,registeredNum,avatarUrlList,participantOpenIDList,_openid,place}
+  const isParticipated = participantOpenIDList.includes(wxContext.OPENID)
+  return {activityIntroductionUrl,activityName,deadline,price,topImageUrl,hostDate,quota,registeredNum,avatarUrlList,isParticipated,_openid,place}
 }

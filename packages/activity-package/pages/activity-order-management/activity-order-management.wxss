@@ -1,0 +1,84 @@
+/* packages/activity-package/pages/activity-order-management/activity-order-management.wxss */
+Page{
+  background-color: rgb(241,241,241);
+}
+page {
+  background-color: rgb(241,241,241);
+}
+.activity-cell{
+  background-color: white;
+  height: auto;
+  width: 92vw;
+  box-sizing:border-box;
+  margin-left:4vw;
+  margin-top: 3vh;
+  display:block;
+  border-radius: 10px;
+  padding:10px;
+  /* justify-content: center;
+  align-items: center; */
+}
+.order-item-title{
+  overflow: hidden;
+  font-size: 25rpx;
+  display:-webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.order-number-container{
+  width:100%;
+  background-color: transparent;
+  display:flex;
+}
+.order-item-container{
+  height:200rpx;
+  width:100%;
+  background-color: white;
+  display:flex;
+  align-items: top;
+}
+.order-photo-container{
+  height: 200rpx;
+  width: 200rpx;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.order-info-container{
+  width: 350rpx;
+  height:200rpx;
+  display: inline-block;
+  background-color: white;
+  box-sizing:border-box;
+  padding:5px;
+}
+.order-price-container{
+  width:550rpx;
+  display:inline-flex;
+  font-size: 25rpx;
+}
+.order-item-specification{
+  overflow: hidden;
+  font-size: 20rpx;
+  color:gray;
+  display:-webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.activity-image-container{
+  margin-top: 20rpx;
+  width:95%;
+  margin-left: 2.5%;
+  height: 20vh;
+  display: flex;
+  background-color: white;
+  border-radius: 10px;
+}
+.button-container{
+  margin-left: auto;
+  width:68px;
+  height:auto;
+  display:flex;
+  align-items: flex-end;
+}

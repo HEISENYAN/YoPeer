@@ -69,7 +69,11 @@ Page({
       // })
     }
   },
-
+  getActivityOrder(){
+    wx.navigateTo({
+      url: '/packages/activity-package/pages/activity-order-management/activity-order-management',
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */

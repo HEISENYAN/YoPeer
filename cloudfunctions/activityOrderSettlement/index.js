@@ -23,6 +23,7 @@ exports.main = async (event, context) => {
   })
   await db.collection("yopeerActivityOrder").add({
     data:{
+      topImageUrl:activityInfo.data.topImageUrl,
       _openid:wxContext.OPENID,
       activityID:activityID,
       avatarUrl:avatarUrl,
@@ -32,7 +33,8 @@ exports.main = async (event, context) => {
       tradeNumber:tradeNumber,
       orderTime:new Date(parseInt(timeStamp)*1000),
       paidPrice:paidPrice,
-      wechatID:wechatID
+      wechatID:wechatID,
+      activityName:activityInfo.data.activityName
     }
   })
 }

@@ -17,7 +17,7 @@
     t-class-content="t-navbar-content"
     title="活动详情"
     left-arrow
-    bind:go-back="handleBack"
+    bind:go-back="goBack"
     borderless = "true"
   />
 

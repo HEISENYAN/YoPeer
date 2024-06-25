@@ -1,0 +1,32 @@
+<!--packages/activity-package/pages/activity-order-management/activity-order-management.wxml-->
+<t-navbar
+    t-class-placeholder="t-navbar-placeholder"
+    t-class-content="t-navbar-content"
+    title="我的活动"
+    left-arrow
+    bind:go-back="handleBack"
+    borderless = "true"
+  />
+  <block wx:for = "{{activityOrderInfo}}" wx:for-item = "order" wx:key = "orderIndex">
+  <view class = "activity-cell">
+    <view class = "order-number-container">
+      <text style = "font-size: small;">订单号：</text>
+      <text style = "margin-left: auto;font-size: small;">{{order.tradeNumber}}</text>
+    </view>
+    <view class = "order-number-container">
+      <text style = "font-size: small;">{{order.activityName}}</text>
+      
+    </view>
+    <view class = "activity-image-container">
+      <image src = "{{order.topImageUrl}}" style = "height: 100%;width:100%;border-radius: 10px;"></image>
+    </view>
+    <view>
+      <view class = "order-price-container">实付款（含优惠）:</view>
+      <text style = "margin-left: auto;font-size: 25rpx;margin-top: 5px; color:red">￥{{order.paidPrice/100}}</text>
+    </view>
+    <view class = "button-container">
+      <t-button theme="primary" size="extra-small" shape="round" style = "--td-button-primary-active-bg-color:#8a91e0;--td-button-primary-bg-color:#7581ff;--td-button-primary-border-color:#7581ff;--td-button-primary-active-border-color:#8a91e0;" bindtap = "onGetActivityDetail" data-activity-i-d = "{{order.activityID}}">查看详情</t-button>
+    </view>
+  </view>
+</block>
+<view style = "height: 32px;width:100vw;background-color: rgb(241,241,241);"></view>

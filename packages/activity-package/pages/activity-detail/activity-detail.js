@@ -1,7 +1,7 @@
 // packages/activity-package/pages/activity-detail/activity-detail.js
 wx.cloud.init()
 var activityID = ''
-
+var isShared = false
 Page({
 
   /**
@@ -68,7 +68,7 @@ Page({
                       success:function(res){
                         wx.showModal({
                           title: '报名成功',
-                          content: '您已报名，请等待客服联系',
+                          content: '您已报名，请等待客服联系，您也可以前往“个人中心->我的活动”查看已报名活动',
                           complete:function(rr){
                             that.onLoad({activityID:activityID})
                           }
@@ -139,13 +139,13 @@ Page({
     return{
       title:this.data.activityInfo.activityName,
       imageUrl:this.data.activityInfo.topImageUrl,
-      path: '/packages/activity-package/pages/activity-detail/activity-detail?activityID='+activityID
+      path: '/packages/activity-package/pages/activity-detail/activity-detail?activityID='+activityID+'&isShared='+true
     }
  },
-  
    
   onLoad(options) {
     const that = this
+    isShared = options?.isShared ?? false
     const now = new Date().getTime()
     console.log(options.activityID)
     activityID = options.activityID
@@ -158,7 +158,7 @@ Page({
         that.setData({
           activityInfo:res.result,
           nowTime:now,
-          isParticipated: res.result.participantOpenIDList.includes(res.result._openid)
+          isParticipated: res.result.isParticipated
         },()=>console.log(that.data.activityInfo))
         console.log(now)
       },
@@ -171,7 +171,15 @@ Page({
       }
     })
   },
-
+  goBack(){
+    if(!isShared){
+      wx.navigateBack()
+    }else{
+      wx.reLaunch({
+        url: '/pages/activity/activity',
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
