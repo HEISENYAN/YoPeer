@@ -7,7 +7,7 @@ db = cloud.database()
 exports.main = async (event, context) => {
   const{activityID} = event
   const activityInfo = await db.collection("yopeerActivityInventory").doc(activityID).get()
-  const {quota,participantInfo,activityIntroductionUrl,activityName,deadline,price,topImageUrl,hostDate,registeredNum} = activityInfo.data
+  const {quota,participantInfo,activityIntroductionUrl,activityName,deadline,price,topImageUrl,hostDate,registeredNum,place} = activityInfo.data
   const wxContext = cloud.getWXContext()
   const _openid = wxContext.OPENID
   var avatarUrlList = []
@@ -16,5 +16,5 @@ exports.main = async (event, context) => {
     avatarUrlList.push(participantInfo[i].avatarUrl)
     participantOpenIDList.push(participantInfo[i].openid)
   }
-  return {activityIntroductionUrl,activityName,deadline,price,topImageUrl,hostDate,quota,registeredNum,avatarUrlList,participantOpenIDList,_openid}
+  return {activityIntroductionUrl,activityName,deadline,price,topImageUrl,hostDate,quota,registeredNum,avatarUrlList,participantOpenIDList,_openid,place}
 }

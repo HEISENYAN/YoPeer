@@ -60,26 +60,28 @@ Page({
     cardList: [
       {
         // ！！注意这里的详情字数需要控制不然会出现bug
-        image: 'https://i.postimg.cc/bwBnc0tC/a5cc2b7e904a6fbe712c3886db8f3853.jpg',
-        title: '云台寺精心禅修之旅',
-        date: '2024-06-23/南山区金地购物中心',
+        image: 'cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/activity-image/682ff74017e6381166455199902b853.jpg',
+        title: '【深圳】云台寺精心禅修之旅',
+        date: '2024-07-31/南山区金地购物中心',
         description: '“云台寺精心禅修之旅”是一场宁静而深邃的心灵之旅，带您走进历史悠久的云台寺，在大师的指导下，通过禅修、冥想与自然融合，寻觅内心的平和与智慧，体验身心灵的全方位升华。',
         participants: [
           { avatar: 'path/to/avatar1.jpg' },
           { avatar: 'path/to/avatar2.jpg' },
           { avatar: 'path/to/avatar3.jpg' }
-        ]
+        ],
+        keywords:["静心探寺","深度交流"]
       },
       {
-        image: 'https://i.postimg.cc/65cNjYvZ/leonardo-140265-173460235-362381.jpg',
-        title: '普吉岛浪漫三天两夜',
-        date: '2024-07-21/静安区马勒别墅',
+        image: 'cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/activity-image/f8748c3296e2eaa905767b43fe06e59.jpg',
+        title: '【泰国】普吉岛浪漫三天两夜',
+        date: '2024-07-18/泰国普吉岛',
         description: '“欢迎加入“普吉岛浪漫三天两夜”之旅！在这次浪漫之行中，您将入住豪华度假村，享受无边泳池和私密沙滩的宁静。每日的精致晚餐和热带美景将为您和您的爱人打造难忘的回忆。',
         participants: [
           { avatar: 'path/to/avatar1.jpg' },
           { avatar: 'path/to/avatar2.jpg' },
-          { avatar: 'path/to/avatar3.jpg' }
-        ]
+          { avatar: 'path/to/avatar3.jpg' },
+        ],
+        keywords:["热带风情","户外探索"]
       }
     ]
 
@@ -88,9 +90,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onSelectSpecialActivity(e){
+    console.log(e)
+    var activityID = ''
+    if(e.currentTarget.dataset.selectedActivity == 1){
+      activityID = 'e2764d2d667a5062038faf7d6f91b7bb'
+    }
+    else{
+      activityID = 'c45ba8cc667a42d803885c89344ee65c'
+    }
     wx.navigateTo({
-      url: '/packages/activity-package/pages/activity-detail/activity-detail',
-    })
+        url: '/packages/activity-package/pages/activity-detail/activity-detail?activityID='+activityID,
+      })
     
   },
   onClickSwiper(e){

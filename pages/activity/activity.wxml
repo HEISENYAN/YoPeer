@@ -36,7 +36,7 @@
   </view>
   
   <view class="subTitle">最新2024港校新生团购活动</view>
-  <image class = "activity-cell-head" bindtap = "onSelectActivity" src = "https://i.postimg.cc/HspJKvV4/huodong.jpg">
+  <image class = "activity-cell-head" bindtap = "onSelectActivity" src = "cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/YoPeerDesign/huodong.jpg">
   </image>
 
   <view class="subTitle">Weekend x 鱼饼精选</view>
@@ -47,18 +47,18 @@
       interval="5000"
       circular="{{true}}"
       indicator-dots="{{true}}"
-      bindtap="onSelectSpecialActivity"
+      
     >
       <block wx:for="{{cardList}}" wx:key="index">
-        <swiper-item>
+        <swiper-item bindtap="onSelectSpecialActivity" data-selected-activity = "{{index}}">
           <view class="card" style="z-index: {{cardList.length - index}}">
             <image class="card-image" src="{{item.image}}"></image>
             <view class="card-content">
               <text class="card-title">{{item.title}}</text>
               <text class="card-date">{{item.date}}</text>
               <view class="card-buttons">
-                <view class="card-button">静心探寺</view>
-                <view class="card-button">深度交流</view>
+                <view class="card-button">{{item.keywords[0]}}</view>
+                <view class="card-button">{{item.keywords[1]}}</view>
               </view>
               <view class="separator-horizon"></view>
               <view class="card-description">{{item.description}}</view>
@@ -72,25 +72,21 @@
 
   <view class="subTitle-2">Weekend x 周末活动</view>
   <!-- <view class="activity-cell-zhoumo"></view> -->
-  <scroll-view class="category" scroll-x>
-    <view class="category-scroll">
-      <view class="title">云台寺精心禅修之旅</view>
-      <view class="date">2024-06-23/南山区金地购物中心</view>
+  <scroll-view class="category" scroll-x >
+    <view class="category-scroll" bind:tap="onSelectSpecialActivity" data-selected-activity= "{{0}}">
+      <view class="title">【深圳】云台寺精心禅修之旅</view>
+      <view class="date">2024-07-31/南山区金地购物中心</view>
       <view class="description-block">
-        <view>“云台寺精心禅修之旅”是一场宁静而深邃的心灵之旅，带您走进历史悠久的云台寺。</view>
+        <view>云台寺精心禅修之旅”是一场宁静而深邃的心灵之旅，带您走进历史悠久的云台寺。</view>
       </view>
     </view>
-    <view class="category-scroll2">
-      <view class="title">云台寺精心禅修之旅</view>
-      <view class="date">2024-06-23/南山区金地购物中心</view>
+    <view class="category-scroll2" bind:tap="onSelectSpecialActivity"  data-selected-activity= "{{1}}">
+      <view class="title">【泰国】普吉岛浪漫三天两夜</view>
+      <view class="date">2024-07-18/泰国普吉岛</view>
       <view class="description-block">
-        <view>“云台寺精心禅修之旅”是一场宁静而深邃的心灵之旅，带您走进历史悠久的云台寺。</view>
+        <view>欢迎加入“普吉岛浪漫三天两夜”之旅！在这次浪漫之行中，您将入住豪华度假村，享受无边泳池和私密沙滩的宁静。</view>
       </view>
     </view>
-    <view class="category-scroll"></view>
-    <view class="category-scroll2"></view>
-    <view class="category-scroll"></view>
-    <view class="category-scroll2"></view>
   </scroll-view>
 <!--
   <view class="subTitle-2">其他</view>

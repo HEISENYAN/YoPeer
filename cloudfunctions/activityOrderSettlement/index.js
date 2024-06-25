@@ -6,7 +6,7 @@ db = cloud.database()
 // 云函数入口函数
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
-  const {activityID,nickName,avatarUrl,phoneNumber,tradeNumber,timeStamp,paidPrice} = event
+  const {activityID,nickName,avatarUrl,phoneNumber,tradeNumber,timeStamp,paidPrice,wechatID} = event
   const activityInfo = await db.collection("yopeerActivityInventory").doc(activityID).get()
   activityInfo.data.participantInfo.push({
     openid:wxContext.OPENID,
@@ -31,7 +31,8 @@ exports.main = async (event, context) => {
       phoneNumber:phoneNumber,
       tradeNumber:tradeNumber,
       orderTime:new Date(parseInt(timeStamp)*1000),
-      paidPrice:paidPrice
+      paidPrice:paidPrice,
+      wechatID:wechatID
     }
   })
 }

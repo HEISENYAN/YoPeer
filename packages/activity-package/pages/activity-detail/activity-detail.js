@@ -62,12 +62,16 @@ Page({
                         nickName:personalInfo.result.nickName,
                         tradeNumber:tradeNumber,
                         timeStamp: paymentData?.timeStamp,
-                        paidPrice:that.data.activityInfo.price
+                        paidPrice:that.data.activityInfo.price,
+                        wechatID:personalInfo.result.wechatID
                       },
                       success:function(res){
                         wx.showModal({
                           title: '报名成功',
                           content: '您已报名，请等待客服联系',
+                          complete:function(rr){
+                            that.onLoad({activityID:activityID})
+                          }
                         })
                       },
                       fail:function(res){
@@ -134,11 +138,12 @@ Page({
   onLoad(options) {
     const that = this
     const now = new Date().getTime()
-    activityID = '9fe3c0fd66781b250371751a4163eebd'
+    console.log(options.activityID)
+    activityID = options.activityID
     wx.cloud.callFunction({
       name:"getActivityDetail",
       data:{
-        activityID:'9fe3c0fd66781b250371751a4163eebd'
+        activityID:activityID
       },
       success:function(res){
         that.setData({
