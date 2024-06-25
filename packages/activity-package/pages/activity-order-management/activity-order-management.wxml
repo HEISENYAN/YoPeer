@@ -25,7 +25,7 @@
       <text style = "margin-left: auto;font-size: 25rpx;margin-top: 5px; color:red">￥{{order.paidPrice/100}}</text>
     </view>
     <view class = "button-container">
-      <t-button theme="primary" size="extra-small" shape="round" style = "--td-button-primary-active-bg-color:#8a91e0;--td-button-primary-bg-color:#7581ff;--td-button-primary-border-color:#7581ff;--td-button-primary-active-border-color:#8a91e0;" bindtap = "onGetActivityDetail" data-activity-i-d = "{{order.activityID}}">查看详情</t-button>
+      <t-button theme="primary" size="extra-small" shape="round" style = "--td-button-primary-active-bg-color:#8a91e0;--td-button-primary-bg-color:#7581ff;--td-button-primary-border-color:#7581ff;--td-button-primary-active-border-color:#8a91e0;--td-button-extra-small-font-size:11px;" bindtap = "onGetActivityDetail" data-activity-i-d = "{{order.activityID}}">查看详情</t-button>
     </view>
   </view>
 </block>
