@@ -48,7 +48,7 @@
       <t-count-down size="medium" time="{{(activityInfo.deadline - nowTime)}}" format = "DD:HH:mm:ss" theme="round" style = "--td-countdown-bg-color:#8a91e0"/>
     </view>
     <view class = "share-button-container">
-      <t-button theme="primary" size="medium" shape="round" style = "--td-button-primary-active-bg-color:#8a91e0;--td-button-primary-bg-color:#7581ff;--td-button-primary-border-color:#7581ff;--td-button-primary-active-border-color:#8a91e0;">分享</t-button>
+      <t-button theme="primary" size="medium" shape="round" style = "--td-button-primary-active-bg-color:#8a91e0;--td-button-primary-bg-color:#7581ff;--td-button-primary-border-color:#7581ff;--td-button-primary-active-border-color:#8a91e0;" open-type="share">分享</t-button>
     </view>
     <view class = "submit-button-container">
       <t-button theme="primary" size="medium" shape="round" style = "--td-button-primary-active-bg-color:#8a91e0;--td-button-primary-bg-color:#7581ff;--td-button-primary-border-color:#7581ff;--td-button-primary-active-border-color:#8a91e0;" bindtap = "onRegisterActivity" data-is-expiry = "{{(activityInfo.deadline - nowTime)<0}}">

@@ -135,6 +135,15 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  onShareAppMessage:function(res) {
+    return{
+      title:this.data.activityInfo.activityName,
+      imageUrl:this.data.activityInfo.topImageUrl,
+      path: '/packages/activity-package/pages/activity-detail/activity-detail?activityID='+activityID
+    }
+ },
+  
+   
   onLoad(options) {
     const that = this
     const now = new Date().getTime()
@@ -202,13 +211,6 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
 
   }
 })
