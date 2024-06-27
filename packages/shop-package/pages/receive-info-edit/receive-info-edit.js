@@ -309,14 +309,14 @@ Page({
   },
   onSelectAddress(e){  //宿舍住户，校外住户切换
     wx.vibrateShort({type:"light"})
-    if(e.target.dataset.selectedAddress!=this.data.selectedAddressType) {  //校内校外切换时，清空选择
-      this.setData({
-        selectedHallAddress: [],
-        selectedAreaAddress: [],
-        hallSelectNote1:'请选择宿舍',
-        areaSelectNote: '请选择地区',
-      });
-    }
+    // if(e.target.dataset.selectedAddress!=this.data.selectedAddressType) {  //校内校外切换时，清空选择
+    //   this.setData({
+    //     selectedHallAddress: [],
+    //     selectedAreaAddress: [],
+    //     hallSelectNote1:'请选择宿舍',
+    //     areaSelectNote: '请选择地区',
+    //   });
+    // }
     this.setData({
       selectedAddressType:e.target.dataset.selectedAddress,
     });
