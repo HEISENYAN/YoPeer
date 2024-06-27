@@ -37,7 +37,7 @@ page {
 }
 .loginBar {
   padding:100rpx 0 0 0;
-  height: 400rpx;
+  height: 350rpx;
   /* background-color: rgb(163, 141, 214); */
   /* background: linear-gradient(#D562A0, #8271CB); */
   background: linear-gradient(#8a91e0, #8a91e0, #f5f5f5);
@@ -127,22 +127,39 @@ page {
   width: 100vw;
   height: 240px;
 }
-
-/* icon */
-.demo__list {
-  
+.grid-container{
+  width:92vw;
+  height:auto;
+  background-color: white;
+  margin-left:4vw;
+  border-radius: 10px;
+  margin-top:-7vh;
   display: flex;
-  flex-wrap: wrap;
-  padding: 16rpx 32rpx;
-  margin-top: -1000rpx;
+  box-sizing: border-box;
+  padding:20rpx;
+  justify-content: space-between;
 }
-.demo__card {
-  flex: 0 0 25%;
+.icon-container{
+  height: auto;
+  background-color: white;
+  flex-basis: 22%;
   display: flex;
   justify-content: center;
-  text-align: center;
+  flex-direction: column;
+  align-items: center;
 }
-.demo__card-name {
-  font-size: 24rpx;
-  color: #999;
+
+.calendar-container{
+  height: auto;
+  background-color: white;
+  width:92vw;
+  margin-left: 4vw;
+  box-sizing: border-box;
+  margin-top:3vh;
+  padding:20rpx;
+  border-radius: 10px;
+}
+.calendar{
+  --calendar-selected-day-color:black;
+  --calendar-height:40vh;
 }

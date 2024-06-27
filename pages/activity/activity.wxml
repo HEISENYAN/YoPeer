@@ -36,7 +36,7 @@
   </view>
   
   <view class="subTitle">最新2024港校新生团购活动</view>
-  <image class = "activity-cell-head" bindtap = "onSelectActivity" src = "cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/YoPeerDesign/huodong.jpg">
+  <image class = "activity-cell-head" mode="widthFix" bindtap = "onSelectActivity" src = "cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/YoPeerDesign/4589618502b364c55508d62c35bc294.png">
   </image>
 
   <view class="subTitle">Weekend x 鱼饼精选</view>

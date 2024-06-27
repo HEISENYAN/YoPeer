@@ -6,11 +6,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imageIconList: [
-      'https://tdesign.gtimg.com/mobile/demos/icon1.png',
-      'https://tdesign.gtimg.com/mobile/demos/icon2.png',
-      'https://tdesign.gtimg.com/mobile/demos/icon1.png',
-      'https://tdesign.gtimg.com/mobile/demos/icon2.png',
+    iconList:[
+      {
+        name:"团购订单",
+        iconUrl:"https://tdesign.gtimg.com/mobile/demos/icon1.png",
+        targetUrl:"/packages/shop-package/pages/order-management/order-management"
+      },
+      {
+        name:"我的活动",
+        iconUrl:"https://tdesign.gtimg.com/mobile/demos/icon1.png",
+        targetUrl:"/packages/activity-package/pages/activity-order-management/activity-order-management"
+      },
+      {
+        name:"个人资料",
+        iconUrl:"https://tdesign.gtimg.com/mobile/demos/icon1.png",
+        targetUrl:"/pages/personal/login/login"
+      },
+      {
+        name:"收货地址",
+        iconUrl:"https://tdesign.gtimg.com/mobile/demos/icon1.png",
+        targetUrl:"/packages/shop-package/pages/receive-info-edit/receive-info-edit"
+      }
     ],
    isLogin : '',
    nickname: app.globalData.nickname,
@@ -18,6 +34,9 @@ Page({
    yoPeerValue: 360,
   // pickerOptions: ['PolyU', 'HKU', 'HKUST', 'CUHK', 'CITYU', 'HKBU', 'LINGU'],
 
+  },
+  onSelectDate:function(e){
+    console.log(e.detail.getTime())
   },
   getUserProfile:function(e){  //进入登陆界面/个人信息
     wx.navigateTo({
@@ -34,6 +53,12 @@ Page({
       url:"/packages/shop-package/pages/order-management/order-management"
     })
   },
+  onTapIcon(e){
+    console.log(e)
+    wx.navigateTo({
+      url: e.currentTarget.dataset.targetUrl,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -45,6 +70,7 @@ Page({
       yoPeerValue: app.globalData.yoPeerValue,
     })
     const that = this
+    /*
     wx.cloud.callFunction({
       name:'getUserInfo',
       success:function(res){
@@ -60,7 +86,7 @@ Page({
           content:"" + res
           })
       }
-    })
+    })*/
     if(this.data.isLogin !== app.globalData.isLogin){
       // this.setData({
       //   isLogin : app.globalData.isLogin, 
