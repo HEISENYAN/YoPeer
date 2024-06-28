@@ -45,6 +45,7 @@
     <block wx:for="{{cardList}}" wx:key="index">
       <view bindtap="onSelectSpecialActivity" data-selected-activity="{{index}}"class="card" 
             style="z-index: {{cardList.length - index}}; transform: translateX(+{{index * 50}}rpx) scale({{1 - index * 0.05}}, {{1 - index * 0.05}});" 
+            animation="{{item.animationData}}"
             bindtouchstart="onTouchStart" 
             bindtouchend="onTouchEnd" 
             data-index="{{index}}">
