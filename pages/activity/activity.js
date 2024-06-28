@@ -61,7 +61,7 @@ Page({
       {
         // ！！注意这里的详情字数需要控制不然会出现bug
         image: 'cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/activity-image/682ff74017e6381166455199902b853.jpg',
-        title: '【深圳】云台寺精心禅修之旅',
+        title: '深圳·云台寺精心禅修之旅',
         date: '2024-07-31/南山区金地购物中心',
         description: '“云台寺精心禅修之旅”是一场宁静而深邃的心灵之旅，带您走进历史悠久的云台寺，在大师的指导下，通过禅修、冥想与自然融合，寻觅内心的平和与智慧，体验身心灵的全方位升华。',
         participants: [
@@ -73,7 +73,7 @@ Page({
       },
       {
         image: 'cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/activity-image/f8748c3296e2eaa905767b43fe06e59.jpg',
-        title: '【泰国】普吉岛浪漫三天两夜',
+        title: '泰国·普吉岛浪漫三天两夜',
         date: '2024-07-18/泰国普吉岛',
         description: '“欢迎加入“普吉岛浪漫三天两夜”之旅！在这次浪漫之行中，您将入住豪华度假村，享受无边泳池和私密沙滩的宁静。每日的精致晚餐和热带美景将为您和您的爱人打造难忘的回忆。',
         participants: [

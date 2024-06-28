@@ -43,7 +43,7 @@
   <view class="container">
   <view class="card-stack">
     <block wx:for="{{cardList}}" wx:key="index">
-      <view class="card" 
+      <view bindtap="onSelectSpecialActivity" data-selected-activity="{{index}}"class="card" 
             style="z-index: {{cardList.length - index}}; transform: translateY({{-index * 20}}rpx) translateX(+{{index * 30}}rpx);" 
             bindtouchstart="onTouchStart" 
             bindtouchend="onTouchEnd" 
