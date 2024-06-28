@@ -82,7 +82,19 @@ Page({
           { avatar: 'path/to/avatar3.jpg' },
         ],
         keywords:["热带风情","户外探索"]
-      }
+      },
+      {
+        image: 'cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/activity-image/f8748c3296e2eaa905767b43fe06e59.jpg',
+        title: '泰国·普吉岛浪漫三天两夜',
+        date: '2024-07-18/泰国普吉岛',
+        description: '“欢迎加入“普吉岛浪漫三天两夜”之旅！在这次浪漫之行中，您将入住豪华度假村，享受无边泳池和私密沙滩的宁静。每日的精致晚餐和热带美景将为您和您的爱人打造难忘的回忆。',
+        participants: [
+          { avatar: 'path/to/avatar1.jpg' },
+          { avatar: 'path/to/avatar2.jpg' },
+          { avatar: 'path/to/avatar3.jpg' },
+        ],
+        keywords:["热带风情","户外探索"]
+      },
     ]
 
   },
