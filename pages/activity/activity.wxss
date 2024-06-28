@@ -170,6 +170,14 @@
   border-image: linear-gradient(to right, orange, #fcfcfc) 1;
   overflow-x:scroll; /* 确保内容溢出时可以滚动 */
 }
+.right-image {
+  position: absolute;
+  height: 200rpx;
+  width: 75%;
+  z-index: 0;
+  object-fit:fill; /* 确保图片覆盖容器 */
+  opacity: 0.6; /* 设置图片不透明度为50% */
+}
 .title {
   padding-left: 3%;
   padding-top: 4%;
