@@ -53,8 +53,8 @@
           <text class="card-title">{{item.title}}</text>
           <text class="card-date">{{item.date}}</text>
           <view class="card-buttons">
-            <view class="card-button">{{item.keywords[0]}}</view>
-            <view class="card-button">{{item.keywords[1]}}</view>
+            <view class="card-button1">{{item.keywords[0]}}</view>
+            <view class="card-button2">{{item.keywords[1]}}</view>
           </view>
           <view class="separator-horizon"></view>
           <view class="card-description">{{item.description}}</view>
