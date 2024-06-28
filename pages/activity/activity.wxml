@@ -41,37 +41,32 @@
 
   <view class="subTitle">Weekend x 鱼饼精选</view>
   <view class="container">
-    <swiper
-      class="card-swiper"
-      duration="300"
-      interval="5000"
-      circular="{{true}}"
-      indicator-dots="{{true}}"
-      
-    >
-      <block wx:for="{{cardList}}" wx:key="index">
-        <swiper-item bindtap="onSelectSpecialActivity" data-selected-activity = "{{index}}">
-          <view class="card" style="z-index: {{cardList.length - index}}">
-            <image class="card-image" src="{{item.image}}"></image>
-            <view class="card-content">
-              <text class="card-title">{{item.title}}</text>
-              <text class="card-date">{{item.date}}</text>
-              <view class="card-buttons">
-                <view class="card-button">{{item.keywords[0]}}</view>
-                <view class="card-button">{{item.keywords[1]}}</view>
-              </view>
-              <view class="separator-horizon"></view>
-              <view class="card-description">{{item.description}}</view>
-              <view class="join-button">即刻加入</view>
-            </view>
+  <view class="card-stack">
+    <block wx:for="{{cardList}}" wx:key="index">
+      <view class="card" 
+            style="z-index: {{cardList.length - index}}; transform: translateY({{-index * 20}}rpx) translateX(+{{index * 30}}rpx);" 
+            bindtouchstart="onTouchStart" 
+            bindtouchend="onTouchEnd" 
+            data-index="{{index}}">
+        <image class="card-image" src="{{item.image}}"></image>
+        <view class="card-content">
+          <text class="card-title">{{item.title}}</text>
+          <text class="card-date">{{item.date}}</text>
+          <view class="card-buttons">
+            <view class="card-button">{{item.keywords[0]}}</view>
+            <view class="card-button">{{item.keywords[1]}}</view>
           </view>
-        </swiper-item>
-      </block>
-    </swiper>
+          <view class="separator-horizon"></view>
+          <view class="card-description">{{item.description}}</view>
+          <view class="join-button">即刻加入</view>
+        </view>
+      </view>
+    </block>
   </view>
+</view>
+
 
   <view class="subTitle-2">Weekend x 周末活动</view>
-  <!-- <view class="activity-cell-zhoumo"></view> -->
   <scroll-view class="category" scroll-x >
     <view class="category-scroll" bind:tap="onSelectSpecialActivity" data-selected-activity= "{{0}}">
       <view class="title">【深圳】云台寺精心禅修之旅</view>

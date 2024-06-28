@@ -320,82 +320,75 @@
 }
 
 /* 鱼饼精选部分 */
+/* index.wxss */
 .container {
-  margin-top: -170rpx;
-  margin-bottom: -180rpx;
+  margin-top: -8vh;
+  margin-bottom: -12vh;
   width: 100%;
-  height: 70vh;
+  height: 75vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
-.card-swiper {
-  width: 92vw;
+.card-stack {
+  position: relative;
+  width: 90%;
   height: 100%;
-  border-radius: 10px;
-  box-sizing: border-box;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
 }
 
 .card {
-  position: relative;
-  width: 100%;
+  position: absolute;
+  width: 90%;
   height: 100%;
   background-color: white;
   border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: transform 0.3s ease, z-index 0.3s ease;
 }
 
 .card-image {
   width: 100%;
-  height: 54%;
-  border-radius: 20rpx;
+  height: 50%;
+  border-radius: 10px 10px 0px 50px;
   object-fit: cover; /* 确保图片填满容器并裁剪超出部分 */
 }
 
-.card-title {
+.card-content {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+}
+
+.card-title {
   font-size: 18px;
   font-weight: bold;
   margin-top: 10px;
-  justify-content: center;
-  align-items: center;
-}
-
-.card-subtitle {
-  font-size: 14px;
-  color: gray;
-  margin-top: 5px;
 }
 
 .card-date {
-  display: flex;
   font-size: 10px;
   color: gray;
   margin-bottom: 5px;
-  justify-content: center;
-  align-items: center;
-}
-
-.card-content{
-  justify-content: center;
-  align-items: center;
 }
 
 .card-buttons {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
-  padding-left: 190rpx;
-  padding-right: 190rpx;
+  width: 100%;
+  padding: 0 20px;
 }
 
 .card-button {
-  width: auto;
   background-color: #f5f5f5;
   border-radius: 5px;
   font-size: 12px;
@@ -410,28 +403,11 @@
   margin-bottom: 10px;
 }
 
-.card-participants {
+.join-button {
+  height: 80rpx;
+  color: orange;
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
-}
-
-.participant-image {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  margin-right: 5px;
-}
-
-.participant-text {
-  font-size: 14px;
-  color: gray;
-}
-
-.join-button{
-  height:80rpx;
-  color: orange;
-  align-items: center;
   justify-content: center;
-  padding-left: 75%;
+  padding: 10px;
 }

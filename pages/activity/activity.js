@@ -221,6 +221,38 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+  onTouchStart(event) {
+    // 记录触摸开始的X坐标
+    this.setData({
+      startX: event.touches[0].clientX
+    });
+  },
+
+  onTouchEnd(event) {
+    // 获取触摸结束的X坐标
+    const endX = event.changedTouches[0].clientX;
+    const index = event.currentTarget.dataset.index;
+    const cardList = this.data.cardList;
+
+    // 计算滑动的距离
+    const deltaX = endX - this.data.startX;
+
+    // 判断滑动方向，假设滑动距离超过50px算作有效滑动
+    if (Math.abs(deltaX) > 50) {
+      if (deltaX < 0) {
+        // 左滑，将点击的卡片移到最后一个位置
+        const selectedCard = cardList.splice(index, 1)[0];
+        cardList.push(selectedCard);
+      } else {
+        // 右滑，将点击的卡片移到第一个位置
+        const selectedCard = cardList.splice(index, 1)[0];
+        cardList.unshift(selectedCard);
+      }
+      this.setData({
+        cardList: cardList
+      });
+    }
   }
 })
 
