@@ -76,7 +76,8 @@
       </view>
     </view>
     <view class="category-scroll2" bind:tap="onSelectSpecialActivity"  data-selected-activity= "{{1}}">
-      <view class="title">【泰国】普吉岛浪漫三天两夜</view>
+      <!-- <image class="right-image" src="cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/activity-image/f8748c3296e2eaa905767b43fe06e59.jpg"></image> -->
+      <view class="title">【泰国】普吉岛浪漫三天两夜</view> 
       <view class="date">2024-07-18/泰国普吉岛</view>
       <view class="description-block">
         <view>欢迎加入“普吉岛浪漫三天两夜”之旅！在这次浪漫之行中，您将入住豪华度假村，享受无边泳池和私密沙滩的宁静。</view>
