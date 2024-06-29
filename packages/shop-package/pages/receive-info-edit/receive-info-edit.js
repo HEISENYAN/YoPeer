@@ -1,5 +1,5 @@
 import Toast from 'tdesign-miniprogram/toast/index';
-import {hallAddress, areaAddress} from './data'
+import {hallAddress, areaAddress, hallAddress_updated} from './data'
 wx.cloud.init();
 var app = getApp()
 var ifHallResident = 0  // 0：宿舍；1：校外
@@ -11,8 +11,7 @@ Page({
     consigneeNameValue: '',  //表单显示
     consigneePhoneNum: '',
     consigneePhoneNumValue: '',  //表单显示
-    hallSelectNote1:'请选择宿舍',
-    hallSelectNote2:'',
+
     // 手机号码区号
     maxphonenum: 11,
     selectedArea:'+86',
@@ -24,12 +23,15 @@ Page({
     showAreaPicker:false,
 
     selectedAddressType : 0,  //0：宿舍住户；1：校外住户
-    hallList:hallAddress,
+    hallList:hallAddress_updated,
     showHallCascadar: false,
     subTitles_hall: ['请选择大学', '请选择宿舍'],
     subTitles_area: ['请选择', '请选择'],
     selectedHallAddress:[],
     showAreaCascadar: false,
+    hallSelectNote1:'请选择宿舍',
+    hallSelectNote2:'',
+    
     areaList:areaAddress,
     selectedAreaAddress:[],
     areaSelectNote: '请选择地区',
@@ -38,12 +40,6 @@ Page({
     areaHouseNum: '',
     receiverInfo:{},
 
-    // 用户返回时，临时存储
-    // temp_consigneeName: '',
-    // temp_consigneePhoneNum: '',
-    // temp_areaStreet: '',
-    // temp_areaBuilding: '',
-    // temp_areaHouseNum: '',
   },
 
   // 返回时弹窗 //
@@ -81,8 +77,8 @@ Page({
         });
         if(result.temp_ifHallResident==0){  // 校内
           that.setData({
-            selectedHallAddress:[result.temp_receiveAddress[0], result.temp_receiveAddress[1]],//显示在picker
-            hallSelectNote2: `${result.temp_receiveAddress[0]}\n${result.temp_receiveAddress[1]}`,//显示在cell
+            selectedHallAddress:[result.temp_receiveAddress[0], result.temp_receiveAddress[1], result.temp_receiveAddress[2]],//显示在picker
+            hallSelectNote2: `${result.temp_receiveAddress[0]}\n${result.temp_receiveAddress[1]}\n${result.temp_receiveAddress[2]}`,//显示在cell
           })
         }
         else if(result.temp_ifHallResident==1){  // 校外
@@ -114,8 +110,8 @@ Page({
             })
             if(result.ifHallResident==0){  // 校内
               that.setData({  
-                selectedHallAddress:[result.address[0], result.address[1]],//显示在picker
-                hallSelectNote2: `${result.address[0]}\n${result.address[1]}`,//显示在cell
+                selectedHallAddress:[result.address[0], result.address[1], result.address[2]],//显示在picker
+                hallSelectNote2: `${result.address[0]}\n${result.address[1]}\n${result.address[2]}`,//显示在cell
               })
             }
             else if(result.ifHallResident==1){  // 校外
@@ -168,6 +164,7 @@ Page({
   },
   backSave(){  //返回并保存
     wx.navigateBack()
+    var consigneePhoneNum = this.data.consigneePhoneNum ?? ""
     wx.setStorage({  //未填完整的地址放缓存
       key: 'tempAddress',
       data: {
@@ -328,13 +325,16 @@ Page({
     })
   },
   onChangeHallAdress(e){  //宿舍住户 级联选择
+    ifFormChange = 1
+    var cascade_thirdlayer = e.detail.selectedOptions[2]?.label??"";
     this.setData({
-      selectedHallAddress: [e.detail.selectedOptions[0].label, e.detail.selectedOptions[1].label],
+      selectedHallAddress: [e.detail.selectedOptions[0].label, e.detail.selectedOptions[1].label, cascade_thirdlayer],
       hallSelectNote1: '',
-      hallSelectNote2: `${e.detail.selectedOptions[0].label}\n${e.detail.selectedOptions[1].label}`
+      hallSelectNote2: `${e.detail.selectedOptions[0].label}\n${e.detail.selectedOptions[1].label}\n${cascade_thirdlayer}`
     })
   },
   onChangeAreaAddress(e){  //校外住户 级联选择
+    ifFormChange = 1
     this.setData({
       // selectedAreaAddress: [e.detail.selectedOptions[0].label, e.detail.selectedOptions[1].label],
       'selectedAreaAddress[0]': e.detail.selectedOptions[0].label,
