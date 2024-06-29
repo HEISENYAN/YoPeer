@@ -1,9 +1,20 @@
 //import { RenderSystem } from "XrFrame/systems";
-import {hallAddress, areaAddress} from './data'
+import {hallAddress, areaAddress, pickDateList} from './data'
 wx.cloud.init()
 var Price = 0;
 var actualPrice = 0;
 const yopeerVoucher =  "HONGKONG2024"
+
+const getOptions = (obj, filter) => {
+  const res = Object.keys(obj).map((key) => ({ value: key, label: obj[key] }));
+  if (filter) {
+    return res.filter(filter);
+  }
+  return res;
+};
+const match = (v1, v2, size) => v1.toString().slice(0, size) === v2.toString().slice(0, size);
+
+
 Page({
   data: {
     checkOutInfo:[],
@@ -30,13 +41,19 @@ Page({
     phoneText: null,
     nameText: null,
     finalPrice:0,
+
     // 预计收获时间 参数
-    mode: '',
-    dateVisible: false,
-    date: new Date().getTime(), // 支持时间戳传入  Date('2021-12-23')
+    // mode: '',
+    // dateVisible: false,
+    // date: new Date().getTime(), // 支持时间戳传入  Date('2021-12-23')
+    // dateText: '',
+    // start: '2024-08-20 00:00:00',
+    // end: '2024-09-05 23:59:59',
     dateText: '',
-    start: '2024-08-20 00:00:00',
-    end: '2024-09-05 23:59:59',
+    dateValue: [],
+    years: getOptions(pickDateList.years),
+    months: [],
+    days: [],
 
     //结算时弹出框
     CheckoutPopupContent: '',
@@ -44,6 +61,51 @@ Page({
     // 优惠码
     promotionCode: '',
   },
+
+  //  取货时间 开始
+  onColumnChange(e) {
+    console.log('pick:', e.detail);
+    const { column, index } = e.detail;
+    const { years, months } = this.data;
+    if (column === 0) {  //年
+      const { months, days } = this.getMonths(years[index].value);
+      this.setData({ months, days });
+    }
+    if (column === 1) {  //月
+      const days = this.getDays(months[index].value);
+      this.setData({ days });
+    }
+    if (column === 2) {
+    }
+  },
+  getMonths(provinceValue) {
+    const months = getOptions(pickDateList.months, (city) => match(city.value, provinceValue, 2));
+    const days = this.getDays(months[0].value);
+    return { months, days };
+  },
+  getDays(cityValue) {
+    return getOptions(pickDateList.days, (county) => match(county.value, cityValue, 4));
+  },
+  onPickerChange(e) {
+    const { value, label } = e.detail;
+    console.log('picker confirm:', e.detail);
+    this.setData({
+      dateVisible: false,
+      dateValue: value,
+      dateText: label.join('-'),
+    });
+  },
+  onPickerCancel(e) {
+    console.log('picker cancel', e.detail);
+    this.setData({
+      dateVisible: false,
+    });
+  },
+  onDatePicker() {
+    this.setData({ dateVisible: true });
+  },
+  //  取货时间 结束
+
   setPromotionCode(e){
     //console.log(e.detail.value)
     this.setData({
@@ -195,79 +257,82 @@ Page({
 
 
   // 预计收获时间 开始
-  showDatePicker(e) {
-    const { mode } = e.currentTarget.dataset;
-    this.setData({
-      mode,
-      [`${mode}Visible`]: true,
-    });
-  },
-  hideDatePicker() {
-    const { mode } = this.data;
-    this.setData({
-      [`${mode}Visible`]: false,
-    });
-  },
-  onDateConfirm(e) {
-    const { value } = e.detail;
-    const { mode } = this.data;
-    console.log('select date ', value);
-    this.setData({
-      [mode]: value,
-      [`${mode}Text`]: value,
-    });
-    this.hideDatePicker();
-  },
+  // showDatePicker(e) {
+  //   const { mode } = e.currentTarget.dataset;
+  //   this.setData({
+  //     mode,
+  //     [`${mode}Visible`]: true,
+  //   });
+  // },
+  // hideDatePicker() {
+  //   const { mode } = this.data;
+  //   this.setData({
+  //     [`${mode}Visible`]: false,
+  //   });
+  // },
+  // onDateConfirm(e) {
+  //   const { value } = e.detail;
+  //   const { mode } = this.data;
+  //   console.log('select date ', value);
+  //   this.setData({
+  //     [mode]: value,
+  //     [`${mode}Text`]: value,
+  //   });
+  //   this.hideDatePicker();
+  // },
 // 预计收获时间 结束
-  onSelectArea(){
-    this.setData({
-      showAreaPicker:true
-    })
-  },
-  onChangeArea(e){
-    this.setData({
-      selectedArea:e.detail.value[0]
-    })
-    console.log(e)
-  },
-  onSelectAdress(e){
-    this.setData({
-      selectedAddressType:e.target.dataset.selectedAddress
-    })
-  },
+
+
+  // onSelectArea(){
+  //   this.setData({
+  //     showAreaPicker:true
+  //   })
+  // },
+  // onChangeArea(e){
+  //   this.setData({
+  //     selectedArea:e.detail.value[0]
+  //   })
+  //   console.log(e)
+  // },
+  // onSelectAdress(e){
+  //   this.setData({
+  //     selectedAddressType:e.target.dataset.selectedAddress
+  //   })
+  // },
   onEditAddress(){
     wx.navigateTo({
       url: '../receive-info-edit/receive-info-edit',
     })
   },
-  onOpenCascader(){
-    this.setData({
-      showHallCascadar:this.data.selectedAddressType == 0?true:false,
-      showAreaCascadar:this.data.selectedAddressType == 1?true:false
-    })
-  },
-  onChangeHallAdress(e){
-    this.setData({
-      selectedHallAddress: e.detail.selectedOptions[0].label + " "+ e.detail.selectedOptions[1].label
-    })
-  },
-  onChangeAreaAdress(e){
-    this.setData({
-      selectedAreaAddress: e.detail.selectedOptions[0].label + " "+ e.detail.selectedOptions[1].label
-    })
-  },
-  onClickNext(){
-    wx.navigateTo({
-      url: '../receive-info-edit/receive-info-edit',
-    })
-  },
-  goPreviousStep() {
-    if (this.data.currentStep > 0) {
-      this.setData({
-        currentStep: this.data.currentStep - 1,
-      });
-    }
-  },
+  // onOpenCascader(){
+  //   this.setData({
+  //     showHallCascadar:this.data.selectedAddressType == 0?true:false,
+  //     showAreaCascadar:this.data.selectedAddressType == 1?true:false
+  //   })
+  // },
+  // onChangeHallAdress(e){
+  //   this.setData({
+  //     selectedHallAddress: e.detail.selectedOptions[0].label + " "+ e.detail.selectedOptions[1].label
+  //   })
+  // },
+  // onChangeAreaAdress(e){
+  //   this.setData({
+  //     selectedAreaAddress: e.detail.selectedOptions[0].label + " "+ e.detail.selectedOptions[1].label
+  //   })
+  // },
+  // onClickNext(){
+  //   wx.navigateTo({
+  //     url: '../receive-info-edit/receive-info-edit',
+  //   })
+  // },
+  // goPreviousStep() {
+  //   if (this.data.currentStep > 0) {
+  //     this.setData({
+  //       currentStep: this.data.currentStep - 1,
+  //     });
+  //   }
+  // },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -311,7 +376,9 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-
+    const { years } = this.data;
+    const { months, days } = this.getMonths(years[0].value);
+    this.setData({ months, days });
   },
 
   /**
