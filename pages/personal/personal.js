@@ -33,9 +33,21 @@ Page({
    avatarUrl: app.globalData.avatarUrl,
    yoPeerValue: 360,
   // pickerOptions: ['PolyU', 'HKU', 'HKUST', 'CUHK', 'CITYU', 'HKBU', 'LINGU'],
-
   },
+// 点击日历时弹出框
+onVisibleChange(e) {
+  this.setData({
+    visible: e.detail.visible,
+  });
+},
+onClose() {
+  this.setData({visible: false,});
+},
+
   onSelectDate:function(e){
+    this.setData({
+      visible: true,
+    })
     console.log(e.detail.getTime())
   },
   getUserProfile:function(e){  //进入登陆界面/个人信息

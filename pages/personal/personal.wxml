@@ -35,7 +35,6 @@
     poppable="{{ false }}"
     show-confirm="{{ false }}"
     class="calendar"
-
     show-confirm = "{{false}}"
     row-height = "35"
     show-subtitle = "{{true}}"
@@ -43,5 +42,16 @@
     bind:select = "onSelectDate"
   />
 </view>
-
+<t-popup visible="{{visible}}" bind:visible-change="onVisibleChange" placement="center">
+  <view class="popup-container">
+    <view class="popup-header">
+      <view class="popup-title">标题</view>
+      <!-- 可选：添加一个关闭按钮 -->
+      <t-icon t-class="close-btn" name="close-circle" size="32" color="#fff" bind:tap="onClose" />
+    </view>
+    <text class="popup-content">{{CheckoutPopupContent}}</text>
+    <image mode="widthFix" src = "cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/小程序插画设计-1/13c82b3dcae18d89c2620a295ab953a.jpg" style = "height:100%;width:100%"/>
+    <t-button class="checkout-button" theme="primary" style = "--td-button-primary-active-bg-color:#8a91e0;--td-button-primary-bg-color:#7581ff;--td-button-primary-border-color:#7581ff;--td-button-primary-active-border-color:#8a91e0;">按钮</t-button>
+  </view>
+</t-popup>
 <view class="footer__version">YoPeer 鱼饼</view>
