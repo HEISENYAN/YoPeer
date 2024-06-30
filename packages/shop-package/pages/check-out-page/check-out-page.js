@@ -391,7 +391,7 @@ Page({
       key:"ypReceiveInfo",
       success:function(res){
         for(let i in res.data.receiveAddress){
-          address += res.data.receiveAddress[i]
+          address += res.data.receiveAddress[i]+" "
         }
         console.log(address)
         that.setData({

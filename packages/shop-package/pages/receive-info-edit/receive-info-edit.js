@@ -64,15 +64,16 @@ Page({
       success(res) {
         console.log("加载缓存数据")
         const result = res.data // [temp_receiveName temp_receivePhoneNumber temp_ifHallResident temp_receiveAddress]
-        const phoneString = result.temp_receivePhoneNumber.split(" ")
+        // const phoneString = result.temp_receivePhoneNumber?.split(" ")??""
+        const [phoneString_area = "", phoneString_number = ""] = result?.temp_receivePhoneNumber?.split(" ")??""
         that.setData({
           consigneeName: result.temp_receiveName,
           consigneeNameValue: result.temp_receiveName,
-          selectedArea: phoneString[0],  //区号，显示在cell
-          phoneAreaValue: [phoneString[0]], //区号，显示在picker
-          maxphonenum: (phoneString[0]=="+86")?11:8,  //手机号码位数
-          consigneePhoneNum: phoneString[1],
-          consigneePhoneNumValue: phoneString[1],
+          selectedArea: phoneString_area,  //区号，显示在cell
+          phoneAreaValue: [phoneString_area], //区号，显示在picker
+          maxphonenum: (phoneString_area=="+86")?11:8,  //手机号码位数
+          consigneePhoneNum: phoneString_number,
+          consigneePhoneNumValue: phoneString_number,
           selectedAddressType: result.temp_ifHallResident,  //0:宿舍；1：校外
         });
         if(result.temp_ifHallResident==0){  // 校内
@@ -97,30 +98,33 @@ Page({
           success(res){
             const result = res.result[0]
             console.log("加载云端数据")
-            const phoneString = result.phoneNumer.split(" ")
+            // const phoneString = result?.phoneNumber?.split(" ")??""
+            const [phoneString_area = "+86", phoneString_number = ""] = result?.phoneNumber.split(" ")??""
             that.setData({
-              consigneeName: result.Name,
-              consigneeNameValue: result.Name,
-              selectedArea: phoneString[0],  //区号，显示在cell
-              phoneAreaValue: [phoneString[0]], //区号，显示在picker
-              maxphonenum: (phoneString[0]=="+86")?11:8,  //手机号码位数
-              consigneePhoneNum: phoneString[1],
-              consigneePhoneNumValue: phoneString[1],
-              selectedAddressType: result.ifHallResident,  //0:宿舍；1：校外
+              consigneeName: result?.Name??"",
+              consigneeNameValue: result?.Name??"",
+              selectedArea: phoneString_area,  //区号，显示在cell
+              phoneAreaValue: [phoneString_area], //区号，显示在picker
+              maxphonenum: (phoneString_area=="+86")?11:8,  //手机号码位数
+              consigneePhoneNum: phoneString_number,  //显示在cell
+              consigneePhoneNumValue: phoneString_number,  //显示在picker
+              selectedAddressType: result?.ifHallResident??0,  //0:宿舍；1：校外
             })
-            if(result.ifHallResident==0){  // 校内
-              that.setData({  
-                selectedHallAddress:[result.address[0], result.address[1], result.address[2]],//显示在picker
-                hallSelectNote2: `${result.address[0]}\n${result.address[1]}\n${result.address[2]}`,//显示在cell
+            if(that.data.selectedAddressType==0){  // 校内
+              that.setData({
+                selectedHallAddress:[result?.address[0]??"", result?.address[1]??"", result?.address[2]??""],//显示在picker
+                // hallSelectNote2: `${result?.address[0]??""}\n${result?.address[1]??""}\n${result?.address[2]??""}`,//显示在cell
+                hallSelectNote2: result?.address?.slice(0, 3).filter(Boolean).join('\n')||[],  //显示在cell
               })
             }
-            else if(result.ifHallResident==1){  // 校外
-              that.setData({ 
-                areaSelectNote: [result.address[0], result.address[1]],
-                selectedAreaAddress: [result.address[0], result.address[1], result.address[2], result.address[3],result.address[4]],
-                areaStreet: result.address[1],
-                areaBuilding: result.address[2],
-                areaHouseNum: result.address[3]
+            else if(that.data.selectedAddressType==1){  // 校外
+              that.setData({
+                // areaSelectNote: [result?.address[0]??"", result?.address[1]??""],
+                areaSelectNote: result?.address?.slice(0, 2).filter(Boolean) || [],
+                areaStreet: result?.address[2]??"",
+                areaBuilding: result?.address[3]??"",
+                areaHouseNum: result?.address[4]??"",
+                selectedAreaAddress: [result?.address[0]??"", result?.address[1]??"", result?.address[2]??"", result?.address[3]??"", result?.address[4]??""],
               })
             }
           },
