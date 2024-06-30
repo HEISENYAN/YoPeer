@@ -10,7 +10,7 @@ exports.main = async (event, context) => {
     data:{
         _openid:wxContext.OPENID,
         Name:event.receiveName,
-        phoneNumer:event.receivePhoneNumber,
+        phoneNumber:event.receivePhoneNumber,
         address:event.receiveAddress,
         ifHallResident:event.ifHallResident
     }

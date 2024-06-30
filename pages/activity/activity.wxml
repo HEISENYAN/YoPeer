@@ -67,7 +67,7 @@
 </view>
 
 
-  <view class="subTitle-2">Weekend x 周末活动</view>
+  <!--<view class="subTitle-2">Weekend x 周末活动</view>-->
   <!--
   <scroll-view class="category" scroll-x >
     <view class="category-scroll" bind:tap="onSelectSpecialActivity" data-selected-activity= "{{0}}">
@@ -159,11 +159,12 @@
       
     </view>
     -->
+    <!--
     <view class = "weekly-activity-cell">
       <view class = "weekly-activity-picutre">
         
       </view>
-    </view>
+    </view>-->
 
   <view style = "width:100vw;height: 12.5vh;"></view>
 </scroll-view>
