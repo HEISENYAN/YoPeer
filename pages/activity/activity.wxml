@@ -11,7 +11,7 @@
         duration="{{500}}"
         interval="{{5000}}"
         list="{{swiperList}}"
-        height = "30vh"
+        height = "32vh"
         navigation="{{ { type: 'dots-bar' } }}"
         class = "notice-swiper"
         bind:click = "onClickSwiper"

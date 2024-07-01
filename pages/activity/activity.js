@@ -4,15 +4,15 @@ var app = getApp()
 const imageCdn = 'cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/YoPeerDesign/WeChat9e0e9fbeaa05c3c5da083cbdf52bdf6f.jpg';
 const swiperList = [
   {
-    value: `cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/小程序插画设计-1/主页-顶部滑动栏-1标语.jpg`,
+    value: `cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/YoPeerDesign/主页-顶部滑动栏-1标语.png`,
     ariaLabel: '图片1',
   },
   {
-    value: `cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/小程序插画设计-1/主页-顶部滑动栏-2社区简介入口.jpg`,
+    value: `cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/YoPeerDesign/主页-顶部滑动栏-1标语 (2).png`,
     ariaLabel: '图片2',
   },
   {
-    value: `cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/小程序插画设计-1/主页-顶部滑动栏-3.jpg`,
+    value: `cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/YoPeerDesign/主页-顶部滑动栏-1标语 (3).png`,
     ariaLabel: '图片3',
   },
 ];
