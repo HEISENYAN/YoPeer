@@ -22,8 +22,9 @@
 <view class = "grid-container">
   <block wx:for = "{{iconList}}" wx:key = "key">
     <view class = "icon-container" bindtap = "onTapIcon" data-target-url = "{{item.targetUrl}}">
-      <t-icon name = "activity" size = "60rpx"/>
-      <text style = "font-size: small;color:gray">{{item.name}}</text>
+      <!-- <t-icon name = "activity" size = "60rpx"/> -->
+      <image class="icon-image" src="{{item.iconUrl}}" mode="aspectFill"/>
+      <text style = "font-size: small;color:gray;margin-top: 50rpx;">{{item.name}}</text>
     </view>
   </block>
 </view>

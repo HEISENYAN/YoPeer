@@ -67,8 +67,8 @@
 </view>
 
 
-  <!--<view class="subTitle-2">Weekend x 周末活动</view>-->
-  <!--
+  <view class="subTitle-2">Weekend x 周末活动</view>
+  
   <scroll-view class="category" scroll-x >
     <view class="category-scroll" bind:tap="onSelectSpecialActivity" data-selected-activity= "{{0}}">
       <view class="title">【深圳】云台寺精心禅修之旅</view>
@@ -86,7 +86,7 @@
     </view>
   </scroll-view>
 
-  <view class="subTitle-2">其他</view>
+  <!-- <view class="subTitle-2">其他</view>
   <view class="waterfall">
     <view class="column">
 
@@ -167,4 +167,4 @@
     </view>-->
 
   <view style = "width:100vw;height: 12.5vh;"></view>
-</scroll-view>
+</scroll-view> -->

@@ -141,12 +141,18 @@ page {
 }
 .icon-container{
   height: auto;
-  background-color: white;
+  background-color: rgb(240, 95, 95);
   flex-basis: 22%;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+}
+.icon-image {
+  background-color: #8a91e0;
+  width: 60rpx;
+  height: 60rpx;
+  /* margin-bottom: 10rpx; */
 }
 
 
