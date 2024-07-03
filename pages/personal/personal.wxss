@@ -141,7 +141,7 @@ page {
 }
 .icon-container{
   height: auto;
-  background-color: rgb(240, 95, 95);
+  /* background-color: rgb(240, 95, 95); */
   flex-basis: 22%;
   display: flex;
   justify-content: center;
@@ -149,10 +149,12 @@ page {
   align-items: center;
 }
 .icon-image {
+  /* background-image: url(https://i.postimg.cc/y8B03SBh/dingdan.jpg); */
   background-color: #8a91e0;
-  width: 60rpx;
-  height: 60rpx;
-  /* margin-bottom: 10rpx; */
+  width: 80rpx;
+  height: 80rpx;
+  object-fit: cover;
+  background-size: cover;
 }
 
 
