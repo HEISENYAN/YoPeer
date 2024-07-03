@@ -128,8 +128,9 @@ Component({
       }
     },
     chooseSecondMenu: function(e){
+      console.log(e)
       wx.navigateTo({
-        url: '/packages/shop-package/pages/product-detail/product-detail?selected='+JSON.stringify(e.target.dataset.selected),
+        url: '/packages/shop-package/pages/product-detail/product-detail?selected='+e.currentTarget.dataset.selected,
       })
     },
     checkOut: function(e){
@@ -191,7 +192,7 @@ Component({
     ready(options){
       let that = this
       wx.cloud.callFunction({
-        name: 'getProduct',
+        name: 'getProductList',
         success:function(res){
         //console.log(res.result.data.length)
         that.setData({

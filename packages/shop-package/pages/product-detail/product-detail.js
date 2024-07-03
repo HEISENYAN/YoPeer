@@ -1,5 +1,5 @@
 // packages/shop-package/pages/product-detail/product-detail.js
-
+wx.cloud.init()
 Page({
 
   /**
@@ -20,6 +20,7 @@ Page({
   
   // new UI kit
   onRadioChange(event) {
+    console.log(event)
     const optionIndex = event.currentTarget.dataset.option;
     const selectedOption = parseInt(event.detail);
     this.setData({
@@ -28,6 +29,7 @@ Page({
   },
 
   onRadioCellClick(event) {
+    console.log(event)
     const { name } = event.currentTarget.dataset;
     const optionIndex = event.currentTarget.dataset.option;
     this.setData({
@@ -42,10 +44,11 @@ Page({
     ypProduct.selectedOptions = this.data.selectedOptions;
     ypProduct.prodName = this.data.selectedProduct.prodName;
     ypProduct.selectedItem = new Array(0);
-    ypProduct.optionName = this.data.selectedProduct.optionName;
+    ypProduct.optionName = new Array(0);
     ypProduct.thumbnailUrl = this.data.selectedProduct.thumbnailUrl;
     for(let i = 0; i < this.data.selectedOptions.length;i++){
-      ypProduct.selectedItem.push(this.data.selectedProduct.options[i][this.data.selectedOptions[i]])
+      ypProduct.selectedItem.push(this.data.selectedProduct.options[i].specificOptions[this.data.selectedOptions[i]]);
+      ypProduct.optionName.push(this.data.selectedProduct.options[i].optionName);
     }
     return ypProduct
   },
@@ -156,10 +159,24 @@ Page({
    */
   //初始化数据
   onLoad(options) {
+    const that = this
+    wx.cloud.callFunction({
+      name:"getProduct",
+      data:{
+        product_id: options.selected
+      },
+      success:function(res){
+        that.setData({
+          selectedProduct:res.result,
+          selectedOptions:new Array(res.result.options).fill(0),
+        },()=>console.log(that.data.selectedOptions))
+      }
+    })
+    /*
     this.setData({
       selectedProduct:JSON.parse(options.selected),
       selectedOptions:new Array(JSON.parse(options.selected).optionNum).fill(0),
-    })
+    })*/
   },
 
   /**

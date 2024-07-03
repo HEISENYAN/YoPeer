@@ -48,15 +48,16 @@
           <view class="header" id = "menuIndex{{index}}">{{item.classification}}</view>
         </sticky-header>
         <list-view class = "item-list">
-          <view class="shopping-item" wx:for="{{item.items}}" bindtap="chooseSecondMenu" wx:key="prodIndex" wx:for-item="prodItem" data-selected="{{prodItem}}"> 
-            <view class="shopping-image" data-selected="{{prodItem}}">
-              <image style = "border-radius: 10rpx; height: 180rpx; width: 180rpx;" src="{{prodItem.thumbnailUrl}}" data-selected="{{prodItem}}"> </image>
+          <view class="shopping-item" wx:for="{{item.items}}" bindtap="chooseSecondMenu" wx:key="prodIndex" wx:for-item="prodItem" data-selected="{{prodItem.product_id}}"> 
+            <view class="shopping-image" >
+              <image style = "border-radius: 10rpx; height: 180rpx; width: 220rpx;" src="{{prodItem.thumbnailUrl}}" > </image>
             </view>
-            <view class="shopping-info-container" data-selected="{{prodItem}}">
-              <text class = "shopping-item-title" max-lines = "{{2}}" overflow = "ellipsis" data-selected="{{prodItem}}">{{prodItem.prodName}}</text>
-              <text class = "shopping-item-title" max-lines = "{{2}}" overflow = "ellipsis" style = "color:red" data-selected="{{prodItem}}">￥{{prodItem.price/100}}</text>
+            <view class="shopping-info-container" >
+              <text class = "shopping-item-title" max-lines = "{{2}}" overflow = "ellipsis" >{{prodItem.prodName}}</text>
+              <text class = "shopping-item-title" max-lines = "{{2}}" overflow = "ellipsis" style = "color:gray;text-decoration: line-through;" >￥{{prodItem.originalPrice/100}}</text>
+              <text class = "shopping-item-title" max-lines = "{{2}}" overflow = "ellipsis" style = "color:red" >￥{{prodItem.price/100}}</text>
             </view>
-            <view class = "choose-button" data-selected="{{prodItem}}">选规格</view>
+            <view class = "choose-button">选规格</view>
           </view>
           <!--<block  wx:for="{{item.items}}" bindtap="chooseSecondMenu" wx:key="prodIndex" wx:for-item="prodItem" data-selected="{{prodItem}}">
             <van-card<view class = "choose-button" data-selected="{{prodItem}}">选规格</view>

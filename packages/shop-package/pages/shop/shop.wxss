@@ -431,7 +431,7 @@
 }
 .shopping-image{
   height:200rpx;
-  width:200rpx;
+  width:250rpx;
   background-color: transparent;
   display:inline-block;
   box-sizing: border-box;

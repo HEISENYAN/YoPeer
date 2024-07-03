@@ -12,7 +12,7 @@
 <swiper class="swiper-container" autoplay="true" interval="3000" duration="500" indicator-dots="true">
   <block wx:for="{{selectedProduct.specifiedUrls}}" wx:for-item="imagUrl" wx:key="index">
     <swiper-item>
-      <image class="swiper-image" src="{{imagUrl[0]}}" mode="aspectFill"></image>
+      <image class="swiper-image" src="{{imagUrl}}" mode="aspectFill"></image>
     </swiper-item>
   </block>
 </swiper>
@@ -35,45 +35,12 @@
   value-class="cell-value"
 />
 
-
-<!-- 规格选择模版 -->
-<!-- <view class="product-specs">
-  <view class="spec-title">选择规格</view>
-  <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
-    <view class="picker">
-      当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}
-    </view>
-  </picker>
-</view> -->
-
-  <!-- 规格选择 -->
-<!-- <view class="product-specs" wx:for = "{{selectedProduct.optionName}}" wx:key = "wholeOption" wx:for-index = "option" wx:for-item = "optionName">
-  <view class="spec-title">{{optionName}}</view>
-  <radio-group class="radio-group" bindchange="radioChange" data-option = "{{option}}">
-    <label class="radio" wx:for="{{selectedProduct.options[option]}}" wx:key = "specOption" wx:for-index = "optionIndex" wx:for-item = "optionItem">
-        {{optionItem}}
-        <radio value="{{optionIndex}}" checked="{{optionIndex == selectedOptions[option]}}" color = "rgb(193, 153, 226)"/>
-    </label>
-  </radio-group>
-</view> -->
-
-<!-- <van-radio-group value="{{ radio }}" bind:change="onChange">
-  <van-cell-group>
-    <van-cell title="单选框 1" clickable data-name="1" bind:click="onClick">
-      <van-radio slot="right-icon" name="1" />
-    </van-cell>
-    <van-cell title="单选框 2" clickable data-name="2" bind:click="onClick">
-      <van-radio slot="right-icon" name="2" />
-    </van-cell>
-  </van-cell-group>
-</van-radio-group> -->
-
-<view class="product-specs" wx:for="{{selectedProduct.optionName}}" wx:key="wholeOption" wx:for-index="option" wx:for-item="optionName">
-  <view class="spec-title">{{optionName}}</view>
+<view class="product-specs" wx:for="{{selectedProduct.options}}" wx:key="wholeOption" wx:for-index="option" wx:for-item="optionName">
+  <view class="spec-title">{{optionName.optionName}}</view>
   <van-radio-group value="{{selectedOptions[option]}}" bind:change="onRadioChange" data-option="{{option}}">
     <van-cell-group>
       <van-cell 
-        wx:for="{{selectedProduct.options[option]}}" 
+        wx:for="{{selectedProduct.options[option].specificOptions}}" 
         wx:key="specOption" 
         wx:for-index="optionIndex" 
         wx:for-item="optionItem" 
