@@ -150,7 +150,7 @@ page {
 }
 .icon-image {
   /* background-image: url(https://i.postimg.cc/y8B03SBh/dingdan.jpg); */
-  background-color: #8a91e0;
+  /* background-color: #8a91e0; */
   width: 80rpx;
   height: 80rpx;
   object-fit: cover;
