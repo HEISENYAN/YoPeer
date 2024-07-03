@@ -9,22 +9,22 @@ Page({
     iconList:[
       {
         name:"团购订单",
-        iconUrl:"https://tdesign.gtimg.com/mobile/demos/icon1.png",
+        iconUrl:"cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/YoPeerDesign/dingdan.jpg",
         targetUrl:"/packages/shop-package/pages/order-management/order-management"
       },
       {
         name:"我的活动",
-        iconUrl:"https://tdesign.gtimg.com/mobile/demos/icon1.png",
+        iconUrl:"cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/YoPeerDesign/huodong.jpg",
         targetUrl:"/packages/activity-package/pages/activity-order-management/activity-order-management"
       },
       {
         name:"个人资料",
-        iconUrl:"https://tdesign.gtimg.com/mobile/demos/icon1.png",
+        iconUrl:"cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/YoPeerDesign/geren.jpg",
         targetUrl:"/pages/personal/login/login"
       },
       {
         name:"收货地址",
-        iconUrl:"https://tdesign.gtimg.com/mobile/demos/icon1.png",
+        iconUrl:"cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/YoPeerDesign/dizhi.jpg",
         targetUrl:"/packages/shop-package/pages/receive-info-edit/receive-info-edit"
       }
     ],
