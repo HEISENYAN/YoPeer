@@ -157,7 +157,13 @@ Page({
     if (e.detail.pass){
       nickNameReviewFlag = 1  //pass
     } 
-    else nickNameReviewFlag = 0  //fail
+    else {
+      nickNameReviewFlag = 0  //fail
+      console.log("invalid nickname")
+      this.setData({
+        nickname: ''
+      })
+    }
 },
   cloudCall(e, that, uploadResult){
     wx.cloud.callFunction({
@@ -186,7 +192,17 @@ Page({
     console.log(e.detail.value)
     const that = this
     // console.log("nickname", this.data.nickname)
-    if(e.detail.value.phoneNum.length!=this.data.maxphonenum&&e.detail.value.phoneNum.length!=0){
+    if(e.detail.value.nickname.length==0){
+      Toast({
+        context: this,
+        selector: '#t-toast',
+        message: '请输入用户名!',
+        theme: 'warning',
+        direction: 'row',
+        placement: 'bottom'
+      });
+    }
+    else if(e.detail.value.phoneNum.length!=this.data.maxphonenum&&e.detail.value.phoneNum.length!=0){
       Toast({
         context: this,
         selector: '#t-toast',
