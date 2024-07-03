@@ -6,7 +6,8 @@
     "van-cell-group": "/miniprogram_npm/@vant/weapp/cell-group/index",
     "van-sticky": "/miniprogram_npm/@vant/weapp/sticky/index",
     "t-stepper": "tdesign-miniprogram/stepper/stepper",
-    "t-fab": "tdesign-miniprogram/fab/fab"
+    "t-fab": "tdesign-miniprogram/fab/fab",
+    "t-button": "tdesign-miniprogram/button/button"
 
   },
   "renderer": "skyline"

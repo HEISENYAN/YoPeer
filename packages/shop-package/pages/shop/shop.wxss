@@ -120,7 +120,7 @@
   font-weight: 350;
   box-sizing: border-box;
   height:100%;
-  width:450rpx;
+  width:250rpx;
   font-size: 35rpx;
   display: flex;
   color:rgb(255, 82, 82);
@@ -129,13 +129,14 @@
 .check-out-button{
   box-sizing: border-box;
   height:100%;
-  width:200rpx;
-  align-items: center;
+  width:350rpx;
+  align-items:center;
   display: flex;
   font-weight: 400;
+  justify-content: flex-end;
 }
 .theButton{
-  width: 150rpx;
+  width: auto;
   box-sizing: border-box;
   height: 80rpx;
   display:flex;
@@ -146,6 +147,8 @@
   justify-content: center; /* 水平居中 */
   align-items: center;     /* 垂直居中 */
   color:#fff;
+  padding-left:20rpx;
+  padding-right:20rpx;
 }
 .cart-tab{
   display: inline-block;

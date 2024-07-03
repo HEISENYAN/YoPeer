@@ -8,6 +8,7 @@
     "t-image": "tdesign-miniprogram/image/image",
     "t-calendar": "tdesign-miniprogram/calendar/calendar",
     "van-calendar": "@vant/weapp/calendar/index",
+    "van-icon": "@vant/weapp/icon/index",
     "t-button": "tdesign-miniprogram/button/button"
   },
   "renderer": "webview",

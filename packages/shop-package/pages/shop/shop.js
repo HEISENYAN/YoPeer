@@ -236,7 +236,8 @@ Component({
               prodName:res.data[i].prodName,
               selectedItem:res.data[i].selectedItem,
               optionName:res.data[i].optionName,
-              thumbnailUrl:res.data[i].thumbnailUrl
+              thumbnailUrl:res.data[i].thumbnailUrl,
+              optionID:res.data[i].optionID
             })
           }
           that.setData({

@@ -6,5 +6,6 @@
     "t-avatar-group": "tdesign-miniprogram/avatar-group/avatar-group",
     "t-count-down": "tdesign-miniprogram/count-down/count-down",
     "t-button": "tdesign-miniprogram/button/button"
-  }
+  },
+  "renderer": "webview"
 }

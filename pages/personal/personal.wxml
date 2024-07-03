@@ -19,15 +19,36 @@
 </view> -->
 
 <!-- <view class="hr"></view> -->
-<view class = "grid-container">
-  <block wx:for = "{{iconList}}" wx:key = "key">
-    <view class = "icon-container" bindtap = "onTapIcon" data-target-url = "{{item.targetUrl}}">
-      <!-- <t-icon name = "activity" size = "60rpx"/> -->
-      <image class="icon-image" src="{{item.iconUrl}}" mode="aspectFill"/>
-      <text style = "font-size: small;color:gray;margin-top: 50rpx;">{{item.name}}</text>
+
+<view class="grid-container">
+  <block wx:for="{{iconList}}" wx:key="key">
+    <view class="icon-container" bindtap="onTapIcon" data-target-url="{{item.targetUrl}}">
+      <!-- 根据 name 展示不同的图片 -->
+      <block wx:if="{{item.name == '团购订单'}}">
+        <van-icon name="records-o" size="70rpx"/>
+      </block>
+      <block wx:elif="{{item.name == '我的活动'}}">
+        <van-icon name="gift-card-o" size="70rpx"/>
+      </block>
+      <block wx:elif="{{item.name == '个人资料'}}">
+        <van-icon name="user-o" size="70rpx"/>
+      </block>
+      <block wx:elif="{{item.name == '收货地址'}}">
+        <van-icon name="logistics" size="70rpx"/>
+      </block>
+      <text style="font-size: small; color: gray; margin-top: 13rpx;">{{item.name}}</text>
     </view>
   </block>
 </view>
+
+<!-- <view class = "grid-container">
+  <block wx:for = "{{iconList}}" wx:key = "key">
+    <view class = "icon-container" bindtap = "onTapIcon" data-target-url = "{{item.targetUrl}}">
+      <van-icon name="records-o" size="70rpx"/>
+      <text style = "font-size: small;color:gray;margin-top: 12rpx;">{{item.name}}</text>
+    </view>
+  </block>
+</view> -->
 
 
 <view class = "calendar-container">
@@ -39,7 +60,7 @@
     show-confirm = "{{false}}"
     row-height = "35"
     show-subtitle = "{{true}}"
-    color = "transparent"
+    color = "orange"
     bind:select = "onSelectDate"
   />
 </view>
