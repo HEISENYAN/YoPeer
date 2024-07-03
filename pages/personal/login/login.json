@@ -12,7 +12,8 @@
     "t-cascader": "tdesign-miniprogram/cascader/cascader",
     "t-image": "tdesign-miniprogram/image/image",
     "t-button": "tdesign-miniprogram/button/button",
-    "t-toast": "tdesign-miniprogram/toast/toast"
+    "t-toast": "tdesign-miniprogram/toast/toast",
+    "t-radio": "tdesign-miniprogram/radio/radio"
   },
   "renderer": "webview"
 

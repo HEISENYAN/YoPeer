@@ -8,6 +8,8 @@
     "pages/test_page2/test_page2",
     "pages/community/community",
     "pages/personal/login/login",
+    "pages/personal/login/privacyPolicy/privacyPolicy",
+    "pages/personal/login/communityPolicy/communityPolicy",
     "custom-tab-bar/index",
     "pages/personal/order/order",
     "pages/about-us/about-us",

@@ -234,6 +234,18 @@ Page({
       //   });
       // }
   },
+  privacyNavigate1(){
+    console.log("privacyNavigate1")
+    wx.navigateTo({
+      url: './privacyPolicy/privacyPolicy',
+    })
+  },
+  privacyNavigate2(){
+    console.log("privacyNavigate2")
+    wx.navigateTo({
+      url: './communityPolicy/communityPolicy',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

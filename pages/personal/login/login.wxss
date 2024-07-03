@@ -66,6 +66,7 @@ page {
 }
 
 .submit-button-container{
+  display: flex;
   width:92vw;
   margin-left: 4vw;
   box-sizing: border-box;

@@ -38,7 +38,7 @@
       </view>
     </t-input> -->
 
-  <view class = "personal-cell" style = "height: 334rpx;">
+  <view class = "personal-cell" style = "height: 450rpx;">
     <view style = "display: flex;">
       <view style = "width:3vw"></view>
       <view style = "width:13vw;display:flex;justify-content:start;align-items:center;">用户名</view>
@@ -91,12 +91,7 @@
       bindcancel="onPickerCancel"
     >
     <t-picker-item options="{{citys}}" /></t-picker>
-  <view class="input-example">
-
-    <!-- 学校 -->
-    <!-- <t-cell class="mb-16" title="学校" arrow hover note="{{schoolText}}" bind:click="onSchoolPicker" /> -->
-
-    
+  <!-- <view class="input-example"> -->
     <!-- 地址 -->
     <!-- <t-cell title="地址" note="{{note}}" bind:click="showCascader" arrow></t-cell>
     <t-cascader
@@ -106,17 +101,25 @@
       sub-titles="{{subTitles}}"
       bind:change="onChange"
     ></t-cascader> -->
-  </view>
-  <!-- <view class="input-example">
-  <t-input style="{{style}}" label="电话" placeholder="{{phoneNum}}" />
-  </view> -->
+    
+    <!-- <radio value="a" checked="true" color="#8a91e0"/>选中aaaaaaaaaaaaaa   -->
+    
+  <!-- </view> -->
 
-  <!-- <view style="display: flex; justify-content: space-between;">
-    <button form-type="submit" type="primary" style="width: 200rpx; margin-top: 50px;">提交</button>
-  </view> -->
+  <view style="width:92vw; margin-left: 4vw; border-radius: 10px; flex-direction: row; display: flex;">
+    <t-radio value="privacyAgreeValue" style="width: 6vw; display: flex; --td-radio-bg-color:#f5f5f5; --td-radio-icon-checked-color:#8a91e0; --td-radio-icon-size: 30rpx;"/>
+    <view style="display: flex; font-size: 20rpx;  width: 80vw; align-items: center;">
+      <text>我已阅读并同意</text>
+      <text style="color: #8a91e0;" bindtap="privacyNavigate1">《鱼饼社区隐私协议》</text>
+      <text>及</text>
+      <text style="color: #8a91e0;" bindtap="privacyNavigate2">《鱼饼社区公约》</text>
+    </view>
+  </view>
   <view class = "submit-button-container">
     <t-button type="submit" theme="primary" size="large" block style = "--td-button-primary-active-bg-color:#8a91e0;--td-button-primary-bg-color:#7581ff;--td-button-primary-border-color:#7581ff;--td-button-primary-active-border-color:#8a91e0;">保存并使用</t-button>
   </view>
 
 </form>
+
+
 <t-toast id="t-toast" style="--td-toast-max-width: 500rpx"/>
