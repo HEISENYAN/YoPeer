@@ -16,9 +16,11 @@ Page({
     selectedProduct:'',
     selectedNum:1,
     selectedOptions:[],
+    additionalPrice:0
   },
   
   // new UI kit
+  /*
   onRadioChange(event) {
     console.log(event)
     const optionIndex = event.currentTarget.dataset.option;
@@ -27,28 +29,33 @@ Page({
       [`selectedOptions[${optionIndex}]`]: selectedOption
     });
   },
-
+*/
   onRadioCellClick(event) {
     console.log(event)
     const { name } = event.currentTarget.dataset;
     const optionIndex = event.currentTarget.dataset.option;
+    var previousPrice = this.data.selectedProduct.options[event.currentTarget.dataset.option].differencePrice[this.data.selectedOptions[optionIndex]]
     this.setData({
-      [`selectedOptions[${optionIndex}]`]: parseInt(name)
-    });
+      [`selectedOptions[${optionIndex}]`]: parseInt(name),
+      additionalPrice: this.data.additionalPrice - previousPrice + this.data.selectedProduct.options[event.currentTarget.dataset.option].differencePrice[parseInt(name)]
+    },()=>console.log(this.data.additionalPrice));
   },
   
   wrapProduct:function(){
     var ypProduct = new Object();
     ypProduct.selectedNum = this.data.selectedNum;
-    ypProduct.price = this.data.selectedProduct.price;
+    ypProduct.price = this.data.selectedProduct.price + this.data.additionalPrice;
     ypProduct.selectedOptions = this.data.selectedOptions;
     ypProduct.prodName = this.data.selectedProduct.prodName;
     ypProduct.selectedItem = new Array(0);
     ypProduct.optionName = new Array(0);
     ypProduct.thumbnailUrl = this.data.selectedProduct.thumbnailUrl;
+    ypProduct.optionID = new Array(0);
+    
     for(let i = 0; i < this.data.selectedOptions.length;i++){
       ypProduct.selectedItem.push(this.data.selectedProduct.options[i].specificOptions[this.data.selectedOptions[i]]);
       ypProduct.optionName.push(this.data.selectedProduct.options[i].optionName);
+      ypProduct.optionID.push(this.data.selectedProduct.options[i].optionID[this.data.selectedOptions[i]]);
     }
     return ypProduct
   },
@@ -166,10 +173,15 @@ Page({
         product_id: options.selected
       },
       success:function(res){
+        var additionalPrice = 0;
+        for(let i in res.result.options){
+          additionalPrice += res.result.options[i].differencePrice[0]
+        }
         that.setData({
           selectedProduct:res.result,
-          selectedOptions:new Array(res.result.options).fill(0),
-        },()=>console.log(that.data.selectedOptions))
+          selectedOptions:new Array(res.result.options.length).fill(0),
+          additionalPrice:additionalPrice
+        },()=>console.log(that.data.additionalPrice,res.result.options))
       }
     })
     /*

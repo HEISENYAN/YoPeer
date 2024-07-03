@@ -28,7 +28,7 @@
 <!-- <van-tag class="little-tag" color="#8a91e0" type="primary">团购价</van-tag> -->
 <van-cell
   title="{{selectedProduct.prodName}}"
-  value="￥{{selectedProduct.price/100}}" 
+  value="￥{{(selectedProduct.price + additionalPrice)/100}}" 
   size="large" 
   label="{{selectedProduct.introduction}}" 
   title-class="cell-title"

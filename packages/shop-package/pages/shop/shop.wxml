@@ -9,7 +9,7 @@
       <view class="text-heading1">🍥鱼饼 YoPeer</view>
       <view class="text-heading2">🛍️2024Fall港校新生团购活动</view>
     </view>
-    <view class="text-heading3" bindtap="showPopup">购前须知&gt;</view>
+    <view class="text-heading3" bindtap="showPopup" ><button style = "background-color: transparent; border-color: transparent; color: white;font-size: 28rpx;font-weight: 200;"open-type = "contact">联系客服&gt;</button></view>
   </div>
 
   <view class="popup" wx:if="{{isPopupVisible}}">
@@ -55,7 +55,7 @@
             <view class="shopping-info-container" >
               <text class = "shopping-item-title" max-lines = "{{2}}" overflow = "ellipsis" >{{prodItem.prodName}}</text>
               <text class = "shopping-item-title" max-lines = "{{2}}" overflow = "ellipsis" style = "color:gray;text-decoration: line-through;" >￥{{prodItem.originalPrice/100}}</text>
-              <text class = "shopping-item-title" max-lines = "{{2}}" overflow = "ellipsis" style = "color:red" >￥{{prodItem.price/100}}</text>
+              <text class = "shopping-item-title" max-lines = "{{2}}" overflow = "ellipsis" style = "color:red" >￥{{prodItem.price/100}}起</text>
             </view>
             <view class = "choose-button">选规格</view>
           </view>
@@ -84,7 +84,7 @@
           <view wx:if="{{cartItemCount > 0}}" class="cart-item-count">{{cartItemCount}}</view> <!-- 新增的数字图标 -->
         </view>
         <view class="cart-price">￥{{cartPrice/100}}</view>
-        <view class="check-out-button"><view class="theButton" catchtap="checkOut">去结算</view></view>
+        <view class="check-out-button"><view class="theButton" catchtap="checkOut">{{cartPrice>19900?"去结算":"最低消费额￥199"}}</view></view>
       </view>
       <view slot="tabTitle" class="cart-tab">
         <view class="cross-button" catchtap="closeCart"><sky-icon icon-name="x" icon-size="45" iconColor="var(--low-chroma-l0)"></sky-icon></view>
@@ -117,7 +117,7 @@
             <view wx:if="{{cartItemCount > 0}}" class="cart-item-count">{{cartItemCount}}</view> <!-- 新增的数字图标 -->
           </view>
           <view class="cart-price">￥{{cartPrice/100}}</view>
-          <view class="check-out-button"><view class="theButton" catchtap="checkOut">去结算</view></view>
+          <view class="check-out-button"><view class="theButton" catchtap="checkOut">{{cartPrice>19900?"去结算":"最低消费额￥199"}}</view></view>
         </view>
         <!-- 渲染补偿条 -->
         <view class="cart-bar">
