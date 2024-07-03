@@ -197,7 +197,7 @@ Page({
           },
           fail(err) {
             // 支付失败回调
-            console.error('唤起支付组件失败：', err);
+            console.error('唤起支付组件失败：', err,res);
             wx.showToast({
               title: '支付失败请重试',
               icon: "error",
@@ -354,6 +354,7 @@ Page({
           cart.optionName = res.data[i].optionName
           cart.selectedItem = res.data[i].selectedItem
           cart.thumbnailUrl = res.data[i].thumbnailUrl
+          cart.optionID = res.data[i].optionID
           for(let j in res.data[i].optionName){
             cart.specificOptions += res.data[i].optionName[j] + ':' + res.data[i].selectedItem[j]+"；"
           }
