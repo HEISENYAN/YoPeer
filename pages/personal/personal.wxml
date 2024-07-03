@@ -60,7 +60,7 @@
     show-confirm = "{{false}}"
     row-height = "35"
     show-subtitle = "{{true}}"
-    color = "transparent"
+    color = "orange"
     bind:select = "onSelectDate"
   />
 </view>
