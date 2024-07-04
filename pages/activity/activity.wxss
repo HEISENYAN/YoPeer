@@ -209,7 +209,7 @@
 
 .subTitle{
   margin-bottom: -30rpx;
-  padding-top: 30rpx;
+  padding-top: 20rpx;
   padding-left: 50rpx;
   color: black;
   font-weight: 500;
