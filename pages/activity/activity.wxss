@@ -22,7 +22,7 @@
 /* index.wxss */
 .notice-bar {
   background-color: white;
-  /* background: linear-gradient(to left, white 35%, #ffc977 ); 控制橙色部分比例 */
+  /* background: linear-gradient(to left, #fcad37, #d0d3f8);  */
   height: 15vh;
   width: 92vw;
   margin-left: 4vw;
