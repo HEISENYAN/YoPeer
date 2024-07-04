@@ -51,7 +51,7 @@ Page({
     userInfo: {
       name: app.globalData.nickName,
       avatar: app.globalData.avatarUrl, // 用户头像的URL
-      level: 'VIP 0',
+      level: 'VIP 1',
       exp: 0, // 经验值百分比
       university: app.globalData.school
     },
