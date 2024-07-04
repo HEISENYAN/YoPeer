@@ -5,6 +5,15 @@
       <t-image src="{{avatarUrl}}" mode="aspectFill" width="56" height="56" shape="round"/>
     </view>
     <text style ="width:200rpx;height:200rpx;display:inline-block;font-size:40rpx;  white-space: nowrap;">{{nickname}}</text>
+    <view class="level-exp">
+        <text>我的鱼饼等级：</text> 
+        <text style="color: #fcad37;">{{userInfo.level}}</text>
+        <view class="exp-bar-container">
+          <view class="exp-bar" style="width: {{userInfo.exp}}%;"></view>
+        </view>
+        <view class="levelExpRmd">距离下一级还有：200</view>
+    </view>
+    <view class="bg"></view>
   </view>
 </view>
 <!-- <view class="order-group__item__icon icon-class">

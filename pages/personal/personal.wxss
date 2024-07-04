@@ -53,7 +53,50 @@ page {
   display:inline-block;
   border-radius: 20%;
 }
+.level-exp {
+  /* background-color: gray; */
+  height: 10vh;
+  margin-top: -2vh;
+  width: 60%;
+  text-align: center;
+  font-weight: 300;
+  font-size: 25rpx;
+  color: rgb(0, 0, 0);
+  z-index: 2;
 
+}
+.exp-bar-container {
+  width: 80%;
+  height: 2px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  margin: 5px auto;
+  margin-top: -4vh;
+}
+.exp-bar {
+  height: 100%;
+  background-color: orange;
+  border-radius: 5px;
+  z-index: 2;
+
+}
+.levelExpRmd{
+  font-size: 20rpx;
+  color: grey;
+  margin-top: -4.5vh;
+  z-index: 2;
+
+}
+.bg{
+  position: absolute;
+  width: 50vh;
+  height: 10vh;
+  background: linear-gradient(to right, white, #fcad37); /* 白色到橙色的渐变 */
+  border-radius: 80rpx 0 0 80rpx;
+  margin-top: 1vh;
+  margin-left: 45%;
+  z-index: 1;
+}
 
 /* 用户中心 */
 /* .container {

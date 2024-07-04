@@ -33,6 +33,13 @@ Page({
    avatarUrl: app.globalData.avatarUrl,
    yoPeerValue: 360,
   // pickerOptions: ['PolyU', 'HKU', 'HKUST', 'CUHK', 'CITYU', 'HKBU', 'LINGU'],
+  userInfo: {
+    name: app.globalData.nickName,
+    avatar: app.globalData.avatarUrl, // 用户头像的URL
+    level: 'VIP 1',
+    exp: 25, // 经验值百分比
+    university: app.globalData.school
+  },
   },
 // 点击日历时弹出框
 onVisibleChange(e) {
