@@ -19,7 +19,8 @@
     "t-date-time-picker": "tdesign-miniprogram/date-time-picker/date-time-picker",
     "t-popup": "tdesign-miniprogram/popup/popup",
     "t-icon": "tdesign-miniprogram/icon/icon",
-    "t-button": "tdesign-miniprogram/button/button"
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-notice-bar": "tdesign-miniprogram/notice-bar/notice-bar"
   },
   "renderer":"webview"
 }

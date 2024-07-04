@@ -9,9 +9,9 @@
       <view class="text-heading1">🍥鱼饼 YoPeer</view>
       <view class="text-heading2">🛍️2024Fall港校新生团购活动</view>
     </view>
-    <view class="text-heading3" bindtap="showPopup" ><button style = "background-color: transparent; border-color: transparent; color: white;font-size: 28rpx;font-weight: 200;"open-type = "contact">联系客服&gt;</button></view>
+    <view class="text-heading3"><button style = "background-color: transparent; border-color: transparent; color: white;font-size: 28rpx;font-weight: 200;"open-type = "contact">联系客服&gt;</button></view>
   </div>
-
+  <t-notice-bar visible="{{true}}"prefix-icon	="{{false}}" bindtap = "showPopup" content="下单前请仔细阅读购前须知，点击查看购前须知>"></t-notice-bar>
   <view class="popup" wx:if="{{isPopupVisible}}">
     <view class="popup-content">
       <text class="close-popup" bindtap="closePopup">&times;</text>
@@ -35,7 +35,13 @@
       <scroll-view class = "scroll-view" type = "list" >
         <view class = "scorll-view-list">
           <block wx:for ="{{YPproduct}}" wx:for-item = "item" wx:key = "index">
-            <view class="scroll-view-item {{indexSize === index?'active':''}}" bindtap="chooseTypes" data-nowindex="{{index}}">{{item.classification}}</view>
+            <block wx:if = "{{index == 1||index == 0}}">
+              <view class="scroll-view-item {{indexSize === index?'active':''}}" style = "color:red;font-weight:{{indexSize === index?'bold':'bolder'}}" bindtap="chooseTypes" data-nowindex="{{index}}">{{item.classification}}</view>
+            </block>
+            <block wx:if = "{{index != 1 && index != 0}}">
+              <view class="scroll-view-item {{indexSize === index?'active':''}}" bindtap="chooseTypes" data-nowindex="{{index}}">{{item.classification}}</view>
+            </block>
+            
           </block>
         </view>
       </scroll-view>
@@ -43,10 +49,22 @@
   
   <!--右侧二级菜单-->
     <scroll-view scroll-y style="width: 100%; height: 100%; background-color:rgb(248, 248, 248);" type="custom" scroll-into-view="{{scrollIntoView}}"  bindscroll ="scrollDetection">
-      <sticky-section wx:for="{{YPproduct}}" wx:key = "index" wx:for-item = "item" >
+      <sticky-section wx:for="{{YPproduct}}" wx:key = "key" wx:for-item = "item" >
         <sticky-header>
           <view class="header" id = "menuIndex{{index}}">{{item.classification}}</view>
         </sticky-header>
+        <list-view class = "item-list" wx:if = "{{index == 0}}">
+          <view class="shopping-item" catchtap = "onTapChange"> 
+            <view class="shopping-image" >
+              <image style = "border-radius: 10rpx; height: 180rpx; width: 220rpx;" src="cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/新生团购商品介绍缩略图/跳转至一级目录：床上用品.jpg" > </image>
+            </view>
+            <view class="shopping-info-container">
+              <text class = "shopping-item-title" max-lines = "{{5}}" overflow = "ellipsis" >鱼饼优选|床上用品专区|点击立即前往挑选</text>
+              
+            </view>
+            
+          </view>
+        </list-view>
         <list-view class = "item-list">
           <view class="shopping-item" wx:for="{{item.items}}" bindtap="chooseSecondMenu" wx:key="prodIndex" wx:for-item="prodItem" data-selected="{{prodItem.product_id}}"> 
             <view class="shopping-image" >

@@ -31,14 +31,13 @@ Page({
   },
 */
   onRadioCellClick(event) {
-    console.log(event)
     const { name } = event.currentTarget.dataset;
     const optionIndex = event.currentTarget.dataset.option;
     var previousPrice = this.data.selectedProduct.options[event.currentTarget.dataset.option].differencePrice[this.data.selectedOptions[optionIndex]]
     this.setData({
       [`selectedOptions[${optionIndex}]`]: parseInt(name),
       additionalPrice: this.data.additionalPrice - previousPrice + this.data.selectedProduct.options[event.currentTarget.dataset.option].differencePrice[parseInt(name)]
-    },()=>console.log(this.data.additionalPrice));
+    });
   },
   
   wrapProduct:function(){
@@ -65,7 +64,6 @@ Page({
     wx.getStorage({
       key:"ypCart",
       fail: function(res){
-        console.log(res)
         //判断是否创造过购物车 有bug 不同设备errmsg不一样 改为直接运行
         if(true){
           const ypProduct = that.wrapProduct()
@@ -166,6 +164,9 @@ Page({
    */
   //初始化数据
   onLoad(options) {
+    wx.showLoading({
+      title: '正在加载'
+    })
     const that = this
     wx.cloud.callFunction({
       name:"getProduct",
@@ -181,7 +182,7 @@ Page({
           selectedProduct:res.result,
           selectedOptions:new Array(res.result.options.length).fill(0),
           additionalPrice:additionalPrice
-        },()=>console.log(that.data.additionalPrice,res.result.options))
+        },()=>wx.hideLoading())
       }
     })
     /*

@@ -3,7 +3,7 @@ import {hallAddress, areaAddress, pickDateList} from './data'
 wx.cloud.init()
 var Price = 0;
 var actualPrice = 0;
-const yopeerVoucher =  "HONGKONG2024"
+const yopeerVoucher =  ["YoPeer2024","HongKong2024","PolyU2024","CityU2024","HKU2024","CUHK2024","HKUST2024","LNU2024","EduHK2024","HKBU2024","YP2024","MRY2024","FIRSTYP","2024YP","2024YoPeer"]
 
 const getOptions = (obj, filter) => {
   const res = Object.keys(obj).map((key) => ({ value: key, label: obj[key] }));
@@ -60,6 +60,11 @@ Page({
 
     // 优惠码
     promotionCode: '',
+    marquee1: {
+      speed: 60,
+      loop: -1,
+      delay: 0,
+    },
   },
 
   //  取货时间 开始
@@ -108,14 +113,28 @@ Page({
 
   setPromotionCode(e){
     //console.log(e.detail.value)
+    const that = this
     this.setData({
       promotionCode: e.detail.value
     },()=>{
-      if(this.data.promotionCode == yopeerVoucher){
-        actualPrice = Price - 1//减少价格 单位分
-        this.setData({
-          finalPrice:actualPrice
-        })
+      if(yopeerVoucher.includes(this.data.promotionCode) && Price >= 5){
+        if(getApp().globalData.isVoucher == true){
+          wx.showModal({
+            title: '优惠已使用',
+            content: '您已使用过优惠，无法再次使用',
+            complete: (res) => {
+              that.setData({
+                promotionCode:''
+              })
+            }
+          })
+        }
+        else{
+          actualPrice = Price - 3//减少价格 单位分
+          this.setData({
+            finalPrice:actualPrice
+          })
+        }
       }
       else{
         actualPrice = Price//减少价格 单位分
@@ -173,7 +192,8 @@ Page({
                 productInfo:that.data.checkOutInfo,
                 paidPrice:actualPrice,
                 totalPrice:Price,
-                isDiscount: !(Price == actualPrice)
+                isDiscount: !(Price == actualPrice),
+                voucher:that.data.promotionCode
               },
               success: function(res){
                 wx.showModal({

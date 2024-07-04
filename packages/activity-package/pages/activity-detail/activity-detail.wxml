@@ -35,6 +35,9 @@
     <text style = "font-size: 27rpx;">{{formatData(activityInfo.hostDate)[0]}} 周{{formatData(activityInfo.hostDate)[2]}}</text>
   </view>
   <view>
+    <text style = "font-size: 27rpx;">{{formatData(activityInfo.deadline)[0]}} {{formatData(activityInfo.deadline)[1]}} 截止</text>
+  </view>
+  <view>
     <text style = "font-size: 27rpx;color:red;">￥{{activityInfo.price/100}}</text>
   </view>
   <t-divider content="{{activityInfo.registeredNum}}人已报名，还可加入{{activityInfo.quota - activityInfo.registeredNum}}人" align="left" />

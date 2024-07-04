@@ -17,7 +17,8 @@ App({
     consigneePhoneNum: '请填写收货人手机号码',
     sky_system:{},
     sky_menu:{},
-    tabbarActive:0
+    tabbarActive:0,
+    isVoucher:false
   },
   onLaunch(options){
     ;(async ()=>{

@@ -155,6 +155,7 @@ Page({
   // },
   nickNameReview(e) {  //审核昵称
     if (e.detail.pass){
+      console.log("pass")
       nickNameReviewFlag = 1  //pass
     } 
     else {

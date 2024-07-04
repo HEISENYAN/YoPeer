@@ -35,33 +35,38 @@
   value-class="cell-value"
 />
 
-<view class="product-specs" wx:for="{{selectedProduct.options}}" wx:key="wholeOption" wx:for-index="option" wx:for-item="optionName">
-  <view class="spec-title">{{optionName.optionName}}</view>
-  <van-radio-group value="{{selectedOptions[option]}}" bind:change="onRadioChange" data-option="{{option}}">
-    <van-cell-group>
-      <van-cell 
-        wx:for="{{selectedProduct.options[option].specificOptions}}" 
-        wx:key="specOption" 
-        wx:for-index="optionIndex" 
-        wx:for-item="optionItem" 
-        title="{{optionItem}}" 
-        clickable 
-        data-name="{{optionIndex}}" 
-        data-option="{{option}}" 
-        bind:click="onRadioCellClick"
-      >
-        <van-radio 
-          slot="right-icon" 
-          name="{{optionIndex}}" 
-          checked="{{optionIndex == selectedOptions[option]}}" 
-        />
-      </van-cell>
-    </van-cell-group>
-  </van-radio-group>
+
+  <view class="option-container" wx:for="{{selectedProduct.options}}" wx:key="wholeOption" wx:for-index="option" wx:for-item="optionName">
+    <view class="spec-title">{{optionName.optionName}}</view>
+    <van-radio-group value="{{selectedOptions[option]}}" bind:change="onRadioChange" data-option="{{option}}">
+      <van-cell-group>
+        <van-cell 
+          wx:for="{{selectedProduct.options[option].specificOptions}}" 
+          wx:key="specOption" 
+          wx:for-index="optionIndex" 
+          wx:for-item="optionItem" 
+          title="{{optionItem}}" 
+          clickable 
+          data-name="{{optionIndex}}" 
+          data-option="{{option}}" 
+          bind:click="onRadioCellClick"
+        >
+          <van-radio 
+            slot="right-icon" 
+            name="{{optionIndex}}" 
+            checked="{{optionIndex == selectedOptions[option]}}" 
+          />
+        </van-cell>
+      </van-cell-group>
+    </van-radio-group>
+  </view>
+
+
+<view class = "introduction-image-container" wx:if = "{{selectedProduct.introductionUrls.length}}">
+  <block wx:for = "{{selectedProduct.introductionUrls}}" wx:key = "key">
+    <image src = "{{item}}" mode = "widthFix" style = "width: 100%;font-size: 0;"/>
+  </block>
 </view>
-
-
-
 
 <!-- 加入购物车 -->
 <view class = "order-bar">
@@ -75,6 +80,7 @@
     <button class="buy-button" bindtap="onAddCart">加入购物车</button>
   </view>
 </view>
+
 
 <!-- 底部拓展白边 -->
 <view class = "bottom-margin"> </view>

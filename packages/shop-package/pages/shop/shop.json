@@ -7,7 +7,8 @@
     "van-sticky": "/miniprogram_npm/@vant/weapp/sticky/index",
     "t-stepper": "tdesign-miniprogram/stepper/stepper",
     "t-fab": "tdesign-miniprogram/fab/fab",
-    "t-button": "tdesign-miniprogram/button/button"
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-notice-bar": "tdesign-miniprogram/notice-bar/notice-bar"
 
   },
   "renderer": "skyline"

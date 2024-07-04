@@ -32,10 +32,21 @@ Component({
     ypCart:[],
     isPopupVisible: false,
     cartFresh:true,
-    cartItemCount: 0 // 用于存储购物车商品总数量
+    cartItemCount: 0, // 用于存储购物车商品总数量
+    marquee1: {
+      speed: 80,
+      loop: -1,
+      delay: 0,
+    }
   },
-
+  
   methods:{
+    onTapChange(){
+      this.setData({
+        scrollIntoView:"#menuIndex3",
+        indexSize:3
+      })
+    },
     onChangeStepper(e){
       //console.log(e.detail.value)
       const operatedItem = e.target.dataset.operatedItem

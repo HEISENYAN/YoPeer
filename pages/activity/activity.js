@@ -55,66 +55,15 @@ Page({
       exp: 25, // 经验值百分比
       university: app.globalData.school
     },
-
-    //
-    cardList: [
-      {
-        // ！！注意这里的详情字数需要控制不然会出现bug
-        image: 'cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/activity-image/682ff74017e6381166455199902b853.jpg',
-        title: '深圳·云台寺精心禅修之旅',
-        date: '2024-07-31/南山区金地购物中心',
-        description: '“云台寺精心禅修之旅”是一场宁静而深邃的心灵之旅，带您走进历史悠久的云台寺，在大师的指导下，通过禅修、冥想与自然融合，寻觅内心的平和与智慧，体验身心灵的全方位升华。',
-        participants: [
-          { avatar: 'path/to/avatar1.jpg' },
-          { avatar: 'path/to/avatar2.jpg' },
-          { avatar: 'path/to/avatar3.jpg' }
-        ],
-        keywords:["静心探寺","深度交流"]
-      },
-      {
-        image: 'cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/activity-image/f8748c3296e2eaa905767b43fe06e59.jpg',
-        title: '泰国·普吉岛浪漫三天两夜',
-        date: '2024-07-18/泰国普吉岛',
-        description: '“欢迎加入“普吉岛浪漫三天两夜”之旅！在这次浪漫之行中，您将入住豪华度假村，享受无边泳池和私密沙滩的宁静。每日的精致晚餐和热带美景将为您和您的爱人打造难忘的回忆。',
-        participants: [
-          { avatar: 'path/to/avatar1.jpg' },
-          { avatar: 'path/to/avatar2.jpg' },
-          { avatar: 'path/to/avatar3.jpg' },
-        ],
-        keywords:["热带风情","户外探索"]
-      },
-      {
-        // ！！注意这里的详情字数需要控制不然会出现bug
-        image: 'cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/activity-image/682ff74017e6381166455199902b853.jpg',
-        title: '深圳·云台寺精心禅修之旅',
-        date: '2024-07-31/南山区金地购物中心',
-        description: '“云台寺精心禅修之旅”是一场宁静而深邃的心灵之旅，带您走进历史悠久的云台寺，在大师的指导下，通过禅修、冥想与自然融合，寻觅内心的平和与智慧，体验身心灵的全方位升华。',
-        participants: [
-          { avatar: 'path/to/avatar1.jpg' },
-          { avatar: 'path/to/avatar2.jpg' },
-          { avatar: 'path/to/avatar3.jpg' }
-        ],
-        keywords:["静心探寺","深度交流"]
-      },
-    ]
-
+    specialActivityList: []
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onSelectSpecialActivity(e){
-    console.log(e)
-    var activityID = ''
-    if(e.currentTarget.dataset.selectedActivity == 1){
-      activityID = 'e2764d2d667a5062038faf7d6f91b7bb'
-    }
-    else{
-      activityID = 'c45ba8cc667a42d803885c89344ee65c'
-    }
     wx.navigateTo({
-        url: '/packages/activity-package/pages/activity-detail/activity-detail?activityID='+activityID,
+        url: '/packages/activity-package/pages/activity-detail/activity-detail?activityID='+e.currentTarget.dataset.selectedActivity,
       })
-    
   },
   onClickSwiper(e){
     console.log(e)
@@ -159,6 +108,7 @@ Page({
         app.globalData.phoneNum = phoneString[1]
         app.globalData.wechatID = res.result.wechatID
         app.globalData._openid = res.result._openid
+        app.globalData.isVoucher = res.result.isVoucher
         that.setData({
           userInfo:{
             name : app.globalData.nickName,
@@ -170,9 +120,23 @@ Page({
         })
         // console.log()
       },
-      
     });
-    
+    wx.cloud.callFunction({
+      name:"getSpecialActivityList",
+      success:function(res){
+        console.log(res.result)
+        that.setData({
+          specialActivityList:res.result
+        })
+      },
+      fail:function(res){
+        console.log(res)
+        wx.showToast({
+          icon:"error",
+          title:"加载出错"
+        })
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -243,10 +207,11 @@ Page({
   },
 
   onTouchEnd(event) {
+    
     // 获取触摸结束的X坐标
     const endX = event.changedTouches[0].clientX;
     const index = event.currentTarget.dataset.index;
-    const cardList = this.data.cardList;
+    var List = this.data.specialActivityList;
 
     // 计算滑动的距离
     const deltaX = endX - this.data.startX;
@@ -255,15 +220,15 @@ Page({
     if (Math.abs(deltaX) > 50) {
       if (deltaX < 0) {
         // 左滑，将点击的卡片移到最后一个位置
-        const selectedCard = cardList.splice(index, 1)[0];
-        cardList.push(selectedCard);
+        const selectedCard = List.splice(index, 1)[0];
+        List.push(selectedCard);
       } else {
         // 右滑，将点击的卡片移到第一个位置
-        const selectedCard = cardList.splice(index, 1)[0];
-        cardList.unshift(selectedCard);
+        const selectedCard = List.splice(index, 1)[0];
+        List.unshift(selectedCard);
       }
       this.setData({
-        cardList: cardList
+        specialActivityList: List
       });
     }
   }

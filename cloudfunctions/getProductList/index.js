@@ -6,5 +6,5 @@ const db = cloud.database()
 // 云函数入口函数
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
-  return await db.collection("yopeerProduct").get({})
+  return await db.collection("yopeerProduct").orderBy('orderIndex','asc').get({})
 }

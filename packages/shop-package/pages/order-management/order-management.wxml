@@ -37,7 +37,7 @@
     </view>
     <view class = "order-number-container">
       <text style = "font-size: small;">收货人联系电话</text>
-      <text style = "margin-left: auto;font-size: small;">{{order.receiveInfo.phoneNumer}}</text>
+      <text style = "margin-left: auto;font-size: small;">{{order.receiveInfo.phoneNumber}}</text>
     </view>
     <view class = "order-number-container">
       <text style = "font-size: small;">预计收货日期：</text>

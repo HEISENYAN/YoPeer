@@ -9,6 +9,13 @@
   />
   <view class="scroll-area" type="list">
     <view class="intro">欢迎来到YoPeer港校新生团购活动🐱</view>
+    <t-notice-bar
+      visible="{{true}}"
+      prefixIcon="null"
+      marquee="{{marquee1}}"
+      content="欢迎来到2024鱼饼港校新生团购，下单前请仔细核对【下单金额】【收货地址】【收货人】【预计收货时间】，如有疑问请及时联系客服，祝您购物愉快。"
+      style = "--td-notice-bar-info-bg-color:rgb(230,230,230)"
+    ></t-notice-bar>
     <van-cell-group inset class="unit-area">
       <van-cell title="港校新生团购结算"/>
       <block wx:for = "{{checkOutInfo}}" wx:key = "checkOutKey" wx:for-item = "checkOutItem">
@@ -18,7 +25,7 @@
       </block>
       <van-cell title="总金额：" value="¥{{checkOutPrice/100}}" size="large" value-class="checkOutPrice"/>
     </van-cell-group>
-
+    
     <van-cell-group inset class="unit-area2">
       <!-- <van-cell title="优惠券" is-link value="" />
       <van-cell title="备注" is-link value="" arrow-direction="down"/>

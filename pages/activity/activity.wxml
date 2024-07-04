@@ -1,5 +1,19 @@
 
 <scroll-view class = "main-page" type = "custom" scroll-y="true">
+  <wxs module="formatData">
+    module.exports=function(timestamp){
+        var date=getDate(timestamp)
+        var y=date.getFullYear()
+        var m=date.getMonth() + 1
+        var d=date.getDate()
+        var h=date.getHours()
+        var i=date.getMinutes()
+        var s=date.getSeconds()
+        var k = date.getDay()
+        var day = ["日","一","二","三","四","五","六"]
+        return [y+'-'+m+'-'+d, h+':'+i, day[k]]
+    }
+</wxs>
   <!--顶部状态栏-->
   <!-- <view class = "top-margin" style = "height:{{statusBarHeight}}px"> </view> -->
   <view style = "position: relative; width:100%;height:33vh;">
@@ -28,7 +42,7 @@
         <text>我的鱼饼等级：</text> 
         <text style="color: #fcad37;">{{userInfo.level}}</text>
         <view class="exp-bar-container">
-          <view class="exp-bar" style="width: {{userInfo.exp}}%;"></view>
+          <view class="exp-bar" style="width: {{userInfo.exp}};"></view>
         </view>
         <text class="levelExpRmd">距离下一级还有：200</text>
       </view>
@@ -42,23 +56,23 @@
   <view class="subTitle">Weekend x 鱼饼精选</view>
   <view class="container">
   <view class="card-stack">
-    <block wx:for="{{cardList}}" wx:key="index">
-      <view bindtap="onSelectSpecialActivity" data-selected-activity="{{index}}"class="card" 
-            style="z-index: {{cardList.length - index}}; transform: translateX(+{{index * 50}}rpx) scale({{1 - index * 0.05}}, {{1 - index * 0.05}});" 
+    <block wx:for="{{specialActivityList}}" wx:key="index">
+      <view bindtap="onSelectSpecialActivity" data-selected-activity="{{item.activity_id}}"class="card" 
+            style="z-index: {{specialActivityList.length - index}}; transform: translateX(+{{index * 50}}rpx) scale({{1 - index * 0.05}}, {{1 - index * 0.05}});" 
             animation="{{item.animationData}}"
             bindtouchstart="onTouchStart" 
             bindtouchend="onTouchEnd" 
             data-index="{{index}}">
-        <image class="card-image" src="{{item.image}}"></image>
+        <image class="card-image" src="{{item.imageUrl}}"></image>
         <view class="card-content">
-          <text class="card-title">{{item.title}}</text>
-          <text class="card-date">{{item.date}}</text>
+          <text class="card-title">{{item.activityName}}</text>
+          <text class="card-date">{{formatData(item.activityDate)[0]}}/{{item.place}}</text>
           <view class="card-buttons">
             <view class="card-button1">{{item.keywords[0]}}</view>
             <view class="card-button2">{{item.keywords[1]}}</view>
           </view>
           <view class="separator-horizon"></view>
-          <view class="card-description">{{item.description}}</view>
+          <view class="card-description">{{item.introduction}}</view>
           <view class="join-button">即刻加入</view>
         </view>
       </view>
@@ -66,7 +80,7 @@
   </view>
 </view>
 
-
+<!--
   <view class="subTitle-2">Weekend x 周末活动</view>
   
   <scroll-view class="category" scroll-x >
@@ -84,7 +98,7 @@
         <view>欢迎加入“普吉岛浪漫三天两夜”之旅！在这次浪漫之行中，您将入住豪华度假村，享受无边泳池和私密沙滩的宁静。</view>
       </view>
     </view>
-  </scroll-view>
+  </scroll-view>-->
 
   <!-- <view class="subTitle-2">其他</view>
   <view class="waterfall">

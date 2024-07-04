@@ -24,7 +24,8 @@ exports.main = async (event, context) => {
       schoolIndex:0,
       school:"未知学校",
       isRegistered: false,
-      wechatID: ""
+      wechatID: "",
+      isVoucher:false
     }
   })
   const userInfo2 = await db.collection('yopeerUser').doc(wxContext.OPENID).get()
