@@ -25,7 +25,7 @@
     <view class="icon-container" bindtap="onTapIcon" data-target-url="{{item.targetUrl}}">
       <!-- 根据 name 展示不同的图片 -->
       <block wx:if="{{item.name == '团购订单'}}">
-        <van-icon name="records-o" size="70rpx"/>
+        <van-icon name="records-o" size="70rpx" color="orange"/>
       </block>
       <block wx:elif="{{item.name == '我的活动'}}">
         <van-icon name="gift-card-o" size="70rpx"/>
