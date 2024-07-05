@@ -166,8 +166,10 @@ Page({
   // onNickNameInput(e) {//昵称变化
   //   ifFormChange = 1  //changed
   // },
+  onNicknameFocus(){
+    ifNickNameReviewed=0
+  },
   nickNameReview(e) {  //审核昵称
-    ifNickNameReviewed = 1
     if (e.detail.pass&&this.data.nickname.length!=0){
       console.log("nickname passed")
       nickNameReviewFlag = 1  //pass
@@ -179,6 +181,7 @@ Page({
         nickname: ''
       })
     }
+    ifNickNameReviewed = 1
   },
   cloudCall(e, that){
     wx.cloud.callFunction({
@@ -209,8 +212,6 @@ Page({
     })
   },
   formSubmit(e){
-    // console.log("privacyAgreeValue", e.detailprivacyAgreeValue)
-    // console.log(e.detail.value)
     const that = this
     if(e.detail.value.nickname.length==0){
       Toast({
@@ -243,7 +244,6 @@ Page({
       });
     }
     else if((nickNameReviewFlag==1&&ifNickNameReviewed==1)||ifFormChange==0){
-      // console.log("nickNameReviewFlag, ifFormChange", nickNameReviewFlag, ifFormChange)
       wx.showLoading({
         title: '正在更新'
       })
@@ -252,7 +252,6 @@ Page({
       if(e.detail.value.phoneNum)  app.globalData.phoneNum = e.detail.value.phoneNum;
       if(e.detail.value.wechatID)  app.globalData.wechatID = e.detail.value.wechatID;
       this.cloudCall(e, that)
-      // console.log("nickNameReviewFlag, ifFormChange", nickNameReviewFlag, ifFormChange)
       nickNameReviewFlag = 0
       ifNickNameReviewed = 0
     }
@@ -268,13 +267,11 @@ Page({
       // }
   },
   privacyNavigate1(){
-    // console.log("privacyNavigate1")
     wx.navigateTo({
       url: './privacyPolicy/privacyPolicy',
     })
   },
   privacyNavigate2(){
-    // console.log("privacyNavigate2")
     wx.navigateTo({
       url: './communityPolicy/communityPolicy',
     })
