@@ -94,7 +94,7 @@
 }
 .activity-cell-head{
   background-size: cover;
-  height: auto;
+  height: 25vh;
   width: 92vw;
   box-sizing:border-box;
   margin-left:4vw;
