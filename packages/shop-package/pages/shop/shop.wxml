@@ -85,7 +85,7 @@
           <view wx:if="{{cartItemCount > 0}}" class="cart-item-count">{{cartItemCount}}</view> <!-- 新增的数字图标 -->
         </view>
         <view class="cart-price">￥{{cartPrice/100}}</view>
-        <view class="check-out-button"><view class="theButton" catchtap="checkOut">{{cartPrice>19900?"去结算":"最低消费额￥199"}}</view></view>
+        <view class="check-out-button"><view class="theButton" catchtap="checkOut">{{YPproduct[YPproduct.length - 1].classification == "团购已截止"?"已截止":cartPrice>19900?"去结算":"最低消费额￥199"}}</view></view>
       </view>
       <view slot="tabTitle" class="cart-tab">
         <view class="cross-button" catchtap="closeCart"><sky-icon icon-name="x" icon-size="45" iconColor="var(--low-chroma-l0)"></sky-icon></view>
@@ -118,7 +118,7 @@
             <view wx:if="{{cartItemCount > 0}}" class="cart-item-count">{{cartItemCount}}</view> <!-- 新增的数字图标 -->
           </view>
           <view class="cart-price">￥{{cartPrice/100}}</view>
-          <view class="check-out-button"><view class="theButton" catchtap="checkOut">{{cartPrice>19900?"去结算":"最低消费额￥199"}}</view></view>
+          <view class="check-out-button"><view class="theButton" catchtap="checkOut">{{YPproduct[YPproduct.length - 1].classification == "团购已截止"?"已截止":cartPrice>19900?"去结算":"最低消费额￥199"}}</view></view>
         </view>
         <!-- 渲染补偿条 -->
         <view class="cart-bar">

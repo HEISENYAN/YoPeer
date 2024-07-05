@@ -50,7 +50,7 @@
   </view>
   
   <view class="subTitleHead">最新2024港校新生团购活动</view>
-  <image class = "activity-cell-head" mode="aspectFill" bindtap = "onSelectActivity" src = "cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/2024港校新生分享会/团购活动入口主海报-2.png">
+  <image class = "activity-cell-head" mode="aspectFill" bindtap = "onSelectActivity" src = "cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/小程序插画设计-1/42d3e743dc9cba8175723f7dab7a38a.png">
   </image>
 
   <view class="subTitle">Weekend x 鱼饼精选</view>

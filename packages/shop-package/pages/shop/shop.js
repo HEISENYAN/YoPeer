@@ -9,7 +9,7 @@ const GestureState = {
 const { shared, timing } = wx.worklet
 wx.cloud.init()
 const capsule = wx.getMenuButtonBoundingClientRect()
-console.log(capsule)
+const endDate = 1723996800
 Component({
 
   /**
@@ -145,7 +145,15 @@ Component({
       })
     },
     checkOut: function(e){
-      if(this.data.cartPrice < 19900){
+
+      
+      if(this.data.YPproduct[this.data.YPproduct.length - 1].classification == "团购已截止"){
+        wx.showModal({
+          title:"团购已截止",
+          content:"2024港校新生团购已截止，感谢您的参与，如您已下单可至【个人中心->我的订单】查看已付款订单，有其它疑问请联系客服解决。"
+        })
+      }
+      else if(this.data.cartPrice < 19900){
         wx.showToast({
           title: '最低消费￥199',
           icon:"error"
