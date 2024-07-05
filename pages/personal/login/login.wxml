@@ -42,7 +42,7 @@
     <view style = "display: flex;">
       <view style = "width:3vw"></view>
       <view style = "width:13vw;display:flex;justify-content:start;align-items:center;">用户名</view>
-      <view style = "width:77vw;"><t-input name="nickname" style = "--td-input-border-radius: @radius-large" borderless="{{true}}" maxlength="{{20}}" placeholder="请填写用户" value="{{nickname}}" bindchange="onNicknameChange" type="nickname" bindnicknamereview="nickNameReview">
+      <view style = "width:77vw;"><t-input name="nickname" style = "--td-input-border-radius: @radius-large" borderless="{{true}}" maxlength="{{12}}" placeholder="请填写用户名（仅限中英文、下划线）" value="{{nickname}}" bindchange="onNicknameChange" type="nickname" bindnicknamereview="nickNameReview">
       </t-input></view>
     </view>
     <view style = "display: flex;">

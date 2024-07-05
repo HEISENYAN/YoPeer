@@ -109,10 +109,12 @@ Page({
   //   }
   // },
   onNicknameChange(e){
-    console.log(e.detail.value)
+    // console.log(e.detail.value)
+    let nicknameValue = e.detail.value;
+    nicknameValue = nicknameValue.replace(/[^\u4e00-\u9fa5a-zA-Z_]/g, '');  //^：非；\u4e00-\u9fa5:中文；a-zA-Z：英文；_：下划线
     ifFormChange = 1
     this.setData({
-      nickname: e.detail.value
+      nickname: nicknameValue
     })
   },
   onFormChange(e){
