@@ -1,1 +1,13 @@
-/* pages/personal/login/communityPolicy/communityPolicy.wxss */
+.bold {
+  font-weight: bold;
+}
+
+.indent1{
+  text-indent:1em;
+}
+.indent2{
+  text-indent:2em;
+}
+.empty-line {
+  margin-bottom: 1em; /* 或者使用具体的像素值，如 16px */
+}

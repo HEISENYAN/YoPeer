@@ -10,6 +10,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/personal/login/privacyPolicy/privacyPolicy",
+          "pathName": "pages/personal/login/privacyPolicy/privacyPolicy",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "order",
           "pathName": "pages/personal/order/order",
           "query": "",

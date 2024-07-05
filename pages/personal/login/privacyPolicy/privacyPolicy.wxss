@@ -1,1 +1,10 @@
-/* pages/personal/login/privacyPolicy1/privacyPolicy.wxss */
+.bold {
+  font-weight: bold;
+}
+
+.indent{
+  text-indent:2em;
+}
+.empty-line {
+  margin-bottom: 1em; /* 或者使用具体的像素值，如 16px */
+}

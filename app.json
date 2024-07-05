@@ -11,7 +11,6 @@
     "pages/personal/login/privacyPolicy/privacyPolicy",
     "pages/personal/login/communityPolicy/communityPolicy",
     "custom-tab-bar/index",
-    "pages/personal/order/order",
     "pages/about-us/about-us",
     "packages/activity-package/pages/activity-detail/activity-detail",
     "packages/activity-package/pages/activity-order-management/activity-order-management"

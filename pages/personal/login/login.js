@@ -53,6 +53,7 @@ Page({
       { label: '中国香港 +852', value: '+852' },
       { label: '中国澳门 +853', value: '+853' }
     ],
+    privacyAgreeValue:false
   },
 
   onSelectArea(){  //点击区号
@@ -155,7 +156,7 @@ Page({
   // },
   nickNameReview(e) {  //审核昵称
     if (e.detail.pass){
-      console.log("pass")
+      console.log("nickname passed")
       nickNameReviewFlag = 1  //pass
     } 
     else {
@@ -165,7 +166,7 @@ Page({
         nickname: ''
       })
     }
-},
+  },
   cloudCall(e, that, uploadResult){
     wx.cloud.callFunction({
       name: 'userUpdate',
@@ -189,10 +190,15 @@ Page({
       }
     })
   },
+  privacyAgreeChange(event) {
+    this.setData({
+      privacyAgreeValue: event.detail
+    })
+  },
   formSubmit(e){
+    // console.log("privacyAgreeValue", e.detailprivacyAgreeValue)
     console.log(e.detail.value)
     const that = this
-    // console.log("nickname", this.data.nickname)
     if(e.detail.value.nickname.length==0){
       Toast({
         context: this,
@@ -213,16 +219,30 @@ Page({
         placement: 'bottom'
       });
     }
+    else if(this.data.privacyAgreeValue==false){
+      Toast({
+        context: this,
+        selector: '#t-toast',
+        message: '请详细阅读并同意《鱼饼社区隐私协议》《鱼饼社区公约》',
+        theme: 'warning',
+        direction: 'row',
+        placement: 'bottom'
+      });
+    }
     else if(nickNameReviewFlag==1||ifFormChange==0){
+      console.log("nickNameReviewFlag, ifFormChange", nickNameReviewFlag, ifFormChange)
       wx.showLoading({
         title: '正在更新'
       })
-      nickNameReviewFlag = 0 
       if(e.detail.value.nickname)  app.globalData.nickName = e.detail.value.nickname;
       if(e.detail.value.phoneNum)  app.globalData.phoneNum = e.detail.value.phoneNum;
       if(e.detail.value.wechatID)  app.globalData.wechatID = e.detail.value.wechatID;
       var uploadResult = app.globalData.avatarUrl
       this.cloudCall(e, that, uploadResult)
+      nickNameReviewFlag = 0 
+    }
+    else if(nickNameReviewFlag==0){
+      app.globalData.nickName=''
     }
       // else{
       //   Toast({
