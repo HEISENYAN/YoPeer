@@ -93,6 +93,7 @@
   <view class="bold">四、平台处理声明</view>
   <view class="indent2">平台有监督言论的责任，一切事实上或疑似违反规定的内容，平台将视情况采取拒绝发布、删除内容等一切管制措施。涉嫌任何违法违规违纪的内容将被保存在案，并在接受公安机关或校方调查时如实报告。</view>
   <view class="indent2">鱼饼社区还在发展，受人力所限，对于社区的管理无法做到尽善尽美。我们十分欢迎每一用户的监督，善用举报功能，共同建设和谐友善的社区氛围。</view>
-  <view>鱼饼社区对以上内容保留最终解释权</view>
+  <view class="empty-line"></view>
+  <view class="indent2" style="text-align: right;">鱼饼社区对以上内容保留最终解释权</view>
 </view>
 

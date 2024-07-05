@@ -8,8 +8,10 @@ var app = getApp()
 var avatarUrl = ''
 wx.cloud.init()
 var nickNameReviewFlag = 0  //1: proper
+var ifNickNameReviewed = 0
 var ifFormChange = 0  //1: changed
 var ifChooseAvatar = 0
+
 Page({
   /**
    * 页面的初始数据
@@ -20,7 +22,6 @@ Page({
     schoolText: '',
     schoolValue: '',
     citys: [
-      { label: '不选择', value: '不选择' },
       { label: '香港大学', value: '香港大学' },
       { label: '香港中文大学', value: '香港中文大学' },
       { label: '香港科技大学', value: '香港科技大学' },
@@ -29,6 +30,7 @@ Page({
       { label: '香港浸会大学', value: '香港浸会大学' },
       { label: '香港岭南大学', value: '香港岭南大学' },
       { label: '香港教育大学', value: '香港教育大学' },
+      { label: '其他学校', value: '其他学校' },
     ],
     phoneError: false,
     avatarUrl: app.globalData.avatarUrl,
@@ -106,6 +108,13 @@ Page({
   //     });
   //   }
   // },
+  onNicknameChange(e){
+    console.log(e.detail.value)
+    ifFormChange = 1
+    this.setData({
+      nickname: e.detail.value
+    })
+  },
   onFormChange(e){
     ifFormChange = 1
   },
@@ -155,7 +164,8 @@ Page({
   //   ifFormChange = 1  //changed
   // },
   nickNameReview(e) {  //审核昵称
-    if (e.detail.pass){
+    ifNickNameReviewed = 1
+    if (e.detail.pass&&this.data.nickname.length!=0){
       console.log("nickname passed")
       nickNameReviewFlag = 1  //pass
     } 
@@ -167,7 +177,7 @@ Page({
       })
     }
   },
-  cloudCall(e, that, uploadResult){
+  cloudCall(e, that){
     wx.cloud.callFunction({
       name: 'userUpdate',
       data:{
@@ -197,7 +207,7 @@ Page({
   },
   formSubmit(e){
     // console.log("privacyAgreeValue", e.detailprivacyAgreeValue)
-    console.log(e.detail.value)
+    // console.log(e.detail.value)
     const that = this
     if(e.detail.value.nickname.length==0){
       Toast({
@@ -229,17 +239,19 @@ Page({
         placement: 'bottom'
       });
     }
-    else if(nickNameReviewFlag==1||ifFormChange==0){
-      console.log("nickNameReviewFlag, ifFormChange", nickNameReviewFlag, ifFormChange)
+    else if((nickNameReviewFlag==1&&ifNickNameReviewed==1)||ifFormChange==0){
+      // console.log("nickNameReviewFlag, ifFormChange", nickNameReviewFlag, ifFormChange)
       wx.showLoading({
         title: '正在更新'
       })
-      if(e.detail.value.nickname)  app.globalData.nickName = e.detail.value.nickname;
+      // if(e.detail.value.nickname)  app.globalData.nickName = e.detail.value.nickname;
+      if(e.detail.value.nickname)  app.globalData.nickName = this.data.nickname;
       if(e.detail.value.phoneNum)  app.globalData.phoneNum = e.detail.value.phoneNum;
       if(e.detail.value.wechatID)  app.globalData.wechatID = e.detail.value.wechatID;
-      var uploadResult = app.globalData.avatarUrl
-      this.cloudCall(e, that, uploadResult)
-      nickNameReviewFlag = 0 
+      this.cloudCall(e, that)
+      // console.log("nickNameReviewFlag, ifFormChange", nickNameReviewFlag, ifFormChange)
+      nickNameReviewFlag = 0
+      ifNickNameReviewed = 0
     }
     else if(nickNameReviewFlag==0){
       app.globalData.nickName=''

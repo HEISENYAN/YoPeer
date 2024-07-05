@@ -1,19 +1,19 @@
 <t-navbar
-      t-class-placeholder="t-navbar-placeholder"
-      t-class-content="t-navbar-content"
-      class="block"
-      title="个人资料"
-      left-arrow
-      bind:go-back="handleBack"
-      borderless = "true"
-    />
+  t-class-placeholder="t-navbar-placeholder"
+  t-class-content="t-navbar-content"
+  class="block"
+  title="个人资料"
+  left-arrow
+  bind:go-back="handleBack"
+  borderless = "true"
+/>
 
 <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
   <!-- <image name="avatarUrl" class="avatar" src="{{avatarUrl}}"></image> -->
   <view class="col">
     <t-image src="{{avatarUrl}}" mode="aspectFill" width="56" height="56" shape="round"/>
   </view>
-</button> 
+</button>
 <form bindsubmit = "formSubmit">
   <!-- <view class="nickname-wrapper">
           <text class="nickname-label">昵称</text>
@@ -42,7 +42,7 @@
     <view style = "display: flex;">
       <view style = "width:3vw"></view>
       <view style = "width:13vw;display:flex;justify-content:start;align-items:center;">用户名</view>
-      <view style = "width:77vw;"><t-input name="nickname" style = "--td-input-border-radius: @radius-large" borderless="{{true}}" maxlength="{{20}}" placeholder="请填写用户" value="{{nickname}}" bindchange="onFormChange" type="nickname" bindnicknamereview="nickNameReview"> 
+      <view style = "width:77vw;"><t-input name="nickname" style = "--td-input-border-radius: @radius-large" borderless="{{true}}" maxlength="{{20}}" placeholder="请填写用户" value="{{nickname}}" bindchange="onNicknameChange" type="nickname" bindnicknamereview="nickNameReview">
       </t-input></view>
     </view>
     <view style = "display: flex;">
