@@ -1,4 +1,5 @@
 //import { RenderSystem } from "XrFrame/systems";
+import Toast from 'tdesign-miniprogram/toast/index';
 import {hallAddress, areaAddress, pickDateList} from './data'
 wx.cloud.init()
 var Price = 0;
@@ -65,6 +66,9 @@ Page({
       loop: -1,
       delay: 0,
     },
+
+    // 购买须知
+    purchaseNoteValue:false
   },
 
   //  取货时间 开始
@@ -236,7 +240,9 @@ Page({
   // 结算时弹出框 开始
   checkoutPopup(e) {
     const { item } = e.currentTarget.dataset;
-    if(this.data.addressText && this.data.dateText){
+    // console.log(this.data.purchaseNoteValue)
+
+    if(this.data.addressText && this.data.dateText&&this.data.purchaseNoteValue){
       console.log("优惠码:", this.data.promotionCode)
       this.setData({
         visible: true,
@@ -263,6 +269,17 @@ Page({
         icon:"error",
         duration:2000
       })
+    }
+    else if(this.data.purchaseNoteValue==false){
+      console.log("请详细阅读并同意《购买须知》")
+      Toast({
+        context: this,
+        selector: '#t-toast',
+        message: '请详细阅读并同意《购买须知》',
+        theme: 'warning',
+        direction: 'row',
+        placement: 'bottom'
+      });
     }
   },
   onVisibleChange(e) {
@@ -352,7 +369,18 @@ Page({
   //     });
   //   }
   // },
-
+  purchaseNotesNavigate(){
+    console.log("dsaafdsafsa")
+    wx.navigateTo({
+      url: '/pages/protocols/purchaseNotes/purchaseNotes',
+    })
+  },
+  purchaseNoteChange(event) {
+    console.log(event.detail)
+    this.setData({
+      purchaseNoteValue: event.detail
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

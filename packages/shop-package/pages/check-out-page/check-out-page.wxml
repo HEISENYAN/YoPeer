@@ -56,7 +56,13 @@
         <t-picker-item options="{{days}}" />
       </t-picker>
     </van-cell-group>
-
+    <view style="width:92vw; margin-left: 4vw; border-radius: 10px; flex-direction: row; display: flex;">
+      <t-radio style="width: 6vw; height: 6vw; display: flex; --td-radio-bg-color:rgb(241,241,241);--td-radio-icon-checked-color:#8a91e0; --td-radio-icon-size: 30rpx;" bindchange="purchaseNoteChange"/>
+      <view style="display: flex; font-size: 20rpx;  width: 80vw; align-items: center; margin-left:-40rpx; position:relative; z-index:1;">
+        <text>我已阅读并同意</text>
+        <text style="color: #8a91e0;" bindtap="purchaseNotesNavigate">《购买须知》</text>
+      </view>
+    </view>
     <view style = "height: {{offsetMargin}}px; width:100%;background-color: rgb(241,241,241);" ></view>
     <!-- 结算前弹出框 -->
       <t-popup visible="{{visible}}" bind:visible-change="onVisibleChange" placement="center">
@@ -79,6 +85,6 @@
       >
       </van-submit-bar>
     </view>
-
+    <t-toast id="t-toast" style="--td-toast-max-width: 500rpx"/>
 </view>   
 

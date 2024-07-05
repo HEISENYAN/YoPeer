@@ -7,7 +7,7 @@
   bind:go-back="handleBack"
   borderless = "true"
 />
-<view style="font-size: small;">
+<view style="font-size: small; margin-left: 1em; margin-right: 1em;">
   <!-- <text class="bold"></text> -->
   <!-- <view class="indent"></view> -->
   <!-- <text class="bold">鱼饼科技（深圳）有限公司</text> -->

@@ -10,6 +10,7 @@
     "pages/personal/login/login",
     "pages/personal/login/privacyPolicy/privacyPolicy",
     "pages/personal/login/communityPolicy/communityPolicy",
+    "pages/protocols/purchaseNotes/purchaseNotes",
     "custom-tab-bar/index",
     "pages/about-us/about-us",
     "packages/activity-package/pages/activity-detail/activity-detail",

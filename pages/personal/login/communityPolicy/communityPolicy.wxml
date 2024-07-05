@@ -7,7 +7,7 @@
   bind:go-back="handleBack"
   borderless = "true"
 />
-<view style="font-size: small;">
+<view style="font-size: small; margin-left: 1em; margin-right: 1em;">
   <!-- <view class="indent2"></view> -->
   <view class="indent2">鱼饼社区致力于为用户提供一个温暖、可信、友善、和谐的线上社区。为了维护社区秩序，保持良好氛围，我们将依据本规范中的条款对使用鱼饼社区的用户和发布于鱼饼社区上的内容进行管理。在收到用户举报或巡查发现违规行为时，鱼饼社区将会根据对社区氛围破坏的程度，使用删除发布内容、暂停用户部分权限乃至终止用户使用鱼饼社区的权利等措施进行管理。</view>
   <view class="empty-line"></view>

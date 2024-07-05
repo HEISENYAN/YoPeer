@@ -267,13 +267,13 @@ Page({
       // }
   },
   privacyNavigate1(){
-    console.log("privacyNavigate1")
+    // console.log("privacyNavigate1")
     wx.navigateTo({
       url: './privacyPolicy/privacyPolicy',
     })
   },
   privacyNavigate2(){
-    console.log("privacyNavigate2")
+    // console.log("privacyNavigate2")
     wx.navigateTo({
       url: './communityPolicy/communityPolicy',
     })
