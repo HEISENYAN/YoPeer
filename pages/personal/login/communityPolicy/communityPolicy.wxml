@@ -2,7 +2,7 @@
   t-class-placeholder="t-navbar-placeholder"
   t-class-content="t-navbar-content"
   class="block"
-  title="鱼饼社区管理规范"
+  title="鱼饼社区公约"
   left-arrow
   bind:go-back="handleBack"
   borderless = "true"
