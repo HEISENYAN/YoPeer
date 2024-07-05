@@ -61,29 +61,37 @@
 </view> -->
 
 
-<view class = "calendar-container">
-  <van-calendar
+<view wx:if ="{{showCalendar}}" class = "calendar-container">
+  <van-calendar 
+    wx:if ="{{showCalendar}}"
     title="鱼饼近期活动"
     poppable="{{ false }}"
     show-confirm="{{ false }}"
     class="calendar"
     show-confirm = "{{false}}"
-    row-height = "35"
     show-subtitle = "{{true}}"
-    color = "orange"
+    color = "white"
     bind:select = "onSelectDate"
+    formatter="{{formatter}}"
   />
 </view>
 <t-popup visible="{{visible}}" bind:visible-change="onVisibleChange" placement="center">
   <view class="popup-container">
-    <view class="popup-header">
-      <view class="popup-title">标题</view>
-      <!-- 可选：添加一个关闭按钮 -->
-      <t-icon t-class="close-btn" name="close-circle" size="32" color="#fff" bind:tap="onClose" />
-    </view>
-    <text class="popup-content">{{CheckoutPopupContent}}</text>
-    <image mode="widthFix" src = "cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/小程序插画设计-1/13c82b3dcae18d89c2620a295ab953a.jpg" style = "height:100%;width:100%"/>
-    <t-button class="checkout-button" theme="primary" style = "--td-button-primary-active-bg-color:#8a91e0;--td-button-primary-bg-color:#7581ff;--td-button-primary-border-color:#7581ff;--td-button-primary-active-border-color:#8a91e0;">按钮</t-button>
+    <text style = "font-weight: bold;">今日活动</text>
+    <block wx:if = "{{showActivityList.length}}">
+      <scroll-view style = "display: flex;justify-content: center;">
+        <list-view wx:for = "{{showActivityList}}" wx:key = "activityKey" wx:for-item = "activity" data-selected = "{{activity.activity_id}}" catchtap="selectActivity" >
+          <text>{{activity.activityName}}</text>
+          <image style = "width:100%;height:400rpx;border-radius: 10px;" src = "{{activity.imageUrl}}"></image>
+        </list-view>
+      </scroll-view>
+    </block>
+    <block wx:if = "{{!showActivityList.length}}">
+      <image src = "cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/小程序插画设计-1/40f464562d3ea558d27d8580757abfb.png" style = "height: 100%;margin-bottom: 10rpx;" mode = "widthFix"></image>
+    </block>
+    
+
+    <t-button class="checkout-button" catch:tap="closePopup" theme="primary" style = "--td-button-primary-active-bg-color:#8a91e0;--td-button-primary-bg-color:#7581ff;--td-button-primary-border-color:#7581ff;--td-button-primary-active-border-color:#8a91e0;">我知道了</t-button>
   </view>
 </t-popup>
 <view class="footer__version">YoPeer 鱼饼</view>

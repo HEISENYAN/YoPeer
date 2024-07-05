@@ -20,7 +20,7 @@
     <view class = "activity-image-container">
       <image src = "{{order.topImageUrl}}" style = "height: 100%;width:100%;border-radius: 10px;"></image>
     </view>
-    <view>
+    <view wx:if = "{{order.paidPrice != 0}}">
       <view class = "order-price-container">实付款（含优惠）:</view>
       <text style = "margin-left: auto;font-size: 25rpx;margin-top: 5px; color:red">￥{{order.paidPrice/100}}</text>
     </view>

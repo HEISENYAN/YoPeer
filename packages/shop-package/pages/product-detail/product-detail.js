@@ -165,7 +165,8 @@ Page({
   //初始化数据
   onLoad(options) {
     wx.showLoading({
-      title: '正在加载'
+      title: '正在加载',
+      mask:true
     })
     const that = this
     wx.cloud.callFunction({

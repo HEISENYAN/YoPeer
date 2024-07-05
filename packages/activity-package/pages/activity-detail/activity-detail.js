@@ -23,7 +23,51 @@ Page({
           if(personalInfo.result.isRegistered){//检查用户是否注册
             //检查信息 微信号 手机号等
             const tradeNumber = Math.round(Math.random() * (10 ** 13)) + Date.now()//生成随机订单号
-            wx.cloud.callFunction({
+            if(that.data.activityInfo.isFree){
+              wx.showModal({
+                title: '确认报名',
+                content: '是否确认报名该活动，报名成功后，请您及时添加小鱼饼客服参加活动',
+                complete: (res) => {
+                  if (res.confirm) {
+                    wx.showLoading({
+                      title: '正在报名',
+                    })
+                    wx.cloud.callFunction({
+                    name:"activityOrderSettlement",
+                    data:{
+                      activityID:activityID,
+                      phoneNumber:personalInfo.result.phoneNumber,
+                      avatarUrl:personalInfo.result.avatarUrl,
+                      nickName:personalInfo.result.nickName,
+                      tradeNumber:tradeNumber,
+                      timeStamp: Date.now().toString(),
+                      paidPrice:0,
+                      wechatID:personalInfo.result.wechatID
+                    },
+                    success:function(res){
+                      wx.hideLoading()
+                      wx.showModal({
+                        title: '报名成功',
+                        content: '您已报名，请及时添加小鱼饼客服微信，您也可以前往“个人中心->我的活动”查看已报名活动',
+                        complete:function(rr){
+                          that.onLoad({activityID:activityID})
+                        }
+                      })
+                    },
+                    fail:function(res){
+                      wx.showModal({
+                        title: '报名失败',
+                        content: '报名失败，请重试或联系客服解决',
+                      })
+                    }
+                  })
+                  }
+                }
+              })
+              
+            }
+            else{
+              wx.cloud.callFunction({
               name: 'cloudbase_module',
               data: {
                 // 工作流ID, 需从工作流属性中获取
@@ -69,7 +113,7 @@ Page({
                       success:function(res){
                         wx.showModal({
                           title: '报名成功',
-                          content: '您已报名，请等待客服联系，您也可以前往“个人中心->我的活动”查看已报名活动',
+                          content: '您已报名，请及时添加小鱼饼客服微信，您也可以前往“个人中心->我的活动”查看已报名活动',
                           complete:function(rr){
                             that.onLoad({activityID:activityID})
                           }
@@ -99,8 +143,8 @@ Page({
                   icon:"error"
                 })
               }
-            })
-
+            })            
+            }
           }
           else{
             wx.showModal({

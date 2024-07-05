@@ -10,7 +10,6 @@
     "pages/personal/login/login",
     "pages/personal/login/privacyPolicy/privacyPolicy",
     "pages/personal/login/communityPolicy/communityPolicy",
-    "pages/protocols/purchaseNotes/purchaseNotes",
     "custom-tab-bar/index",
     "pages/about-us/about-us",
     "packages/activity-package/pages/activity-detail/activity-detail",
@@ -24,7 +23,8 @@
         "pages/shop/shop",
         "pages/product-detail/product-detail",
         "pages/receive-info-edit/receive-info-edit",
-        "pages/order-management/order-management"
+        "pages/order-management/order-management",
+        "pages/protocols/purchaseNotes/purchaseNotes"
       ]
     }
   ],

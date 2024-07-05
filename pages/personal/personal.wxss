@@ -214,6 +214,7 @@ page {
   --calendar-height:40vh;
 }
 .popup-container {
+  width:80vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -221,6 +222,8 @@ page {
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-height: 60vh;
+
 }
 .popup-header {
   display: flex;
