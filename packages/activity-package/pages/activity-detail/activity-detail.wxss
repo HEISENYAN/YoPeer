@@ -61,3 +61,16 @@ Page{
   padding:15rpx;
   border-radius: 10px;
 }
+.contact-service-bar{
+  margin-top: -1vh;
+  margin-bottom: 2vh;
+  width:92vw;
+  height: 8vh;
+  border-radius: 10px;
+  background-color: white;
+  margin-left: 4vw;
+  display: flex;
+  box-sizing: border-box;
+  padding-left:30rpx;
+  align-items: center;
+}

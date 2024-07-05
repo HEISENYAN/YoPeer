@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isPopupVisible:false,
     activityInfo:null,
     nowTime:0,
     isParticipated:false
@@ -148,7 +149,16 @@ Page({
       path: '/packages/activity-package/pages/activity-detail/activity-detail?activityID='+activityID+'&isShared='+true
     }
  },
-   
+  onTapContact(){
+    this.setData({
+      isPopupVisible:true
+    })
+  },
+  onVisibleChange(){
+    this.setData({
+      isPopupVisible:false
+    })
+  },
   onLoad(options) {
     const that = this
     isShared = options?.isShared ?? false

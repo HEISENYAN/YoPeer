@@ -67,4 +67,26 @@
   </view>
 </view>
 
+<view class = "contact-service-bar">
+  <t-avatar image="cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/YoPeerDesign/2209c23836bbef0f8b3062bfb742b38.jpg" size = "90rpx"/>
+  <view style = "height:100%;box-sizing: border-box;padding-top: 25rpx;padding-left: 20rpx;">
+    <text style = "font-size:30rpx;font-weight: bold;" decode='true'>小鱼饼客服 {{'\n'}}</text>
+    <text style = "font-size:23rpx;color:gray">活动领队</text>
+  </view>
+  <t-button theme="primary" 
+      size="small" 
+      shape="round" 
+      bindtap = "onTapContact"
+      style = "margin-left:120rpx;--td-button-primary-active-bg-color:#8a91e0;--td-button-primary-bg-color:#7581ff;--td-button-primary-border-color:#7581ff;--td-button-primary-active-border-color:#8a91e0; " >
+        点击添加客服微信
+        
+      </t-button>
+</view>
+<t-popup visible="{{isPopupVisible}}" bind:visible-change="onVisibleChange" placement="center">
+  <view style = "padding:20rpx;border-radius:10px;display: flex;align-items:center;justify-content: center;flex-direction: column;">
+    <image src = "cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/YoPeerDesign/0c15dc0758e5860a2f8be171a7fe2f5.png" show-menu-by-longpress="{{true}}" style = "width:500rpx;height:500rpx"/>
+    <text style = "font-size: 25rpx;font-weight: bold;"> 长按图片 添加客服</text>
+  </view>
+</t-popup>
 <view class = "activity-introduction-container"><image  src="{{activityInfo.activityIntroductionUrl}}" style = "width:100%" mode="widthFix"></image></view>
+<view style = "width:100vw;height:11vh;"></view>

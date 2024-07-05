@@ -9,8 +9,8 @@ exports.main = async (event, context) => {
   const activityInfo = await db.collection("yopeerSpecialActivity").get({})
   var specialActivityList = []
   for(let i in activityInfo.data){
-    const {activityName,imageUrl,introduction,place,activityDate,activity_id} = activityInfo.data[i]
-    specialActivityList.push({activityName,imageUrl,introduction,place,activityDate,activity_id})
+    const {keywords,activityName,imageUrl,introduction,place,activityDate,activity_id} = activityInfo.data[i]
+    specialActivityList.push({activityName,imageUrl,introduction,place,activityDate,activity_id,keywords})
   }
   return specialActivityList
 }
