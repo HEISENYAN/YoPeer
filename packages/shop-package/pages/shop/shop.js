@@ -83,9 +83,9 @@ Component({
       })
     },
     showPopup: function() {
-      this.setData({
-        isPopupVisible: true
-      });
+      wx.navigateTo({
+        url: '/packages/shop-package/pages/protocols/purchaseNotes/purchaseNotes',
+      })
     },
   
     closePopup: function() {
