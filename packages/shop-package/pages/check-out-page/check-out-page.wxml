@@ -33,7 +33,7 @@
       <van-cell title="优惠码">
       <input name="promotionCode" placeholder="(选填)" bindinput="setPromotionCode"></input>
       </van-cell>
-      <van-cell title="应付款（含优惠）" value="¥{{finalPrice/100}}" size="large" value-class="checkOutPrice"/>
+      <van-cell title="应付款{{reducedPrice!=0?'(已优惠￥'+(reducedPrice/100)+')':''}}" value="¥{{finalPrice/100}}" size="large" value-class="checkOutPrice"/>
       <!-- <van-cell title="备注" is-link  /> -->
       <van-cell title="地址" is-link  label = "{{addressText}}" bind:tap="onEditAddress" />
       <!-- <van-cell title="预计收货时间" is-link label = "{{dateText || ''}}" data-mode="date" bindtap="showDatePicker"  class="test"/> -->

@@ -4,8 +4,8 @@ import {hallAddress, areaAddress, pickDateList} from './data'
 wx.cloud.init()
 var Price = 0;
 var actualPrice = 0;
-const yopeerVoucher =  ["YoPeer2024","HongKong2024","PolyU2024","CityU2024","HKU2024","CUHK2024","HKUST2024","LNU2024","EduHK2024","HKBU2024","YP2024","MRY2024","FIRSTYP","2024YP","2024YoPeer"]
-
+const yopeerVoucher =  ["YoPeer283","HongKong121","PolyU381","CityU013","HKU920","CUHK112","HKUST532","LNU031","EduHK121","HKBU549","YP2024","MRY2024","FIRSTYP","2024YP","2024YoPeer","JS82","K81S","J90Q","POQA","S1Z0","LT8J","MNH8","234I","IQ9P"]
+const HigherVocher = ["MRY2024","JS82","K81S","J90Q","POQA","S1Z0","LT8J","MNH8","234I","IQ9P"]
 const getOptions = (obj, filter) => {
   const res = Object.keys(obj).map((key) => ({ value: key, label: obj[key] }));
   if (filter) {
@@ -22,6 +22,7 @@ Page({
     checkOutPrice:0,
     offsetMargin:84,
     selectedArea:'+86',
+    reducedPrice:0,
     areas: [
       { label: '中国大陆 +86', value: '+86' },
       { label: '中国香港 +852', value: '+852' },
@@ -121,7 +122,7 @@ Page({
     this.setData({
       promotionCode: e.detail.value
     },()=>{
-      if(yopeerVoucher.includes(this.data.promotionCode) && Price >= 5){
+      if(yopeerVoucher.includes(this.data.promotionCode) && Price >= 50000){
         if(getApp().globalData.isVoucher == true){
           wx.showModal({
             title: '优惠已使用',
@@ -133,23 +134,26 @@ Page({
             }
           })
         }
-        else if (this.data.promotionCode == "MRY2024"){
-          actualPrice = Price - 5//减少价格 单位分
+        else if (HigherVocher.includes(this.data.promotionCode)){
+          actualPrice = Price - 5000//减少价格 单位分
           this.setData({
-            finalPrice:actualPrice
+            finalPrice:actualPrice,
+            reducedPrice:5000
           })
         }
         else{
-          actualPrice = Price - 3//减少价格 单位分
+          actualPrice = Price - 3000//减少价格 单位分
           this.setData({
-            finalPrice:actualPrice
+            finalPrice:actualPrice,
+            reducedPrice:3000
           })
         }
       }
       else{
         actualPrice = Price//减少价格 单位分
         this.setData({
-          finalPrice:actualPrice
+          finalPrice:actualPrice,
+          reducedPrice:0
         })
       }
     })
@@ -378,7 +382,7 @@ Page({
   // },
   purchaseNotesNavigate(){
     wx.navigateTo({
-      url: '/pages/protocols/purchaseNotes/purchaseNotes',
+      url: '/packages/shop-package/pages/protocols/purchaseNotes/purchaseNotes',
     })
   },
   purchaseNoteChange(event) {

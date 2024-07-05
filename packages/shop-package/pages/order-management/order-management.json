@@ -6,7 +6,8 @@
     "t-icon": "tdesign-miniprogram/icon/icon",
     "t-badge": "tdesign-miniprogram/badge/badge",
     "t-image": "tdesign-miniprogram/image/image",
-    "t-navbar": "tdesign-miniprogram/navbar/navbar"
+    "t-navbar": "tdesign-miniprogram/navbar/navbar",
+    "t-button": "tdesign-miniprogram/button/button"
   },
   "renderer": "webview"
 }

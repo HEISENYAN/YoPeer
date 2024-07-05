@@ -1,11 +1,21 @@
 // pages/personal/personal.js
 var app = getApp()
 wx.cloud.init()
+var activityHostDate = []
 Page({
   /**
    * 页面的初始数据
    */
   data: {
+    showCalendar:false,
+    specialActivityList:[],
+    showActivityList:[],
+    formatter:function(day){
+      if(activityHostDate.includes(day.date.getTime())){
+        day.bottomInfo = "活动"
+      }
+      return day
+    },
     iconList:[
       {
         name:"团购订单",
@@ -42,20 +52,40 @@ Page({
   },
   },
 // 点击日历时弹出框
-onVisibleChange(e) {
-  this.setData({
-    visible: e.detail.visible,
-  });
-},
-onClose() {
-  this.setData({visible: false,});
-},
-
+  onVisibleChange(e) {
+    this.setData({
+      visible: e.detail.visible,
+    });
+  },
+  closePopup(){
+    this.setData({
+      visible: false,
+    });
+  },
+  onClose() {
+    this.setData({visible: false,});
+  },
   onSelectDate:function(e){
+    /*
     this.setData({
       visible: true,
+    })*/
+    var list = []
+    for(let i in this.data.specialActivityList){
+      if(this.data.specialActivityList[i].activityDate == e.detail.getTime()){
+        list.push(this.data.specialActivityList[i])
+      }
+      this.setData({
+        showActivityList:list
+      },this.setData({
+        visible:true
+      }))
+    }
+  },
+  selectActivity:function(e){
+    wx.navigateTo({
+      url: '/packages/activity-package/pages/activity-detail/activity-detail?activityID=' + e.currentTarget.dataset.selected,
     })
-    console.log(e.detail.getTime())
   },
   getUserProfile:function(e){  //进入登陆界面/个人信息
     wx.navigateTo({
@@ -89,30 +119,17 @@ onClose() {
       yoPeerValue: app.globalData.yoPeerValue,
     })
     const that = this
-    /*
     wx.cloud.callFunction({
-      name:'getUserInfo',
+      name:"getSpecialActivityList",
       success:function(res){
+        for(let i in res.result){
+          activityHostDate.push(res.result[i].activityDate)
+        }
         that.setData({
-          // nickname: res.result.nickName,
-          // avatarUrl: res.result.avatarUrl,
-          // yoPeerValue:res.result.yoPeerValue
-        })
-      },
-      fail:function(res){
-        wx.showModal({
-          title:"错误",
-          content:"" + res
-          })
+          specialActivityList:res.result
+        },that.setData({showCalendar:true}))
       }
-    })*/
-    if(this.data.isLogin !== app.globalData.isLogin){
-      // this.setData({
-      //   isLogin : app.globalData.isLogin, 
-      //   nickname: app.globalData.nickname,
-      //   avatarUrl: app.globalData.avatarUrl,
-      // })
-    }
+    })
   },
   getActivityOrder(){
     wx.navigateTo({

@@ -145,9 +145,9 @@ Component({
       })
     },
     checkOut: function(e){
-      if(this.data.cartPrice < 5){
+      if(this.data.cartPrice < 19900){
         wx.showToast({
-          title: '最低消费额5分',
+          title: '最低消费￥199',
           icon:"error"
         })
       }
