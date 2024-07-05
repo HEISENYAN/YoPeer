@@ -255,9 +255,6 @@ Page({
       nickNameReviewFlag = 0
       ifNickNameReviewed = 0
     }
-    else if(nickNameReviewFlag==0){
-      app.globalData.nickName=''
-    }
       // else{
       //   Toast({
       //     context: this,
