@@ -249,7 +249,7 @@ Page({
     const { item } = e.currentTarget.dataset;
     // console.log(this.data.purchaseNoteValue)
 
-    if(this.data.addressText && this.data.dateText&&this.data.purchaseNoteValue){
+    if(this.data.addressText && this.data.dateText&&this.data.purchaseNoteValue==true){
       console.log("优惠码:", this.data.promotionCode)
       this.setData({
         visible: true,
@@ -377,22 +377,20 @@ Page({
   //   }
   // },
   purchaseNotesNavigate(){
-    console.log("dsaafdsafsa")
     wx.navigateTo({
       url: '/pages/protocols/purchaseNotes/purchaseNotes',
     })
   },
   purchaseNoteChange(event) {
-    console.log(event.detail)
+    console.log(event.detail.checked)
     this.setData({
-      purchaseNoteValue: event.detail
+      purchaseNoteValue: event.detail.checked
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    
     var totalPrice = 0
     var cartInfo = []
     const that = this
