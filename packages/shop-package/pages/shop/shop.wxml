@@ -59,7 +59,7 @@
               <image style = "border-radius: 10rpx; height: 180rpx; width: 220rpx;" src="cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/新生团购商品介绍缩略图/跳转至一级目录：床上用品.jpg" > </image>
             </view>
             <view class="shopping-info-container">
-              <text class = "shopping-item-title" max-lines = "{{5}}" overflow = "ellipsis" >鱼饼优选|床上用品专区|点击立即前往挑选</text>
+              <text class = "shopping-item-title" max-lines = "{{5}}" overflow = "ellipsis" >床上用品专区{{'\n'}}点击立即前往</text>
               
             </view>
             
@@ -85,7 +85,7 @@
               price="{{prodItem.price}}"
               desc="{{prodItem.prodName}}"
               title="{{prodItem.prodName}}"
-              thumb="{{ prodItem.thumbnailUrl }}"
+              thumb="{{ prodItem.thumbnailUrl}}"
             />
           </block>-->
         </list-view>
