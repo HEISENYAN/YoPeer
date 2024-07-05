@@ -133,6 +133,12 @@ Page({
             }
           })
         }
+        else if (this.data.promotionCode == "MRY2024"){
+          actualPrice = Price - 5//减少价格 单位分
+          this.setData({
+            finalPrice:actualPrice
+          })
+        }
         else{
           actualPrice = Price - 3//减少价格 单位分
           this.setData({
@@ -150,7 +156,9 @@ Page({
   },
   onCheckout(){
     const that = this
-    const tradeNumber = Math.round(Math.random() * (10 ** 13)) + Date.now()//生成随机订单号
+    const k1 = Math.round(Math.random() * (10 ** 8))
+    const k2 = Date.now()
+    const tradeNumber =  k1.toString() + k2.toString() //生成随机订单号
     this.setData({
       visible:false
     })
@@ -165,7 +173,7 @@ Page({
            * 本示例只传递了必要的参数，其他详细参数可参考微信支付文档：
            * https://pay.weixin.qq.com/docs/merchant/apis/mini-program-payment/mini-prepay.html
            */
-          description: "鱼饼优选-测试产品",
+          description: "鱼饼优选-2024港校新生团购",
           // 商户订单号，业务自行生成，此处仅为示例
           out_trade_no: tradeNumber,
           amount: {
@@ -175,7 +183,6 @@ Page({
         }
       },
       success: res => {
-        console.log('下单结果: ', res);
         // 获取到预付单信息
         const paymentData = res.result?.data;
         // 唤起微信支付组件，完成支付
