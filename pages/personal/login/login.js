@@ -72,6 +72,7 @@ Page({
   //   });
   // },
   onChooseAvatar(e) {//修改头像
+    ifFormChange = 1
     const that = this
     const pathRandom = Date.now().toString() + Math.round(Math.random() * 1000).toString()
     wx.showLoading({
@@ -87,7 +88,7 @@ Page({
         })
         app.globalData.avatarUrl = res.fileID;
         ifChooseAvatar = 1
-        console.log(res.fileID)
+        // console.log(res.fileID)
       },
       fail: res =>{
         wx.hideLoading()
@@ -109,10 +110,9 @@ Page({
   //   }
   // },
   onNicknameChange(e){
-    // console.log(e.detail.value)
     let nicknameValue = e.detail.value;
     // nicknameValue = nicknameValue.replace(/[^\u4e00-\u9fa5a-zA-Z_]/g, '');  //^：非；\u4e00-\u9fa5:中文；a-zA-Z：英文；_：下划线
-    nicknameValue = nicknameValue.replace(/\s/g, '');
+    nicknameValue = nicknameValue.replace(/\s/g, '');  //限制空格
     ifFormChange = 1
     this.setData({
       nickname: nicknameValue
@@ -171,12 +171,10 @@ Page({
   },
   nickNameReview(e) {  //审核昵称
     if (e.detail.pass&&this.data.nickname.length!=0){
-      console.log("nickname passed")
       nickNameReviewFlag = 1  //pass
     } 
     else {
       nickNameReviewFlag = 0  //fail
-      console.log("invalid nickname")
       this.setData({
         nickname: ''
       })

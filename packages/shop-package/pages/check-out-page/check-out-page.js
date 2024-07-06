@@ -74,7 +74,7 @@ Page({
 
   //  取货时间 开始
   onColumnChange(e) {
-    console.log('pick:', e.detail);
+    // console.log('pick:', e.detail);
     const { column, index } = e.detail;
     const { years, months } = this.data;
     if (column === 0) {  //年
@@ -98,7 +98,7 @@ Page({
   },
   onPickerChange(e) {
     const { value, label } = e.detail;
-    console.log('picker confirm:', e.detail);
+    // console.log('picker confirm:', e.detail);
     this.setData({
       dateVisible: false,
       dateValue: value,
@@ -106,7 +106,7 @@ Page({
     });
   },
   onPickerCancel(e) {
-    console.log('picker cancel', e.detail);
+    // console.log('picker cancel', e.detail);
     this.setData({
       dateVisible: false,
     });
@@ -197,7 +197,7 @@ Page({
           paySign: paymentData?.paySign,
           signType: "RSA", // 
           success(res) {
-            console.log('唤起支付组件成功：', res);
+            // console.log('唤起支付组件成功：', res);
             wx.cloud.callFunction({
               name:"orderSettlement",
               data:{
@@ -226,13 +226,13 @@ Page({
                 
               },
               fail: function(res){
-                console.log(res)
+                // console.log(res)
               }
             })
           },
           fail(err) {
             // 支付失败回调
-            console.error('唤起支付组件失败：', err,res);
+            // console.error('唤起支付组件失败：', err,res);
             wx.showToast({
               title: '支付失败请重试',
               icon: "error",
@@ -254,7 +254,7 @@ Page({
     // console.log(this.data.purchaseNoteValue)
 
     if(this.data.addressText && this.data.dateText&&this.data.purchaseNoteValue==true){
-      console.log("优惠码:", this.data.promotionCode)
+      // console.log("优惠码:", this.data.promotionCode)
       this.setData({
         visible: true,
         CheckoutPopupContent: "收货人：" + this.data.nameText+ "\n联系电话："+this.data.phoneText+"\n收货地址："+ this.data.addressText +"\n取货时间：" + this.data.dateText
@@ -282,7 +282,7 @@ Page({
       })
     }
     else if(this.data.purchaseNoteValue==false){
-      console.log("请详细阅读并同意《购买须知》")
+      // console.log("请详细阅读并同意《购买须知》")
       Toast({
         context: this,
         selector: '#t-toast',
@@ -386,7 +386,7 @@ Page({
     })
   },
   purchaseNoteChange(event) {
-    console.log(event.detail.checked)
+    // console.log(event.detail.checked)
     this.setData({
       purchaseNoteValue: event.detail.checked
     })
@@ -417,7 +417,7 @@ Page({
           }
           cartInfo.push(cart)
         }
-        console.log(cartInfo)
+        // console.log(cartInfo)
         Price = totalPrice
         actualPrice = totalPrice
         that.setData({
@@ -451,7 +451,7 @@ Page({
         for(let i in res.data.receiveAddress){
           address += res.data.receiveAddress[i]+" "
         }
-        console.log(address)
+        // console.log(address)
         that.setData({
           addressText:address,
           phoneText:res.data.receivePhoneNumber,

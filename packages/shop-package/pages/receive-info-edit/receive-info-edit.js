@@ -62,33 +62,42 @@ Page({
     wx.getStorage({
       key: 'tempAddress',
       success(res) {
-        console.log("加载缓存数据")
+        // console.log("加载缓存数据")
         const result = res.data // [temp_receiveName temp_receivePhoneNumber temp_ifHallResident temp_receiveAddress]
         // const phoneString = result.temp_receivePhoneNumber?.split(" ")??""
         const [phoneString_area = "", phoneString_number = ""] = result?.temp_receivePhoneNumber?.split(" ")??""
+        // let phonenumberReg = phoneString_number.replace(/\s/g, '').replace(/\D/g, '');
         that.setData({
-          consigneeName: result.temp_receiveName,
-          consigneeNameValue: result.temp_receiveName,
+          consigneeName: result.temp_receiveName??"".trim(),
+          consigneeNameValue: result.temp_receiveName??"".trim(),
           selectedArea: phoneString_area,  //区号，显示在cell
           phoneAreaValue: [phoneString_area], //区号，显示在picker
           maxphonenum: (phoneString_area=="+86")?11:8,  //手机号码位数
           consigneePhoneNum: phoneString_number,
           consigneePhoneNumValue: phoneString_number,
-          selectedAddressType: result.temp_ifHallResident,  //0:宿舍；1：校外
+          selectedAddressType: result?.temp_ifHallResident??0,  //0:宿舍；1：校外
         });
         if(result.temp_ifHallResident==0){  // 校内
+          console.log("length", (result?.temp_receiveAddress[0]??"").length)
           that.setData({
-            selectedHallAddress:[result.temp_receiveAddress[0], result.temp_receiveAddress[1], result.temp_receiveAddress[2]],//显示在picker
-            hallSelectNote2: `${result.temp_receiveAddress[0]}\n${result.temp_receiveAddress[1]}\n${result.temp_receiveAddress[2]}`,//显示在cell
+            selectedHallAddress:[result?.temp_receiveAddress[0]??"", result?.temp_receiveAddress[1]??"", result?.temp_receiveAddress[2]??""],//显示在picker
+            hallSelectNote1:((result?.temp_receiveAddress[0]??"").length==0)?that.data.hallSelectNote1:'',
+            // hallSelectNote2: `${result?.temp_receiveAddress[0]??""}\n${result?.temp_receiveAddress[1]??""}\n${result?.temp_receiveAddress[2]??""}`,//显示在cell
+            hallSelectNote2: result?.temp_receiveAddress?.slice(0, 3).filter(Boolean).join('\n')||[],  //显示在cell
           })
         }
         else if(result.temp_ifHallResident==1){  // 校外
           that.setData({
-            areaSelectNote: [result.temp_receiveAddress[0], result.temp_receiveAddress[1]],
-            selectedAreaAddress: [result.temp_receiveAddress[0], result.temp_receiveAddress[1], result.temp_receiveAddress[2], result.temp_receiveAddress[3],result.temp_receiveAddress[4]],
-            areaStreet: result.temp_receiveAddress[2],
-            areaBuilding: result.temp_receiveAddress[3],
-            areaHouseNum: result.temp_receiveAddress[4]
+            // areaSelectNote: [result.temp_receiveAddress[0], result.temp_receiveAddress[1]],
+            // areaSelectNote: result?.temp_receiveAddress?.slice(0, 2).filter(Boolean) || [that.data.areaSelectNote],
+            areaSelectNote: result?.temp_receiveAddress?.slice(0, 2).filter(Boolean).length ? 
+                result.temp_receiveAddress.slice(0, 2).filter(Boolean) : 
+                that.data.areaSelectNote,
+            // selectedAreaAddress: [result.temp_receiveAddress[0], result.temp_receiveAddress[1], result.temp_receiveAddress[2], result.temp_receiveAddress[3],result.temp_receiveAddress[4]],
+            selectedAreaAddress: result?.temp_receiveAddress?.slice(0, 5).filter(Boolean) || [],
+            areaStreet: result?.temp_receiveAddress[2]??"",
+            areaBuilding: result?.temp_receiveAddress[3]??"",
+            areaHouseNum: result?.temp_receiveAddress[4]??""
           })
         }
       },
@@ -97,12 +106,12 @@ Page({
           name:"getReceiveInfo",
           success(res){
             const result = res.result[0]
-            console.log("加载云端数据")
+            // console.log("加载云端数据")
             // const phoneString = result?.phoneNumber?.split(" ")??""
             const [phoneString_area = "+86", phoneString_number = ""] = result?.phoneNumber.split(" ")??""
             that.setData({
-              consigneeName: result?.Name??"",
-              consigneeNameValue: result?.Name??"",
+              consigneeName: result?.Name??"".trim(),
+              consigneeNameValue: result?.Name??"".trim(),
               selectedArea: phoneString_area,  //区号，显示在cell
               phoneAreaValue: [phoneString_area], //区号，显示在picker
               maxphonenum: (phoneString_area=="+86")?11:8,  //手机号码位数
@@ -111,16 +120,19 @@ Page({
               selectedAddressType: result?.ifHallResident??0,  //0:宿舍；1：校外
             })
             if(that.data.selectedAddressType==0){  // 校内
+              // console.log(result.address)
               that.setData({
                 selectedHallAddress:[result?.address[0]??"", result?.address[1]??"", result?.address[2]??""],//显示在picker
+                hallSelectNote1:((result?.address[0]??"").length==0)?that.data.hallSelectNote1:'',
                 // hallSelectNote2: `${result?.address[0]??""}\n${result?.address[1]??""}\n${result?.address[2]??""}`,//显示在cell
                 hallSelectNote2: result?.address?.slice(0, 3).filter(Boolean).join('\n')||[],  //显示在cell
               })
             }
             else if(that.data.selectedAddressType==1){  // 校外
+              console.log("this.data.areaSelectNote", that.data.areaSelectNote)
               that.setData({
                 // areaSelectNote: [result?.address[0]??"", result?.address[1]??""],
-                areaSelectNote: result?.address?.slice(0, 2).filter(Boolean) || [],
+                areaSelectNote: result?.address?.slice(0, 2).filter(Boolean) || [that.data.areaSelectNote],
                 areaStreet: result?.address[2]??"",
                 areaBuilding: result?.address[3]??"",
                 areaHouseNum: result?.address[4]??"",
@@ -129,7 +141,7 @@ Page({
             }
           },
           fail(){
-            console.log("获取云端地址失败")
+            // console.log("获取云端地址失败")
           }
         })
       }
@@ -139,8 +151,20 @@ Page({
   onFormChange(e) { //temp
     const content = e.detail.value
     const key = e.target.dataset.field
-    if(key=="name")  this.data.consigneeName = content
-    else if(key=="phone") this.data.consigneePhoneNum = content
+    if(key=="name"){
+      // this.setData({
+      //   consigneeName: content.trim(),
+      //   // consigneeNameValue: content.trim()
+      // })
+      this.data.consigneeName = content.trim()
+      this.data.consigneeNameValue = content.trim()
+    }  
+    else if(key=="phone"){
+      let PhoneNumValueRegular = content.replace(/\s/g, '').replace(/\D/g, '');
+      this.setData({
+        consigneePhoneNumValue: PhoneNumValueRegular
+      })
+    } 
     else if(key=="street"){
       this.data.areaStreet = content
       this.data.selectedAreaAddress[2] = content
@@ -167,19 +191,18 @@ Page({
     wx.navigateBack()
   },
   backSave(){  //返回并保存
-    wx.navigateBack()
-    var consigneePhoneNum = this.data.consigneePhoneNum ?? ""
+    var consigneePhoneNum = this.data.consigneePhoneNumValue ?? ""
     wx.setStorage({  //未填完整的地址放缓存
       key: 'tempAddress',
       data: {
         temp_receiveName:this.data.consigneeName,
-        temp_receivePhoneNumber: this.data.selectedArea +" "+ this.data.consigneePhoneNum,
+        temp_receivePhoneNumber: this.data.selectedArea +" "+ consigneePhoneNum,
         temp_ifHallResident: this.data.selectedAddressType,
         temp_receiveAddress: this.data.selectedAddressType==0? this.data.selectedHallAddress: this.data.selectedAreaAddress,
       }
     })
-    console.log("储存缓存数据，返回上一页...")
-
+    // console.log("储存缓存数据，返回上一页...")
+    wx.navigateBack()
   },
   checkNotNull(params) {  //检查非空字符，非空：返回true
     if (params === "" || params === null) return false;
@@ -188,9 +211,10 @@ Page({
   checkSubmit(event){  //检查所有内容, 填完表单返回true
     var hallAddress_Filled = false;
     var areaAddress_Filled = false;
-    if(!this.data.selectedHallAddress.length==0)  hallAddress_Filled = true;  //判断宿舍住户表单
-
-    if(this.data.selectedAreaAddress.length!=0 && this.checkNotNull(event.detail.value.areaStreet) && this.checkNotNull(event.detail.value.areaBuilding))  areaAddress_Filled = true;  //判断校外住户表单
+    if(this.data.selectedAddressType==0 && (this.data?.selectedHallAddress[0]??"").length!=0)  hallAddress_Filled = true;  //判断宿舍住户表单
+    // console.log("this.data.selectedHallAddress", this.data.selectedHallAddress[0].length)
+    // console.log("this.data.selectedAddressType", this.data.selectedAddressType)
+    if(this.data.selectedAddressType==1 && (this.data?.selectedAreaAddress[0]??"").length!=0 && this.checkNotNull(event.detail.value.areaStreet) && this.checkNotNull(event.detail.value.areaBuilding))  areaAddress_Filled = true;  //判断校外住户表单
     
     if(this.checkNotNull(event.detail.value.consigneeName)&&this.checkNotNull(event.detail.value.consigneePhoneNum)&&(hallAddress_Filled||areaAddress_Filled))  return true
     else return false
@@ -201,35 +225,34 @@ Page({
   },
   saveAddress(e){
     wx.removeStorage({key: 'tempAddress'})  //清空缓存中的temp数据
-    console.log(e)
+    // console.log(e)
     if(this.checkSubmit(e)&&this.checkPhoneNum(e)){
+      wx.showLoading({title: '正在保存',})
       ifHallResident = 0
       var address = ''
       const that = this
       this.setData({
-        consigneeName: e.detail.value.consigneeName,
-        consigneeNameValue: e.detail.value.consigneeName,
+        consigneeName: e.detail.value.consigneeName.trim(),
+        consigneeNameValue: e.detail.value.consigneeName.trim(),
         consigneePhoneNum: e.detail.value.consigneePhoneNum,
         consigneePhoneNumValue: e.detail.value.consigneePhoneNum,
         // selectedAreaAddress: [this.data.selectedAreaAddress, e.detail.value.areaStreet, e.detail.value.areaBuilding, e.detail.value.areaHouseNum],
         'selectedAreaAddress[2]': e.detail.value.areaStreet,
         'selectedAreaAddress[3]': e.detail.value.areaBuilding,
         'selectedAreaAddress[4]': e.detail.value.areaHouseNum,
-
       },()=>{
-        console.log("收货人：", this.data.consigneeName)
-        console.log("手机号码：", this.data.selectedArea, this.data.consigneePhoneNum)
+        // console.log("收货人：", this.data.consigneeName)
+        // console.log("手机号码：", this.data.selectedArea, this.data.consigneePhoneNum)
         if(!this.data.selectedHallAddress.includes(undefined)){
-          console.log("宿舍地址: ", this.data.selectedHallAddress)
+          // console.log("宿舍地址: ", this.data.selectedHallAddress)
           address = this.data.selectedHallAddress
           ifHallResident = 0
         }
         if(!this.data.selectedAreaAddress.includes(undefined)){
-          console.log("校外地址: ", this.data.selectedAreaAddress)
+          // console.log("校外地址: ", this.data.selectedAreaAddress)
           address = this.data.selectedAreaAddress
           ifHallResident = 1
         }
-        console.log()
         app.globalData.consigneeName = this.data.consigneeName
         app.globalData.consigneePhoneNum = this.data.consigneePhoneNum
         //收货地址传入数据库
@@ -251,6 +274,7 @@ Page({
                 ifHallResident:ifHallResident
               },
               success:function(){
+                wx.hideLoading()
                 wx.navigateBack()
                 wx.showToast({
                   title: '保存成功',
@@ -261,6 +285,7 @@ Page({
             })
           },
           fail:function(err){//失败回调
+            wx.hideLoading()
             wx.showToast({
               title: "出错",
               icon:"error",
@@ -291,9 +316,9 @@ Page({
       });
     }
   },
-  radioChange: function(e) {
-    console.log('radio发生change事件，携带value值为：', e.detail.value)
-  },
+  // radioChange: function(e) {
+  //   console.log('radio发生change事件，携带value值为：', e.detail.value)
+  // },
   onSelectArea(){  //点击区号
     this.setData({showAreaPicker:true})
   },
@@ -301,6 +326,7 @@ Page({
     wx.vibrateShort({type:"light"})
   },
   onChangePhoneArea(e){  //选择手机号码区号
+    ifFormChange = 1
     this.setData({
       selectedArea:e.detail.value[0],  //显示在cell
       phoneAreaValue: e.detail.value,  //显示在picker

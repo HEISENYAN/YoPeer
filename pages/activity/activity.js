@@ -66,7 +66,7 @@ Page({
       })
   },
   onClickSwiper(e){
-    console.log(e)
+    // console.log(e)
     if(e.detail.index == 1){
       wx.navigateTo({
         url: '/pages/about-us/about-us',
@@ -99,7 +99,7 @@ Page({
       name:"getUserInfo",
       success:function(res){
         const phoneString = res.result.phoneNumber.split(" ")
-        console.log(res.result)
+        // console.log(res.result)
         app.globalData.nickName = res.result.nickName
         app.globalData.isRegistered = res.result.isRegistered
         app.globalData.school = res.result.school
@@ -118,19 +118,18 @@ Page({
             level : 'VIP 0',
           }
         })
-        // console.log()
       },
     });
     wx.cloud.callFunction({
       name:"getSpecialActivityList",
       success:function(res){
-        console.log(res.result)
+        // console.log(res.result)
         that.setData({
           specialActivityList:res.result
         })
       },
       fail:function(res){
-        console.log(res)
+        // console.log(res)
         wx.showToast({
           icon:"error",
           title:"加载出错"

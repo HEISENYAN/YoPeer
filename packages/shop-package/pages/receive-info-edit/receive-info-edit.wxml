@@ -30,13 +30,13 @@
     <view style = "display: flex;">
       <view style = "width:3vw"></view>
       <view style = "width:20vw;display: flex;justify-content:start;align-items: center;">收货人</view>
-      <view style = "width:77vw;"><t-input name="consigneeName" style = "--td-input-border-radius: @radius-large" borderless="{{true}}" maxlength="{{20}}" placeholder="{{consigneeName}}" value="{{consigneeNameValue}}" bindchange="onFormChange" data-field="name"></t-input></view>
+      <view style = "width:77vw;"><t-input name="consigneeName" style = "--td-input-border-radius: @radius-large" borderless="{{true}}" maxlength="{{20}}" placeholder="请填写收货人姓名" value="{{consigneeNameValue}}" bindchange="onFormChange" data-field="name"></t-input></view>
     </view>
     <view style = "display: flex;">
       <view style = "width:3vw"></view>
       <view style = "width:20vw;display: flex;justify-content:start;align-items: center;">手机号</view>
       <view style = "width:20vw;display:inline-block"><t-cell class="mb-16" title="{{selectedArea}}" arrow bind:click="onSelectArea" bordered = "{{false}}" /></view>
-      <view style = "width: 57vw;"><t-input name="consigneePhoneNum" label="" placeholder="{{consigneePhoneNum}}" class = "input" type = "number" maxlength = "{{maxphonenum}}" borderless="{{true}}" value="{{consigneePhoneNumValue}}" bindchange="onFormChange" data-field="phone"></t-input></view>
+      <view style = "width: 57vw;"><t-input name="consigneePhoneNum" label="" placeholder="请填写收货人手机号" class="input" type="number" maxlength = "{{maxphonenum}}" borderless="{{true}}" value="{{consigneePhoneNumValue}}" bindchange="onFormChange" data-field="phone"></t-input></view>
     </view>
   </view>
   <!-- 手机区号 -->

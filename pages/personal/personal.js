@@ -103,7 +103,6 @@ Page({
     })
   },
   onTapIcon(e){
-    console.log(e)
     wx.navigateTo({
       url: e.currentTarget.dataset.targetUrl,
     })
@@ -154,9 +153,5 @@ Page({
     })
 
 }
-    // console.log("app.globalData.nickname: " + app.globalData.nickname)
-    // console.log("app.globalData.avatarUrl: " + app.globalData.avatarUrl)
-    // console.log("avatarUrl: " + this.data.avatarUrl)
-    // console.log("nickname: " + this.data.nickname)
   }
 })
