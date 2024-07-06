@@ -2,8 +2,8 @@ import Toast from 'tdesign-miniprogram/toast/index';
 const SHA256 = require("../../../utils/sha256")
 const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
 // const defaultAvatarUrl = "../../icons/portrait.png"
-const defaultNickname = "昵称"
-const defaultPhoneNum = "电话"
+// const defaultNickname = "昵称"
+// const defaultPhoneNum = "电话"
 var app = getApp()
 var avatarUrl = ''
 wx.cloud.init()
@@ -217,7 +217,7 @@ Page({
       Toast({
         context: this,
         selector: '#t-toast',
-        message: '请输入用户名!',
+        message: '请输入用户名',
         theme: 'warning',
         direction: 'row',
         placement: 'bottom'
@@ -228,7 +228,7 @@ Page({
         context: this,
         selector: '#t-toast',
         message: '请输入正确的手机号!',
-        theme: 'warning',
+        theme: 'error',
         direction: 'row',
         placement: 'bottom'
       });
@@ -243,7 +243,17 @@ Page({
         placement: 'bottom'
       });
     }
-    else if((nickNameReviewFlag==1&&ifNickNameReviewed==1)||ifFormChange==0){
+    else if(ifFormChange==0){
+      Toast({
+        context: this,
+        selector: '#t-toast',
+        message: '请更新个人资料',
+        theme: 'warning',
+        direction: 'row',
+        placement: 'bottom'
+      });
+    }
+    else if((nickNameReviewFlag==1&&ifNickNameReviewed==1)||ifFormChange==1){
       wx.showLoading({
         title: '正在更新'
       })
@@ -264,6 +274,7 @@ Page({
             ifNickNameReviewed = 0
           }
           else{
+            wx.hideLoading()
             wx.showModal({
               title:"昵称不可用",
               content:"您使用的昵称可能包含：广告；时政；色情； 辱骂； 违法犯罪； 欺诈； 低俗； 版权；或其它敏感信息，请重新填写。"
