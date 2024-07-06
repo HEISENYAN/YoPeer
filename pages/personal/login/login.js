@@ -118,8 +118,13 @@ Page({
       nickname: nicknameValue
     })
   },
-  onFormChange(e){
+  onPhoneNumChange(e){
     ifFormChange = 1
+    let phoneNumValue = e.detail.value;
+    phoneNumValue = phoneNumValue.replace(/\s/g, '').replace(/\D/g, '');
+    this.setData({
+      phoneNum: phoneNumValue
+    })
   },
   onColumnChange(e) {
     wx.vibrateShort({type:"light"})
@@ -144,12 +149,7 @@ Page({
       else if (e.detail.value=="+86")  this.setData({maxphonenum: 11})
       app.globalData.phoneAreaValue = value;
     }
-    
-  },
-  onPhoneAreaChanage(e){  //选择手机号码区号
-    this.setData({selectedArea:e.detail.value[0]})
-    if(e.detail.value[0]=="+852"||e.detail.value[0]=="+853")  this.setData({maxphonenum: 8})
-    else if (e.detail.value[0]=="+86")  this.setData({maxphonenum: 11})
+    ifFormChange=1
   },
   onPickerCancel(e) {  //取消选择(区号 或 学校)
     const { key } = e.currentTarget.dataset;
