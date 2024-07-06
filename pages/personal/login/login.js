@@ -121,7 +121,7 @@ Page({
   onPhoneNumChange(e){
     ifFormChange = 1
     let phoneNumValue = e.detail.value;
-    phoneNumValue = phoneNumValue.replace(/\s/g, '').replace(/\D/g, '');
+    phoneNumValue = phoneNumValue.replace(/\s/g, '').replace(/\D/g, '');  //number only
     this.setData({
       phoneNum: phoneNumValue
     })
@@ -317,13 +317,14 @@ Page({
    */
   onShow() {
     ifFormChange = 0
+    let phoneNumValue = app.globalData.phoneNum.replace(/\s/g, '').replace(/\D/g, '');  //number only
     this.setData({
       isLogin : app.globalData.isLogin,
       avatarUrl: app.globalData.avatarUrl ? app.globalData.avatarUrl : defaultAvatarUrl,
       // nickname: (app.globalData.nickname!="游客") ? app.globalData.nickname : defaultNickname,
       // phoneNum: (app.globalData.phoneNum!="12345678") ? app.globalData.phoneNum : defaultPhoneNum,
       nickname: app.globalData.nickName,
-      phoneNum: app.globalData.phoneNum,
+      phoneNum: phoneNumValue,
       phoneAreaText: app.globalData.phoneAreaValue,  //显示在cell
       phoneAreaValue: [app.globalData.phoneAreaValue],  //显示在picker
       maxphonenum: (app.globalData.phoneAreaValue=="+86") ? 11 : 8,
