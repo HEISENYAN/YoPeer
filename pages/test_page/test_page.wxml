@@ -1,6 +1,0 @@
-
-
-<yp-navigation returnButton = "{{true}}" title = "测试标题"> </yp-navigation>
-<view bindtap = "testcloud" style = "height:200rpx;width:200rpx;position:fixed;top:200rpx;left:100rpx;background-color:red">
-
-</view>

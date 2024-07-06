@@ -2,11 +2,6 @@
   "pages": [
     "pages/activity/activity",
     "pages/personal/personal",
-    
-    "pages/test_page/test_page",
-    
-    "pages/test_page2/test_page2",
-    "pages/community/community",
     "pages/personal/login/login",
     "pages/personal/login/privacyPolicy/privacyPolicy",
     "pages/personal/login/communityPolicy/communityPolicy",
@@ -54,12 +49,6 @@
         "text": "活动",
         "iconPath": "icons/Picture2a.png",
         "selectedIconPath": "icons/Picture1a.png"
-      },
-      {
-        "pagePath": "pages/community/community",
-        "text": "社区",
-        "iconPath": "icons/Picture4a.png",
-        "selectedIconPath": "icons/Picture3a.png"
       },
       {
         "pagePath": "pages/personal/personal",

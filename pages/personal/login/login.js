@@ -244,27 +244,43 @@ Page({
       });
     }
     else if((nickNameReviewFlag==1&&ifNickNameReviewed==1)||ifFormChange==0){
-      wx.showLoading({
-        title: '正在更新'
-      })
-      // if(e.detail.value.nickname)  app.globalData.nickName = e.detail.value.nickname;
       if(e.detail.value.nickname)  app.globalData.nickName = this.data.nickname;
       if(e.detail.value.phoneNum)  app.globalData.phoneNum = e.detail.value.phoneNum;
       if(e.detail.value.wechatID)  app.globalData.wechatID = e.detail.value.wechatID;
-      this.cloudCall(e, that)
-      nickNameReviewFlag = 0
-      ifNickNameReviewed = 0
+      wx.cloud.callFunction({
+        name:"judgeRiskyContent",
+        data:{
+          content: app.globalData.nickName,
+          scene:3
+        },
+        success:function(res){
+          console.log(res)
+          if(res.result.result.result.suggest == "pass"){
+            wx.showLoading({
+              title: '正在更新'
+            })
+            that.cloudCall(e, that)
+            nickNameReviewFlag = 0
+            ifNickNameReviewed = 0
+          }
+          else{
+            wx.showModal({
+              title:"昵称不可用",
+              content:"您使用的昵称可能包含：广告；时政；色情； 辱骂； 违法犯罪； 欺诈； 低俗； 版权；或其它敏感信息，请重新填写。"
+            })
+            nickNameReviewFlag = 0
+            ifNickNameReviewed = 0
+          }
+        },
+        fail:function(res){
+          wx.showToast({
+            title: '请重试',
+            icon:"error"
+          })
+        }
+      })
+      
     }
-      // else{
-      //   Toast({
-      //     context: this,
-      //     selector: '#t-toast',
-      //     message: '请使用合适的昵称!',
-      //     theme: 'warning',
-      //     direction: 'row',
-      //     placement: 'bottom'
-      //   });
-      // }
   },
   privacyNavigate1(){
     wx.navigateTo({

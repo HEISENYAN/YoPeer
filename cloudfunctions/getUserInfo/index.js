@@ -14,13 +14,14 @@ exports.main = async (event, context) => {
   //console.log(userInfo)
   console.log(userInfo)
   if(userInfo.data.length != 0) return userInfo.data[0]
+  const defaultNumber = Math.round((Math.random() * 20)) % 3 + 1
   await db.collection('yopeerUser').doc(wxContext.OPENID).set({
     data:{
       phoneNumber:'+86 电话',
       _openid: wxContext.OPENID,
-      avatarUrl:"https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0",
+      avatarUrl:"cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/yopeer-user-avatar/default-avatar"+defaultNumber+".jpg",
       yoPeerValue:0,
-      nickName:"游客",
+      nickName:"小鱼饼",
       schoolIndex:0,
       school:"未知学校",
       isRegistered: false,

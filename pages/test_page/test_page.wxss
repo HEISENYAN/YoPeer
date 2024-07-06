@@ -1,5 +1,0 @@
-.box{
-  display:inline-block;
-  margin-right: 50rpx;
-  margin-left: 50rpx;
-}

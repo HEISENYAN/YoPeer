@@ -1,14 +1,14 @@
 export default  [
   {
     icon: 'home',
-    text: '首页',
+    text: '活动',
     url: '/pages/activity/activity',
   },
-  {
-    icon: 'chat',
-    text: '社区',
-    url: '/pages/community/community',
-  },
+  // {
+  //   icon: 'chat',
+  //   text: '社区',
+  //   url: '/pages/community/community',
+  // },
   {
     icon: 'user',
     text: '个人中心',
