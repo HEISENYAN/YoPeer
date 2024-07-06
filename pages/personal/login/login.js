@@ -244,6 +244,9 @@ Page({
       });
     }
     else if((nickNameReviewFlag==1&&ifNickNameReviewed==1)||ifFormChange==0){
+      wx.showLoading({
+        title: '正在更新'
+      })
       if(e.detail.value.nickname)  app.globalData.nickName = this.data.nickname;
       if(e.detail.value.phoneNum)  app.globalData.phoneNum = e.detail.value.phoneNum;
       if(e.detail.value.wechatID)  app.globalData.wechatID = e.detail.value.wechatID;
@@ -254,11 +257,8 @@ Page({
           scene:3
         },
         success:function(res){
-          console.log(res)
           if(res.result.result.result.suggest == "pass"){
-            wx.showLoading({
-              title: '正在更新'
-            })
+            
             that.cloudCall(e, that)
             nickNameReviewFlag = 0
             ifNickNameReviewed = 0
@@ -273,6 +273,7 @@ Page({
           }
         },
         fail:function(res){
+          wx.hideLoading()
           wx.showToast({
             title: '请重试',
             icon:"error"
