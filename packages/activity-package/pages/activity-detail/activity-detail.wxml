@@ -22,7 +22,7 @@
   />
 
 <view class = "top-image-container">
-  <image src = "{{activityInfo.topImageUrl}}" style = "height:100%;width:100%;"></image>
+  <image src = "{{activityInfo.topImageUrl}}" mode = "aspectFill" style = "height:100%;width:100%;"></image>
 </view>
 <view class = "information-container">
   <view style = "margin-bottom: 10rpx;">

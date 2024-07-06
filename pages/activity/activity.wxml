@@ -63,7 +63,7 @@
             bindtouchstart="onTouchStart" 
             bindtouchend="onTouchEnd" 
             data-index="{{index}}">
-        <image class="card-image" src="{{item.imageUrl}}"></image>
+        <image class="card-image" src="{{item.imageUrl}}" mode = "aspectFill"></image>
         <view class="card-content">
           <text class="card-title">{{item.activityName}}</text>
           <text class="card-date">{{formatData(item.activityDate)[0]}}/{{item.place}}</text>

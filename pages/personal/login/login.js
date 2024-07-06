@@ -197,6 +197,7 @@ Page({
         wx.navigateBack()
       },
       fail:function(res){
+        wx.hideLoading()
         wx.showModal({
         title:"错误",
         content:"" + res

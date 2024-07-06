@@ -82,7 +82,7 @@
       <scroll-view style = "display: flex;justify-content: center;">
         <list-view wx:for = "{{showActivityList}}" wx:key = "activityKey" wx:for-item = "activity" data-selected = "{{activity.activity_id}}" catchtap="selectActivity" >
           <text>{{activity.activityName}}</text>
-          <image style = "width:100%;height:400rpx;border-radius: 10px;" src = "{{activity.imageUrl}}"></image>
+          <image style = "width:100%;height:400rpx;border-radius: 10px;" src = "{{activity.imageUrl}}" mode = "aspectFill"></image>
         </list-view>
       </scroll-view>
     </block>
