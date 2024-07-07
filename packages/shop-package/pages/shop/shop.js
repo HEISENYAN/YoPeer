@@ -153,9 +153,9 @@ Component({
           content:"2024港校新生团购已截止，感谢您的参与，如您已下单可至【个人中心->我的订单】查看已付款订单，有其它疑问请联系客服解决。"
         })
       }
-      else if(this.data.cartPrice < 19900){
+      else if(this.data.cartPrice < 9900){
         wx.showToast({
-          title: '最低消费￥199',
+          title: '最低消费￥99',
           icon:"error"
         })
       }
