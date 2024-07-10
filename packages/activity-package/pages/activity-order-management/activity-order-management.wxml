@@ -18,7 +18,7 @@
       
     </view>
     <view class = "activity-image-container">
-      <image src = "{{order.topImageUrl}}" style = "height: 100%;width:100%;border-radius: 10px;"></image>
+      <image src = "{{order.topImageUrl}}" style = "height: 100%;width:100%;border-radius: 10px;" mode = "aspectFill"></image>
     </view>
     <view wx:if = "{{order.paidPrice != 0}}">
       <view class = "order-price-container">实付款（含优惠）:</view>

@@ -4,8 +4,6 @@ App({
   globalData:{
     openID: null,
     isLogin: 0,
-    // 个人信息
-    avatarUrl:"https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0",
     nickName:"游客",
     phoneNum: "",
     wechatID: "",
@@ -32,6 +30,27 @@ App({
       wx.SkyUtils.versionUpdate()
     })()
     const that = this
-    
+    wx.cloud.callFunction({
+      name:"getUserInfo",
+      success:function(res){
+        const phoneString = res.result.phoneNumber.split(" ")
+        // console.log(res.result)
+        that.globalData.nickName = res.result.nickName
+        that.globalData.isRegistered = res.result.isRegistered
+        that.globalData.school = res.result.school
+        that.globalData.avatarUrl = res.result.avatarUrl
+        that.globalData.phoneAreaValue = phoneString[0]
+        that.globalData.phoneNum = phoneString[1]
+        that.globalData.wechatID = res.result.wechatID
+        that.globalData._openid = res.result._openid
+        that.globalData.isVoucher = res.result.isVoucher
+        that.globalData.userInfo = true
+        if(that.userInfoCallback){
+          that.userInfoCallback(res)
+        }
+      },
+    });
+
+
   }
 })

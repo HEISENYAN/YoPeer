@@ -2,7 +2,7 @@
 <!--pages/shop/shop.wxml-->
 <view class = "menu-page">
   <!--顶部返回按钮-->
-  <return-button></return-button>
+  <return-button bindtap = "goBack"></return-button>
 
   <div class="head-image-container">
     <view class="text-heading-area1">

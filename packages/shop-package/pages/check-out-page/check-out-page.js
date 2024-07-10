@@ -117,7 +117,6 @@ Page({
   //  取货时间 结束
 
   setPromotionCode(e){
-    //console.log(e.detail.value)
     const that = this
     this.setData({
       promotionCode: e.detail.value
@@ -197,6 +196,9 @@ Page({
           paySign: paymentData?.paySign,
           signType: "RSA", // 
           success(res) {
+            wx.showLoading({
+              title: '正在处理',
+            })
             // console.log('唤起支付组件成功：', res);
             wx.cloud.callFunction({
               name:"orderSettlement",
@@ -211,13 +213,14 @@ Page({
                 voucher:that.data.promotionCode
               },
               success: function(res){
+                wx.removeStorage({
+                  key: 'ypCart'
+                })
+                wx.hideLoading()
                 wx.showModal({
                   title: '下单成功',
                   content: '您可前往个人中心->我的团购订单内查看已支付订单',
                   success (res) {
-                    wx.removeStorage({
-                      key: 'ypCart'
-                    })
                     wx.reLaunch({
                       url: '/pages/activity/activity'
                     })
@@ -226,6 +229,7 @@ Page({
                 
               },
               fail: function(res){
+                wx.hideLoading()
                 // console.log(res)
               }
             })
@@ -444,7 +448,22 @@ Page({
    */
   onShow() {
     const that = this
-    var address = ''
+    var address = null
+    wx.cloud.callFunction({
+      name:"getReceiveInfo",
+      success:function(res){
+        if(res?.result[0]?.address) address = ''
+        for(let i in res.result[0]?.address ?? 0){
+          address += res.result[0].address[i]+" "
+        }
+        that.setData({
+          addressText:address,
+          phoneText:res.result[0]?.phoneNumber ?? null,
+          nameText:res.result[0]?.Name ?? null
+        })
+      }
+    })
+    /*
     wx.getStorage({
       key:"ypReceiveInfo",
       success:function(res){
@@ -458,7 +477,7 @@ Page({
           nameText:res.data.receiveName
         })
       }
-    })
+    })*/
   },
 
   /**

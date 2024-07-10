@@ -95,31 +95,30 @@ Page({
   },
   onLoad(options) {
     const that = this
-    wx.cloud.callFunction({
-      name:"getUserInfo",
-      success:function(res){
-        const phoneString = res.result.phoneNumber.split(" ")
-        // console.log(res.result)
-        app.globalData.nickName = res.result.nickName
-        app.globalData.isRegistered = res.result.isRegistered
-        app.globalData.school = res.result.school
-        app.globalData.avatarUrl = res.result.avatarUrl
-        app.globalData.phoneAreaValue = phoneString[0]
-        app.globalData.phoneNum = phoneString[1]
-        app.globalData.wechatID = res.result.wechatID
-        app.globalData._openid = res.result._openid
-        app.globalData.isVoucher = res.result.isVoucher
+    if(app.globalData.userInfo){
+      that.setData({
+        userInfo:{
+          name : app.globalData.nickName,
+          university : app.globalData.school,
+          avatar : app.globalData.avatarUrl,
+          exp : app.globalData.yoPeerValue,
+          level : 'VIP 0',
+        }
+      })
+    }
+    else{
+      app.userInfoCallback = res =>{
         that.setData({
           userInfo:{
-            name : app.globalData.nickName,
-            university : app.globalData.school,
-            avatar : app.globalData.avatarUrl,
-            exp : app.globalData.yoPeerValue,
+            name : res.result.nickName,
+            university : res.result.school,
+            avatar : res.result.avatarUrl,
+            exp : res.result.yoPeerValue,
             level : 'VIP 0',
           }
         })
-      },
-    });
+      }
+    }
     wx.cloud.callFunction({
       name:"getSpecialActivityList",
       success:function(res){
@@ -159,7 +158,7 @@ Page({
         university : app.globalData.school,
         avatar : app.globalData.avatarUrl,
         exp : app.globalData.yoPeerValue,
-        level : 'VIP 0',
+        level : 'VIP 0'
       }
     })
   },
@@ -233,4 +232,3 @@ Page({
   }
   
 })
-
