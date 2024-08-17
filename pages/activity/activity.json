@@ -1,9 +1,8 @@
 {
   "usingComponents": {
-    "sky-tabbar":"/miniprogram_npm/jieyue-ui-com/sky-tabbar/sky-tabbar",
+    "sky-tabbar": "/miniprogram_npm/jieyue-ui-com/sky-tabbar/sky-tabbar",
     "t-swiper": "tdesign-miniprogram/swiper/swiper",
-    "t-pull-down-refresh": "tdesign-miniprogram/pull-down-refresh/pull-down-refresh"
-
+    "t-pull-down-refresh": "tdesign-miniprogram/pull-down-refresh/pull-down-refresh",
+    "t-indexes": "/miniprogram_npm/tdesign-miniprogram/indexes/indexes"
   }
-
 }

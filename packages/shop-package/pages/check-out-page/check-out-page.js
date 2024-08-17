@@ -4,7 +4,7 @@ import {hallAddress, areaAddress, pickDateList} from './data'
 wx.cloud.init()
 var Price = 0;
 var actualPrice = 0;
-const yopeerVoucher =  ["YoPeer283","HongKong121","PolyU381","CityU013","HKU920","CUHK112","HKUST532","LNU031","EduHK121","HKBU549","YP2024","MRY2024","FIRSTYP","2024YP","2024YoPeer","JS82","K81S","J90Q","POQA","S1Z0","LT8J","MNH8","234I","IQ9P"]
+const yopeerVoucher =  ["YoPeer283","HongKong121","PolyU381","CityU013","HKU920","CUHK112","HKUST532","LNU031","EduHK121","HKBU549","YP2024","MRY2024","FIRSTYP","2024YP","2024YoPeer","JS82","K81S","J90Q","POQA","S1Z0","LT8J","MNH8","234I","IQ9P","KP10","123O","1K0S","P98H","DF12","VB12","V8Z1","M5W3","LJH3","SDA0","A17Z","U76T"]
 const HigherVocher = ["MRY2024","JS82","K81S","J90Q","POQA","S1Z0","LT8J","MNH8","234I","IQ9P"]
 const getOptions = (obj, filter) => {
   const res = Object.keys(obj).map((key) => ({ value: key, label: obj[key] }));

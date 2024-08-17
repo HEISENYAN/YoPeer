@@ -31,7 +31,7 @@ exports.main = async (event, context) => {
       wechatID:"暂无",
       phoneNumber:phoneNumber,
       tradeNumber:tradeNumber,
-      orderTime:new Date(parseInt(timeStamp)*1000),
+      orderTime:new Date(parseInt(timeStamp)),
       paidPrice:paidPrice,
       wechatID:wechatID,
       activityName:activityInfo.data.activityName

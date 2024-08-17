@@ -75,7 +75,7 @@ Page({
   },
   onSelectActivity(){
     wx.navigateTo({
-      url: '/packages/shop-package/pages/shop/shop'
+      url: '/packages/shop-package/pages/shop/shop?isBack='+ true
     })
   },
   onRefresh() {

@@ -153,18 +153,8 @@ export const hallAddress_updated = [
     value: '050000',
     label: '香港城市大学CityU',
     children: [
-      { value: '050100', label: '马会楼(Jockey Club House)' },
-      { value: '050101', label: '赛马会敬贤堂(Hall 1)' },
-      { value: '050102', label: '汇丰业昕堂(Hall 2)' },
-      { value: '050103', label: '校友乐礼堂(Hall 3)' },
-      { value: '050104', label: '赛马会群智堂(Hall 4)' },
-      { value: '050105', label: '陈瑞球堂(Hall 5)' },
-      { value: '050106', label: '李兆基堂（Hall 6)' },
-      { value: '050107', label: '赛马会群萃堂(Hall 7)' },
-      { value: '050108', label: '叶袁玉𡖖堂（Hall 8)' },
-      { value: '050109', label: '胡应湘爵士伉俪堂(Hall 9)' },
-      { value: '050110', label: '学生宿舍第十座(Hall 10)' },
-      { value: '050111', label: '第十一座宿舍(Hall 11)' },
+      { value: '050100', label: '九龙塘歌和老街学生宿舍' },
+      { value: '050101', label: '马鞍山白石学生宿舍' }
     ],
   },
   {

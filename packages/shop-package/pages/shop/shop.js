@@ -46,7 +46,9 @@ Page({
     })
   },
   goBack(){
-    wx.navigateBack()
+    wx.reLaunch({
+      url: '/pages/activity/activity',
+    })
   },
   onChangeStepper(e){
     //console.log(e.detail.value)
@@ -204,11 +206,9 @@ Page({
     });
   },
   onLoad(options){
-    if(options.isShared){
+    if(options.isBack == 'true'){
       this.goBack = function(){
-        wx.reLaunch({
-          url: '/pages/activity/activity',
-        })
+        wx.navigateBack()
       }
     }
     let that = this
@@ -277,7 +277,7 @@ Page({
     return{
       title:"2024 鱼饼港校新生团购",
       imageUrl:"cloud://yopeer-0g9zeq1439bcebc2.796f-yopeer-0g9zeq1439bcebc2-1326224258/小程序插画设计-1/shop-share-page.jpg",
-      path: '/packages/shop-package/pages/shop/shop?isShared=' + "true"
+      path: '/packages/shop-package/pages/shop/shop'
     }
  },
 })
